@@ -5,7 +5,7 @@
  * 50/50 : coordonnées en items bleu transparent + carte Google Maps encadrée façon polaroid.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { MapPin, Phone, Mail, Clock, Calendar } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolInfo';
@@ -30,6 +30,7 @@ const INFOS = [
 
 export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) => {
   const reduce = useReducedMotion();
+  const [campus, setCampus] = useState(0);
 
   return (
     <div>
@@ -116,7 +117,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
             </button>
           </motion.div>
 
-          {/* Carte façon polaroid inclinée */}
+          {/* Carte façon polaroid inclinée — sélecteur de campus */}
           <motion.div
             initial={reduce ? undefined : { opacity: 0, rotate: 4, y: 24 }}
             whileInView={{ opacity: 1, rotate: 1.5, y: 0 }}
@@ -126,15 +127,32 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
           >
             <span aria-hidden="true" className="absolute inset-0 bg-[#e3a044]" style={{ transform: 'rotate(-2deg) translate(12px, 12px)' }} />
             <div className="relative z-10 bg-white p-3 pb-4 shadow-2xl">
+              {/* Onglets campus */}
+              <div className="flex gap-2 mb-3">
+                {SCHOOL_INFO.campuses.map((c, idx) => (
+                  <button
+                    key={c.id}
+                    onClick={() => setCampus(idx)}
+                    className={`flex-1 rounded-lg px-3 py-2 text-xs font-bold transition-colors cursor-pointer ${
+                      campus === idx ? 'bg-[#084274] text-[#feeddb]' : 'bg-[#084274]/8 text-[#084274] hover:bg-[#084274]/15'
+                    }`}
+                  >
+                    {c.label.replace('Campus ', '')}
+                  </button>
+                ))}
+              </div>
               <iframe
-                title="Localisation Les Marronniers El Jadida"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3345.5297371428383!2d-8.508!3d33.245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda91d904c63673f%3A0x86b03cb7eefb20c2!2sEl%20Jadida!5e0!3m2!1sfr!2sma!4v1700000000000!5m2!1sfr!2sma"
-                className="w-full h-[380px] sm:h-[440px] border-0"
+                key={campus}
+                title={`Localisation ${SCHOOL_INFO.campuses[campus].label}`}
+                src={`https://www.google.com/maps?q=${encodeURIComponent(SCHOOL_INFO.campuses[campus].address + ', El Jadida, Maroc')}&output=embed`}
+                className="w-full h-[340px] sm:h-[400px] border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
               />
-              <p className="text-center font-heading text-sm text-[#084274]/70 mt-3">Plateau · El Jadida</p>
+              <p className="text-center font-heading text-sm text-[#084274]/70 mt-3">
+                {SCHOOL_INFO.campuses[campus].address}
+              </p>
             </div>
           </motion.div>
         </div>

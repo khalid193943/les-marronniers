@@ -1,25 +1,51 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
- * Les Marronniers — Page "Espace Parents"
- * Consolide : espace-parents + faq.
- * Communication + FAQ accordéon, items en bleu transparent.
+ * Les Marronniers — Page "Espace Parents" (reconstruction enrichie)
+ * Communication → checklist accompagnement → vie pratique (ExpandBars) → FAQ étendue.
  */
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
-import { MessageCircle, CalendarHeart, NotebookPen, ChevronDown, Phone } from 'lucide-react';
+import {
+  MessageCircle, CalendarHeart, NotebookPen, ChevronDown, Phone, Quote,
+} from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolInfo';
 import { PageHero } from '../design-system/giggle/PageHero';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
-import { DoodleHeart, DoodleStar } from '../design-system/giggle/Doodles';
+import { DoodleHeart, DoodleStar, DoodleSun } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
 import { ColorCardsGrid, type ColorCard } from '../design-system/giggle/ColorCardsGrid';
+import { ChecklistSplit } from '../design-system/giggle/ChecklistSplit';
+import { ExpandBars, type ExpandBarItem } from '../design-system/giggle/ExpandBars';
 
 const COMMUNICATION: ColorCard[] = [
   { icon: NotebookPen, title: 'Cahier de Liaison', line: 'Le fil quotidien entre la classe et la maison.', tone: 'sky' },
   { icon: MessageCircle, title: 'Rencontres Individuelles', line: 'Un rendez-vous avec l’enseignante, quand vous voulez.', tone: 'sun' },
   { icon: CalendarHeart, title: 'Événements Familles', line: 'Fêtes, spectacles et portes ouvertes toute l’année.', tone: 'coral' },
+];
+
+const VIE_PRATIQUE: ExpandBarItem[] = [
+  {
+    title: 'Cantine & Repas',
+    color: 'green',
+    body: 'Des repas équilibrés sont préparés chaque jour sur place, adaptés à l’âge des enfants. Les menus de la semaine sont communiqués aux familles, et les allergies ou régimes particuliers sont pris en compte avec l’équipe.',
+  },
+  {
+    title: 'Calendrier & Vacances',
+    color: 'navy',
+    body: 'L’année scolaire suit le calendrier officiel marocain, réparti en trois trimestres. Les dates de vacances et de rentrée sont communiquées à l’avance aux familles par le cahier de liaison et nos réseaux sociaux.',
+  },
+  {
+    title: 'Suivi & Bulletins',
+    color: 'sun',
+    body: 'Chaque enfant est suivi individuellement : bulletins réguliers, retours oraux à la sortie des classes et rencontres individuelles avec l’enseignante à la demande. Rien ne remplace le dialogue direct.',
+  },
+  {
+    title: 'Association des Parents',
+    color: 'coral',
+    body: 'Les familles sont invitées à participer à la vie de l’école : fêtes, spectacles de fin d’année et moments partagés. Une école qui grandit avec l’implication de tous.',
+  },
 ];
 
 const FAQ = [
@@ -30,6 +56,8 @@ const FAQ = [
   { q: 'Quelles langues sont enseignées ?', a: 'Français, arabe et anglais, dès la maternelle.' },
   { q: 'Comment suivre la progression de mon enfant ?', a: 'Cahier de liaison, bulletins réguliers et rencontres individuelles avec l’équipe.' },
   { q: 'Les campus sont-ils sécurisés ?', a: 'Accès contrôlé, encadrement permanent et sols anti-choc — voir la page Campus.' },
+  { q: 'Une inscription en cours d’année est-elle possible ?', a: 'Oui, selon les places disponibles par classe. Contactez le secrétariat pour vérifier la disponibilité.' },
+  { q: 'Comment contacter l’enseignante de mon enfant ?', a: 'Via le cahier de liaison pour une question rapide, ou en demandant un rendez-vous individuel au secrétariat.' },
 ];
 
 export const ParentsPage: React.FC = () => {
@@ -56,6 +84,46 @@ export const ParentsPage: React.FC = () => {
 
       <SectionDivider variant="cream" position="top" style="wave2" />
 
+      {/* Accompagnement — checklist + collage */}
+      <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden relative">
+        <DoodleSun className="hidden lg:block absolute top-12 right-[8%] w-10 text-[#e3a044]/50 pointer-events-none" />
+        <ChecklistSplit
+          tag="Comment nous accompagnons les familles"
+          title="Vous n’êtes Jamais Seuls dans ce Parcours"
+          line="Chaque étape de la scolarité de votre enfant se construit avec vous."
+          items={[
+            'Un cahier de liaison lu et rempli chaque jour par l’enseignante',
+            'Des rencontres individuelles possibles à tout moment de l’année',
+            'Une équipe joignable au secrétariat de 7h45 à 18h15',
+            'Des événements réguliers pour vivre la vie de l’école de l’intérieur',
+          ]}
+          photos={[
+            { src: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=700&q=80', alt: 'Échange entre une enseignante et un parent' },
+            { src: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=700&q=80', alt: 'Suivi individuel d’un enfant' },
+            { src: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=700&q=80', alt: 'Moment de complicité' },
+            { src: 'https://images.unsplash.com/photo-1567168544813-cc03465b4fa8?auto=format&fit=crop&w=700&q=80', alt: 'Événement scolaire' },
+          ]}
+          imageSide="right"
+        />
+      </section>
+
+      <SectionDivider variant="white" position="top" style="wave1" />
+
+      {/* Vie pratique — barres dépliables */}
+      <section className="bg-white py-16 sm:py-24 overflow-hidden relative">
+        <div className="max-w-5xl mx-auto px-4 sm:px-8">
+          <SectionIntro
+            tag="Vie pratique"
+            title="Tout ce qu’il Faut Savoir au Quotidien"
+            line="Touchez chaque bloc pour en savoir plus."
+            className="mb-14"
+          />
+          <ExpandBars items={VIE_PRATIQUE} sideLabel="AU QUOTIDIEN" />
+        </div>
+      </section>
+
+      <SectionDivider variant="cream" position="top" style="wave2" />
+
       {/* FAQ */}
       <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden relative">
         <DoodleStar className="hidden lg:block absolute top-14 right-[10%] w-9 text-[#e3a044]/60 pointer-events-none" />
@@ -71,7 +139,7 @@ export const ParentsPage: React.FC = () => {
                   initial={reduce ? undefined : { opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
+                  transition={{ duration: 0.4, delay: idx * 0.04 }}
                   className={`border transition-colors ${
                     isOpen ? 'bg-[#084274]/10 border-[#084274]/25' : 'bg-[#084274]/6 border-[#084274]/10'
                   }`}
@@ -105,6 +173,21 @@ export const ParentsPage: React.FC = () => {
               );
             })}
           </div>
+
+          {/* Citation décorative */}
+          <motion.div
+            initial={reduce ? undefined : { opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5 }}
+            className="relative bg-[#084274] rounded-2xl p-8 sm:p-10 text-center mb-12 overflow-hidden"
+          >
+            <Quote className="w-8 h-8 text-[#e3a044]/50 mx-auto mb-4" />
+            <p className="font-heading text-xl sm:text-2xl text-[#feeddb] leading-snug max-w-xl mx-auto">
+              Une équipe formée pour connaître au mieux la psychologie et les besoins de l’enfant.
+            </p>
+            <p className="font-body text-xs text-[#feeddb]/60 mt-4">— Les Marronniers El Jadida</p>
+          </motion.div>
 
           <div className="text-center">
             <p className="font-body text-sm text-[#084274]/70 mb-4">Une autre question ?</p>

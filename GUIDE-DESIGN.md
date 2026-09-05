@@ -128,3 +128,35 @@ Items beiges → bleu transparent (`bg-[#084274]/6` à `/10`) sur tout le site.
 - Les séparateurs déchirés (`SectionDivider`) — déjà identiques à l'inspiration.
 - Les boutons pilule et la typo `Aref Ruqaa Ink` / `Plus Jakarta Sans`.
 - La structure de navigation et les 18 pages.
+
+
+---
+
+## 🚀 Passe finale — Contenu & Organisation (v5)
+
+Un audit complet a identifié les pages trop courtes ; chacune a reçu une vraie
+profondeur de contenu, pas juste de la décoration.
+
+**Nouveaux composants génériques** (`src/design-system/giggle/`) :
+- `ChecklistSplit` — collage photo + liste de bénéfices cochés + CTA
+- `StatShowcase` — photo avec badges statistiques flottants animés (CountUp)
+- `Timeline` — timeline verticale alternée, réutilisable (journée type, parcours famille…)
+
+**Hero reconstruit** : collage éclaté de 5 photos (rotations + arrivée en
+cascade) au lieu d'une photo unique, chiffres clés animés dans la barre de confiance.
+
+**Home enrichie** de 2 sections : "Ce qui fait la différence" (texte officiel
+authentique sur l'équipe) et "Une École à Taille Humaine" (photo + stats flottantes).
+
+**Pages approfondies :**
+- `ParentsPage` — + accompagnement (checklist) + 4 blocs "vie pratique" dépliables + FAQ à 9 questions
+- `EcolePage` — + timeline "de la première visite au CE6" + bandeau texte officiel équipe
+- `VieScolairePage` — journée type à 6 étapes + ateliers en cartes dégradées + rythme de l'année (3 trimestres)
+- `ParcoursPage` — + section trilinguisme/transition CE6
+- `InscriptionPage` — + section "pourquoi réserver tôt"
+- `ContactPage` — carte à onglets Maternelle/Primaire (2 vrais campus, au lieu d'une carte statique)
+
+**Règle de cohérence des `SectionDivider`** : `position="top"` doit reprendre
+la couleur de la section qui **suit** ; `position="bottom"` reprend en général
+la couleur de la section **courante**. Vérifier ce point à chaque insertion
+de nouvelle section dans la home.

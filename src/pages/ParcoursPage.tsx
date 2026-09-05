@@ -8,13 +8,13 @@
 
 import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { Calendar, BookOpen, Puzzle, Languages, Brain } from 'lucide-react';
+import { BookOpen, Puzzle, Languages, Brain } from 'lucide-react';
 import { PageHero } from '../design-system/giggle/PageHero';
-import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { Squiggle } from '../design-system/giggle/Squiggle';
 import { DoodleReading, DoodleBlocks, DoodleGrow, DoodleSun } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
 import { ColorCardsGrid, type ColorCard } from '../design-system/giggle/ColorCardsGrid';
+import { ChecklistSplit } from '../design-system/giggle/ChecklistSplit';
 
 interface ParcoursPageProps {
   onOpenAdmissions: () => void;
@@ -134,8 +134,31 @@ export const ParcoursPage: React.FC<ParcoursPageProps> = ({ onOpenAdmissions }) 
 
       <SectionDivider variant="white" position="top" style="wave1" />
 
+      {/* Trilinguisme & transition — checklist + collage */}
+      <section className="bg-white py-16 sm:py-24 overflow-hidden">
+        <ChecklistSplit
+          tag="Trois langues, un seul enfant"
+          title="Une Transition Sans Rupture, du Premier Jour au CE6"
+          line="Le français, l’arabe et l’anglais s’installent dès la maternelle, au même rythme que la confiance."
+          items={[
+            'Langage et vocabulaire construits dès la Toute Petite Section',
+            'Arabe et anglais introduits progressivement en maternelle',
+            'Lecture, écriture et calcul consolidés chaque jour au primaire',
+            'Un même repère pédagogique de la crèche jusqu’à l’examen du CE6',
+          ]}
+          photos={[
+            { src: 'https://images.unsplash.com/photo-1596464716127-f2a829822301?auto=format&fit=crop&w=700&q=80', alt: 'Apprentissage du langage en maternelle' },
+            { src: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=700&q=80', alt: 'Classe de primaire' },
+            { src: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=700&q=80', alt: 'Enfant concentré' },
+            { src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=80', alt: 'Activité de lecture' },
+          ]}
+        />
+      </section>
+
+      <SectionDivider variant="cream" position="top" style="wave2" />
+
       {/* Piliers pédagogiques */}
-      <section className="bg-white py-16 sm:py-24 overflow-hidden relative">
+      <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden relative">
         <DoodleSun className="hidden lg:block absolute top-12 right-[10%] w-11 text-[#e3a044]/50 pointer-events-none" />
         <ColorCardsGrid
           heading="Une pédagogie qui donne envie d’apprendre, chaque jour."

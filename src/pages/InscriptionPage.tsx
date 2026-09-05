@@ -16,6 +16,7 @@ import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { Squiggle } from '../design-system/giggle/Squiggle';
 import { DoodleGrow, DoodleStar } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
+import { ChecklistSplit } from '../design-system/giggle/ChecklistSplit';
 
 interface InscriptionPageProps {
   onOpenAdmissions: () => void;
@@ -94,8 +95,34 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({ onOpenAdmissio
 
       <SectionDivider variant="white" position="top" style="wave1" />
 
-      {/* Formulaire de pré-inscription en ligne */}
+      {/* Pourquoi réserver tôt */}
       <section className="bg-white py-16 sm:py-24 overflow-hidden">
+        <ChecklistSplit
+          tag="Pourquoi réserver tôt"
+          title="Les Places sont Limitées par Classe"
+          line="Ce n’est pas un argument commercial : c’est ce qui nous permet de bien connaître chaque enfant."
+          items={[
+            'Effectifs volontairement réduits pour une attention réelle à chaque enfant',
+            'Certaines classes se remplissent avant la fin de l’année scolaire précédente',
+            'Une visite ne vous engage à rien — c’est l’occasion de poser toutes vos questions',
+            'Le secrétariat vous répond rapidement, du lundi au vendredi',
+          ]}
+          ctaLabel="Voir les disponibilités"
+          onCta={onOpenAdmissions}
+          photos={[
+            { src: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=700&q=80', alt: 'Classe accueillante' },
+            { src: 'https://images.unsplash.com/photo-1596464716127-f2a829822301?auto=format&fit=crop&w=700&q=80', alt: 'Enfants épanouis' },
+            { src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=80', alt: 'Atelier créatif' },
+            { src: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=700&q=80', alt: 'Équipe attentive' },
+          ]}
+          imageSide="right"
+        />
+      </section>
+
+      <SectionDivider variant="cream" position="top" style="wave2" />
+
+      {/* Formulaire de pré-inscription en ligne */}
+      <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden">
         <div className="max-w-2xl mx-auto px-4 sm:px-8">
           <SectionIntro
             tag="En ligne, en 2 minutes"
@@ -107,10 +134,10 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({ onOpenAdmissio
         </div>
       </section>
 
-      <SectionDivider variant="cream" position="top" style="wave2" />
+      <SectionDivider variant="white" position="top" style="wave1" />
 
       {/* Documents + CTA */}
-      <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden relative">
+      <section className="bg-white py-16 sm:py-24 overflow-hidden relative">
         <DoodleStar className="hidden lg:block absolute top-12 left-[8%] w-9 text-[#e3a044]/60 pointer-events-none" />
         <DoodleGrow className="hidden xl:block absolute bottom-6 right-[4%] w-44 text-[#084274]/12 pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-8 text-center">

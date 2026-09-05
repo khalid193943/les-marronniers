@@ -1,12 +1,18 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
- * Les Marronniers - Main School Hero (Nouvelle Génération)
+ * Les Marronniers — Hero (reconstruction complète)
+ * Inspiré de la référence "Designed For Children's Early Education" :
+ * collage éclaté de 5 photos à droite, avec accents colorés en arrière-plan,
+ * gros titre + trust badges + CountUp à gauche. Le collage se pose en
+ * cascade au chargement, chaque photo avec sa propre rotation et son délai.
  */
 
 import React from 'react';
-import { Calendar, MapPin, ArrowRight, Sparkles, Award, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import { motion } from 'motion/react';
+import { Calendar, ArrowRight, Award, ShieldCheck, Sparkles } from 'lucide-react';
+import { motion, useReducedMotion } from 'motion/react';
+import { CountUp } from '../design-system/giggle/CountUp';
+import { DoodleStar, DoodleSun } from '../design-system/giggle/Doodles';
 
 interface HeroProps {
   onExploreCampuses: () => void;
@@ -15,27 +21,61 @@ interface HeroProps {
   onOpenAdmissions: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({
-  onExploreCampuses,
-  onOpenAdmissions,
-}) => {
+const PHOTOS = [
+  {
+    src: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f036a33ba6cc4b748_Images%20(1).avif',
+    alt: 'Élèves en atelier créatif aux Marronniers',
+    cls: 'left-0 top-0 w-[58%] aspect-[4/5] z-20',
+    rot: -3,
+    from: -12,
+    delay: 0,
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1596464716127-f2a829822301?auto=format&fit=crop&w=700&q=80',
+    alt: 'Jeux de construction en maternelle',
+    cls: 'right-0 top-[4%] w-[46%] aspect-square z-30',
+    rot: 4,
+    from: 16,
+    delay: 0.12,
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=80',
+    alt: 'Activité de peinture',
+    cls: 'left-[4%] bottom-0 w-[42%] aspect-square z-10',
+    rot: 5,
+    from: 18,
+    delay: 0.24,
+  },
+  {
+    src: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f37bdd99338f62c1c_Images%20(3).avif',
+    alt: 'Salle de classe lumineuse',
+    cls: 'right-[2%] bottom-[2%] w-[48%] aspect-[4/3] z-20',
+    rot: -4,
+    from: -16,
+    delay: 0.36,
+  },
+];
+
+export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions }) => {
+  const reduce = useReducedMotion();
+
   return (
     <section className="relative overflow-hidden bg-[#feeddb] pt-8 pb-16 lg:pt-14 lg:pb-24">
-      {/* Subtle modern geometric background accents */}
       <div className="absolute top-0 right-0 -mr-24 -mt-24 w-96 h-96 rounded-full bg-[#e3a044]/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 -ml-24 -mb-24 w-96 h-96 rounded-full bg-[#084274]/5 blur-3xl pointer-events-none" />
+      <DoodleStar className="hidden xl:block absolute top-24 left-[6%] w-8 text-[#d95f43]/40 pointer-events-none" />
+      <DoodleSun className="hidden xl:block absolute bottom-16 left-[10%] w-10 text-[#e3a044]/50 pointer-events-none" />
 
       <div className="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
-          
-          {/* Left Column: Content with staggered motion */}
-          <motion.div 
-            initial={{ opacity: 0, y: 25 }}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 xl:gap-16 items-center">
+
+          {/* Colonne gauche : contenu */}
+          <motion.div
+            initial={reduce ? undefined : { opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-6 xl:col-span-6 flex flex-col items-start text-left z-10"
           >
-            {/* Top Badge: Prestigieux Établissement */}
             <div className="flex flex-wrap items-center gap-2.5 mb-5">
               <div className="giggle-tag bg-white/80 backdrop-blur-sm border border-[#084274]/15 shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-[#e3a044] animate-pulse" />
@@ -49,7 +89,6 @@ export const Hero: React.FC<HeroProps> = ({
               </div>
             </div>
 
-            {/* Main Headline */}
             <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl xl:text-7xl text-[#084274] leading-[1.12] sm:leading-[1.08] tracking-tight mb-5 sm:mb-6">
               Où la <strong className="font-bold text-[#084274]">Curiosité</strong> Apprend à{' '}
               <span className="relative inline-block text-[#e3a044]">
@@ -64,12 +103,11 @@ export const Hero: React.FC<HeroProps> = ({
               </span>
             </h1>
 
-            {/* Description */}
             <p className="font-body text-base sm:text-lg text-[#084274]/80 leading-relaxed mb-8 max-w-xl">
-              Une école bienveillante, de la crèche au CE6, depuis plus de 15 ans à El Jadida.
+              Une école bienveillante, de la crèche au CE6, où chaque enfant est connu
+              par son prénom depuis plus de 15 ans à El Jadida.
             </p>
 
-            {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-10">
               <button
                 onClick={onOpenAdmissions}
@@ -88,73 +126,86 @@ export const Hero: React.FC<HeroProps> = ({
               </button>
             </div>
 
-            {/* Quick trust metrics */}
+            {/* Trust metrics animés */}
             <div className="grid grid-cols-3 gap-4 pt-6 border-t border-[#084274]/15 w-full max-w-lg">
               <div className="flex flex-col">
-                <span className="font-heading text-xl sm:text-2xl font-bold text-[#084274]">100%</span>
+                <span className="font-heading text-xl sm:text-2xl font-bold text-[#084274]">
+                  <CountUp value={100} suffix="%" />
+                </span>
                 <span className="text-[11px] sm:text-xs text-[#084274]/70 font-semibold">Réussite CE6</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-heading text-xl sm:text-2xl font-bold text-[#084274]">2 Campus</span>
-                <span className="text-[11px] sm:text-xs text-[#084274]/70 font-semibold">Plateau El Jadida</span>
+                <span className="font-heading text-xl sm:text-2xl font-bold text-[#084274]">
+                  <CountUp value={2} />
+                </span>
+                <span className="text-[11px] sm:text-xs text-[#084274]/70 font-semibold">Campus au Plateau</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-heading text-xl sm:text-2xl font-bold text-[#084274]">Trilingue</span>
-                <span className="text-[11px] sm:text-xs text-[#084274]/70 font-semibold">Français • Arabe • Anglais</span>
+                <span className="font-heading text-xl sm:text-2xl font-bold text-[#084274]">
+                  <CountUp value={15} suffix=" ans" />
+                </span>
+                <span className="text-[11px] sm:text-xs text-[#084274]/70 font-semibold">Au service des familles</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Column: Layered Architecture Visual */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-6 xl:col-span-6 flex justify-center items-center relative w-full"
-          >
-            <div className="relative w-full h-[380px] sm:h-[480px] lg:h-[520px] xl:h-[580px]">
-              
-              {/* Layer 1: Orange tilted backdrop */}
-              <div className="absolute inset-0 bg-[#e3a044] transform rotate-1 sm:rotate-3 shadow-md transition-transform duration-500 hover:rotate-3 sm:hover:rotate-4" />
+          {/* Colonne droite : collage éclaté de photos */}
+          <div className="lg:col-span-6 xl:col-span-6 flex justify-center items-center relative w-full">
+            <div className="relative w-full max-w-md h-[420px] sm:h-[500px] lg:h-[560px]">
+              {PHOTOS.map((p, i) => (
+                <motion.figure
+                  key={i}
+                  className={`absolute ${p.cls} overflow-hidden rounded-2xl shadow-xl bg-white border-4 border-white`}
+                  initial={
+                    reduce
+                      ? { rotate: p.rot }
+                      : { opacity: 0, rotate: p.from, scale: 0.88, y: 30 }
+                  }
+                  animate={{ opacity: 1, rotate: p.rot, scale: 1, y: 0 }}
+                  transition={{ type: 'spring', stiffness: 60, damping: 14, delay: 0.15 + p.delay }}
+                  whileHover={{ rotate: 0, scale: 1.03, zIndex: 40 }}
+                >
+                  <img src={p.src} alt={p.alt} className="w-full h-full object-cover" loading="eager" />
+                </motion.figure>
+              ))}
 
-              {/* Layer 2: Blue tilted backdrop */}
-              <div className="absolute inset-0 bg-[#084274] transform -rotate-1 sm:-rotate-2 shadow-xl transition-transform duration-500 hover:-rotate-2 sm:hover:-rotate-3" />
-
-              {/* Layer 3: Main Photography */}
-              <div className="relative z-10 w-full h-full overflow-hidden shadow-2xl border-2 border-white/20 group">
-                <img
-                  src="https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f036a33ba6cc4b748_Images%20(1).avif"
-                  alt="Élèves et enseignants de l'école Les Marronniers El Jadida"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                  loading="eager"
-                />
-                
-                {/* Floating Glassmorphic Pill 1: Top Right */}
-                <div className="absolute top-5 right-5 z-20 bg-white/95 backdrop-blur-md px-4 py-2.5 shadow-xl border border-[#084274]/10 flex items-center gap-2.5 animate-float-gentle">
-                  <div className="w-7 h-7 rounded-full bg-[#084274] flex items-center justify-center text-white">
-                    <ShieldCheck className="w-4 h-4 text-[#feeddb]" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold text-[#084274] uppercase tracking-wider leading-none">Environnement</p>
-                    <p className="text-xs font-semibold text-[#084274]/80">Sécurisé & Bienveillant</p>
-                  </div>
+              {/* Badge flottant : sécurité */}
+              <motion.div
+                initial={reduce ? undefined : { opacity: 0, y: 14, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 0.7, type: 'spring', stiffness: 70, damping: 14 }}
+                className="absolute -left-3 sm:-left-6 top-[38%] z-40 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-xl shadow-xl border border-[#084274]/10 flex items-center gap-2.5"
+              >
+                <div className="w-7 h-7 rounded-full bg-[#084274] flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-4 h-4 text-[#feeddb]" />
                 </div>
-
-                {/* Floating Glassmorphic Pill 2: Bottom Left */}
-                <div className="absolute bottom-5 left-5 z-20 bg-[#084274]/95 backdrop-blur-md text-white px-4 py-3 shadow-xl border border-white/20 flex items-center gap-3 animate-float-reverse">
-                  <div className="w-8 h-8 rounded-full bg-[#e3a044] flex items-center justify-center text-[#084274] font-bold">
-                    <Sparkles className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold text-[#feeddb] uppercase tracking-wider leading-none">Inscriptions Ouvertes</p>
-                    <p className="text-xs font-semibold text-white/90">Année Scolaire 2026-2027</p>
-                  </div>
+                <div>
+                  <p className="text-[11px] font-bold text-[#084274] uppercase tracking-wider leading-none">
+                    Environnement
+                  </p>
+                  <p className="text-xs font-semibold text-[#084274]/80">Sécurisé & Bienveillant</p>
                 </div>
-              </div>
+              </motion.div>
 
+              {/* Badge flottant : inscriptions */}
+              <motion.div
+                initial={reduce ? undefined : { opacity: 0, y: 14, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 0.85, type: 'spring', stiffness: 70, damping: 14 }}
+                className="absolute right-1 sm:right-4 -bottom-2 sm:-bottom-4 z-40 bg-[#084274]/95 backdrop-blur-md text-white px-4 py-3 rounded-xl shadow-xl border border-white/20 flex items-center gap-3"
+              >
+                <div className="w-8 h-8 rounded-full bg-[#e3a044] flex items-center justify-center text-[#084274] font-bold shrink-0">
+                  <Sparkles className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold text-[#feeddb] uppercase tracking-wider leading-none">
+                    Inscriptions Ouvertes
+                  </p>
+                  <p className="text-xs font-semibold text-white/90">Année 2026-2027</p>
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
-
+          </div>
         </div>
       </div>
     </section>

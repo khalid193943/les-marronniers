@@ -18,6 +18,8 @@ import { MobileBottomBar } from './components/MobileBottomBar';
 import { Hero } from './components/Hero';
 import { KeyFiguresSection } from './components/KeyFiguresSection';
 import { MarqueeBand } from './design-system/giggle/MarqueeBand';
+import { DifferenceSection } from './components/DifferenceSection';
+import { ImpactSection } from './components/ImpactSection';
 import { DirectorWordSection } from './components/DirectorWordSection';
 import { SchoolVideoSection } from './components/SchoolVideoSection';
 import { SchoolMission } from './components/SchoolMission';
@@ -158,10 +160,15 @@ export default function App() {
                 />
                 <MarqueeBand tone="accent" />
                 <KeyFiguresSection />
+                <SectionDivider variant="white" position="top" style="wave1" />
+                <DifferenceSection onOpenAdmissions={() => handleOpenAdmissions()} />
+                <SectionDivider variant="cream" position="top" style="wave2" />
                 <DirectorWordSection />
                 <SectionDivider variant="blue" position="top" style="wave2" />
                 <SchoolVideoSection onOpenAdmissions={() => handleOpenAdmissions()} />
-                <SectionDivider variant="white" position="top" style="wave1" />
+                <SectionDivider variant="cream" position="top" style="wave1" />
+                <ImpactSection />
+                <SectionDivider variant="white" position="top" style="wave2" />
                 <SchoolMission onOpenAdmissions={() => handleOpenAdmissions()} />
                 <SectionDivider variant="white" position="bottom" style="wave1" />
                 <ParcoursSection onNavigate={handleNavigate} />
@@ -181,7 +188,7 @@ export default function App() {
 
             {view === 'ecole' && <EcolePage onOpenAdmissions={handleOpenAdmissions} />}
             {view === 'parcours' && <ParcoursPage onOpenAdmissions={handleOpenAdmissions} />}
-            {view === 'vie-scolaire' && <VieScolairePage />}
+            {view === 'vie-scolaire' && <VieScolairePage onOpenAdmissions={handleOpenAdmissions} />}
             {view === 'campus' && <CampusPage onOpenAdmissions={handleOpenAdmissions} />}
             {view === 'parents' && <ParentsPage />}
             {view === 'actualites' && <ActualitesPage onOpenArticle={handleOpenArticle} />}

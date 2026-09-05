@@ -1,21 +1,24 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
- * Les Marronniers — Page "Notre École"
- * Consolide : about-etablissement + about-valeurs + about-equipe.
- * Texte minimal, PhotoStack, cartes inclinées, doodles.
+ * Les Marronniers — Page "Notre École" (reconstruction enrichie)
+ * Histoire → valeurs → parcours d'une famille (Timeline) → équipe détaillée.
+ * Le texte de l'équipe reprend fidèlement la présentation officielle de l'école.
  */
 
 import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { Calendar, HeartHandshake, ShieldCheck, Sparkles, Users } from 'lucide-react';
+import {
+  Calendar, HeartHandshake, ShieldCheck, Sparkles, Users,
+  MapPinned, HandHeart, GraduationCap, BadgeCheck,
+} from 'lucide-react';
 import { PageHero } from '../design-system/giggle/PageHero';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
-import { PhotoStack } from '../design-system/giggle/PhotoStack';
 import { PhotoCollage } from '../design-system/giggle/PhotoCollage';
 import { Squiggle } from '../design-system/giggle/Squiggle';
 import { DoodleHeart, DoodleStar } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
+import { Timeline, type TimelineStep } from '../design-system/giggle/Timeline';
 
 interface EcolePageProps {
   onOpenAdmissions: () => void;
@@ -28,10 +31,26 @@ const VALEURS = [
   { icon: Users, title: 'Partenariat', line: 'Un dialogue transparent avec les familles.', backer: '#38926c', rotate: -2 },
 ];
 
+const PARCOURS_FAMILLE: TimelineStep[] = [
+  { icon: MapPinned, title: 'La Première Visite', line: 'Vous découvrez les campus, l’ambiance et rencontrez l’équipe, sans engagement.' },
+  { icon: HandHeart, title: 'Une Intégration en Douceur', line: 'Votre enfant est accueilli par son prénom, à son rythme, dès les premiers jours.' },
+  { icon: Users, title: 'Un Suivi au Quotidien', line: 'Cahier de liaison, rencontres et échanges réguliers tout au long de l’année.' },
+  { icon: GraduationCap, title: 'Le Chemin vers le CE6', line: 'Une progression continue, sans rupture, de la crèche jusqu’à l’examen officiel.' },
+];
+
 const EQUIPE = [
-  { role: 'Direction', line: 'Une vision pédagogique portée depuis plus de 15 ans.' },
-  { role: 'Enseignantes', line: 'Diplômées, formées à la pédagogie positive.' },
-  { role: 'Éducatrices', line: 'Présentes à chaque instant auprès des tout-petits.' },
+  {
+    role: 'Direction',
+    line: 'Porte la vision pédagogique de l’école et accompagne chaque famille dès la première visite.',
+  },
+  {
+    role: 'Enseignantes',
+    line: 'Expérimentées, formées pour utiliser au mieux nos outils pédagogiques et didactiques.',
+  },
+  {
+    role: 'Éducatrices',
+    line: 'Formées pour connaître au mieux la psychologie et les besoins propres à chaque âge.',
+  },
 ];
 
 export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
@@ -46,7 +65,7 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
       />
       <SectionDivider variant="white" position="top" style="wave1" />
 
-      {/* Histoire — 50/50 avec pile de photos */}
+      {/* Histoire — collage + résumé */}
       <section className="bg-white py-16 sm:py-24 overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           <PhotoCollage
@@ -117,17 +136,32 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
 
       <SectionDivider variant="cream" position="top" style="wave2" />
 
-      {/* Équipe — sobre */}
+      {/* Le parcours d'une famille — timeline */}
       <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden relative">
-        <DoodleStar className="hidden lg:block absolute bottom-10 left-[12%] w-8 text-[#e3a044]/60 pointer-events-none" />
+        <DoodleStar className="hidden lg:block absolute top-12 left-[8%] w-9 text-[#e3a044]/60 pointer-events-none" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-8">
+          <SectionIntro
+            tag="Votre parcours avec nous"
+            title="De la Première Visite au CE6"
+            line="Un accompagnement continu, pensé étape par étape."
+            className="mb-14"
+          />
+          <Timeline steps={PARCOURS_FAMILLE} />
+        </div>
+      </section>
+
+      <SectionDivider variant="white" position="top" style="wave1" />
+
+      {/* Équipe — enrichie avec texte officiel */}
+      <section className="bg-white py-16 sm:py-24 overflow-hidden relative">
         <div className="max-w-5xl mx-auto px-4 sm:px-8">
           <SectionIntro
             tag="Notre équipe"
             title="Des Adultes de Confiance"
-            line="Une équipe stable, formée et passionnée par la petite enfance."
+            line="Une équipe stable, expérimentée et formée à la petite enfance."
             className="mb-12"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-14">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto mb-10">
             {EQUIPE.map((m, idx) => (
               <motion.div
                 key={idx}
@@ -135,13 +169,29 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="bg-[#084274]/6 border border-[#084274]/10 p-6 text-center"
+                className="bg-[#084274]/6 border border-[#084274]/10 rounded-xl p-6 text-center"
               >
                 <h3 className="font-heading text-lg text-[#084274] mb-2">{m.role}</h3>
                 <p className="font-body text-sm text-[#084274]/70 leading-relaxed">{m.line}</p>
               </motion.div>
             ))}
           </div>
+
+          {/* Bandeau engagement qualité (texte officiel) */}
+          <motion.div
+            initial={reduce ? undefined : { opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5 }}
+            className="flex items-start gap-4 bg-[#38926c]/8 border border-[#38926c]/20 rounded-xl p-6 max-w-3xl mx-auto mb-14"
+          >
+            <BadgeCheck className="w-6 h-6 text-[#1f8a63] shrink-0 mt-0.5" />
+            <p className="font-body text-sm text-[#084274]/80 leading-relaxed">
+              Notre équipe pédagogique est expérimentée, formée pour utiliser au mieux nos
+              outils didactiques et pour connaître la psychologie et les besoins propres à
+              chaque enfant — c’est l’engagement que nous prenons envers chaque famille.
+            </p>
+          </motion.div>
 
           <div className="flex flex-col items-center gap-4">
             <Squiggle variant="curl-down" color="#d95f43" className="w-20 h-auto -mb-2" />

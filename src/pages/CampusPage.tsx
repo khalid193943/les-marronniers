@@ -15,7 +15,7 @@ import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { PhotoStack } from '../design-system/giggle/PhotoStack';
 import { PhotoCollage } from '../design-system/giggle/PhotoCollage';
 import { ExpandBars, type ExpandBarItem } from '../design-system/giggle/ExpandBars';
-import { ColorCardsGrid, type ColorCard } from '../design-system/giggle/ColorCardsGrid';
+import type { ColorCard } from '../design-system/giggle/ColorCardsGrid';
 import { DoodleSun, DoodleSpiral } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
 
@@ -218,7 +218,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
               align="left"
             />
             <ul className="mt-8 flex flex-col gap-3">
-              {['Matériel importé d’Europe', 'Sols anti-choc dans toute la cour', 'Stationnement facile pour les parents', 'Accueil de 7h45 à 18h15'].map((item) => (
+              {['Encadrement présent à chaque récréation', 'Espaces intérieurs et extérieurs pensés ensemble', 'Ambiance chaleureuse dès l’entrée', 'Accueil de 7h45 à 18h15, toute la semaine'].map((item) => (
                 <li key={item} className="flex items-center gap-3 font-body text-[15px] text-[#084274]/80">
                   <span className="w-5 h-5 rounded-full bg-[#e3a044] text-[#084274] flex items-center justify-center text-[11px] font-bold shrink-0">✓</span>
                   {item}
