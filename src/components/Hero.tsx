@@ -53,9 +53,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
               {...rise(0)}
               className="font-heading text-[2.3rem] leading-[1.12] sm:text-5xl sm:leading-[1.08] lg:text-6xl xl:text-[4.4rem] xl:leading-[1.05] text-[#0086d9] tracking-tight mb-7"
             >
-              Où la Curiosité<br />Apprend à{' '}
+              Où la curiosité<br />apprend à{' '}
               <span className="relative inline-block text-[#e3a044]">
-                S’Épanouir
+                s’épanouir
                 <svg
                   className="absolute -bottom-2 left-0 w-full h-3 text-[#ffc800]"
                   viewBox="0 0 100 20"
@@ -95,9 +95,42 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
             </motion.div>
           </div>
 
-          {/* Visuel : trois photos en escalier, angles nets */}
+          {/* Visuel — deux compositions distinctes :
+              • MOBILE : une seule grande photo, lisible et entière. Une
+                grille de trois vignettes sur 390 px de large donnerait des
+                cases minuscules et couperait les visages.
+              • DESKTOP : les trois photos en escalier. */}
           <div className="lg:col-span-6">
-            <div className="grid grid-cols-5 grid-rows-6 gap-3 sm:gap-4 h-[400px] sm:h-[490px] lg:h-[540px] max-w-[560px] mx-auto">
+            {/* Mobile */}
+            <motion.figure
+              initial={reduce ? { rotate: -1.5 } : { opacity: 0, rotate: -6, y: 26, scale: 0.94 }}
+              animate={{ opacity: 1, rotate: -1.5, y: 0, scale: 1 }}
+              transition={{ type: 'spring', stiffness: 58, damping: 15, delay: 0.15 }}
+              className="md:hidden relative overflow-hidden border-4 border-white shadow-xl aspect-[5/4] max-w-[420px] mx-auto"
+            >
+              <SmartImage
+                src={PHOTOS.sourires.src}
+                alt={PHOTOS.sourires.alt}
+                loading="eager"
+                fallback="paint"
+                className="w-full h-full object-cover"
+              />
+              {/* Deux vignettes qui débordent d'un coin, pour la profondeur */}
+              <span
+                aria-hidden="true"
+                className="absolute -bottom-1 -right-1 w-[38%] aspect-square border-4 border-white overflow-hidden shadow-lg"
+              >
+                <SmartImage
+                  src={PHOTOS.eveil.src}
+                  alt=""
+                  loading="eager"
+                  className="w-full h-full object-cover"
+                />
+              </span>
+            </motion.figure>
+
+            {/* Desktop */}
+            <div className="hidden md:grid grid-cols-5 grid-rows-6 gap-3 sm:gap-4 h-[490px] lg:h-[540px] max-w-[560px] mx-auto">
               {VISUALS.map((v, i) => (
                 <motion.figure
                   key={i}

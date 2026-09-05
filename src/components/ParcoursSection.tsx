@@ -1,7 +1,7 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
- * Les Marronniers — "Un Parcours pour Chaque Âge"
+ * Les Marronniers — "Un parcours pour chaque âge"
  * Réplique de la section signature de l'inspiration Giggle ("Learning Paths") :
  * cartes bleu marine inclinées avec illustrations dessinées à la main,
  * fonds colorés décalés, en zigzag gauche/droite, reliées par des flèches gribouillées.
@@ -84,8 +84,8 @@ export const ParcoursSection: React.FC<ParcoursSectionProps> = ({ onNavigate }) 
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         <SectionIntro
           tag="Nos programmes"
-          title="Un Parcours pour Chaque Âge"
-          line="De la crèche au CE6, chaque étape est pensée pour grandir avec confiance."
+          title="Un parcours pour chaque âge"
+          line="De la crèche au CE6, une étape à la fois."
           className="mb-16 sm:mb-20"
         />
 

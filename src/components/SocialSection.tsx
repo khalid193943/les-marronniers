@@ -62,7 +62,7 @@ export const SocialSection: React.FC = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-8">
         <SectionIntro
           tag="Suivez-nous"
-          title="Notre Quotidien, en Direct"
+          title="Nous suivre au jour le jour"
           line="Les nouvelles fraîches de l’école sont publiées ici chaque semaine."
           className="mb-14"
         />

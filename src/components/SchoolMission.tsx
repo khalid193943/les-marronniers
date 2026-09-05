@@ -63,8 +63,8 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         <SectionIntro
           tag="Pourquoi nous choisir"
-          title="Un Lieu où l’Enfant se Sent Bien"
-          line="Un espace serein et stimulant pour explorer, prendre confiance et grandir."
+          title="Un lieu pensé pour qu’il s’y sente bien"
+          line="Un cadre serein pour explorer, se tromper et prendre confiance."
           className="mb-16 sm:mb-20"
         />
 
@@ -125,7 +125,7 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="order-2 lg:order-1"
+            className="order-1 lg:order-1"
           >
             <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-xs font-bold text-[#0086d9] mb-5 keep-round">
               <span className="w-1.5 h-1.5 rounded-full bg-[#e3a044] keep-round" />
@@ -148,7 +148,7 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
           </motion.div>
 
           <PhotoStack
-            className="order-1 lg:order-2 aspect-[4/3] max-w-md mx-auto w-full"
+            className="order-2 lg:order-2 aspect-[4/3] max-w-md mx-auto w-full"
             photos={[
               PHOTOS.tennisTable,
               PHOTOS.peinture,

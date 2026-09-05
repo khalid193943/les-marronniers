@@ -31,7 +31,7 @@ export const ContactAndLocationSection: React.FC<ContactAndLocationSectionProps>
             <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">NOUS TROUVER & CONTACT</span>
           </div>
           <h2 className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#0086d9] tracking-tight mb-6 leading-tight">
-            Venez Découvrir Nos Locaux à El Jadida
+            Deux campus, à deux minutes l’un de l’autre
           </h2>
           <p className="font-body text-base sm:text-lg text-[#00558d]/80 leading-relaxed max-w-4xl mx-auto">
             Situés au cœur du quartier résidentiel Plateau, nos campus sécurisés offrent un environnement d'apprentissage calme, verdoyant et facilement accessible pour les familles.

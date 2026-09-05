@@ -38,8 +38,8 @@ export const ActualitesPage: React.FC<ActualitesPageProps> = ({ onOpenArticle })
     <div>
       <PageHero
         tag="Actualités"
-        title="La Vie de l’École"
-        line="Ce qui se passe en ce moment aux Marronniers."
+        title="La vie de l’école, semaine après semaine"
+        line="Ce que vivent les enfants, en ce moment même."
       />
       <SectionDivider variant="white" position="top" style="wave1" />
 
@@ -55,9 +55,9 @@ export const ActualitesPage: React.FC<ActualitesPageProps> = ({ onOpenArticle })
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               onClick={() => onOpenArticle(featured.slug)}
-              className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 sm:mb-20 cursor-pointer group"
+              className="relative grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-12 items-center mb-16 sm:mb-20 cursor-pointer group"
             >
-              <div className="relative">
+              <div className="relative order-2 lg:order-1">
                 <span
                   aria-hidden="true"
                   className="absolute inset-0 bg-[#e3a044] transition-transform duration-300 group-hover:translate-x-1.5 group-hover:translate-y-1.5"
@@ -97,7 +97,7 @@ export const ActualitesPage: React.FC<ActualitesPageProps> = ({ onOpenArticle })
           {/* Autres articles en lignes */}
           {rest.length > 0 && (
             <>
-              <SectionIntro tag="Toutes les actualités" title="À Lire Aussi" className="mb-10" />
+              <SectionIntro tag="Toutes les actualités" title="Les autres actualités" className="mb-10" />
               <div className="flex flex-col gap-4">
                 {rest.map((p, idx) => (
                   <motion.article
@@ -148,7 +148,7 @@ export const ActualitesPage: React.FC<ActualitesPageProps> = ({ onOpenArticle })
       <section className="bg-[#fff7ef] py-16 sm:py-24 overflow-hidden relative">
         <DoodleStar className="hidden lg:block absolute top-12 left-[6%] w-9 text-[#d95f43]/50 pointer-events-none" />
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
-          <SectionIntro tag="Galerie" title="Des Moments qui Comptent" className="mb-14" />
+          <SectionIntro tag="Galerie" title="Des moments qui restent" className="mb-14" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {GALERIE.map((g, idx) => (
               <motion.figure

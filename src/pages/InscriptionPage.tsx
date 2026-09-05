@@ -45,7 +45,7 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({ onOpenAdmissio
       <PageHero
         tag="Inscription 2026 – 2027"
         title="Rejoindre Les Marronniers"
-        line="Quatre étapes simples. Effectifs limités par classe."
+        line="Quatre étapes simples, et des places comptées."
       />
 
       {/* Étapes en zigzag */}
@@ -100,7 +100,7 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({ onOpenAdmissio
       <section className="bg-white py-16 sm:py-24 overflow-hidden">
         <ChecklistSplit
           tag="Pourquoi réserver tôt"
-          title="Les Places sont Limitées par Classe"
+          title="Pourquoi les places partent vite"
           line="Ce n’est pas un argument commercial : c’est ce qui nous permet de bien connaître chaque enfant."
           items={[
             'Effectifs volontairement réduits pour une attention réelle à chaque enfant',
@@ -126,8 +126,8 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({ onOpenAdmissio
       <section className="bg-[#fff7ef] py-16 sm:py-24 overflow-hidden">
         <div className="max-w-2xl mx-auto px-4 sm:px-8">
           <SectionIntro
-            tag="En ligne, en 2 minutes"
-            title="Pré-inscription Rapide"
+            tag="Formulaire en ligne"
+            title="Deux minutes, et nous vous rappelons"
             line="Remplissez ce formulaire — le secrétariat vous rappelle pour la visite."
             className="mb-10"
           />
@@ -142,7 +142,7 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({ onOpenAdmissio
         <DoodleStar className="hidden lg:block absolute top-12 left-[8%] w-9 text-[#e3a044]/60 pointer-events-none" />
         <DoodleGrow className="hidden xl:block absolute bottom-6 right-[4%] w-44 text-[#0086d9]/12 pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-8 text-center">
-          <SectionIntro tag="À prévoir" title="Le Dossier, en Toute Simplicité" className="mb-10" />
+          <SectionIntro tag="À prévoir" title="Le dossier, en quatre pièces" className="mb-10" />
 
           <div className="flex flex-wrap justify-center gap-3 mb-14">
             {DOCUMENTS.map((d) => (

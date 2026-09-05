@@ -78,8 +78,8 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({ onOpen
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         <SectionIntro
           tag="Vie créative & culturelle"
-          title="Apprendre Autrement, Chaque Après-midi"
-          line="Théâtre, échecs, musique, cinéma — chaque enfant trouve son terrain."
+          title="Apprendre autrement, chaque après-midi"
+          line="Théâtre, échecs, musique, cinéma : chacun trouve son terrain."
           className="mb-14"
         />
 

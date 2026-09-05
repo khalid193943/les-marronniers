@@ -36,8 +36,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
     <div>
       <PageHero
         tag="Contact"
-        title="Venez Nous Rencontrer"
-        line="Au Plateau, à El Jadida — on vous attend avec plaisir."
+        title="Venez nous rencontrer"
+        line="Deux campus au Plateau — venez quand vous voulez."
       />
       {/* Bandeau 3 informations clés (style référence Giggle) */}
       <section className="bg-[#fff7ef] pb-14 sm:pb-16 overflow-hidden">
@@ -129,7 +129,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
         <div className="max-w-2xl mx-auto px-4 sm:px-8">
           <SectionIntro
             tag="Écrivez-nous"
-            title="Un Message, une Réponse Rapide"
+            title="Écrivez-nous, on vous répond"
             className="mb-10"
           />
           <ContactForm />

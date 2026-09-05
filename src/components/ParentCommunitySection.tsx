@@ -73,7 +73,7 @@ export const ParentCommunitySection: React.FC = () => {
             <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">Paroles de Parents</span>
           </div>
           <h2 className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#0086d9] tracking-tight mb-6 leading-tight">
-            Aimés des Enfants, Approuvés par les Familles
+            Ce que les familles en disent
           </h2>
           <p className="font-body text-base sm:text-lg text-[#00558d]/80 leading-relaxed max-w-4xl mx-auto">
             Découvrez ce que les parents pensent de notre accompagnement, de notre pédagogie et de l'environnement que nous offrons à leurs enfants.

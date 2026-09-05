@@ -41,7 +41,10 @@ export const ChecklistSplit: React.FC<ChecklistSplitProps> = ({
 
   return (
     <div className={`max-w-6xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center ${className}`}>
-      <div className={imageFirst ? 'order-1' : 'order-1 lg:order-2'}>
+      {/* Sur mobile, l'image passe TOUJOURS après le texte : on lit d'abord
+          de quoi il s'agit, puis on voit l'illustration. L'alternance
+          gauche/droite ne reprend qu'à partir du grand écran. */}
+      <div className={`order-2 ${imageFirst ? 'lg:order-1' : 'lg:order-2'}`}>
         <PhotoCollage photos={photos} />
       </div>
 
@@ -50,7 +53,7 @@ export const ChecklistSplit: React.FC<ChecklistSplitProps> = ({
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={imageFirst ? 'order-2' : 'order-2 lg:order-1'}
+        className={`order-1 ${imageFirst ? 'lg:order-2' : 'lg:order-1'}`}
       >
         <span className="inline-flex items-center gap-2 rounded-full bg-[#0086d9]/8 px-4 py-1.5 text-xs font-bold text-[#0086d9] mb-5 keep-round">
           <span className="w-1.5 h-1.5 rounded-full bg-[#e3a044] keep-round" />

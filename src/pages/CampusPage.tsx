@@ -67,8 +67,8 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
     <div>
       <PageHero
         tag="Nos campus"
-        title="Deux Campus Pensés pour Eux"
-        line="Au cœur du Plateau, à El Jadida — sécurisés, lumineux, à taille d’enfant."
+        title="Deux campus, deux âges, une même exigence"
+        line="Au Plateau, à El Jadida : lumineux, sécurisés, à hauteur d’enfant."
       />
       <SectionDivider variant="white" position="top" style="wave1" />
 
@@ -76,7 +76,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
       <section className="bg-white py-16 sm:py-24 overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           <PhotoStack
-            className="aspect-[4/3] max-w-md mx-auto w-full"
+            className="order-2 lg:order-1 aspect-[4/3] max-w-md mx-auto w-full"
             photos={[
               PHOTOS.chorale,
               PHOTOS.fete,
@@ -88,6 +88,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="order-1 lg:order-2"
           >
             <SectionIntro
               tag="Campus 1 · Rue Beethoven"
@@ -128,7 +129,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="order-2 lg:order-1"
+            className="order-1 lg:order-1"
           >
             <SectionIntro
               tag="Campus 2 · Avenue Varennes"
@@ -159,7 +160,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
             </a>
           </motion.div>
           <PhotoStack
-            className="order-1 lg:order-2 aspect-[4/3] max-w-md mx-auto w-full"
+            className="order-2 lg:order-2 aspect-[4/3] max-w-md mx-auto w-full"
             photos={[
               PHOTOS.musique,
               PHOTOS.lecture,
@@ -177,7 +178,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
         <div className="max-w-5xl mx-auto px-4 sm:px-8">
           <SectionIntro
             tag="Nos espaces"
-            title="Tout est Prévu"
+            title="Chaque espace a sa raison d’être"
             line="Touchez chaque espace pour découvrir ce qu’on y fait."
             className="mb-14"
           />
@@ -193,7 +194,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
         <div className="max-w-5xl mx-auto px-4 sm:px-8">
           <SectionIntro
             tag="Sécurité & bien-être"
-            title="Votre Tranquillité, Notre Priorité"
+            title="Ce qui les protège, tous les jours"
             tone="dark"
             className="mb-14"
           />
@@ -231,6 +232,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
       <section className="bg-white py-16 sm:py-24 overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           <PhotoCollage
+            className="order-2 lg:order-1"
             photos={[
               PHOTOS.echecs,
               PHOTOS.simulateur,
@@ -238,10 +240,10 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
               PHOTOS.classeAtelier,
             ]}
           />
-          <div>
+          <div className="order-1 lg:order-2">
             <SectionIntro
               tag="Au quotidien"
-              title="Des Espaces qui Donnent Envie de Venir"
+              title="Des lieux où l’on a envie d’entrer"
               line="Chaque coin de l’école a été pensé pour que les enfants s’y sentent bien."
               align="left"
             />

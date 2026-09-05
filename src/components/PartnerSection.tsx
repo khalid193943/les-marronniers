@@ -63,7 +63,7 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({ onOpenAdmissions
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         <SectionIntro
           tag="Partenariat institutionnel"
-          title="En Partenariat avec l’Institut Français"
+          title="L’Institut Français à nos côtés"
           line="Quatre bénéfices concrets pour nos élèves, du diplôme reconnu à l’ouverture culturelle."
           className="mb-14"
         />

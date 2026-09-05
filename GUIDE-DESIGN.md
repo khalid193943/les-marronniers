@@ -364,3 +364,40 @@ maternelle, avenue Varennes pour le primaire) sont présentées ensemble avec
 **leurs deux plans Google Maps** et un lien d'itinéraire chacun. Utilisé sur
 la page Contact et sur l'accueil — plus aucun risque qu'un parent se présente
 au mauvais campus.
+
+---
+
+## ✍️ Passe v12 — Lecture mobile & titres
+
+### Ordre image / texte sur mobile — 9 sections corrigées
+Un second outil (`ordre_mobile.py`) compare la position verticale de chaque
+image et du titre de sa section. Il a révélé **9 sections où l'image
+s'affichait jusqu'à 500 px avant son titre** : on tombait sur une photo sans
+savoir de quoi elle parlait.
+
+**Règle appliquée** : sur mobile, l'ordre est toujours *titre → texte → image*.
+L'alternance gauche/droite (`imageSide`) ne reprend qu'à partir de `lg:`.
+Concerne : Ce qui fait la différence, Histoire de l'école, Trois langues,
+les 2 campus, Des lieux où l'on a envie d'entrer, Jamais seuls, Pourquoi les
+places partent vite, l'article à la une.
+
+### Hero mobile refait
+Trois photos dans une grille 5×6 sur 390 px donnaient des cases minuscules et
+coupaient les visages. Sur mobile : **une seule grande photo** lisible, avec
+une vignette en débord pour la profondeur. La grille en escalier reste sur
+desktop.
+
+### Section vidéo
+Elle a désormais un titre — *« L'école telle qu'elle est, sans mise en scène »* —
+placé **au-dessus** de la vidéo, jamais par-dessus : rien ne masque l'image.
+
+### Tous les titres retravaillés
+38 titres, 15 pilules et 12 sous-titres réécrits pour être plus concrets et
+moins interchangeables (« Tout est prévu » → « Chaque espace a sa raison
+d'être » ; « À lire aussi » → « Les autres actualités »).
+
+**Typographie** : les titres sont passés en capitalisation française
+(majuscule au premier mot et aux noms propres seulement). Le *Title Case*
+anglais précédent est un anglicisme qui se remarque sur un site scolaire
+francophone. C'est un choix stylistique réversible — dites-le si vous
+préférez l'ancien rendu.

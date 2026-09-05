@@ -49,7 +49,7 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = () => {
 
   return (
     <section className="relative w-full overflow-hidden bg-[#0086d9]" aria-label="La vie à l’école en vidéo">
-      <div className="relative w-full h-[52vh] min-h-[340px] sm:h-[62vh] lg:h-[72vh]">
+      <div className="relative w-full h-[46vh] min-h-[300px] sm:h-[58vh] lg:h-[68vh]">
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
@@ -64,7 +64,7 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = () => {
 
         {/* Voile très léger : garde la vidéo lumineuse tout en l'intégrant
             à la charte, sans jamais masquer ce qui s'y passe. */}
-        <div className="absolute inset-0 bg-[#00558d]/12 pointer-events-none" />
+        
 
         {/* Unique élément d'interface : le son */}
         <button

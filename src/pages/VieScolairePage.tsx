@@ -111,15 +111,15 @@ export const VieScolairePage: React.FC<VieScolairePageProps> = ({ onOpenAdmissio
     <div>
       <PageHero
         tag="Vie scolaire"
-        title="Des Journées qui Donnent Envie"
-        line="Un rythme pensé pour apprendre, jouer et se reposer."
+        title="Des journées qui passent vite"
+        line="Le temps d’apprendre, celui de jouer, celui de souffler."
       />
       <SectionDivider variant="white" position="top" style="wave1" />
 
       {/* Journée type */}
       <section className="bg-white py-16 sm:py-24 overflow-hidden">
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
-          <SectionIntro tag="Une journée type" title="Le Rythme d’une Journée" className="mb-14" />
+          <SectionIntro tag="Une journée type" title="Du premier bonjour au dernier au revoir" className="mb-14" />
           <Timeline steps={JOURNEE} />
         </div>
       </section>
@@ -132,7 +132,7 @@ export const VieScolairePage: React.FC<VieScolairePageProps> = ({ onOpenAdmissio
         <DoodlePaint className="hidden xl:block absolute bottom-8 right-[2%] w-40 text-[#0086d9]/12 pointer-events-none" />
         <SectionIntro
           tag="Nos ateliers"
-          title="Plus de 15 Activités d’Éveil"
+          title="Quinze ateliers, un pour chacun"
           line="Touchez un atelier pour le découvrir en images."
           className="mb-12"
         />
@@ -155,7 +155,7 @@ export const VieScolairePage: React.FC<VieScolairePageProps> = ({ onOpenAdmissio
         <div className="max-w-5xl mx-auto px-4 sm:px-8">
           <SectionIntro
             tag="Le rythme de l’année"
-            title="Trois Trimestres, un Seul Objectif"
+            title="Trois trimestres, une seule progression"
             line="Touchez chaque bloc pour en savoir plus."
             className="mb-14"
           />

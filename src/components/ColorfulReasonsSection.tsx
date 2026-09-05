@@ -74,8 +74,8 @@ export const ColorfulReasonsSection: React.FC<ColorfulReasonsSectionProps> = ({
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         <SectionIntro
           tag="Grandir aux Marronniers"
-          title="Quatre Raisons d’y Être Bien"
-          line="Ce que les parents nous disent le plus souvent, après la première visite."
+          title="Quatre raisons de s’y sentir bien"
+          line="Ce que les parents nous disent, après la première visite."
           className="mb-14"
         />
 

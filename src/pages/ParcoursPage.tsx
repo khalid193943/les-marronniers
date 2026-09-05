@@ -71,7 +71,7 @@ export const ParcoursPage: React.FC<ParcoursPageProps> = ({ onOpenAdmissions }) 
     <div>
       <PageHero
         tag="Nos programmes"
-        title="Un Parcours pour Chaque Âge"
+        title="Un parcours pour chaque âge"
         line="De la crèche au CE6, un seul chemin, sans rupture."
       />
 
@@ -138,8 +138,8 @@ export const ParcoursPage: React.FC<ParcoursPageProps> = ({ onOpenAdmissions }) 
       {/* Trilinguisme & transition — checklist + collage */}
       <section className="bg-white py-16 sm:py-24 overflow-hidden">
         <ChecklistSplit
-          tag="Trois langues, un seul enfant"
-          title="Une Transition Sans Rupture, du Premier Jour au CE6"
+          tag="Français · arabe · anglais"
+          title="Trois langues, aucune rupture"
           line="Le français, l’arabe et l’anglais s’installent dès la maternelle, au même rythme que la confiance."
           items={[
             'Langage et vocabulaire construits dès la Toute Petite Section',

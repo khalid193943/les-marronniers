@@ -29,7 +29,7 @@ export const DifferenceSection: React.FC<DifferenceSectionProps> = ({ onOpenAdmi
       >
         <ChecklistSplit
           tag="Ce qui fait la différence"
-          title="Une Équipe Formée à l’Enfance, un Cadre Pensé pour Elle"
+          title="Une équipe formée, un cadre pensé pour eux"
           line="Ce n’est pas un slogan : c’est la manière dont chaque journée est organisée aux Marronniers."
           items={[
             'Une équipe expérimentée, formée aux outils pédagogiques et à la psychologie de l’enfant',

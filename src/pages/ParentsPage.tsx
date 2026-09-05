@@ -69,8 +69,8 @@ export const ParentsPage: React.FC = () => {
     <div>
       <PageHero
         tag="Espace parents"
-        title="Partenaires de Leur Réussite"
-        line="Une école qui parle avec les familles, chaque jour."
+        title="Partenaires de leur réussite"
+        line="Ici, on se parle avant que les questions ne deviennent des doutes."
       />
       <SectionDivider variant="white" position="top" style="wave1" />
 
@@ -89,8 +89,8 @@ export const ParentsPage: React.FC = () => {
       <section className="bg-[#fff7ef] py-16 sm:py-24 overflow-hidden relative">
         <DoodleSun className="hidden lg:block absolute top-12 right-[8%] w-10 text-[#e3a044]/50 pointer-events-none" />
         <ChecklistSplit
-          tag="Comment nous accompagnons les familles"
-          title="Vous n’êtes Jamais Seuls dans ce Parcours"
+          tag="Notre accompagnement"
+          title="Jamais seuls dans ce parcours"
           line="Chaque étape de la scolarité de votre enfant se construit avec vous."
           items={[
             'Un cahier de liaison lu et rempli chaque jour par l’enseignante',
@@ -115,7 +115,7 @@ export const ParentsPage: React.FC = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-8">
           <SectionIntro
             tag="Vie pratique"
-            title="Tout ce qu’il Faut Savoir au Quotidien"
+            title="Les réponses aux questions du quotidien"
             line="Touchez chaque bloc pour en savoir plus."
             className="mb-14"
           />
@@ -129,7 +129,7 @@ export const ParentsPage: React.FC = () => {
       <section className="bg-[#fff7ef] py-16 sm:py-24 overflow-hidden relative">
         <DoodleStar className="hidden lg:block absolute top-14 right-[10%] w-9 text-[#e3a044]/60 pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
-          <SectionIntro tag="Questions fréquentes" title="Vous Vous Demandez Sûrement…" className="mb-12" />
+          <SectionIntro tag="Questions fréquentes" title="Les questions que l’on nous pose" className="mb-12" />
 
           <div className="flex flex-col gap-3 mb-12">
             {FAQ.map((item, idx) => {

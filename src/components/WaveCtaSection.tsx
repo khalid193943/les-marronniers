@@ -41,7 +41,7 @@ export const WaveCtaSection: React.FC<WaveCtaSectionProps> = ({ onOpenAdmissions
 
           {/* Display Heading */}
           <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight mb-6 max-w-3xl leading-[1.1]">
-            Venez Visiter Notre Établissement en Famille
+            Le mieux, c’est encore de venir voir
           </h2>
 
           <p className="font-body text-base sm:text-lg text-white/85 leading-relaxed mb-10 max-w-2xl">

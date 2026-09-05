@@ -62,15 +62,15 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
     <div>
       <PageHero
         tag="Notre école"
-        title="Une École qui Grandit avec Vos Enfants"
-        line="Depuis plus de 15 ans au cœur du Plateau, à El Jadida."
+        title="Une école qui grandit avec vos enfants"
+        line="Depuis plus de quinze ans, au cœur du Plateau."
       />
       <SectionDivider variant="white" position="top" style="wave1" />
 
       {/* Histoire — collage + résumé */}
       <section className="bg-white py-16 sm:py-24 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-          <PhotoCollage
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+          <PhotoCollage className="order-2 lg:order-1"
             photos={[
               PHOTOS.spectacle,
               PHOTOS.classeAtelier,
@@ -83,10 +83,11 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="order-1 lg:order-2"
           >
             <SectionIntro
               tag="Notre histoire"
-              title="Une Histoire de Confiance"
+              title="Quinze ans de confiance, famille après famille"
               line="Un établissement à taille humaine, de la crèche au CE6, où chaque famille est connue et chaque enfant accompagné."
               align="left"
             />
@@ -105,7 +106,7 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
       <section className="bg-white pb-20 sm:pb-28 overflow-hidden relative">
         <DoodleHeart className="hidden lg:block absolute top-6 right-16 w-10 text-[#d95f43]/40 pointer-events-none" />
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
-          <SectionIntro tag="Nos valeurs" title="Ce qui Nous Guide" className="mb-14" />
+          <SectionIntro tag="Nos valeurs" title="Quatre principes, tenus au quotidien" className="mb-14" />
           <Carousel className="max-w-5xl mx-auto" desktopGrid="md:grid-cols-4" cardWidth="w-[62vw]" aria-label="Nos valeurs">
             {VALEURS.map((v, idx) => {
               const Icon = v.icon;
@@ -144,7 +145,7 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
         <div className="max-w-5xl mx-auto px-4 sm:px-8">
           <SectionIntro
             tag="Votre parcours avec nous"
-            title="De la Première Visite au CE6"
+            title="De la première visite au CE6"
             line="Un accompagnement continu, pensé étape par étape."
             className="mb-14"
           />
@@ -159,7 +160,7 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
         <div className="max-w-5xl mx-auto px-4 sm:px-8">
           <SectionIntro
             tag="Notre équipe"
-            title="Des Adultes de Confiance"
+            title="Les adultes qui les accompagnent"
             line="Une équipe stable, expérimentée et formée à la petite enfance."
             className="mb-12"
           />

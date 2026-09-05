@@ -25,14 +25,15 @@ export const ImpactSection: React.FC = () => {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <SectionIntro
-            tag="En quelques chiffres"
-            title="Une École à Taille Humaine"
-            line="Assez grande pour tout proposer, assez petite pour connaître chaque enfant."
+            tag="L’école en chiffres"
+            title="Assez petite pour connaître chaque enfant"
+            line="Assez grande pour tout proposer, assez petite pour ne perdre personne."
             align="left"
           />
         </motion.div>
 
         <StatShowcase
+          className="order-2 lg:order-2"
           photo={PHOTOS.spectacle}
           badges={[
             { value: 6, label: 'Salles de classe lumineuses', corner: 'bottom-left', tone: 'sun' },
