@@ -401,3 +401,71 @@ d'être » ; « À lire aussi » → « Les autres actualités »).
 anglais précédent est un anglicisme qui se remarque sur un site scolaire
 francophone. C'est un choix stylistique réversible — dites-le si vous
 préférez l'ancien rendu.
+
+---
+
+## 🔧 Correctif v13 — Mosaïques cassées par le carrousel
+
+### La cause
+Le composant `Carousel` enveloppe chaque enfant dans un conteneur. Or c'est
+**ce conteneur** qui est placé dans la grille CSS — les classes `col-span-*`
+posées sur les cartes elles-mêmes étaient donc ignorées. Résultat : les deux
+sections en mosaïque (« Quatre raisons de s'y sentir bien » et « Apprendre
+autrement ») s'affichaient en colonnes étroites avec le texte tronqué.
+
+### La correction
+`Carousel` accepte désormais `itemClasses` : les classes de grille sont
+appliquées **au conteneur**, à qui elles étaient destinées.
+
+```tsx
+<Carousel
+  desktopGrid="md:grid-cols-12"
+  itemClasses={REASONS.map((r) => r.span)}
+>
+```
+
+### Rééquilibrage
+La mosaïque « Vie créative » passe de 6 à **12 colonnes** : sur 6 colonnes, la
+dernière carte tombait à 1/6 de large (~170 px), trop étroit pour « Cinéma &
+Débat ». Les deux cartes du bas sont maintenant égales. La mosaïque ne
+s'active qu'à `lg:` ; sur tablette, deux colonnes simples suffisent.
+
+Largeur de la carte la plus étroite, après correction :
+mobile 312 px · tablette 282 px · petit desktop 225 px · desktop 257 px.
+
+### Deux détections ajoutées à l'audit
+Pour que ce type de défaut ne repasse plus :
+- **texte tronqué** — contenu coupé par son cadre ;
+- **carte trop étroite** — bloc de moins de 120 px contenant un titre,
+  symptôme d'un `col-span` ignoré.
+
+---
+
+## 🔧 Correctif v14 — Texte coupé au survol
+
+### Le défaut
+Sur les cartes de « Vie créative », le texte révélé au survol était contenu
+dans un cadre à hauteur fixe (`max-h-32`, soit 128 px) avec `overflow-hidden` :
+toute description plus longue était **coupée en pleine phrase**
+(« C'est souvent là que les plus timides… »).
+
+Ce défaut avait échappé aux contrôles précédents parce que ce texte
+n'apparaît qu'au survol — un état invisible sur une capture d'écran classique.
+
+### La correction
+Passage à la technique `grid-rows-[0fr]` → `group-hover:grid-rows-[1fr]` :
+la zone s'ajuste à la **hauteur réelle du contenu**, quelle que soit la
+longueur du texte. Aucune coupure n'est plus possible, même si l'école
+allonge une description plus tard.
+
+### Troisième outil de contrôle
+`verif_survol.py` survole chaque carte interactive du site et mesure si son
+contenu déborde. À lancer avec les deux autres :
+
+```bash
+npm run build
+cd dist && python3 -m http.server 4173 &
+python3 audit_visuel.py     # débordements, zones tactiles, texte tronqué
+python3 ordre_mobile.py     # image avant le texte sur mobile
+python3 verif_survol.py     # texte coupé au survol
+```

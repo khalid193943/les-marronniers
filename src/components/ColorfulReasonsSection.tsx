@@ -29,7 +29,7 @@ const REASONS = [
     line: 'Dans une école à taille humaine, chaque enfant est connu de toute l’équipe — pas seulement de sa maîtresse.',
     bg: '#0086d9',
     fg: '#ffffff',
-    span: 'lg:col-span-7',
+    span: 'md:col-span-7',
   },
   {
     icon: Sparkles,
@@ -38,7 +38,7 @@ const REASONS = [
     line: 'Manipuler, tester, se tromper : les mains avant l’abstrait.',
     bg: '#ffc800',
     fg: '#00558d',
-    span: 'lg:col-span-5',
+    span: 'md:col-span-5',
   },
   {
     icon: ShieldCheck,
@@ -47,7 +47,7 @@ const REASONS = [
     line: 'Accès contrôlé, sols anti-choc, un adulte présent partout et à chaque instant.',
     bg: '#e24c3d',
     fg: '#ffffff',
-    span: 'lg:col-span-5',
+    span: 'md:col-span-5',
   },
   {
     icon: GraduationCap,
@@ -56,7 +56,7 @@ const REASONS = [
     line: 'De la Toute Petite Section au CE6, un seul chemin, sans rupture ni changement d’école.',
     bg: '#00a06b',
     fg: '#ffffff',
-    span: 'lg:col-span-7',
+    span: 'md:col-span-7',
   },
 ];
 
@@ -79,7 +79,13 @@ export const ColorfulReasonsSection: React.FC<ColorfulReasonsSectionProps> = ({
           className="mb-14"
         />
 
-        <Carousel className="mb-14" desktopGrid="md:grid-cols-12" aria-label="Raisons de choisir l’école">
+        <Carousel
+          className="mb-14"
+          desktopGrid="md:grid-cols-12"
+          cardWidth="w-[80vw]"
+          itemClasses={REASONS.map((r) => r.span)}
+          aria-label="Raisons de choisir l’école"
+        >
           {REASONS.map((r, idx) => {
             const Icon = r.icon;
             return (
@@ -95,7 +101,7 @@ export const ColorfulReasonsSection: React.FC<ColorfulReasonsSectionProps> = ({
                   delay: idx * 0.1,
                 }}
                 whileHover={{ y: -7 }}
-                className={`${r.span} relative overflow-hidden p-7 sm:p-9 min-h-[220px] flex flex-col shadow-lg`}
+                className="relative h-full overflow-hidden p-7 sm:p-9 min-h-[220px] flex flex-col shadow-lg"
                 style={{ backgroundColor: r.bg }}
               >
                 {/* Chiffre en très grand, en filigrane */}

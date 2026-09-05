@@ -31,7 +31,7 @@ const ACTIVITIES = [
     detail: 'Diction, gestuelle, présence sur scène. C’est souvent là que les plus timides trouvent leur voix.',
     color: '#e24c3d',
     photo: PHOTOS.theatre,
-    span: 'sm:col-span-3 sm:row-span-2',
+    span: 'lg:col-span-6 lg:row-span-2',
     tall: true,
   },
   {
@@ -41,7 +41,7 @@ const ACTIVITIES = [
     detail: 'Logique, concentration, fair-play — des compétences qui servent bien au-delà de l’échiquier.',
     color: '#00a06b',
     photo: PHOTOS.echecs,
-    span: 'sm:col-span-3 sm:row-span-1',
+    span: 'lg:col-span-6 lg:row-span-1',
     tall: false,
   },
   {
@@ -51,7 +51,7 @@ const ACTIVITIES = [
     detail: 'Éveil auditif, chant choral et découverte des instruments.',
     color: '#ffc800',
     photo: PHOTOS.chorale,
-    span: 'sm:col-span-2 sm:row-span-1',
+    span: 'lg:col-span-3 lg:row-span-1',
     tall: false,
     darkText: true,
   },
@@ -62,7 +62,7 @@ const ACTIVITIES = [
     detail: 'Des œuvres choisies, puis la discussion : formuler un avis, écouter celui des autres.',
     color: '#0086d9',
     photo: PHOTOS.spectacle,
-    span: 'sm:col-span-1 sm:row-span-1',
+    span: 'lg:col-span-3 lg:row-span-1',
     tall: false,
   },
 ];
@@ -84,7 +84,13 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({ onOpen
         />
 
         {/* Mosaïque colorée */}
-        <Carousel className="mb-14" desktopGrid="md:grid-cols-6 md:auto-rows-[190px]" cardWidth="w-[80vw]" aria-label="Activités créatives">
+        <Carousel
+          className="mb-14"
+          desktopGrid="md:grid-cols-2 lg:grid-cols-12 lg:auto-rows-[190px]"
+          cardWidth="w-[80vw]"
+          itemClasses={ACTIVITIES.map((a) => a.span)}
+          aria-label="Activités créatives"
+        >
           {ACTIVITIES.map((a, idx) => {
             const Icon = a.icon;
             const fg = a.darkText ? '#00558d' : '#ffffff';
@@ -95,7 +101,7 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({ onOpen
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.55, delay: idx * 0.09, ease: [0.22, 1, 0.36, 1] }}
-                className={`${a.span} relative overflow-hidden group cursor-pointer min-h-[190px] shadow-lg`}
+                className="relative h-full overflow-hidden group cursor-pointer min-h-[190px] shadow-lg"
               >
                 {/* Photo en fond */}
                 <SmartImage
@@ -134,13 +140,18 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({ onOpen
                     {a.line}
                   </p>
 
-                  {/* Détail révélé au survol */}
-                  <p
-                    className="font-body text-[13px] leading-relaxed max-h-0 opacity-0 group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-3 transition-all duration-500 overflow-hidden"
-                    style={{ color: fg }}
-                  >
-                    {a.detail}
-                  </p>
+                  {/* Détail révélé au survol.
+                      La grille 0fr → 1fr s'ajuste à la hauteur réelle du
+                      texte : contrairement à un max-height fixe, aucune
+                      phrase ne peut être coupée. */}
+                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
+                    <p
+                      className="font-body text-[13px] leading-relaxed overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:pt-3"
+                      style={{ color: fg }}
+                    >
+                      {a.detail}
+                    </p>
+                  </div>
                 </div>
               </motion.article>
             );

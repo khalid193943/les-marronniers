@@ -80,6 +80,27 @@ CHECK_JS = """
     });
   }
 
+  // 4. Texte tronqué : le contenu dépasse son cadre et se fait couper.
+  //    C'est le symptôme d'une carte devenue trop étroite (grille cassée).
+  document.querySelectorAll('p, h1, h2, h3, span, li').forEach(el => {
+    const st = getComputedStyle(el);
+    if (!/hidden|clip/.test(st.overflow + st.overflowY)) return;
+    if (el.scrollHeight > el.clientHeight + 6 && el.clientHeight > 0) {
+      const txt = (el.textContent || '').trim().slice(0, 34);
+      problems.push({type: 'texte-tronque', detail: `"${txt}…"`});
+    }
+  });
+
+  // 5. Carte anormalement étroite dans une grille (< 120px de large
+  //    alors qu'elle contient un titre) : signe d'un col-span ignoré.
+  document.querySelectorAll('article, [class*="col-span"]').forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.height < 80 || r.width === 0) return;
+    if (r.width < 120 && el.querySelector('h1,h2,h3')) {
+      problems.push({type: 'carte-trop-etroite', detail: `${Math.round(r.width)}px de large`});
+    }
+  });
+
   // Dédoublonner
   const seen = new Set();
   return problems.filter(p => {

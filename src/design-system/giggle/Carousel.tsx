@@ -26,6 +26,14 @@ interface CarouselProps {
   className?: string;
   /** Masquer les points sous le carrousel */
   hideDots?: boolean;
+  /**
+   * Classes de grille propres à chaque élément (ex. 'lg:col-span-7').
+   * Indispensable pour les mosaïques : le carrousel enveloppe chaque enfant
+   * dans un conteneur, or c'est CE conteneur qui est placé dans la grille.
+   * Sans cela, les `col-span` posés sur les cartes sont ignorés et tout se
+   * tasse en colonnes étroites.
+   */
+  itemClasses?: string[];
   'aria-label'?: string;
 }
 
@@ -35,6 +43,7 @@ export const Carousel: React.FC<CarouselProps> = ({
   cardWidth = 'w-[78vw] xs:w-[72vw]',
   className = '',
   hideDots = false,
+  itemClasses,
   'aria-label': ariaLabel,
 }) => {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -74,7 +83,12 @@ export const Carousel: React.FC<CarouselProps> = ({
         `}
       >
         {items.map((child, i) => (
-          <div key={i} className={`snap-center shrink-0 ${cardWidth} md:w-auto md:shrink`}>
+          <div
+            key={i}
+            className={`snap-center shrink-0 ${cardWidth} md:w-auto md:shrink ${
+              itemClasses?.[i] ?? ''
+            }`}
+          >
             {child}
           </div>
         ))}
