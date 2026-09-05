@@ -1,0 +1,8 @@
+{
+  "name": "Les Marronniers El Jadida",
+  "description": "Site officiel de l'établissement scolaire privé Les Marronniers El Jadida — Crèche, Maternelle et Primaire (CP au CE6). 16 Lot Al Asdikaa, Rue Beethoven, Plateau, El Jadida.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

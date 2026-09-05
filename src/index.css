@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --tokens--background-base: #feeddb;
+    --tokens--background-alt: #ffffff;
+    --tokens--surface: #ecd9c5;
+    --tokens--text-primary: #084274;
+    --tokens--text-secondary: rgba(11, 60, 102, 0.8);
+    --tokens--text-tertiary: rgba(10, 67, 115, 0.8);
+    --tokens--accent: #e3a044;
+    --tokens--border: #246ae8;
+    --tokens--border-strong: #1e55b7;
+    --tokens--primary: #084274;
+    --tokens--primary-hover: #05335b;
+
+    --font-heading: 'Aref Ruqaa Ink', cursive, Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: #084274;
+    background-color: #feeddb;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Aref Ruqaa Ink', cursive, Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+
+  :focus-visible {
+    outline: 3px solid #e3a044 !important;
+    outline-offset: 3px !important;
+  }
+}
+
+/* Signature Ovo Giggle Utility Classes */
+.font-heading {
+  font-family: 'Aref Ruqaa Ink', cursive, Georgia, serif;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Giggle Pill Tag - 0px radius */
+.giggle-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background-color:  rgba(0, 0, 0, 0.05);
+  color: #084274;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.giggle-dot {
+  width: 8px;
+  height: 8px;
+  border-radius:  0px;
+  background-color: #084274;
+  flex-shrink: 0;
+}
+
+/* Giggle Primary Navy Button - 0px radius */
+.giggle-button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #084274;
+  color: #feeddb;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 34px;
+  border-radius: 9999px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(8, 66, 116, 0.15);
+}
+
+.giggle-button-primary:hover {
+  background-color: #05335b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(8, 66, 116, 0.22);
+}
+
+/* Giggle Secondary Cream/White Button - 0px radius */
+.giggle-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #ffffff;
+  color: #084274;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  border: 1px solid rgba(8, 66, 116, 0.15);
+  transition: all 0.2s ease-in-out;
+}
+
+.giggle-button-secondary:hover {
+  background-color: #feeddb;
+  transform: translateY(-2px);
+  border-color: rgba(8, 66, 116, 0.3);
+}
+
+/* Giggle Amber Accent Button - 0px radius */
+.giggle-button-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #e3a044;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 14px rgba(227, 160, 68, 0.3);
+}
+
+.giggle-button-accent:hover {
+  background-color: #c9882e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(227, 160, 68, 0.4);
+}
+
+/* Giggle Bento Tilted Backdrops - 0px radius */
+.tilted-blue-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #084274;
+  transform: skew(-2deg) rotate(2deg);
+  border-radius: 9999px;
+  z-index: 1;
+}
+
+.tilted-orange-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #e3a044;
+  width: 105%;
+  transform: skew(-1deg) rotate(-2deg);
+  border-radius: 9999px;
+  z-index: 0;
+}
+
+/* Wavy & vibrant animations */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(8px) rotate(-1deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 4.5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
