@@ -37,6 +37,8 @@ import { ParentsPage } from './pages/ParentsPage';
 import { ActualitesPage } from './pages/ActualitesPage';
 import { InscriptionPage } from './pages/InscriptionPage';
 import { ContactPage } from './pages/ContactPage';
+import { ArticlePage } from './pages/ArticlePage';
+import { AdminPage } from './pages/AdminPage';
 
 type View =
   | 'home'
@@ -47,7 +49,9 @@ type View =
   | 'parents'
   | 'actualites'
   | 'inscription'
-  | 'contact';
+  | 'contact'
+  | 'article'
+  | 'admin';
 
 /** Chaque ancien PageId pointe vers sa vue canonique — aucun lien cassé. */
 const ALIASES: Record<string, View> = {
@@ -74,16 +78,27 @@ const ALIASES: Record<string, View> = {
   galerie: 'actualites',
   inscription: 'inscription',
   contact: 'contact',
+  admin: 'admin',
 };
+
+/** Préfixe des liens d'article : #actu-mon-titre */
+const ARTICLE_PREFIX = 'actu-';
 
 const toView = (p: string): View => ALIASES[p] ?? 'home';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageId>('home');
+  const [articleSlug, setArticleSlug] = useState('');
 
   useEffect(() => {
     const readHash = () => {
       const hash = window.location.hash.replace('#', '');
+      if (hash.startsWith(ARTICLE_PREFIX)) {
+        setArticleSlug(hash.slice(ARTICLE_PREFIX.length));
+        setCurrentPage('article' as PageId);
+        return;
+      }
+      setArticleSlug('');
       setCurrentPage(hash in ALIASES ? (hash as PageId) : 'home');
     };
     readHash();
@@ -105,15 +120,24 @@ export default function App() {
     handleNavigate('inscription');
   };
 
-  const view = toView(currentPage);
+  const handleOpenArticle = (slug: string) => {
+    setArticleSlug(slug);
+    setCurrentPage('article' as PageId);
+    window.location.hash = `${ARTICLE_PREFIX}${slug}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const view: View = currentPage === ('article' as PageId) ? 'article' : toView(currentPage);
 
   return (
     <div className="min-h-screen bg-[#feeddb] text-[#084274] flex flex-col antialiased selection:bg-[#e3a044] selection:text-white font-body">
+      {view !== 'admin' && (
       <Navbar
         currentPage={view as PageId}
         onNavigate={handleNavigate}
         onOpenAdmissions={handleOpenAdmissions}
       />
+      )}
 
       <main className="flex-1 pb-16 md:pb-0 overflow-x-hidden">
         <AnimatePresence mode="wait">
@@ -160,7 +184,16 @@ export default function App() {
             {view === 'vie-scolaire' && <VieScolairePage />}
             {view === 'campus' && <CampusPage onOpenAdmissions={handleOpenAdmissions} />}
             {view === 'parents' && <ParentsPage />}
-            {view === 'actualites' && <ActualitesPage />}
+            {view === 'actualites' && <ActualitesPage onOpenArticle={handleOpenArticle} />}
+            {view === 'article' && (
+              <ArticlePage
+                slug={articleSlug}
+                onBack={() => handleNavigate('actualites')}
+                onOpenArticle={handleOpenArticle}
+                onOpenAdmissions={() => handleOpenAdmissions()}
+              />
+            )}
+            {view === 'admin' && <AdminPage />}
             {view === 'inscription' && (
               <InscriptionPage onOpenAdmissions={() => handleNavigate('contact')} />
             )}
@@ -169,8 +202,8 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      <Footer onNavigate={handleNavigate} />
-      <MobileBottomBar onOpenAdmissions={() => handleOpenAdmissions()} />
+      {view !== 'admin' && <Footer onNavigate={handleNavigate} />}
+      {view !== 'admin' && <MobileBottomBar onOpenAdmissions={() => handleOpenAdmissions()} />}
     </div>
   );
 }

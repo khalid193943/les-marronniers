@@ -31,7 +31,12 @@ npm run dev        # prévisualiser en local (http://localhost:3000)
 npm run build      # régénérer le dossier dist/
 ```
 
-## Architecture du site (9 vues)
+## 🔐 Espace administration
+Accessible sur `#admin` (mot de passe par défaut : `marronniers2026` — **à changer** dans `src/data/adminConfig.ts`).
+Permet de publier les actualités et de consulter les demandes des parents.
+Voir le guide complet : **GUIDE-ADMIN.md**.
+
+## Architecture du site (10 vues)
 | URL (#hash) | Contenu |
 |---|---|
 | `/` | Accueil |
@@ -43,5 +48,7 @@ npm run build      # régénérer le dossier dist/
 | `#actualites` | Actualités & Galerie |
 | `#inscription` | Inscription (4 étapes) |
 | `#contact` | Contact & plan |
+| `#actu-<slug>` | Lecture d'un article |
+| `#admin` | Espace administration (réservé) |
 
 Les anciennes adresses (`#niveaux`, `#pedagogie`, `#galerie`, `#faq`, `#locaux`, `#about-…`, etc.) **fonctionnent toujours** : elles redirigent automatiquement vers la bonne page. Aucun lien partagé n'est cassé.

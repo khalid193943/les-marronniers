@@ -14,11 +14,12 @@ import { PageHero } from '../design-system/giggle/PageHero';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { DoodleHeart, DoodleStar } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
+import { ColorCardsGrid, type ColorCard } from '../design-system/giggle/ColorCardsGrid';
 
-const COMMUNICATION = [
-  { icon: NotebookPen, title: 'Cahier de Liaison', line: 'Le fil quotidien entre la classe et la maison.' },
-  { icon: MessageCircle, title: 'Rencontres Individuelles', line: 'Un rendez-vous avec l’enseignante, quand vous voulez.' },
-  { icon: CalendarHeart, title: 'Événements Familles', line: 'Fêtes, spectacles et portes ouvertes toute l’année.' },
+const COMMUNICATION: ColorCard[] = [
+  { icon: NotebookPen, title: 'Cahier de Liaison', line: 'Le fil quotidien entre la classe et la maison.', tone: 'sky' },
+  { icon: MessageCircle, title: 'Rencontres Individuelles', line: 'Un rendez-vous avec l’enseignante, quand vous voulez.', tone: 'sun' },
+  { icon: CalendarHeart, title: 'Événements Familles', line: 'Fêtes, spectacles et portes ouvertes toute l’année.', tone: 'coral' },
 ];
 
 const FAQ = [
@@ -47,30 +48,10 @@ export const ParentsPage: React.FC = () => {
       {/* Communication */}
       <section className="bg-white py-16 sm:py-24 overflow-hidden relative">
         <DoodleHeart className="hidden lg:block absolute top-10 left-[8%] w-10 text-[#d95f43]/40 pointer-events-none" />
-        <div className="max-w-5xl mx-auto px-4 sm:px-8">
-          <SectionIntro tag="Communication" title="Toujours Informés" className="mb-14" />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            {COMMUNICATION.map((c, idx) => {
-              const Icon = c.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  initial={reduce ? undefined : { opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-60px' }}
-                  transition={{ duration: 0.5, delay: idx * 0.08 }}
-                  className="bg-[#084274]/6 border border-[#084274]/10 p-7 text-center"
-                >
-                  <span className="w-12 h-12 rounded-full bg-[#084274] text-[#e3a044] flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-5 h-5" strokeWidth={1.8} />
-                  </span>
-                  <h3 className="font-heading text-lg text-[#084274] mb-2">{c.title}</h3>
-                  <p className="font-body text-sm text-[#084274]/70 leading-relaxed">{c.line}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
+        <ColorCardsGrid
+          heading="Vous savez toujours ce que vit votre enfant à l’école."
+          cards={COMMUNICATION}
+        />
       </section>
 
       <SectionDivider variant="cream" position="top" style="wave2" />

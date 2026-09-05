@@ -1,0 +1,35 @@
+[
+  {
+    "id": "seed-rentree-2026",
+    "slug": "inscriptions-rentree-2026-2027",
+    "title": "Les inscriptions 2026-2027 sont ouvertes",
+    "category": "Inscriptions",
+    "date": "2026-09-01",
+    "cover": "https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f036a33ba6cc4b748_Images%20(1).avif",
+    "excerpt": "De la Toute Petite Section au CE6, les places sont limitées par classe pour garantir l'attention de chacun.",
+    "body": "Nous accueillons les inscriptions pour l'année scolaire 2026-2027, de la Toute Petite Section jusqu'au CE6.\n\nNos effectifs sont volontairement limités par classe. Cela nous permet de connaître chaque enfant, de suivre son rythme et de garder un lien direct avec chaque famille.\n\nLa démarche est simple : vous prenez rendez-vous, vous visitez le campus, vous rencontrez l'équipe, puis vous déposez le dossier. Sans engagement.\n\nPour organiser votre visite, appelez le secrétariat ou remplissez le formulaire de pré-inscription en ligne.",
+    "featured": true
+  },
+  {
+    "id": "seed-ateliers",
+    "slug": "nos-ateliers-eveil",
+    "title": "Théâtre, musique, échecs : nos ateliers d'éveil",
+    "category": "Vie scolaire",
+    "date": "2026-08-20",
+    "cover": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1000&q=80",
+    "excerpt": "Chaque après-midi, les enfants explorent une activité qui développe leur confiance et leur curiosité.",
+    "body": "Notre cinéma-théâtre, notre salle d'éveil scientifique et notre salle de psychomotricité accueillent chaque semaine des ateliers pensés pour compléter les apprentissages.\n\nAu théâtre, les enfants apprennent à prendre la parole devant les autres. Au club d'échecs, ils travaillent la concentration et l'anticipation. En musique, ils découvrent le rythme et le chant choral. Au cinéma, ils regardent, comprennent et débattent.\n\nCes moments ne sont pas des récompenses : ils font partie intégrante de notre pédagogie.",
+    "featured": false
+  },
+  {
+    "id": "seed-visite",
+    "slug": "ecole-vue-de-linterieur",
+    "title": "L'école vue de l'intérieur",
+    "category": "Nos campus",
+    "date": "2026-08-10",
+    "cover": "https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f37bdd99338f62c1c_Images%20(3).avif",
+    "excerpt": "Salles lumineuses, matériel importé d'Europe, cour avec revêtement anti-choc : découvrez nos espaces.",
+    "body": "Nos deux campus ont été pensés à hauteur d'enfant.\n\nSix salles de classe spacieuses et ensoleillées, une salle d'éveil scientifique, un espace cinéma-théâtre, une salle de psychomotricité et une grande cour-jardin avec revêtement anti-choc et anti-dérapant.\n\nLe matériel et les jeux sont importés d'Europe, conçus par des spécialistes de la petite enfance.\n\nLa meilleure façon de s'en rendre compte reste la visite : contactez-nous pour venir voir par vous-même.",
+    "featured": false
+  }
+]

@@ -176,6 +176,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
               >
                 Contact
               </button>
+              <button
+                onClick={() => onNavigate('admin' as PageId)}
+                className="px-3 py-1.5 bg-white/5 hover:bg-white/15 text-[#feeddb]/50 hover:text-[#feeddb] transition-colors cursor-pointer"
+                title="Espace réservé à l'école"
+              >
+                Administration
+              </button>
             </div>
           </div>
         </div>

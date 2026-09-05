@@ -12,6 +12,7 @@ import { Calendar, HeartHandshake, ShieldCheck, Sparkles, Users } from 'lucide-r
 import { PageHero } from '../design-system/giggle/PageHero';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { PhotoStack } from '../design-system/giggle/PhotoStack';
+import { PhotoCollage } from '../design-system/giggle/PhotoCollage';
 import { Squiggle } from '../design-system/giggle/Squiggle';
 import { DoodleHeart, DoodleStar } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
@@ -48,13 +49,13 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
       {/* Histoire — 50/50 avec pile de photos */}
       <section className="bg-white py-16 sm:py-24 overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-          <PhotoStack
-            className="aspect-[4/3] max-w-md mx-auto w-full"
+          <PhotoCollage
             photos={[
               { src: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f036a33ba6cc4b748_Images%20(1).avif', alt: 'La vie à l’école Les Marronniers' },
               { src: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80', alt: 'Une enseignante avec ses élèves' },
+              { src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80', alt: 'Atelier créatif' },
+              { src: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f37bdd99338f62c1c_Images%20(3).avif', alt: 'Enfants en activité' },
             ]}
-            backers={['#e3a044', '#084274']}
           />
           <motion.div
             initial={reduce ? undefined : { opacity: 0, x: 30 }}

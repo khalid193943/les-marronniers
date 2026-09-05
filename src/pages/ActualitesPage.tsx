@@ -2,24 +2,23 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  * Les Marronniers — Page "Actualités & Galerie"
- * Consolide : actualites + galerie.
- * Actus courtes + galerie façon polaroids inclinés.
+ * Article à la une + liste en lignes avec vignettes (inspiré de la référence
+ * "Featured Programs"), réseaux sociaux, puis galerie polaroids.
  */
 
 import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
-import { CalendarDays } from 'lucide-react';
+import { CalendarDays, ArrowUpRight } from 'lucide-react';
 import { PageHero } from '../design-system/giggle/PageHero';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { DoodleSun, DoodleStar } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
 import { SocialSection } from '../components/SocialSection';
+import { getPosts, formatDate, NewsPost } from '../lib/newsStore';
 
-const ACTUS = [
-  { date: 'Rentrée 2026-2027', title: 'Inscriptions Ouvertes', line: 'De la Toute Petite Section au CE6 — places limitées par classe.', backer: '#e3a044' },
-  { date: 'Toute l’année', title: 'Ateliers d’Éveil', line: 'Théâtre, chant, cinéma et éveil scientifique dans nos salles dédiées.', backer: '#38926c' },
-  { date: 'En vidéo', title: 'L’École Vue de l’Intérieur', line: 'Découvrez nos espaces et notre ambiance en images.', backer: '#d95f43' },
-];
+interface ActualitesPageProps {
+  onOpenArticle: (slug: string) => void;
+}
 
 const GALERIE = [
   { src: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80', alt: 'En classe', rot: -3 },
@@ -32,53 +31,115 @@ const GALERIE = [
   { src: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80', alt: 'Éveil musical', rot: -2 },
 ];
 
-export const ActualitesPage: React.FC = () => {
+export const ActualitesPage: React.FC<ActualitesPageProps> = ({ onOpenArticle }) => {
   const reduce = useReducedMotion();
+  const posts = getPosts();
+  const featured: NewsPost | undefined = posts.find((p) => p.featured) ?? posts[0];
+  const rest = posts.filter((p) => p.id !== featured?.id);
 
   return (
     <div>
       <PageHero
-        tag="Actualités & galerie"
-        title="La Vie de l’École en Images"
+        tag="Actualités"
+        title="La Vie de l’École"
         line="Ce qui se passe en ce moment aux Marronniers."
       />
       <SectionDivider variant="white" position="top" style="wave1" />
 
-      {/* Actus — 3 cartes */}
-      <section className="bg-white py-16 sm:py-24 overflow-hidden relative">
-        <DoodleSun className="hidden lg:block absolute top-10 right-[8%] w-11 text-[#e3a044]/50 pointer-events-none" />
+      <section className="bg-white py-14 sm:py-20 overflow-hidden relative">
+        <DoodleSun className="hidden lg:block absolute top-10 right-[6%] w-11 text-[#e3a044]/50 pointer-events-none" />
         <div className="max-w-5xl mx-auto px-4 sm:px-8">
-          <SectionIntro tag="En ce moment" title="Les Prochains Rendez-vous" className="mb-14" />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-8 max-w-4xl mx-auto">
-            {ACTUS.map((a, idx) => {
-              const rotate = idx % 2 === 0 ? -2 : 2;
-              return (
-                <motion.article
-                  key={idx}
-                  initial={reduce ? undefined : { opacity: 0, y: 28, rotate: rotate * 3 }}
-                  whileInView={{ opacity: 1, y: 0, rotate }}
-                  viewport={{ once: true, margin: '-60px' }}
-                  transition={{ type: 'spring', stiffness: 55, damping: 13, delay: idx * 0.08 }}
-                  whileHover={{ rotate: 0, y: -5 }}
-                  className="relative group"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-0"
-                    style={{ backgroundColor: a.backer, transform: `rotate(${-rotate * 1.6}deg) translate(8px, 8px)` }}
-                  />
-                  <div className="relative z-10 bg-[#084274] p-7 shadow-lg min-h-[190px] flex flex-col">
-                    <span className="inline-flex items-center gap-2 text-[11px] font-bold text-[#e3a044] mb-3">
-                      <CalendarDays className="w-3.5 h-3.5" />
-                      {a.date}
-                    </span>
-                    <h3 className="font-heading text-xl text-[#feeddb] mb-2">{a.title}</h3>
-                    <p className="font-body text-[13px] text-[#feeddb]/70 leading-relaxed">{a.line}</p>
-                  </div>
-                </motion.article>
-              );
-            })}
-          </div>
+
+          {/* Article à la une */}
+          {featured && (
+            <motion.article
+              initial={reduce ? undefined : { opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              onClick={() => onOpenArticle(featured.slug)}
+              className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 sm:mb-20 cursor-pointer group"
+            >
+              <div className="relative">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-[#e3a044] transition-transform duration-300 group-hover:translate-x-1.5 group-hover:translate-y-1.5"
+                  style={{ transform: 'rotate(-2deg) translate(10px,10px)' }}
+                />
+                <div className="relative z-10 aspect-[4/3] overflow-hidden shadow-xl border-[6px] border-white">
+                  {featured.cover && (
+                    <img
+                      src={featured.cover}
+                      alt={featured.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  )}
+                </div>
+              </div>
+              <div>
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-[11px] font-bold text-[#084274] mb-4">
+                  <CalendarDays className="w-3.5 h-3.5 text-[#e3a044]" />
+                  {featured.category} · {formatDate(featured.date)}
+                </span>
+                <h2 className="font-heading text-3xl sm:text-4xl text-[#084274] leading-tight mb-4">
+                  {featured.title}
+                </h2>
+                <p className="font-body text-base text-[#084274]/70 leading-relaxed mb-6">
+                  {featured.excerpt}
+                </p>
+                <span className="inline-flex items-center gap-3 font-body font-bold text-sm text-[#084274]">
+                  Lire l’article
+                  <span className="w-9 h-9 rounded-full bg-[#084274] text-[#e3a044] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+                    <ArrowUpRight className="w-4 h-4" strokeWidth={2.2} />
+                  </span>
+                </span>
+              </div>
+            </motion.article>
+          )}
+
+          {/* Autres articles en lignes */}
+          {rest.length > 0 && (
+            <>
+              <SectionIntro tag="Toutes les actualités" title="À Lire Aussi" className="mb-10" />
+              <div className="flex flex-col gap-4">
+                {rest.map((p, idx) => (
+                  <motion.article
+                    key={p.id}
+                    initial={reduce ? undefined : { opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-50px' }}
+                    transition={{ duration: 0.5, delay: idx * 0.06 }}
+                    whileHover={{ x: 6 }}
+                    onClick={() => onOpenArticle(p.slug)}
+                    className="flex items-center gap-5 sm:gap-8 bg-[#084274]/6 hover:bg-[#084274]/10 border border-[#084274]/10 rounded-2xl p-4 sm:p-5 cursor-pointer transition-colors group"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <span className="font-body text-[10px] font-bold text-[#e3a044]">
+                        {p.category} · {formatDate(p.date)}
+                      </span>
+                      <h3 className="font-heading text-lg sm:text-xl text-[#084274] mt-1 mb-1.5">{p.title}</h3>
+                      <p className="font-body text-[13px] text-[#084274]/65 leading-relaxed">{p.excerpt}</p>
+                    </div>
+                    <div className="w-28 h-24 sm:w-40 sm:h-28 shrink-0 rounded-xl overflow-hidden bg-[#084274]/10">
+                      {p.cover && (
+                        <img
+                          src={p.cover}
+                          alt={p.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      )}
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+            </>
+          )}
+
+          {posts.length === 0 && (
+            <p className="font-body text-center text-[#084274]/60 py-10">
+              Les premières actualités arrivent bientôt.
+            </p>
+          )}
         </div>
       </section>
 

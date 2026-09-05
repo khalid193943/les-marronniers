@@ -12,6 +12,7 @@ import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { Send, PartyPopper, MessageCircle, Loader2 } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolInfo';
 import { DoodleStar } from '../design-system/giggle/Doodles';
+import { logSubmission } from '../lib/submissionsStore';
 
 /* ----------------------------- outils communs ----------------------------- */
 
@@ -101,6 +102,7 @@ export const ContactForm: React.FC = () => {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({ 'form-name': 'contact', ...data }),
       });
+      logSubmission('contact', data);
       if (!res.ok) throw new Error();
       setStatus('success');
     } catch {
@@ -188,6 +190,7 @@ export const PreInscriptionForm: React.FC = () => {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({ 'form-name': 'pre-inscription', ...data }),
       });
+      logSubmission('pre-inscription', data);
       if (!res.ok) throw new Error();
       setStatus('success');
     } catch {

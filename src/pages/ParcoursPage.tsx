@@ -14,6 +14,7 @@ import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { Squiggle } from '../design-system/giggle/Squiggle';
 import { DoodleReading, DoodleBlocks, DoodleGrow, DoodleSun } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
+import { ColorCardsGrid, type ColorCard } from '../design-system/giggle/ColorCardsGrid';
 
 interface ParcoursPageProps {
   onOpenAdmissions: () => void;
@@ -55,11 +56,11 @@ const NIVEAUX = [
   },
 ];
 
-const PILIERS = [
-  { icon: Puzzle, title: 'Apprendre en Jouant', line: 'Manipulation, jeu et expérimentation avant l’abstraction.' },
-  { icon: Brain, title: 'Pédagogie Positive', line: 'Encourager, valoriser l’effort, respecter chaque rythme.' },
-  { icon: Languages, title: 'Trois Langues', line: 'Français, arabe et anglais dès la maternelle.' },
-  { icon: BookOpen, title: 'Fondamentaux Solides', line: 'Lecture, écriture, calcul travaillés chaque jour.' },
+const PILIERS: ColorCard[] = [
+  { icon: Puzzle, title: 'Apprendre en Jouant', line: 'Manipulation, jeu et expérimentation avant l’abstraction.', tone: 'sky' },
+  { icon: Brain, title: 'Pédagogie Positive', line: 'Encourager, valoriser l’effort, respecter chaque rythme.', tone: 'sun' },
+  { icon: Languages, title: 'Trois Langues', line: 'Français, arabe et anglais dès la maternelle.', tone: 'coral' },
+  { icon: BookOpen, title: 'Fondamentaux Solides', line: 'Lecture, écriture, calcul travaillés chaque jour.', tone: 'green' },
 ];
 
 export const ParcoursPage: React.FC<ParcoursPageProps> = ({ onOpenAdmissions }) => {
@@ -136,43 +137,12 @@ export const ParcoursPage: React.FC<ParcoursPageProps> = ({ onOpenAdmissions }) 
       {/* Piliers pédagogiques */}
       <section className="bg-white py-16 sm:py-24 overflow-hidden relative">
         <DoodleSun className="hidden lg:block absolute top-12 right-[10%] w-11 text-[#e3a044]/50 pointer-events-none" />
-        <div className="max-w-5xl mx-auto px-4 sm:px-8">
-          <SectionIntro
-            tag="Notre pédagogie"
-            title="Comment Nous Enseignons"
-            className="mb-14"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-3xl mx-auto mb-14">
-            {PILIERS.map((p, idx) => {
-              const Icon = p.icon;
-              return (
-                <motion.div
-                  key={idx}
-                  initial={reduce ? undefined : { opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-60px' }}
-                  transition={{ duration: 0.5, delay: idx * 0.07 }}
-                  className="flex items-start gap-4 bg-[#084274]/6 border border-[#084274]/10 p-6"
-                >
-                  <span className="w-11 h-11 shrink-0 rounded-full bg-[#084274] text-[#e3a044] flex items-center justify-center">
-                    <Icon className="w-5 h-5" strokeWidth={1.8} />
-                  </span>
-                  <div>
-                    <h3 className="font-heading text-lg text-[#084274] mb-1">{p.title}</h3>
-                    <p className="font-body text-sm text-[#084274]/70 leading-relaxed">{p.line}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          <div className="text-center">
-            <button onClick={onOpenAdmissions} className="giggle-button-primary cursor-pointer inline-flex items-center gap-3">
-              <Calendar className="w-4 h-4 text-[#e3a044]" />
-              <span>Inscrire mon enfant</span>
-            </button>
-          </div>
-        </div>
+        <ColorCardsGrid
+          heading="Une pédagogie qui donne envie d’apprendre, chaque jour."
+          ctaLabel="Inscrire mon enfant"
+          onCta={onOpenAdmissions}
+          cards={PILIERS}
+        />
       </section>
     </div>
   );

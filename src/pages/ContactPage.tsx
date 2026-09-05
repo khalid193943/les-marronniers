@@ -38,6 +38,42 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
         title="Venez Nous Rencontrer"
         line="Au Plateau, à El Jadida — on vous attend avec plaisir."
       />
+      {/* Bandeau 3 informations clés (style référence Giggle) */}
+      <section className="bg-[#feeddb] pb-14 sm:pb-16 overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+          {[
+            { label: 'Téléphone', value: SCHOOL_INFO.phone, href: `tel:${SCHOOL_INFO.phoneRaw}` },
+            { label: 'Adresse', value: 'Rue Beethoven, Plateau — El Jadida', href: SCHOOL_INFO.campuses[0].mapsUrl },
+            { label: 'Horaires', value: SCHOOL_INFO.hours, href: undefined },
+          ].map((info, idx) => {
+            const inner = (
+              <div className="h-full bg-[#084274]/8 border border-[#084274]/12 px-6 py-5 hover:bg-[#084274]/12 transition-colors">
+                <span className="flex items-center gap-2 font-heading text-xl text-[#084274] mb-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#e3a044]" />
+                  {info.label}
+                </span>
+                <span className="block font-body text-sm text-[#084274]/75">{info.value}</span>
+              </div>
+            );
+            return (
+              <motion.div
+                key={idx}
+                initial={reduce ? undefined : { opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+              >
+                {info.href ? (
+                  <a href={info.href} target={info.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer" className="block h-full">
+                    {inner}
+                  </a>
+                ) : inner}
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
+
       <SectionDivider variant="white" position="top" style="wave1" />
 
       <section className="bg-white py-16 sm:py-24 overflow-hidden relative">

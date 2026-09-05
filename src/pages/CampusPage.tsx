@@ -13,6 +13,9 @@ import { PageHero } from '../design-system/giggle/PageHero';
 import { SCHOOL_INFO } from '../data/schoolInfo';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { PhotoStack } from '../design-system/giggle/PhotoStack';
+import { PhotoCollage } from '../design-system/giggle/PhotoCollage';
+import { ExpandBars, type ExpandBarItem } from '../design-system/giggle/ExpandBars';
+import { ColorCardsGrid, type ColorCard } from '../design-system/giggle/ColorCardsGrid';
 import { DoodleSun, DoodleSpiral } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
 
@@ -20,22 +23,39 @@ interface CampusPageProps {
   onOpenAdmissions: () => void;
 }
 
-const EQUIPEMENTS = [
-  '6 salles de classe lumineuses',
-  'Salle d’éveil scientifique',
-  'Espace cinéma & théâtre',
-  'Salle de psychomotricité',
-  'Grande cour & jardin arboré',
-  'Sol anti-choc & anti-dérapant',
-  'Matériel importé d’Europe',
-  'Stationnement à proximité',
+const ESPACES: ExpandBarItem[] = [
+  {
+    title: 'Salles de classe',
+    color: 'navy',
+    body: 'Six salles spacieuses, lumineuses et ensoleillées, meublées à la taille des enfants. Le matériel didactique est importé d’Europe et conçu par des spécialistes de la petite enfance.',
+  },
+  {
+    title: 'Éveil scientifique',
+    color: 'green',
+    body: 'Un espace dédié à la manipulation sensorielle, à l’observation du vivant et à l’envie d’expérimenter. Les enfants touchent, testent et comprennent par eux-mêmes.',
+  },
+  {
+    title: 'Cinéma & théâtre',
+    color: 'sun',
+    body: 'Une vraie salle pour les représentations, les projections pédagogiques, le chant et l’expression orale. C’est là que les plus timides trouvent leur voix.',
+  },
+  {
+    title: 'Psychomotricité',
+    color: 'coral',
+    body: 'Modules mous, parcours d’équilibre et motricité globale dans un environnement entièrement sécurisé, pour explorer son corps sans crainte.',
+  },
+  {
+    title: 'Cour & jardin',
+    color: 'sky',
+    body: 'Un extérieur arboré avec jeux importés d’Europe, revêtement anti-choc et anti-dérapant. Les enfants courent, grimpent et se dépensent en sécurité.',
+  },
 ];
 
-const SECURITE = [
-  { icon: ShieldCheck, title: 'Accès Contrôlé', line: 'Entrées surveillées, remise des enfants aux seuls parents.' },
-  { icon: Eye, title: 'Encadrement Permanent', line: 'Un adulte présent à chaque instant, partout.' },
-  { icon: Footprints, title: 'Sols Amortissants', line: 'Revêtement anti-choc sur tous les espaces de jeu.' },
-  { icon: HeartPulse, title: 'Hygiène & Santé', line: 'Protocoles rigoureux, locaux nettoyés chaque jour.' },
+const SECURITE: ColorCard[] = [
+  { icon: ShieldCheck, title: 'Accès Contrôlé', line: 'Entrées surveillées, remise des enfants aux seuls parents.', tone: 'sky' },
+  { icon: Eye, title: 'Encadrement Permanent', line: 'Un adulte présent à chaque instant, partout.', tone: 'sun' },
+  { icon: Footprints, title: 'Sols Amortissants', line: 'Revêtement anti-choc sur tous les espaces de jeu.', tone: 'coral' },
+  { icon: HeartPulse, title: 'Hygiène & Santé', line: 'Protocoles rigoureux, locaux nettoyés chaque jour.', tone: 'green' },
 ];
 
 export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
@@ -123,37 +143,23 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
 
       <SectionDivider variant="cream" position="top" style="wave2" />
 
-      {/* Équipements en pilules */}
-      <section className="bg-[#feeddb] py-16 sm:py-20 overflow-hidden relative">
-        <DoodleSun className="hidden lg:block absolute top-10 right-[8%] w-11 text-[#e3a044]/60 pointer-events-none" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-8">
-          <SectionIntro tag="Équipements" title="Tout est Prévu" className="mb-10" />
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
-            className="flex flex-wrap justify-center gap-3"
-          >
-            {EQUIPEMENTS.map((e) => (
-              <motion.span
-                key={e}
-                variants={{
-                  hidden: reduce ? {} : { opacity: 0, y: 12, scale: 0.95 },
-                  visible: { opacity: 1, y: 0, scale: 1 },
-                }}
-                className="rounded-full bg-[#084274]/8 border border-[#084274]/12 px-5 py-2.5 text-sm font-semibold text-[#084274]"
-              >
-                {e}
-              </motion.span>
-            ))}
-          </motion.div>
+      {/* Nos espaces — barres dépliables */}
+      <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden relative">
+        <DoodleSun className="hidden lg:block absolute top-10 right-[6%] w-11 text-[#e3a044]/60 pointer-events-none" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-8">
+          <SectionIntro
+            tag="Nos espaces"
+            title="Tout est Prévu"
+            line="Touchez chaque espace pour découvrir ce qu’on y fait."
+            className="mb-14"
+          />
+          <ExpandBars items={ESPACES} sideLabel="NOS ESPACES" />
         </div>
       </section>
 
       <SectionDivider variant="blue" position="top" style="wave2" />
 
-      {/* Sécurité — section bleu marine */}
+      {/* Sécurité */}
       <section className="bg-[#084274] py-16 sm:py-24 overflow-hidden relative">
         <DoodleSpiral className="hidden lg:block absolute bottom-10 left-[6%] w-10 text-[#feeddb]/20 pointer-events-none" />
         <div className="max-w-5xl mx-auto px-4 sm:px-8">
@@ -173,7 +179,8 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.5, delay: idx * 0.08 }}
-                  className="bg-[#feeddb]/8 border border-[#feeddb]/15 p-6 text-center"
+                  whileHover={{ y: -6 }}
+                  className="bg-[#feeddb]/8 border border-[#feeddb]/15 rounded-2xl p-6 text-center"
                 >
                   <Icon className="w-7 h-7 text-[#e3a044] mx-auto mb-3" strokeWidth={1.7} />
                   <h3 className="font-heading text-lg text-[#feeddb] mb-1.5">{s.title}</h3>
@@ -183,10 +190,41 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
             })}
           </div>
           <div className="text-center">
-            <button onClick={onOpenAdmissions} className="giggle-button-accent cursor-pointer inline-flex items-center gap-3 bg-[#e3a044] text-[#084274] rounded-full px-8 py-4 font-bold text-[15px] hover:bg-[#f0b055] transition-colors">
+            <button onClick={onOpenAdmissions} className="cursor-pointer inline-flex items-center gap-3 bg-[#e3a044] text-[#084274] rounded-full px-8 py-4 font-bold text-[15px] hover:bg-[#f0b055] transition-colors">
               <Calendar className="w-4 h-4" />
               <span>Visiter les campus</span>
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Collage photo de la vie sur les campus */}
+      <SectionDivider variant="white" position="top" style="wave1" />
+      <section className="bg-white py-16 sm:py-24 overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+          <PhotoCollage
+            photos={[
+              { src: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80', alt: 'En classe aux Marronniers' },
+              { src: 'https://images.unsplash.com/photo-1596464716127-f2a829822301?auto=format&fit=crop&w=800&q=80', alt: 'Atelier en maternelle' },
+              { src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80', alt: 'Activité créative' },
+              { src: 'https://images.unsplash.com/photo-1567168544813-cc03465b4fa8?auto=format&fit=crop&w=800&q=80', alt: 'Jeux dans la cour' },
+            ]}
+          />
+          <div>
+            <SectionIntro
+              tag="Au quotidien"
+              title="Des Espaces qui Donnent Envie de Venir"
+              line="Chaque coin de l’école a été pensé pour que les enfants s’y sentent bien."
+              align="left"
+            />
+            <ul className="mt-8 flex flex-col gap-3">
+              {['Matériel importé d’Europe', 'Sols anti-choc dans toute la cour', 'Stationnement facile pour les parents', 'Accueil de 7h45 à 18h15'].map((item) => (
+                <li key={item} className="flex items-center gap-3 font-body text-[15px] text-[#084274]/80">
+                  <span className="w-5 h-5 rounded-full bg-[#e3a044] text-[#084274] flex items-center justify-center text-[11px] font-bold shrink-0">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
