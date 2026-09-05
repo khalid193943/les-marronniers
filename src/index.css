@@ -9,6 +9,19 @@
     --tokens--text-secondary: rgba(11, 60, 102, 0.8);
     --tokens--text-tertiary: rgba(10, 67, 115, 0.8);
     --tokens--accent: #e3a044;
+
+    /* Bleu officiel du logo Les Marronniers (#0086D9) et son échelle.
+       Le navy historique #084274 en est la nuance la plus foncée : la
+       palette est donc cohérente avec la marque imprimée. */
+    --brand-50:  #eaf6fd;
+    --brand-100: #cdeafa;
+    --brand-200: #9ad5f4;
+    --brand-300: #5cbbec;
+    --brand-400: #1f9fe1;
+    --brand-500: #0086d9;
+    --brand-600: #006cb3;
+    --brand-700: #00558d;
+    --brand-800: #084274;
     --tokens--border: #246ae8;
     --tokens--border-strong: #1e55b7;
     --tokens--primary: #084274;
@@ -86,7 +99,7 @@
 }
 
 .giggle-button-primary:hover {
-  background-color: #05335b;
+  background-color: #0086d9;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(8, 66, 116, 0.22);
 }

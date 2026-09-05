@@ -9,6 +9,7 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { CountUp } from './CountUp';
+import { SmartImage } from './SmartImage';
 
 interface StatBadge {
   value: number;
@@ -29,7 +30,7 @@ const TONES: Record<StatBadge['tone'], string> = {
   sun: 'linear-gradient(160deg, #fbe6b8 0%, #f0b429 100%)',
   coral: 'linear-gradient(160deg, #f8cec0 0%, #d95f43 100%)',
   green: 'linear-gradient(160deg, #c6e5d5 0%, #38926c 100%)',
-  sky: 'linear-gradient(160deg, #cfe2f8 0%, #3f78c4 100%)',
+  sky: 'linear-gradient(160deg, #cfe2f8 0%, #0086d9 100%)',
 };
 
 const CORNER_CLS: Record<StatBadge['corner'], string> = {
@@ -49,7 +50,7 @@ export const StatShowcase: React.FC<StatShowcaseProps> = ({ photo, badges, class
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="relative rounded-[28px] overflow-hidden shadow-xl aspect-[5/4]"
       >
-        <img src={photo.src} alt={photo.alt} className="w-full h-full object-cover" loading="lazy" />
+        <SmartImage src={photo.src} alt={photo.alt} className="w-full h-full object-cover" />
       </motion.div>
 
       {badges.map((b, i) => (

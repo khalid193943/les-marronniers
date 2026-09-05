@@ -9,6 +9,7 @@
 
 import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
+import { SmartImage } from './SmartImage';
 
 interface CollagePhoto {
   src: string;
@@ -58,12 +59,7 @@ export const PhotoCollage: React.FC<PhotoCollageProps> = ({ photos, className = 
             }}
             variants={{ spread: { rotate: l.rot * 1.6, scale: 1.02 } }}
           >
-            <img
-              src={p.src}
-              alt={p.alt}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
+            <SmartImage src={p.src} alt={p.alt} className="w-full h-full object-cover" />
           </motion.figure>
         );
       })}

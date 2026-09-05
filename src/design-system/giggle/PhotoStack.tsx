@@ -10,6 +10,7 @@
 
 import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
+import { SmartImage } from './SmartImage';
 
 interface StackPhoto {
   src: string;
@@ -75,12 +76,7 @@ export const PhotoStack: React.FC<PhotoStackProps> = ({
         viewport={{ once: true, margin: '-60px' }}
         transition={{ type: 'spring', stiffness: 70, damping: 15, delay: 0.15 }}
       >
-        <img
-          src={main.src}
-          alt={main.alt}
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
+        <SmartImage src={main.src} alt={main.alt} className="w-full h-full object-cover" />
       </motion.div>
 
       {/* Photos secondaires qui se posent par-dessus */}
@@ -105,12 +101,7 @@ export const PhotoStack: React.FC<PhotoStackProps> = ({
             }}
             variants={{ fan: { rotate: layout.hoverRot, scale: 1.03 } }}
           >
-            <img
-              src={p.src}
-              alt={p.alt}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
+            <SmartImage src={p.src} alt={p.alt} className="w-full h-full object-cover" />
           </motion.div>
         );
       })}

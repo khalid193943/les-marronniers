@@ -31,9 +31,9 @@ interface ColorCardsGridProps {
 
 const TONES: Record<ColorCard['tone'], { bg: string; text: string; icon: string }> = {
   sky: {
-    bg: 'linear-gradient(160deg, #cfe2f8 0%, #b3d1f2 100%)',
+    bg: 'linear-gradient(160deg, #cdeafa 0%, #9ad5f4 100%)',
     text: 'text-[#084274]',
-    icon: 'text-[#084274]',
+    icon: 'text-[#0086d9]',
   },
   sun: {
     bg: 'linear-gradient(160deg, #fbe6b8 0%, #f5d089 100%)',
@@ -51,7 +51,7 @@ const TONES: Record<ColorCard['tone'], { bg: string; text: string; icon: string 
     icon: 'text-[#084274]',
   },
   navy: {
-    bg: 'linear-gradient(160deg, #0d5590 0%, #084274 100%)',
+    bg: 'linear-gradient(160deg, #0086d9 0%, #084274 100%)',
     text: 'text-[#feeddb]',
     icon: 'text-[#e3a044]',
   },
@@ -65,9 +65,12 @@ export const ColorCardsGrid: React.FC<ColorCardsGridProps> = ({
   className = '',
 }) => {
   const reduce = useReducedMotion();
-  // Les 2 premières cartes se placent à droite du titre, le reste sur la ligne du bas
-  const top = cards.slice(0, 2);
-  const bottom = cards.slice(2);
+  // Répartition : avec peu de cartes, tout se place à côté du titre sur une
+  // seule ligne. Au-delà, deux cartes montent à côté du titre et le reste
+  // forme une rangée complète en dessous.
+  const compact = cards.length <= 3;
+  const top = compact ? cards : cards.slice(0, 2);
+  const bottom = compact ? [] : cards.slice(2);
 
   const renderCard = (card: ColorCard, idx: number, delay: number) => {
     const Icon = card.icon;
@@ -96,7 +99,13 @@ export const ColorCardsGrid: React.FC<ColorCardsGridProps> = ({
 
   return (
     <div className={`max-w-6xl mx-auto px-4 sm:px-8 ${className}`}>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+      <div
+        className={`grid grid-cols-1 gap-6 mb-6 ${
+          compact && cards.length === 3
+            ? 'lg:grid-cols-4'
+            : 'lg:grid-cols-3'
+        }`}
+      >
         {/* Bloc titre + CTA */}
         <motion.div
           initial={reduce ? undefined : { opacity: 0, y: 22 }}

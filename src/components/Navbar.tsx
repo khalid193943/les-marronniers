@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Calendar, Phone } from 'lucide-react';
 import { PageId } from '../types';
 import { SCHOOL_INFO } from '../data/schoolInfo';
+import { Logo } from '../design-system/giggle/Logo';
 
 interface NavbarProps {
   currentPage: PageId;
@@ -60,15 +61,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
         {/* Logo */}
         <button
           onClick={() => go('home')}
-          className="flex items-center gap-2.5 cursor-pointer group"
+          className="flex items-center cursor-pointer group"
           aria-label="Accueil Les Marronniers"
         >
-          <span className="w-9 h-9 rounded-full bg-[#084274] text-[#e3a044] font-heading text-lg flex items-center justify-center group-hover:rotate-6 transition-transform">
-            M
-          </span>
-          <span className="font-heading text-lg lg:text-xl text-[#084274] leading-none">
-            Les Marronniers
-          </span>
+          <Logo
+            variant="badge"
+            className="text-[15px] lg:text-[17px] rounded-lg shadow-sm group-hover:scale-[1.03] transition-transform"
+          />
         </button>
 
         {/* Liens desktop */}
@@ -81,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
                 onClick={() => go(l.page)}
                 className={`relative px-3.5 py-2 rounded-full font-body text-[13.5px] font-semibold cursor-pointer transition-colors ${
                   active
-                    ? 'bg-[#084274]/10 text-[#084274]'
+                    ? 'bg-[#0086d9]/12 text-[#0086d9]'
                     : 'text-[#084274]/70 hover:text-[#084274] hover:bg-[#084274]/6'
                 }`}
               >

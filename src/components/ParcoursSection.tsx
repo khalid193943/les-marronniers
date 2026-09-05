@@ -56,10 +56,10 @@ const STAGES = [
     age: '6 – 8 ans',
     level: 'CP · CE1 · CE2',
     Doodle: DoodlePaint,
-    backer: '#5b8fd9', // bleu ciel
+    backer: '#0086d9', // bleu ciel
     rotate: -2,
     side: 'left' as const,
-    squiggle: { variant: 'loop-right' as const, color: '#5b8fd9' },
+    squiggle: { variant: 'loop-right' as const, color: '#0086d9' },
   },
   {
     id: 'niveaux-primaire' as PageId,

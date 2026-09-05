@@ -44,7 +44,7 @@ const CARDS = [
     icon: GraduationCap,
     title: 'Fondations Solides',
     line: 'Un parcours continu de 2 ans jusqu’au CE6, sans rupture.',
-    backer: '#5b8fd9',
+    backer: '#0086d9',
     rotate: -2,
   },
 ];

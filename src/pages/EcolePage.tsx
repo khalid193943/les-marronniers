@@ -27,7 +27,7 @@ interface EcolePageProps {
 const VALEURS = [
   { icon: HeartHandshake, title: 'Bienveillance', line: 'Une écoute attentive, au rythme de chaque enfant.', backer: '#d95f43', rotate: -2 },
   { icon: ShieldCheck, title: 'Sécurité', line: 'Protocoles rigoureux et encadrement permanent.', backer: '#e3a044', rotate: 2 },
-  { icon: Sparkles, title: 'Curiosité', line: 'Le désir d’apprendre par l’expérimentation.', backer: '#5b8fd9', rotate: 2 },
+  { icon: Sparkles, title: 'Curiosité', line: 'Le désir d’apprendre par l’expérimentation.', backer: '#0086d9', rotate: 2 },
   { icon: Users, title: 'Partenariat', line: 'Un dialogue transparent avec les familles.', backer: '#38926c', rotate: -2 },
 ];
 

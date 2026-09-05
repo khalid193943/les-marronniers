@@ -428,7 +428,7 @@ const InboxTab: React.FC = () => {
             <motion.div key={s.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
               className={`bg-white border rounded-xl p-5 ${s.read ? 'border-[#084274]/10 opacity-75' : 'border-[#084274]/20'}`}>
               <div className="flex flex-wrap items-center gap-3 mb-3">
-                <span className={`font-body text-[10px] font-bold px-2.5 py-1 rounded-full ${isInscription ? 'bg-[#38926c]/15 text-[#1f8a63]' : 'bg-[#5b8fd9]/15 text-[#3f78c4]'}`}>
+                <span className={`font-body text-[10px] font-bold px-2.5 py-1 rounded-full ${isInscription ? 'bg-[#38926c]/15 text-[#1f8a63]' : 'bg-[#0086d9]/15 text-[#0086d9]'}`}>
                   {isInscription ? 'Pré-inscription' : 'Message'}
                 </span>
                 <span className="font-heading text-lg text-[#084274]">{name}</span>

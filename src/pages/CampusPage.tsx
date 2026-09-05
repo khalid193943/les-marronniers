@@ -88,11 +88,24 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <SectionIntro
-              tag="Campus 1"
+              tag="Campus 1 · Rue Beethoven"
               title="Crèche & Maternelle"
               line="Un cocon doux et coloré où les tout-petits explorent en toute sécurité."
               align="left"
             />
+            <ul className="mt-7 flex flex-col gap-2.5">
+              {[
+                'Salle de psychomotricité avec modules adaptés',
+                'Cour-jardin au revêtement anti-choc',
+                'Mobilier et jeux importés d’Europe',
+                'Accueil dès 2 ans, en Toute Petite Section',
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 font-body text-[15px] text-[#084274]/80">
+                  <span className="w-5 h-5 rounded-full bg-[#0086d9] text-white flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
             <a
               href={SCHOOL_INFO.campuses[0].mapsUrl}
               target="_blank"
@@ -116,11 +129,24 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
             className="order-2 lg:order-1"
           >
             <SectionIntro
-              tag="Campus 2"
+              tag="Campus 2 · Avenue Varennes"
               title="Primaire"
               line="Des classes calmes et bien équipées pour se concentrer et réussir."
               align="left"
             />
+            <ul className="mt-7 flex flex-col gap-2.5">
+              {[
+                'Six salles lumineuses et spacieuses',
+                'Salle d’éveil scientifique équipée',
+                'Espace cinéma-théâtre pour l’expression',
+                'Parcours continu du CP jusqu’au CE6',
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 font-body text-[15px] text-[#084274]/80">
+                  <span className="w-5 h-5 rounded-full bg-[#38926c] text-white flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
             <a
               href={SCHOOL_INFO.campuses[1].mapsUrl}
               target="_blank"

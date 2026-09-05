@@ -25,7 +25,7 @@ interface InscriptionPageProps {
 const ETAPES = [
   { num: '1', title: 'Prenez Rendez-vous', line: 'Un appel ou un message suffit pour planifier votre visite.', backer: '#d95f43', side: 'left' as const, squiggle: { variant: 'loop-right' as const, color: '#38926c' } },
   { num: '2', title: 'Visitez le Campus', line: 'Découvrez les classes et rencontrez l’équipe éducative.', backer: '#e3a044', side: 'right' as const, squiggle: { variant: 'loop-left' as const, color: '#d95f43' } },
-  { num: '3', title: 'Déposez le Dossier', line: 'Quelques documents simples, sans engagement.', backer: '#5b8fd9', side: 'left' as const, squiggle: { variant: 'loop-right' as const, color: '#e3a044' } },
+  { num: '3', title: 'Déposez le Dossier', line: 'Quelques documents simples, sans engagement.', backer: '#0086d9', side: 'left' as const, squiggle: { variant: 'loop-right' as const, color: '#e3a044' } },
   { num: '4', title: 'Bienvenue !', line: 'Votre enfant rejoint sa classe, accueilli par son prénom.', backer: '#38926c', side: 'right' as const, squiggle: null },
 ];
 

@@ -30,20 +30,19 @@ const COLORS: Record<ExpandBarItem['color'], { bg: string; fg: string; dim: stri
   navy: { bg: '#084274', fg: '#feeddb', dim: 'rgba(254,237,219,0.8)' },
   sun: { bg: '#f0b429', fg: '#084274', dim: 'rgba(8,66,116,0.8)' },
   coral: { bg: '#d95f43', fg: '#ffffff', dim: 'rgba(255,255,255,0.85)' },
-  sky: { bg: '#3f78c4', fg: '#ffffff', dim: 'rgba(255,255,255,0.85)' },
+  sky: { bg: '#0086d9', fg: '#ffffff', dim: 'rgba(255,255,255,0.9)' },
 };
 
-/** Étoile filigrane dessinée à la main, comme sur la référence */
+/** Étoile filigrane discrète, cantonnée au bas de la barre ouverte */
 const StarWatermark: React.FC<{ color: string }> = ({ color }) => (
   <svg
     viewBox="0 0 220 200"
-    className="absolute left-0 bottom-0 w-52 h-48 pointer-events-none"
+    className="absolute left-2 bottom-0 w-36 h-32 opacity-45 pointer-events-none"
     aria-hidden="true"
   >
     <g fill="none" stroke={color} strokeWidth="3" strokeLinejoin="round">
-      <path d="M42 12 L62 74 L128 62 L74 104 L108 168 L48 132 L14 190 L20 118 L-14 96 L34 78 Z" />
-      <path d="M126 24 L134 44 L156 40 L138 54 L146 74 L126 62 L106 74 L114 54 L98 40 L118 44 Z" />
-      <path d="M144 92 L150 106 L166 104 L153 114 L158 130 L144 121 L130 130 L135 114 L122 104 L138 106 Z" />
+      <path d="M42 40 L62 94 L124 84 L74 120 L104 176 L48 144 L18 190 L24 128 L-6 108 L36 96 Z" />
+      <path d="M136 108 L142 122 L158 120 L145 130 L150 146 L136 137 L122 146 L127 130 L114 120 L130 122 Z" />
     </g>
   </svg>
 );
@@ -85,8 +84,6 @@ export const ExpandBars: React.FC<ExpandBarsProps> = ({
               className="rounded-[28px] overflow-hidden relative"
               style={{ backgroundColor: c.bg }}
             >
-              {isOpen && <StarWatermark color={c.dim} />}
-
               <button
                 onClick={() => setOpen(isOpen ? -1 : idx)}
                 aria-expanded={isOpen}
@@ -123,8 +120,9 @@ export const ExpandBars: React.FC<ExpandBarsProps> = ({
                     transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                     className="relative z-10 overflow-hidden"
                   >
+                    <StarWatermark color={c.dim} />
                     <p
-                      className="font-body text-sm sm:text-[15px] leading-relaxed px-6 sm:px-9 pb-8 sm:pb-10 sm:pl-24 sm:text-right sm:ml-auto max-w-2xl sm:mr-20"
+                      className="relative z-10 font-body text-sm sm:text-[15px] leading-relaxed px-6 sm:px-9 pb-8 sm:pb-10 sm:pl-24 sm:text-right sm:ml-auto max-w-2xl sm:mr-20"
                       style={{ color: c.dim }}
                     >
                       {item.body}

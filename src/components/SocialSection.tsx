@@ -20,7 +20,7 @@ const CHANNELS = [
     line: 'Photos, événements et annonces de l’école.',
     href: SCHOOL_INFO.social.facebook,
     handle: 'Les Marronniers El Jadida',
-    backer: '#5b8fd9',
+    backer: '#0086d9',
     rotate: -2,
   },
   {

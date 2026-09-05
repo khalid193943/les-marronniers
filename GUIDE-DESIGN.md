@@ -160,3 +160,36 @@ authentique sur l'équipe) et "Une École à Taille Humaine" (photo + stats flot
 la couleur de la section qui **suit** ; `position="bottom"` reprend en général
 la couleur de la section **courante**. Vérifier ce point à chaque insertion
 de nouvelle section dans la home.
+
+---
+
+## 🎨 Passe v6 — Charte officielle & corrections
+
+### Couleurs alignées sur le logo
+Le logo officiel a été analysé : son bleu est **`#0086D9`**. Bonne nouvelle,
+le navy historique `#084274` en est la nuance foncée naturelle — la palette
+est donc devenue cohérente avec la marque imprimée, sans tout refaire.
+
+Échelle disponible dans `index.css` : `--brand-50` → `--brand-800`.
+Le bleu générique `#5b8fd9` a été remplacé partout par le bleu officiel.
+
+`Logo.tsx` reproduit la marque (« LES » / « Marronniers ») en trois variantes :
+`badge` (bloc bleu, navbar), `light` (fonds foncés, footer), `dark` (fonds clairs).
+
+### Bugs corrigés
+| Problème constaté | Correction |
+|---|---|
+| Texte alternatif affiché à la place d'une photo dans le Hero | `SmartImage` : repli sur un aplat dégradé illustré, jamais d'image cassée |
+| Étoile filigrane recouvrant le titre des barres dépliables | L'étoile n'apparaît plus que dans le panneau ouvert, en bas, opacité réduite |
+| 3e carte décalée dans `ColorCardsGrid` | Répartition adaptée au nombre de cartes (≤ 3 → une seule rangée) |
+| Section Partenaire : logo répété 4 fois | Logo affiché une seule fois en signature, 4 axes en cartes avec filet coloré |
+
+### Photos centralisées
+`src/data/photos.ts` regroupe **toutes** les photos du site. C'est le seul
+fichier à modifier pour installer les vraies photos de l'école (ou déposer
+les fichiers dans `public/photos/` et pointer dessus).
+
+### Nouveau composant
+`ActivityShowcase` — vitrine à onglets : la liste des ateliers à gauche, la
+photo et le détail à droite, en fondu. Remplace la grille de vignettes sur
+la page Vie Scolaire : chaque atelier a enfin une vraie place.

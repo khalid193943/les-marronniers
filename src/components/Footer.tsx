@@ -8,6 +8,7 @@ import React from 'react';
 import { MapPin, Phone, Mail, Calendar, ArrowUp, Baby, GraduationCap, Building2, ShieldCheck, Heart, Facebook, Instagram, Youtube } from 'lucide-react';
 import { PageId } from '../types';
 import { SCHOOL_INFO } from '../data/schoolInfo';
+import { Logo } from '../design-system/giggle/Logo';
 
 interface FooterProps {
   onNavigate: (page: PageId) => void;
@@ -28,16 +29,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
           <div className="lg:col-span-4">
             <div
               onClick={() => onNavigate('home')}
-              className="inline-flex flex-col items-stretch leading-none mb-5 cursor-pointer group select-none"
+              className="inline-block mb-5 cursor-pointer group select-none"
             >
-              <div className="w-full flex justify-between items-baseline font-heading text-4xl sm:text-5xl font-black text-[#feeddb] leading-[0.72] group-hover:text-[#e3a044] transition-colors">
-                <span>L</span>
-                <span>E</span>
-                <span>S</span>
-              </div>
-              <span className="font-heading text-xl sm:text-2xl font-bold text-[#e3a044] tracking-tight leading-none mt-1">
-                marronniers
-              </span>
+              <Logo
+                variant="light"
+                className="text-[26px] sm:text-[30px] group-hover:opacity-85 transition-opacity"
+              />
             </div>
 
             <p className="font-body text-xs sm:text-sm text-[#feeddb]/80 leading-relaxed mb-6 max-w-sm">
