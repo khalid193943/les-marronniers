@@ -41,7 +41,7 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({
       title: 'Diplômes Internationaux DELF Prim',
       badge: 'Ministère Français de l’Éducation',
       highlight: '100% Réussite',
-      desc: 'Préparation et passage sur place des certifications officielles DELF Prim (A1.1, A1, A2). Un diplôme d’État reconnu dans le monde entier et valable à vie pour nos élèves du primaire.',
+      desc: 'Certifications officielles DELF Prim, reconnues dans le monde entier.',
       details: [
         'Épreuves adaptées aux enfants de 7 à 12 ans par des examinateurs certifiés.',
         'Validation officielle du niveau de langue selon le Cadre Européen (CECRL).',
@@ -57,7 +57,7 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({
       title: 'Médiathèque & Ressources Culturelles',
       badge: '+15 000 Ouvrages Jeunesse',
       highlight: 'Accès Privilégié',
-      desc: 'Accès continu aux collections de la médiathèque de l’Institut Français d’El Jadida : albums illustrés, contes, bandes dessinées et plateforme numérique Culturethèque 24h/24.',
+      desc: 'Accès à la médiathèque de l’Institut Français et à Culturethèque.',
       details: [
         'Prêt de séries complètes pour les lectures suivies en classe.',
         'Heures du conte mensuelles et kamishibaï pour la crèche et maternelle.',
@@ -73,7 +73,7 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({
       title: 'Saison Culturelle, Cinéma & Théâtre',
       badge: 'Spectacle Vivant Jeune Public',
       highlight: '6 Sorties / An',
-      desc: 'Immersion de nos élèves dans la programmation artistique officielle : pièces de théâtre adaptées, séances scolaires de cinéma d’animation et résidences d’artistes.',
+      desc: 'Théâtre, cinéma et rencontres d’artistes toute l’année.',
       details: [
         'Représentations théâtrales et marionnettes pour petits et grands.',
         'Échanges et ateliers de bord de scène avec les comédiens professionnels.',
@@ -89,7 +89,7 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({
       title: 'Formation Continue des Enseignants',
       badge: 'Didactique Contemporaine',
       highlight: 'Label Qualité',
-      desc: 'Accompagnement et perfectionnement continu de nos professeurs par les experts linguistiques de l’Institut Français. Une garantie de rigueur et d’innovation didactique.',
+      desc: 'Nos professeurs formés par les experts de l’Institut Français.',
       details: [
         'Séminaires annuels sur les nouvelles méthodologies d’enseignement du français.',
         'Ateliers de phonétique, prise de parole en public et théâtralisation.',
@@ -179,7 +179,7 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({
                     <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#e3a044]">
                       {axis.tag}
                     </span>
-                    <span className="px-2 py-0.5 bg-[#feeddb] text-[#084274] text-[10px] font-bold border border-[#084274]/15">
+                    <span className="px-2 py-0.5 bg-[#084274]/8 text-[#084274] text-[10px] font-bold border border-[#084274]/15">
                       {axis.highlight}
                     </span>
                   </div>
@@ -211,7 +211,7 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setActiveModal(axis.id)}
-                    className="w-full py-2.5 px-4 bg-[#feeddb] hover:bg-[#084274] text-[#084274] hover:text-white border border-[#084274]/20 transition-all text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer font-heading"
+                    className="w-full py-2.5 px-4 bg-[#084274]/8 hover:bg-[#084274] text-[#084274] hover:text-white border border-[#084274]/20 transition-all text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer font-heading"
                   >
                     <span>Détails de la convention</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -316,14 +316,14 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({
                   >
                     <button
                       onClick={() => setActiveModal(null)}
-                      className="absolute top-4 right-4 w-9 h-9 bg-[#feeddb] text-[#084274] hover:bg-[#084274] hover:text-white transition-colors flex items-center justify-center cursor-pointer"
+                      className="absolute top-4 right-4 w-9 h-9 bg-[#084274]/8 text-[#084274] hover:bg-[#084274] hover:text-white transition-colors flex items-center justify-center cursor-pointer"
                       aria-label="Fermer"
                     >
                       <X className="w-5 h-5" />
                     </button>
 
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 bg-[#feeddb] text-[#084274] flex items-center justify-center shrink-0 border border-[#084274]/20">
+                      <div className="w-12 h-12 bg-[#084274]/8 text-[#084274] flex items-center justify-center shrink-0 border border-[#084274]/20">
                         <Icon className="w-6 h-6 text-[#084274]" />
                       </div>
                       <div>
@@ -350,7 +350,7 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({
                       {item.desc}
                     </p>
 
-                    <div className="space-y-2 bg-[#feeddb]/40 p-4 border border-[#084274]/15 mb-6">
+                    <div className="space-y-2 bg-[#084274]/6 p-4 border border-[#084274]/15 mb-6">
                       <h5 className="font-heading text-xs font-bold text-[#084274] uppercase tracking-wider">
                         Modalités & Engagements Concrets :
                       </h5>

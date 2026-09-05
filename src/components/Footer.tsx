@@ -41,7 +41,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
             </div>
 
             <p className="font-body text-xs sm:text-sm text-[#feeddb]/80 leading-relaxed mb-6 max-w-sm">
-              Établissement scolaire privé accueillant les enfants dès la petite enfance jusqu'au CE6. 6 salles lumineuses, salle d'éveil scientifique, cinéma-théâtre, salle de psychomotricité, vaste jardin et sol extérieur anti-choc sécurisé.
+              École privée à El Jadida, de la crèche au CE6.
             </p>
 
             <div className="space-y-2.5 text-xs text-[#feeddb]/90">
@@ -66,13 +66,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
             <ul className="space-y-2 text-xs sm:text-sm font-medium text-[#feeddb]/80">
               {[
                 { id: 'home', label: 'Accueil' },
-                { id: 'about-etablissement', label: 'Notre Établissement' },
-                { id: 'about-valeurs', label: 'Nos Valeurs' },
-                { id: 'about-equipe', label: 'Notre Équipe' },
-                { id: 'niveaux', label: 'Nos Niveaux (Crèche, Maternelle, Primaire)' },
-                { id: 'pedagogie', label: 'Notre Pédagogie' },
-                { id: 'activites', label: 'Activités & Ateliers' },
-                { id: 'vie-scolaire', label: 'Vie Scolaire' },
+                { id: 'ecole', label: 'Notre École' },
+                { id: 'parcours', label: 'Parcours & Pédagogie' },
+                { id: 'vie-scolaire', label: 'Vie Scolaire & Activités' },
+                { id: 'campus', label: 'Nos Campus' },
+                { id: 'parents', label: 'Espace Parents' },
               ].map((link) => (
                 <li key={link.id}>
                   <button
@@ -94,21 +92,21 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
 
             {/* Locaux Card */}
             <div
-              onClick={() => onNavigate('locaux')}
+              onClick={() => onNavigate('campus')}
               className="p-4 bg-white/5 border border-white/10 hover:bg-white/10 transition-colors cursor-pointer"
             >
               <div className="flex items-center gap-2 text-xs font-bold text-[#e3a044] mb-1">
                 <Building2 className="w-3.5 h-3.5" />
-                <span>Nos Locaux & Équipements Conformes</span>
+                <span>Nos Campus & Équipements</span>
               </div>
               <p className="text-xs text-[#feeddb]/80">
-                6 classes ensoleillées, salle d'éveil scientifique, cinéma-théâtre & cour arborée
+                6 classes lumineuses, éveil scientifique, cinéma-théâtre, jardin
               </p>
             </div>
 
             {/* Sécurité Card */}
             <div
-              onClick={() => onNavigate('securite-bien-etre')}
+              onClick={() => onNavigate('campus')}
               className="p-4 bg-white/5 border border-white/10 hover:bg-white/10 transition-colors cursor-pointer"
             >
               <div className="flex items-center gap-2 text-xs font-bold text-[#24a974] mb-1">
@@ -116,14 +114,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
                 <span>Sécurité & Bien-Être des Élèves</span>
               </div>
               <p className="text-xs text-[#feeddb]/80">
-                Sol extérieur anti-choc et anti-dérapant, surveillance permanente & hygiène
+                Sols anti-choc, surveillance permanente, hygiène rigoureuse
               </p>
             </div>
 
             {/* Liens rapides */}
             <div className="pt-2 flex flex-wrap gap-2 text-xs">
               <button
-                onClick={() => onNavigate('espace-parents')}
+                onClick={() => onNavigate('parents')}
                 className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#feeddb] transition-colors cursor-pointer"
               >
                 Espace Parents
@@ -141,13 +139,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
                 Actualités
               </button>
               <button
-                onClick={() => onNavigate('galerie')}
+                onClick={() => onNavigate('actualites')}
                 className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#feeddb] transition-colors cursor-pointer"
               >
                 Galerie
               </button>
               <button
-                onClick={() => onNavigate('faq')}
+                onClick={() => onNavigate('parents')}
                 className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#feeddb] transition-colors cursor-pointer"
               >
                 FAQ

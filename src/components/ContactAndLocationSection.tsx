@@ -50,7 +50,7 @@ export const ContactAndLocationSection: React.FC<ContactAndLocationSectionProps>
             <div className="space-y-6 mb-8">
               
               {/* Address Card */}
-              <div className="p-6 bg-[#feeddb]/50 border-2 border-[#084274]/15 shadow-xs flex gap-4 items-start">
+              <div className="p-6 bg-[#084274]/6 border-2 border-[#084274]/15 shadow-xs flex gap-4 items-start">
                 <div className="w-12 h-12 bg-[#084274] text-[#feeddb] flex items-center justify-center shrink-0 shadow-sm">
                   <MapPin className="w-5 h-5 text-[#e3a044]" />
                 </div>
@@ -73,7 +73,7 @@ export const ContactAndLocationSection: React.FC<ContactAndLocationSectionProps>
               </div>
               
               {/* Phone Card */}
-              <div className="p-6 bg-[#feeddb]/50 border-2 border-[#084274]/15 shadow-xs flex gap-4 items-start">
+              <div className="p-6 bg-[#084274]/6 border-2 border-[#084274]/15 shadow-xs flex gap-4 items-start">
                 <div className="w-12 h-12 bg-[#084274] text-[#feeddb] flex items-center justify-center shrink-0 shadow-sm">
                   <Phone className="w-5 h-5 text-[#e3a044]" />
                 </div>
@@ -91,7 +91,7 @@ export const ContactAndLocationSection: React.FC<ContactAndLocationSectionProps>
               </div>
 
               {/* Hours Card */}
-              <div className="p-6 bg-[#feeddb]/50 border-2 border-[#084274]/15 shadow-xs flex gap-4 items-start">
+              <div className="p-6 bg-[#084274]/6 border-2 border-[#084274]/15 shadow-xs flex gap-4 items-start">
                 <div className="w-12 h-12 bg-[#084274] text-[#feeddb] flex items-center justify-center shrink-0 shadow-sm">
                   <Clock className="w-5 h-5 text-[#e3a044]" />
                 </div>

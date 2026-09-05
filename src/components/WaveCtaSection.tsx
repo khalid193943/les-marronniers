@@ -45,7 +45,7 @@ export const WaveCtaSection: React.FC<WaveCtaSectionProps> = ({ onOpenAdmissions
           </h2>
 
           <p className="font-body text-base sm:text-lg text-white/85 leading-relaxed mb-10 max-w-2xl">
-            Rien ne remplace la découverte sur place de l'ambiance bienveillante de nos 6 classes lumineuses, de notre salle d'expérimentation scientifique, de notre cinéma-théâtre et de notre cour arborée.
+            Rien ne remplace une visite : venez sentir l'ambiance sur place.
           </p>
 
           {/* Action Buttons */}
@@ -55,7 +55,7 @@ export const WaveCtaSection: React.FC<WaveCtaSectionProps> = ({ onOpenAdmissions
               className="w-full sm:w-auto bg-white hover:bg-[#feeddb] text-[#084274] font-bold text-base px-9 py-4.5 shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center gap-3 border-2 border-white group"
             >
               <Calendar className="w-5 h-5 text-[#e3a044]" />
-              <span>Prendre Rendez-vous / Visiter</span>
+              <span>Réserver une visite</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
 
@@ -69,7 +69,7 @@ export const WaveCtaSection: React.FC<WaveCtaSectionProps> = ({ onOpenAdmissions
           </div>
 
           <p className="text-xs text-white/60 mt-6 font-body">
-            Horaires d'accueil : Du Lundi au Vendredi de 08h15 à 17h30 • Samedi matin sur rendez-vous
+            Lun – Ven · 8h15 – 17h30
           </p>
         </motion.div>
       </section>

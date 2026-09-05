@@ -104,21 +104,21 @@ Pour chaque page, dans cet ordre :
 5. **Cartes d'infos** → Recette A avec un Doodle au lieu d'une icône Lucide quand la carte est grande.
 6. **1 à 3 mini-doodles** décoratifs par page (Recette E).
 
-Application concrète :
+**✅ FAIT — Architecture consolidée (18 → 9 vues) :**
 
-| Page | Action principale |
-|---|---|
-| `NiveauxPages` | Recette C intégrale (comme ParcoursSection) — c'est LA page faite pour ça |
-| `PedagogiePage` | Recette D en alternance ; piliers pédagogiques → Recette A |
-| `ActivitesPage` | Garder la grille bento mais couper les textes à 1 ligne + PhotoStack sur l'activité vedette |
-| `GaleriePage` | Photos avec rotations aléatoires ±3° + cadres blancs épais (façon polaroid) |
-| `InscriptionPage` | Étapes d'inscription → zigzag connecté avec Squiggles (parfait pour un processus) |
-| `AboutPages` | Recette D ; équipe → cartes A avec photos rondes |
-| `LocauxPage` | PhotoStack par campus + 1 ligne de description |
-| `FaqPage` | Garder l'accordéon, ajouter SectionIntro + 1 doodle |
-| `ContactPage` | Recette D : infos à gauche, carte/photo à droite |
+| Vue | Consolide | Recettes appliquées |
+|---|---|---|
+| `EcolePage` | 3 pages About | D (histoire) + A (valeurs) + E |
+| `ParcoursPage` | 4 pages Niveaux + Pédagogie | C intégrale + items bleu transparent |
+| `VieScolairePage` | Vie scolaire + Activités | fil vertical journée + A (ateliers) |
+| `CampusPage` | Locaux + Sécurité | B ×2 + pilules + section bleu marine |
+| `ParentsPage` | Espace Parents + FAQ | items bleu transparent + accordéon animé |
+| `ActualitesPage` | Actualités + Galerie | A (actus) + polaroids inclinés |
+| `InscriptionPage` | — | C numérotée (vrai processus) |
+| `ContactPage` | — | D + carte façon polaroid |
 
-Composants home restants à traiter de la même façon : `DirectorWordSection` (couper la citation à 2 phrases + PhotoStack), `CreativeLifeSection` (textes → 1 ligne), `NewsSection` (extraits → 1 ligne), `PartnerSection` (le plus verbeux du site : diviser le texte par 3), `KeyFiguresSection` (supprimer les sous-textes).
+Textes home coupés : Hero, KeyFigures, DirectorWord, CreativeLife, Partner, WaveCta.
+Items beiges → bleu transparent (`bg-[#084274]/6` à `/10`) sur tout le site.
 
 ---
 

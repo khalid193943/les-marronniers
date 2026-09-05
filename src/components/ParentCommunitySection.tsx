@@ -93,7 +93,7 @@ export const ParentCommunitySection: React.FC = () => {
           {testimonials.map((testi, idx) => (
             <div 
               key={idx} 
-              className="snap-start shrink-0 w-[85vw] sm:w-[340px] lg:w-[calc(25%-1.125rem)] bg-[#e6ccb2] p-8 sm:p-9 flex flex-col justify-between min-h-[420px] rounded-none border-2 border-[#084274]/15 shadow-md hover:shadow-xl hover:border-[#084274]/30 transition-all duration-300 group"
+              className="snap-start shrink-0 w-[85vw] sm:w-[340px] lg:w-[calc(25%-1.125rem)] bg-[#084274]/8 p-8 sm:p-9 flex flex-col justify-between min-h-[420px] rounded-none border-2 border-[#084274]/15 shadow-md hover:shadow-xl hover:border-[#084274]/30 transition-all duration-300 group"
             >
               <div>
                 {/* 5 Stars Rating */}
@@ -138,14 +138,14 @@ export const ParentCommunitySection: React.FC = () => {
           <div className="flex gap-3">
             <button 
               onClick={() => scroll('left')}
-              className="w-12 h-12 flex items-center justify-center bg-[#e6ccb2] text-[#084274] hover:bg-[#d5bba1] hover:scale-105 active:scale-95 transition-all shadow-sm border border-[#084274]/15 cursor-pointer"
+              className="w-12 h-12 flex items-center justify-center bg-[#084274]/8 text-[#084274] hover:bg-[#084274]/18 hover:scale-105 active:scale-95 transition-all shadow-sm border border-[#084274]/15 cursor-pointer"
               aria-label="Previous testimonials"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button 
               onClick={() => scroll('right')}
-              className="w-12 h-12 flex items-center justify-center bg-[#e6ccb2] text-[#084274] hover:bg-[#d5bba1] hover:scale-105 active:scale-95 transition-all shadow-sm border border-[#084274]/15 cursor-pointer"
+              className="w-12 h-12 flex items-center justify-center bg-[#084274]/8 text-[#084274] hover:bg-[#084274]/18 hover:scale-105 active:scale-95 transition-all shadow-sm border border-[#084274]/15 cursor-pointer"
               aria-label="Next testimonials"
             >
               <ChevronRight className="w-5 h-5" />

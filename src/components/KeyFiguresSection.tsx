@@ -14,25 +14,21 @@ export const KeyFiguresSection: React.FC = () => {
       icon: Award,
       number: '100%',
       label: 'Taux de Réussite',
-      sub: 'Examens officiels du CE6',
     },
     {
       icon: School,
       number: '2',
       label: 'Campus Dédiés',
-      sub: 'Maternelle & Primaire sécurisés',
     },
     {
       icon: Sparkles,
       number: '15+',
       label: 'Ateliers Éducatifs',
-      sub: 'Échecs, Théâtre, Cinéma, Musique',
     },
     {
       icon: Clock,
       number: '15 ans',
       label: "D'Expérience Reconnue",
-      sub: 'Au service des familles d’El Jadida',
     },
   ];
 
@@ -64,10 +60,6 @@ export const KeyFiguresSection: React.FC = () => {
                 
                 <span className="font-body text-xs sm:text-sm font-bold uppercase tracking-wider text-[#feeddb] mb-1">
                   {fig.label}
-                </span>
-                
-                <span className="font-body text-[11px] sm:text-xs text-[#feeddb]/70 max-w-[180px] leading-tight">
-                  {fig.sub}
                 </span>
               </motion.div>
             );

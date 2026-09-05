@@ -18,9 +18,9 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
       id: 'theatre',
       title: 'Théâtre & Expression',
       subtitle: 'Prendre confiance et s’exprimer avec aisance',
-      desc: 'Diction, prise de parole en public, gestuelle et confiance en soi dès la maternelle.',
+      desc: 'Prendre la parole avec confiance.',
       icon: Theater,
-      color: 'bg-[#feeddb]',
+      color: 'bg-[#084274]/8',
       textColor: 'text-[#084274]',
       badgeColor: 'bg-[#084274]/10 text-[#084274]',
       img: 'https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=800&q=80',
@@ -30,7 +30,7 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
       id: 'echecs',
       title: 'Club d’Échecs',
       subtitle: 'Stratégie & Raisonnement',
-      desc: 'Développement de la logique, concentration, anticipation et fair-play.',
+      desc: 'Logique, concentration, fair-play.',
       icon: Crown,
       color: 'bg-[#084274]',
       textColor: 'text-white',
@@ -42,7 +42,7 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
       id: 'musique',
       title: 'Musique & Chorale',
       subtitle: 'Rythme & Harmonie',
-      desc: 'Éveil auditif, chant choral, découverte des instruments et du tempo.',
+      desc: 'Chant choral et découverte du rythme.',
       icon: Music,
       color: 'bg-[#e3a044]',
       textColor: 'text-[#084274]',
@@ -54,9 +54,9 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
       id: 'cinema',
       title: 'Cinéma & Débat',
       subtitle: 'Culture & Regard Critique',
-      desc: 'Projection d’œuvres sélectionnées et débats guidés pour stimuler l’esprit critique.',
+      desc: 'Regarder, comprendre, débattre.',
       icon: Film,
-      color: 'bg-[#e6ccb2]',
+      color: 'bg-[#084274]/8',
       textColor: 'text-[#084274]',
       badgeColor: 'bg-[#084274]/10 text-[#084274]',
       img: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80',
@@ -147,7 +147,7 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
                     <button 
                       onClick={onOpenAdmissions}
                       className={`w-10 h-10 flex items-center justify-center ${
-                        act.textColor === 'text-white' ? 'bg-[#feeddb] text-[#084274]' : 'bg-[#084274] text-white'
+                        act.textColor === 'text-white' ? 'bg-[#084274]/8 text-[#084274]' : 'bg-[#084274] text-white'
                       } hover:scale-110 transition-transform cursor-pointer shadow-sm`}
                       aria-label={`En savoir plus sur ${act.title}`}
                     >

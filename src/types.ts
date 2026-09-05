@@ -6,6 +6,10 @@
 
 export type PageId =
   | 'home'
+  | 'ecole'
+  | 'parcours'
+  | 'campus'
+  | 'parents'
   | 'about-etablissement'
   | 'about-valeurs'
   | 'about-equipe'

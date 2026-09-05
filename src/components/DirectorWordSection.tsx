@@ -23,7 +23,7 @@ export const DirectorWordSection: React.FC = () => {
             L'excellence naît de la bienveillance.
           </h2>
           <p className="font-body text-base sm:text-lg text-[#084274]/80 leading-relaxed max-w-3xl mx-auto">
-            Notre mission n'est pas seulement de transmettre un savoir académique rigoureux, mais de cultiver la curiosité spontanée, la confiance et la fierté d'apprendre chez chaque enfant.
+            Cultiver la confiance et la fierté d'apprendre, chez chaque enfant.
           </p>
         </motion.div>
 
@@ -42,7 +42,7 @@ export const DirectorWordSection: React.FC = () => {
               <div className="absolute -inset-3 bg-[#e3a044]/20 transform -rotate-2 rounded-none -z-10 group-hover:-rotate-3 transition-transform duration-500" />
               
               {/* Image Container */}
-              <div className="relative aspect-[4/5] overflow-hidden bg-[#e6ccb2] rounded-none shadow-2xl border-2 border-[#084274]/15">
+              <div className="relative aspect-[4/5] overflow-hidden bg-[#084274]/8 rounded-none shadow-2xl border-2 border-[#084274]/15">
                 <img
                   src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
                   alt="Direction Pédagogique - École Les Marronniers El Jadida"

@@ -40,7 +40,7 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="giggle-tag bg-white/80 backdrop-blur-sm border border-[#084274]/15 shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-[#e3a044] animate-pulse" />
                 <span className="font-semibold text-xs text-[#084274] tracking-wide">
-                  Établissement Privé d'Excellence • El Jadida
+                  École privée • El Jadida
                 </span>
               </div>
               <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#084274]/10 text-[#084274] text-[11px] font-bold uppercase tracking-wider">
@@ -66,7 +66,7 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Description */}
             <p className="font-body text-base sm:text-lg text-[#084274]/80 leading-relaxed mb-8 max-w-xl">
-              Depuis plus de 15 ans, Les Marronniers offre aux enfants un cadre sécurisant et stimulant à El Jadida. Notre pédagogie bienveillante développe l'autonomie, l'esprit critique et l'excellence académique dès le plus jeune âge.
+              Une école bienveillante, de la crèche au CE6, depuis plus de 15 ans à El Jadida.
             </p>
 
             {/* Action Buttons */}
@@ -76,14 +76,14 @@ export const Hero: React.FC<HeroProps> = ({
                 className="giggle-button-primary cursor-pointer text-[15px] px-8 py-4 bg-[#084274] hover:bg-[#05335b] text-[#feeddb] shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-3 font-bold"
               >
                 <Calendar className="w-4 h-4 text-[#e3a044]" />
-                <span>Prendre Rendez-vous / Inscription</span>
+                <span>Réserver une visite</span>
               </button>
 
               <button
                 onClick={onExploreCampuses}
                 className="giggle-button-secondary cursor-pointer text-[15px] px-7 py-4 bg-white/90 hover:bg-white text-[#084274] border border-[#084274]/20 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2.5 font-bold"
               >
-                <span>Découvrir les 2 Campus</span>
+                <span>Voir les campus</span>
                 <ArrowRight className="w-4 h-4 text-[#e3a044]" />
               </button>
             </div>
