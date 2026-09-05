@@ -141,7 +141,7 @@ export const ParentsPage: React.FC = () => {
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.4, delay: idx * 0.04 }}
                   className={`border transition-colors ${
-                    isOpen ? 'bg-[#00558d]/10 border-[#00558d]/25' : 'bg-[#00558d]/6 border-[#00558d]/10'
+                    isOpen ? 'bg-[#0086d9]/10 border-[#0086d9]/25' : 'bg-[#0086d9]/6 border-[#0086d9]/10'
                   }`}
                 >
                   <button
@@ -149,7 +149,7 @@ export const ParentsPage: React.FC = () => {
                     className="w-full flex items-center justify-between gap-4 p-5 text-left cursor-pointer"
                     aria-expanded={isOpen}
                   >
-                    <span className="font-body font-bold text-[15px] text-[#00558d]">{item.q}</span>
+                    <span className="font-body font-bold text-[15px] text-[#0086d9]">{item.q}</span>
                     <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.25 }}>
                       <ChevronDown className="w-5 h-5 text-[#e3a044] shrink-0" />
                     </motion.span>
@@ -180,13 +180,13 @@ export const ParentsPage: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5 }}
-            className="relative bg-[#00558d] rounded-2xl p-8 sm:p-10 text-center mb-12 overflow-hidden"
+            className="relative bg-[#0086d9] rounded-2xl p-8 sm:p-10 text-center mb-12 overflow-hidden"
           >
-            <Quote className="w-8 h-8 text-[#e3a044]/50 mx-auto mb-4" />
+            <Quote className="w-8 h-8 text-[#ffe08a]/50 mx-auto mb-4" />
             <p className="font-heading text-xl sm:text-2xl text-[#fff7ef] leading-snug max-w-xl mx-auto">
               Une équipe formée pour connaître au mieux la psychologie et les besoins de l’enfant.
             </p>
-            <p className="font-body text-xs text-[#fff7ef]/60 mt-4">— Les Marronniers El Jadida</p>
+            <p className="font-body text-xs text-[#fff7ef]/85 mt-4">— Les Marronniers El Jadida</p>
           </motion.div>
 
           <div className="text-center">
@@ -195,7 +195,7 @@ export const ParentsPage: React.FC = () => {
               href={`tel:${SCHOOL_INFO.phoneRaw}`}
               className="giggle-button-primary inline-flex items-center gap-3"
             >
-              <Phone className="w-4 h-4 text-[#e3a044]" />
+              <Phone className="w-4 h-4 text-[#ffe08a]" />
               <span>{SCHOOL_INFO.phone}</span>
             </a>
           </div>

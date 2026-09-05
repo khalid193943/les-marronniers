@@ -77,19 +77,19 @@ export const ActualitesPage: React.FC<ActualitesPageProps> = ({ onOpenArticle })
                 </div>
               </div>
               <div>
-                <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-[11px] font-bold text-[#00558d] mb-4">
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-[11px] font-bold text-[#0086d9] mb-4">
                   <CalendarDays className="w-3.5 h-3.5 text-[#e3a044]" />
                   {featured.category} · {formatDate(featured.date)}
                 </span>
-                <h2 className="font-heading text-3xl sm:text-4xl text-[#00558d] leading-tight mb-4">
+                <h2 className="font-heading text-3xl sm:text-4xl text-[#0086d9] leading-tight mb-4">
                   {featured.title}
                 </h2>
                 <p className="font-body text-base text-[#00558d]/70 leading-relaxed mb-6">
                   {featured.excerpt}
                 </p>
-                <span className="inline-flex items-center gap-3 font-body font-bold text-sm text-[#00558d]">
+                <span className="inline-flex items-center gap-3 font-body font-bold text-sm text-[#0086d9]">
                   Lire l’article
-                  <span className="w-9 h-9 rounded-full bg-[#00558d] text-[#e3a044] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+                  <span className="w-9 h-9 rounded-full bg-[#0086d9] text-[#ffe08a] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
                     <ArrowUpRight className="w-4 h-4" strokeWidth={2.2} />
                   </span>
                 </span>
@@ -111,16 +111,16 @@ export const ActualitesPage: React.FC<ActualitesPageProps> = ({ onOpenArticle })
                     transition={{ duration: 0.5, delay: idx * 0.06 }}
                     whileHover={{ x: 6 }}
                     onClick={() => onOpenArticle(p.slug)}
-                    className="flex items-center gap-5 sm:gap-8 bg-[#00558d]/6 hover:bg-[#00558d]/10 border border-[#00558d]/10 rounded-2xl p-4 sm:p-5 cursor-pointer transition-colors group"
+                    className="flex items-center gap-5 sm:gap-8 bg-[#0086d9]/6 hover:bg-[#0086d9]/10 border border-[#0086d9]/10 rounded-2xl p-4 sm:p-5 cursor-pointer transition-colors group"
                   >
                     <div className="flex-1 min-w-0">
                       <span className="font-body text-[10px] font-bold text-[#e3a044]">
                         {p.category} · {formatDate(p.date)}
                       </span>
-                      <h3 className="font-heading text-lg sm:text-xl text-[#00558d] mt-1 mb-1.5">{p.title}</h3>
+                      <h3 className="font-heading text-lg sm:text-xl text-[#0086d9] mt-1 mb-1.5">{p.title}</h3>
                       <p className="font-body text-[13px] text-[#00558d]/65 leading-relaxed">{p.excerpt}</p>
                     </div>
-                    <div className="w-28 h-24 sm:w-40 sm:h-28 shrink-0 rounded-xl overflow-hidden bg-[#00558d]/10">
+                    <div className="w-28 h-24 sm:w-40 sm:h-28 shrink-0 rounded-xl overflow-hidden bg-[#0086d9]/10">
                       {p.cover && (
                         <img
                           src={p.cover}

@@ -22,7 +22,7 @@ const encode = (data: Record<string, string>) =>
     .join('&');
 
 const fieldCls =
-  'w-full bg-[#00558d]/6 border border-[#00558d]/15 px-4 py-3 font-body text-[15px] text-[#00558d] placeholder:text-[#00558d]/40 focus:outline-none focus:border-[#00558d]/40 focus:bg-[#00558d]/10 transition-colors';
+  'w-full bg-[#0086d9]/6 border border-[#0086d9]/15 px-4 py-3 font-body text-[15px] text-[#0086d9] placeholder:text-[#00558d]/40 focus:outline-none focus:border-[#0086d9]/40 focus:bg-[#0086d9]/10 transition-colors';
 
 const labelCls = 'block font-body text-xs font-bold text-[#00558d]/70 mb-1.5';
 
@@ -40,10 +40,10 @@ const SuccessCard: React.FC<{ message: string }> = ({ message }) => (
       className="absolute inset-0 bg-[#38926c]"
       style={{ transform: 'rotate(2deg) translate(10px, 10px)' }}
     />
-    <div className="relative z-10 bg-[#00558d] p-8 text-center shadow-xl">
+    <div className="relative z-10 bg-[#0086d9] p-8 text-center shadow-xl">
       <PartyPopper className="w-9 h-9 text-[#e3a044] mx-auto mb-3" />
       <p className="font-heading text-2xl text-[#fff7ef] mb-2">Message envoyé !</p>
-      <p className="font-body text-sm text-[#fff7ef]/75">{message}</p>
+      <p className="font-body text-sm text-[#fff7ef]/85">{message}</p>
       <DoodleStar className="absolute top-3 right-3 w-6 text-[#e3a044]/60" />
     </div>
   </motion.div>
@@ -55,7 +55,7 @@ const ErrorNote: React.FC = () => (
     animate={{ opacity: 1, y: 0 }}
     className="bg-[#d95f43]/10 border border-[#d95f43]/30 p-4 text-center"
   >
-    <p className="font-body text-sm text-[#00558d] mb-3">
+    <p className="font-body text-sm text-[#0086d9] mb-3">
       L’envoi n’a pas fonctionné. Écrivez-nous directement :
     </p>
     <a

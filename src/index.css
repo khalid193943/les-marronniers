@@ -78,7 +78,7 @@
   width: 8px;
   height: 8px;
   border-radius:  0px;
-  background-color: #00558d;
+  background-color: #0086d9;
   flex-shrink: 0;
 }
 
@@ -88,7 +88,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background-color: #00558d;
+  background-color: #0086d9;
   color: #fff7ef;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 15px;
@@ -100,7 +100,7 @@
 }
 
 .giggle-button-primary:hover {
-  background-color: #0086d9;
+  background-color: #006cb3;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(8, 66, 116, 0.22);
 }
@@ -155,7 +155,7 @@
 .tilted-blue-bg {
   position: absolute;
   inset: 0;
-  background-color: #00558d;
+  background-color: #0086d9;
   transform: skew(-2deg) rotate(2deg);
   border-radius: 9999px;
   z-index: 1;

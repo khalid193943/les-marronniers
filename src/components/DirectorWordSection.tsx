@@ -19,7 +19,7 @@ export const DirectorWordSection: React.FC = () => {
             <div className="giggle-dot" />
             <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">NOTRE VISION PÉDAGOGIQUE</span>
           </div>
-          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#00558d] tracking-tight mb-6 leading-tight max-w-3xl">
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#0086d9] tracking-tight mb-6 leading-tight max-w-3xl">
             L'excellence naît de la bienveillance.
           </h2>
           <p className="font-body text-base sm:text-lg text-[#00558d]/80 leading-relaxed max-w-3xl mx-auto">
@@ -42,7 +42,7 @@ export const DirectorWordSection: React.FC = () => {
               <div className="absolute -inset-3 bg-[#e3a044]/20 transform -rotate-2 rounded-none -z-10 group-hover:-rotate-3 transition-transform duration-500" />
               
               {/* Image Container */}
-              <div className="relative aspect-[4/5] overflow-hidden bg-[#00558d]/8 rounded-none shadow-2xl border-2 border-[#00558d]/15">
+              <div className="relative aspect-[4/5] overflow-hidden bg-[#0086d9]/8 rounded-none shadow-2xl border-2 border-[#0086d9]/15">
                 <img
                   src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
                   alt="Direction Pédagogique - École Les Marronniers El Jadida"
@@ -50,12 +50,12 @@ export const DirectorWordSection: React.FC = () => {
                 />
                 
                 {/* Official seal badge */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 border border-[#00558d]/10 shadow-lg flex items-center gap-3">
-                  <div className="w-9 h-9 bg-[#00558d] text-[#fff7ef] flex items-center justify-center shrink-0">
+                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 border border-[#0086d9]/10 shadow-lg flex items-center gap-3">
+                  <div className="w-9 h-9 bg-[#0086d9] text-[#fff7ef] flex items-center justify-center shrink-0">
                     <Award className="w-5 h-5 text-[#e3a044]" />
                   </div>
                   <div>
-                    <p className="font-heading text-sm text-[#00558d] font-bold leading-tight">Direction Pédagogique</p>
+                    <p className="font-heading text-sm text-[#0086d9] font-bold leading-tight">Direction Pédagogique</p>
                     <p className="font-body text-[11px] text-[#00558d]/70">Les Marronniers • El Jadida</p>
                   </div>
                 </div>
@@ -73,7 +73,7 @@ export const DirectorWordSection: React.FC = () => {
           >
             <div className="relative pl-6 sm:pl-8 border-l-2 border-[#e3a044]">
               <Quote className="w-10 h-10 text-[#e3a044]/40 -mb-4 -ml-2" />
-              <p className="font-body text-base sm:text-lg text-[#00558d] leading-relaxed mb-6 font-medium">
+              <p className="font-body text-base sm:text-lg text-[#0086d9] leading-relaxed mb-6 font-medium">
                 « Aux Marronniers, nous croyons fermement qu'un enfant n'apprend véritablement que s'il évolue dans un cadre où il se sent écouté, respecté et encouragé. »
               </p>
               <p className="font-body text-sm sm:text-base text-[#00558d]/80 leading-relaxed mb-8">
@@ -82,7 +82,7 @@ export const DirectorWordSection: React.FC = () => {
             </div>
 
             {/* 3 Core commitments */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-[#00558d]/15">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-[#0086d9]/15">
               <div className="flex flex-col">
                 <span className="text-xs font-bold text-[#e3a044] uppercase tracking-wider mb-1">01. Écoute Active</span>
                 <span className="text-xs text-[#00558d]/80">Suivi individualisé et dialogue permanent avec les familles.</span>

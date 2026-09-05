@@ -48,8 +48,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
             { label: 'Horaires', value: SCHOOL_INFO.hours, href: undefined },
           ].map((info, idx) => {
             const inner = (
-              <div className="h-full bg-[#00558d]/8 border border-[#00558d]/12 px-6 py-5 hover:bg-[#00558d]/12 transition-colors">
-                <span className="flex items-center gap-2 font-heading text-xl text-[#00558d] mb-1.5">
+              <div className="h-full bg-[#0086d9]/8 border border-[#0086d9]/12 px-6 py-5 hover:bg-[#0086d9]/12 transition-colors">
+                <span className="flex items-center gap-2 font-heading text-xl text-[#0086d9] mb-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#e3a044]" />
                   {info.label}
                 </span>
@@ -92,13 +92,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
             {INFOS.map((info, idx) => {
               const Icon = info.icon;
               const content = (
-                <div className="flex items-start gap-4 bg-[#00558d]/6 border border-[#00558d]/10 p-5 hover:bg-[#00558d]/10 transition-colors">
-                  <span className="w-11 h-11 shrink-0 rounded-full bg-[#00558d] text-[#e3a044] flex items-center justify-center">
+                <div className="flex items-start gap-4 bg-[#0086d9]/6 border border-[#0086d9]/10 p-5 hover:bg-[#0086d9]/10 transition-colors">
+                  <span className="w-11 h-11 shrink-0 rounded-full bg-[#0086d9] text-[#ffe08a] flex items-center justify-center">
                     <Icon className="w-5 h-5" strokeWidth={1.8} />
                   </span>
                   <div>
                     <span className="block font-body text-xs font-bold text-[#00558d]/60 mb-0.5">{info.label}</span>
-                    <span className="block font-body text-[15px] font-semibold text-[#00558d]">{info.value}</span>
+                    <span className="block font-body text-[15px] font-semibold text-[#0086d9]">{info.value}</span>
                   </div>
                 </div>
               );
@@ -112,7 +112,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
             })}
 
             <button onClick={onOpenAdmissions} className="giggle-button-primary cursor-pointer inline-flex items-center justify-center gap-3 mt-4 self-start">
-              <Calendar className="w-4 h-4 text-[#e3a044]" />
+              <Calendar className="w-4 h-4 text-[#ffe08a]" />
               <span>Réserver une visite</span>
             </button>
           </motion.div>
@@ -134,7 +134,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
                     key={c.id}
                     onClick={() => setCampus(idx)}
                     className={`flex-1 rounded-lg px-3 py-2 text-xs font-bold transition-colors cursor-pointer ${
-                      campus === idx ? 'bg-[#00558d] text-[#fff7ef]' : 'bg-[#00558d]/8 text-[#00558d] hover:bg-[#00558d]/15'
+                      campus === idx ? 'bg-[#0086d9] text-[#fff7ef]' : 'bg-[#0086d9]/8 text-[#0086d9] hover:bg-[#0086d9]/15'
                     }`}
                   >
                     {c.label.replace('Campus ', '')}

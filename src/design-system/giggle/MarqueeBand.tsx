@@ -36,13 +36,13 @@ export const MarqueeBand: React.FC<MarqueeBandProps> = ({
         <span key={i} className="flex items-center">
           <span
             className={`font-heading text-lg sm:text-xl whitespace-nowrap px-6 sm:px-8 ${
-              isBlue ? 'text-[#fff7ef]' : 'text-[#00558d]'
+              isBlue ? 'text-[#fff7ef]' : 'text-[#0086d9]'
             }`}
           >
             {item}
           </span>
           <DoodleStar
-            className={`w-5 h-5 shrink-0 ${isBlue ? 'text-[#e3a044]' : 'text-[#00558d]'}`}
+            className={`w-5 h-5 shrink-0 ${isBlue ? 'text-[#e3a044]' : 'text-[#0086d9]'}`}
           />
         </span>
       ))}
@@ -52,7 +52,7 @@ export const MarqueeBand: React.FC<MarqueeBandProps> = ({
   return (
     <div
       className={`overflow-hidden py-4 sm:py-5 select-none ${
-        isBlue ? 'bg-[#00558d]' : 'bg-[#e3a044]'
+        isBlue ? 'bg-[#0086d9]' : 'bg-[#e3a044]'
       } ${className}`}
       role="marquee"
       aria-label={items.join(' · ')}

@@ -90,7 +90,7 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
             />
             <div className="flex flex-wrap gap-3 mt-8">
               {['2 campus au Plateau', '100 % réussite CE6', 'Trilingue FR · AR · EN'].map((t) => (
-                <span key={t} className="rounded-full bg-[#00558d]/8 px-4 py-2 text-xs font-bold text-[#00558d]">
+                <span key={t} className="rounded-full bg-[#0086d9]/8 px-4 py-2 text-xs font-bold text-[#0086d9]">
                   {t}
                 </span>
               ))}
@@ -122,10 +122,10 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
                     className="absolute inset-0"
                     style={{ backgroundColor: v.backer, transform: `rotate(${-v.rotate * 1.6}deg) translate(8px, 8px)` }}
                   />
-                  <div className="relative z-10 bg-[#00558d] p-7 flex flex-col items-center text-center shadow-xl min-h-[220px] justify-center">
-                    <Icon className="w-7 h-7 text-[#e3a044] mb-4" strokeWidth={1.8} />
+                  <div className="relative z-10 bg-[#0086d9] p-7 flex flex-col items-center text-center shadow-xl min-h-[220px] justify-center">
+                    <Icon className="w-7 h-7 text-[#ffe08a] mb-4" strokeWidth={1.8} />
                     <h3 className="font-heading text-xl text-[#fff7ef] mb-2">{v.title}</h3>
-                    <p className="font-body text-[13px] text-[#fff7ef]/75 leading-relaxed">{v.line}</p>
+                    <p className="font-body text-[13px] text-[#fff7ef]/85 leading-relaxed">{v.line}</p>
                   </div>
                 </motion.div>
               );
@@ -138,7 +138,7 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
 
       {/* Le parcours d'une famille — timeline */}
       <section className="bg-[#fff7ef] py-16 sm:py-24 overflow-hidden relative">
-        <DoodleStar className="hidden lg:block absolute top-12 left-[8%] w-9 text-[#e3a044]/60 pointer-events-none" />
+        <DoodleStar className="hidden lg:block absolute top-12 left-[8%] w-9 text-[#ffe08a]/60 pointer-events-none" />
         <div className="max-w-5xl mx-auto px-4 sm:px-8">
           <SectionIntro
             tag="Votre parcours avec nous"
@@ -169,9 +169,9 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="bg-[#00558d]/6 border border-[#00558d]/10 rounded-xl p-6 text-center"
+                className="bg-[#0086d9]/6 border border-[#0086d9]/10 rounded-xl p-6 text-center"
               >
-                <h3 className="font-heading text-lg text-[#00558d] mb-2">{m.role}</h3>
+                <h3 className="font-heading text-lg text-[#0086d9] mb-2">{m.role}</h3>
                 <p className="font-body text-sm text-[#00558d]/70 leading-relaxed">{m.line}</p>
               </motion.div>
             ))}

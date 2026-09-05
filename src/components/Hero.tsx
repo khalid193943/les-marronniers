@@ -53,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
             <motion.div {...rise(0)} className="flex flex-wrap items-center gap-2.5 mb-6">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/85 backdrop-blur-sm border border-[#0086d9]/20 px-4 py-2 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-[#e3a044] animate-pulse" />
-                <span className="font-body font-semibold text-xs text-[#00558d]">
+                <span className="font-body font-semibold text-xs text-[#0086d9]">
                   Faites le choix de la différence
                 </span>
               </span>
@@ -65,7 +65,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
 
             <motion.h1
               {...rise(0.08)}
-              className="font-heading text-[2.1rem] leading-[1.14] sm:text-5xl sm:leading-[1.1] lg:text-6xl xl:text-[4.2rem] xl:leading-[1.06] text-[#00558d] tracking-tight mb-6"
+              className="font-heading text-[2.1rem] leading-[1.14] sm:text-5xl sm:leading-[1.1] lg:text-6xl xl:text-[4.2rem] xl:leading-[1.06] text-[#0086d9] tracking-tight mb-6"
             >
               Où la Curiosité<br />Apprend à{' '}
               <span className="relative inline-block text-[#e3a044]">
@@ -95,14 +95,14 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
             >
               <button
                 onClick={onOpenAdmissions}
-                className="cursor-pointer inline-flex items-center justify-center gap-3 rounded-full bg-[#00558d] hover:bg-[#0086d9] text-[#fff7ef] font-body font-bold text-[15px] px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+                className="cursor-pointer inline-flex items-center justify-center gap-3 rounded-full bg-[#0086d9] hover:bg-[#0086d9] text-[#fff7ef] font-body font-bold text-[15px] px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
               >
                 <Calendar className="w-4 h-4 text-[#e3a044]" />
                 Réserver une visite
               </button>
               <button
                 onClick={onExploreCampuses}
-                className="cursor-pointer inline-flex items-center justify-center gap-2.5 rounded-full bg-white hover:bg-white text-[#00558d] font-body font-bold text-[15px] px-7 py-4 border border-[#00558d]/15 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 group"
+                className="cursor-pointer inline-flex items-center justify-center gap-2.5 rounded-full bg-white hover:bg-white text-[#0086d9] font-body font-bold text-[15px] px-7 py-4 border border-[#0086d9]/15 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 group"
               >
                 Voir les campus
                 <ArrowRight className="w-4 h-4 text-[#0086d9] group-hover:translate-x-1 transition-transform" />
@@ -111,11 +111,11 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
 
             <motion.div
               {...rise(0.32)}
-              className="grid grid-cols-3 gap-6 pt-7 border-t border-[#00558d]/12 w-full max-w-lg"
+              className="grid grid-cols-3 gap-6 pt-7 border-t border-[#0086d9]/12 w-full max-w-lg"
             >
               {STATS.map((s) => (
                 <div key={s.label} className="flex flex-col">
-                  <span className="font-heading text-2xl sm:text-[1.7rem] text-[#00558d] leading-none mb-1.5">
+                  <span className="font-heading text-2xl sm:text-[1.7rem] text-[#0086d9] leading-none mb-1.5">
                     <CountUp value={s.value} suffix={s.suffix} />
                   </span>
                   <span className="font-body text-[11px] sm:text-xs text-[#00558d]/65 font-semibold leading-snug">
@@ -189,7 +189,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
                 initial={reduce ? undefined : { opacity: 0, x: -18, scale: 0.92 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 transition={{ type: 'spring', stiffness: 70, damping: 15, delay: 0.62 }}
-                className="absolute -left-2 sm:-left-6 top-[22%] z-40 bg-white/95 backdrop-blur-md pl-3 pr-4 py-2.5 rounded-2xl shadow-lg border border-[#00558d]/8 flex items-center gap-2.5"
+                className="absolute -left-2 sm:-left-6 top-[22%] z-40 bg-white/95 backdrop-blur-md pl-3 pr-4 py-2.5 rounded-2xl shadow-lg border border-[#0086d9]/8 flex items-center gap-2.5"
               >
                 <span className="w-8 h-8 rounded-full bg-[#0086d9] flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-4 h-4 text-white" />
@@ -198,7 +198,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
                   <span className="block font-body text-[10px] font-bold text-[#0086d9] tracking-wide">
                     ENVIRONNEMENT
                   </span>
-                  <span className="block font-body text-[13px] font-semibold text-[#00558d]">
+                  <span className="block font-body text-[13px] font-semibold text-[#0086d9]">
                     Sécurisé & bienveillant
                   </span>
                 </span>
@@ -209,10 +209,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
                 initial={reduce ? undefined : { opacity: 0, x: 18, scale: 0.92 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 transition={{ type: 'spring', stiffness: 70, damping: 15, delay: 0.74 }}
-                className="absolute -right-2 sm:-right-5 -bottom-5 z-40 bg-[#00558d] pl-3 pr-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2.5"
+                className="absolute -right-2 sm:-right-5 -bottom-5 z-40 bg-[#0086d9] pl-3 pr-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2.5"
               >
                 <span className="w-8 h-8 rounded-full bg-[#e3a044] flex items-center justify-center shrink-0">
-                  <Sparkles className="w-4 h-4 text-[#00558d]" />
+                  <Sparkles className="w-4 h-4 text-[#0086d9]" />
                 </span>
                 <span className="leading-tight">
                   <span className="block font-body text-[10px] font-bold text-[#e3a044] tracking-wide">

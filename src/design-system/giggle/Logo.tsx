@@ -21,7 +21,7 @@ interface LogoProps {
 export const Logo: React.FC<LogoProps> = ({ variant = 'badge', className = '' }) => {
   const isBadge = variant === 'badge';
   const topColor = isBadge || variant === 'light' ? '#ffffff' : '#0086D9';
-  const bottomColor = isBadge || variant === 'light' ? '#ffffff' : '#00558d';
+  const bottomColor = isBadge || variant === 'light' ? '#ffffff' : '#0086d9';
 
   return (
     <span

@@ -36,7 +36,7 @@ export const SectionDivider: React.FC<SectionDividerProps> = ({
   const colorMap = {
     cream: '#FFF7EF',
     white: '#FFFFFF',
-    blue: '#00558d',
+    blue: '#0086d9',
   };
 
   const fillColor = colorMap[variant];

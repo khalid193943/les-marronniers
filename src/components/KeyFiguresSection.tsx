@@ -34,7 +34,7 @@ export const KeyFiguresSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-[#00558d] text-[#fff7ef] py-12 sm:py-16 relative overflow-hidden border-y border-[#fff7ef]/15">
+    <section className="bg-[#0086d9] text-[#fff7ef] py-12 sm:py-16 relative overflow-hidden border-y border-[#fff7ef]/15">
       {/* Subtle modern particle highlights */}
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff7ef_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
@@ -51,11 +51,11 @@ export const KeyFiguresSection: React.FC = () => {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="bg-white/5 hover:bg-white/10 border border-[#fff7ef]/15 p-5 sm:p-6 flex flex-col items-center text-center group transition-all duration-300"
               >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 group-hover:bg-[#e3a044] transition-all duration-300 text-[#fff7ef] group-hover:text-[#00558d]">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 group-hover:bg-[#e3a044] transition-all duration-300 text-[#fff7ef] group-hover:text-[#0086d9]">
                   <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 
-                <span className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mb-1 tracking-tight text-white group-hover:text-[#e3a044] transition-colors">
+                <span className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mb-1 tracking-tight text-white group-hover:text-[#ffe08a] transition-colors">
                   <CountUp value={fig.value} suffix={fig.suffix} />
                 </span>
                 

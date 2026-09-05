@@ -225,3 +225,27 @@ Footer : `26px` → `36–44px`.
 Le fond apparaît d'abord au scroll, le premier plan se pose ensuite par-dessus ;
 au survol, la pile s'ouvre légèrement. Toute section illustrée du site partage
 donc la même signature visuelle.
+
+---
+
+## 🔵 Passe v8 — Le bleu du logo devient LA couleur du site
+
+Le bleu exact du logo **`#0086D9`** est désormais la couleur dominante :
+**115 surfaces** (boutons, fonds, cartes, sections, séparateurs déchirés) et
+**136 titres** l'utilisent.
+
+### Ce qui a dû être ajusté pour rester lisible
+Ce bleu est bien plus clair que l'ancien navy, ce qui a créé deux problèmes
+mesurés puis corrigés :
+
+| Point | Mesure | Correction |
+|---|---|---|
+| Moutarde `#e3a044` sur bleu logo | **1,73:1** — quasi invisible | Accent clarifié en **`#FFE08A`** sur les surfaces bleues (3,01:1) |
+| Texte crème translucide (`/60`–`/79`) sur bleu | trop pâle | Opacités remontées à `/85`–`/90` |
+| Petit texte bleu sur crème | 3,66:1, sous le seuil | Le corps de texte garde **`#00558D`** (7,38:1), même teinte 204° |
+
+### Règle à retenir
+- **Surfaces, boutons, titres, icônes** → `#0086D9` (le bleu du logo)
+- **Petit texte courant sur fond clair** → `#00558D` (même teinte, lisible)
+- **Accent chaud sur fond bleu** → `#FFE08A` ; sur fond clair, la moutarde
+  `#E3A044` reste en place.

@@ -127,19 +127,19 @@ export const ParcoursSection: React.FC<ParcoursSectionProps> = ({ onNavigate }) 
                     />
 
                     {/* Carte bleu marine */}
-                    <span className="relative z-10 block bg-[#00558d] p-8 sm:p-10 shadow-xl">
+                    <span className="relative z-10 block bg-[#0086d9] p-8 sm:p-10 shadow-xl">
                       {/* Illustration dessinée à la main */}
                       <Doodle className="w-full max-w-[260px] mx-auto text-[#fff7ef] mb-6 opacity-95" />
 
                       <span className="block font-heading text-2xl sm:text-3xl text-[#fff7ef] mb-2">
                         {stage.title}
                       </span>
-                      <span className="block font-body text-sm sm:text-[15px] text-[#fff7ef]/75 leading-relaxed mb-5">
+                      <span className="block font-body text-sm sm:text-[15px] text-[#fff7ef]/85 leading-relaxed mb-5">
                         {stage.line}
                       </span>
 
                       <span className="flex items-center justify-between">
-                        <span className="font-body text-xs font-bold text-[#e3a044] tracking-wide">
+                        <span className="font-body text-xs font-bold text-[#ffe08a] tracking-wide">
                           {stage.level}
                         </span>
                         <span className="inline-flex items-center rounded-full bg-[#fff7ef]/12 px-3.5 py-1.5 font-body text-xs font-bold text-[#fff7ef]">

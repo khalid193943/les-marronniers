@@ -77,7 +77,7 @@ export const ParentCommunitySection: React.FC = () => {
             <div className="giggle-dot" />
             <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">Paroles de Parents</span>
           </div>
-          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#00558d] tracking-tight mb-6 leading-tight">
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#0086d9] tracking-tight mb-6 leading-tight">
             Aimés des Enfants, Approuvés par les Familles
           </h2>
           <p className="font-body text-base sm:text-lg text-[#00558d]/80 leading-relaxed max-w-4xl mx-auto">
@@ -94,7 +94,7 @@ export const ParentCommunitySection: React.FC = () => {
           {testimonials.map((testi, idx) => (
             <div 
               key={idx} 
-              className="snap-start shrink-0 w-[85vw] sm:w-[340px] lg:w-[calc(25%-1.125rem)] bg-[#00558d]/8 p-8 sm:p-9 flex flex-col justify-between min-h-[420px] rounded-none border-2 border-[#00558d]/15 shadow-md hover:shadow-xl hover:border-[#00558d]/30 transition-all duration-300 group"
+              className="snap-start shrink-0 w-[85vw] sm:w-[340px] lg:w-[calc(25%-1.125rem)] bg-[#0086d9]/8 p-8 sm:p-9 flex flex-col justify-between min-h-[420px] rounded-none border-2 border-[#0086d9]/15 shadow-md hover:shadow-xl hover:border-[#0086d9]/30 transition-all duration-300 group"
             >
               <div>
                 {/* 5 Stars Rating */}
@@ -102,22 +102,22 @@ export const ParentCommunitySection: React.FC = () => {
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-current" />
                   ))}
-                  <span className="text-xs font-bold text-[#00558d] ml-2">5.0</span>
+                  <span className="text-xs font-bold text-[#0086d9] ml-2">5.0</span>
                 </div>
 
-                <p className="font-body text-[#00558d] text-base sm:text-lg leading-relaxed font-medium">
+                <p className="font-body text-[#0086d9] text-base sm:text-lg leading-relaxed font-medium">
                   {testi.quote}
                 </p>
               </div>
               
-              <div className="flex items-center gap-4 mt-8 pt-6 border-t border-[#00558d]/10">
+              <div className="flex items-center gap-4 mt-8 pt-6 border-t border-[#0086d9]/10">
                 <img 
                   src={testi.avatar} 
                   alt={testi.name} 
                   className="w-14 h-14 rounded-full object-cover shadow-sm border-2 border-white/60"
                 />
                 <div>
-                  <h4 className="font-heading font-bold text-[#00558d] text-base leading-tight">{testi.name}</h4>
+                  <h4 className="font-heading font-bold text-[#0086d9] text-base leading-tight">{testi.name}</h4>
                   <p className="font-body text-[#00558d]/70 text-xs font-medium mt-0.5">
                     {testi.role}
                   </p>
@@ -139,14 +139,14 @@ export const ParentCommunitySection: React.FC = () => {
           <div className="flex gap-3">
             <button 
               onClick={() => scroll('left')}
-              className="w-12 h-12 flex items-center justify-center bg-[#00558d]/8 text-[#00558d] hover:bg-[#00558d]/18 hover:scale-105 active:scale-95 transition-all shadow-sm border border-[#00558d]/15 cursor-pointer"
+              className="w-12 h-12 flex items-center justify-center bg-[#0086d9]/8 text-[#0086d9] hover:bg-[#0086d9]/18 hover:scale-105 active:scale-95 transition-all shadow-sm border border-[#0086d9]/15 cursor-pointer"
               aria-label="Previous testimonials"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button 
               onClick={() => scroll('right')}
-              className="w-12 h-12 flex items-center justify-center bg-[#00558d]/8 text-[#00558d] hover:bg-[#00558d]/18 hover:scale-105 active:scale-95 transition-all shadow-sm border border-[#00558d]/15 cursor-pointer"
+              className="w-12 h-12 flex items-center justify-center bg-[#0086d9]/8 text-[#0086d9] hover:bg-[#0086d9]/18 hover:scale-105 active:scale-95 transition-all shadow-sm border border-[#0086d9]/15 cursor-pointer"
               aria-label="Next testimonials"
             >
               <ChevronRight className="w-5 h-5" />

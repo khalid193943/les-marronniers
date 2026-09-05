@@ -15,7 +15,7 @@ export const ImpactSection: React.FC = () => {
 
   return (
     <section className="bg-[#fff7ef] py-16 sm:py-24 overflow-hidden relative">
-      <DoodleSpiral className="hidden lg:block absolute bottom-10 right-[8%] w-10 text-[#00558d]/20 pointer-events-none" />
+      <DoodleSpiral className="hidden lg:block absolute bottom-10 right-[8%] w-10 text-[#0086d9]/20 pointer-events-none" />
       <div className="max-w-6xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
         <motion.div
           initial={reduce ? undefined : { opacity: 0, x: -30 }}

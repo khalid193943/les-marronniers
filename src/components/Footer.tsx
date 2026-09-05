@@ -21,7 +21,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
   };
 
   return (
-    <footer className="bg-[#00558d] text-[#fff7ef] pt-16 pb-12 border-t border-[#003f6b]">
+    <footer className="bg-[#0086d9] text-[#fff7ef] pt-16 pb-12 border-t border-[#003f6b]">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
@@ -43,16 +43,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
 
             <div className="space-y-2.5 text-xs text-[#fff7ef]/90">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#e3a044] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#ffe08a] shrink-0 mt-0.5" />
                 <span><strong>Maternelle :</strong> 16 Lot Al Asdikaa, Rue Beethoven, Plateau</span>
               </div>
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#e3a044] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#ffe08a] shrink-0 mt-0.5" />
                 <span><strong>Primaire :</strong> 3 Avenue Varennes, El Jadida</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#e3a044] shrink-0" />
-                <a href={`tel:${SCHOOL_INFO.phoneRaw}`} className="hover:text-[#e3a044] transition-colors font-bold">
+                <Phone className="w-4 h-4 text-[#ffe08a] shrink-0" />
+                <a href={`tel:${SCHOOL_INFO.phoneRaw}`} className="hover:text-[#ffe08a] transition-colors font-bold">
                   {SCHOOL_INFO.phone}
                 </a>
               </div>
@@ -61,15 +61,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
             {/* Réseaux sociaux officiels */}
             <div className="flex items-center gap-3 mt-6">
               <a href={SCHOOL_INFO.social.facebook} target="_blank" rel="noreferrer" aria-label="Facebook Les Marronniers"
-                 className="w-10 h-10 rounded-full bg-[#fff7ef]/10 hover:bg-[#e3a044] text-[#fff7ef] hover:text-[#00558d] flex items-center justify-center transition-colors">
+                 className="w-10 h-10 rounded-full bg-[#fff7ef]/10 hover:bg-[#e3a044] text-[#fff7ef] hover:text-[#0086d9] flex items-center justify-center transition-colors">
                 <Facebook className="w-4.5 h-4.5" />
               </a>
               <a href={SCHOOL_INFO.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram Les Marronniers"
-                 className="w-10 h-10 rounded-full bg-[#fff7ef]/10 hover:bg-[#e3a044] text-[#fff7ef] hover:text-[#00558d] flex items-center justify-center transition-colors">
+                 className="w-10 h-10 rounded-full bg-[#fff7ef]/10 hover:bg-[#e3a044] text-[#fff7ef] hover:text-[#0086d9] flex items-center justify-center transition-colors">
                 <Instagram className="w-4.5 h-4.5" />
               </a>
               <a href={SCHOOL_INFO.social.youtube} target="_blank" rel="noreferrer" aria-label="YouTube Les Marronniers"
-                 className="w-10 h-10 rounded-full bg-[#fff7ef]/10 hover:bg-[#e3a044] text-[#fff7ef] hover:text-[#00558d] flex items-center justify-center transition-colors">
+                 className="w-10 h-10 rounded-full bg-[#fff7ef]/10 hover:bg-[#e3a044] text-[#fff7ef] hover:text-[#0086d9] flex items-center justify-center transition-colors">
                 <Youtube className="w-4.5 h-4.5" />
               </a>
             </div>
@@ -92,7 +92,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
                 <li key={link.id}>
                   <button
                     onClick={() => onNavigate(link.id as PageId)}
-                    className="hover:text-[#e3a044] transition-colors cursor-pointer text-left"
+                    className="hover:text-[#ffe08a] transition-colors cursor-pointer text-left"
                   >
                     {link.label}
                   </button>
@@ -112,7 +112,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
               onClick={() => onNavigate('campus')}
               className="p-4 bg-white/5 border border-white/10 hover:bg-white/10 transition-colors cursor-pointer"
             >
-              <div className="flex items-center gap-2 text-xs font-bold text-[#e3a044] mb-1">
+              <div className="flex items-center gap-2 text-xs font-bold text-[#ffe08a] mb-1">
                 <Building2 className="w-3.5 h-3.5" />
                 <span>Nos Campus & Équipements</span>
               </div>
@@ -145,7 +145,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
               </button>
               <button
                 onClick={() => onNavigate('inscription')}
-                className="px-3 py-1.5 bg-[#e3a044] text-[#00558d] font-bold transition-colors cursor-pointer"
+                className="px-3 py-1.5 bg-[#e3a044] text-[#0086d9] font-bold transition-colors cursor-pointer"
               >
                 Inscriptions
               </button>
@@ -185,12 +185,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#fff7ef]/60">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#fff7ef]/85">
           <p>© 2026 Les Marronniers El Jadida — Établissement Scolaire Privé. Tous droits réservés.</p>
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 hover:text-[#e3a044] transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 hover:text-[#ffe08a] transition-colors cursor-pointer"
           >
             <span>Retour en haut</span>
             <ArrowUp className="w-3.5 h-3.5" />

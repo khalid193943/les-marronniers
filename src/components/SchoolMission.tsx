@@ -55,7 +55,7 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
   return (
     <section className="py-20 sm:py-28 bg-white overflow-hidden relative">
       {/* Doodles décoratifs discrets */}
-      <DoodleSun className="hidden lg:block absolute top-24 left-12 w-12 text-[#e3a044]/50 pointer-events-none" />
+      <DoodleSun className="hidden lg:block absolute top-24 left-12 w-12 text-[#ffe08a]/50 pointer-events-none" />
       <DoodleStar className="hidden lg:block absolute top-40 right-16 w-8 text-[#d95f43]/40 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
@@ -100,14 +100,14 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
                 />
 
                 {/* Carte bleu marine */}
-                <div className="relative z-10 bg-[#00558d] p-8 sm:p-10 aspect-square flex flex-col items-center justify-center text-center shadow-xl">
-                  <div className="w-14 h-14 rounded-full border-2 border-[#fff7ef]/30 text-[#fff7ef] flex items-center justify-center mb-5 group-hover:bg-[#e3a044] group-hover:border-[#e3a044] group-hover:text-[#00558d] transition-colors duration-300">
+                <div className="relative z-10 bg-[#0086d9] p-8 sm:p-10 aspect-square flex flex-col items-center justify-center text-center shadow-xl">
+                  <div className="w-14 h-14 rounded-full border-2 border-[#fff7ef]/30 text-[#fff7ef] flex items-center justify-center mb-5 group-hover:bg-[#e3a044] group-hover:border-[#e3a044] group-hover:text-[#0086d9] transition-colors duration-300">
                     <Icon className="w-6 h-6" strokeWidth={1.8} />
                   </div>
                   <h3 className="font-heading text-xl sm:text-2xl text-[#fff7ef] mb-3">
                     {card.title}
                   </h3>
-                  <p className="font-body text-sm text-[#fff7ef]/75 leading-relaxed max-w-[240px]">
+                  <p className="font-body text-sm text-[#fff7ef]/85 leading-relaxed max-w-[240px]">
                     {card.line}
                   </p>
                 </div>
@@ -125,11 +125,11 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="order-2 lg:order-1"
           >
-            <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-xs font-bold text-[#00558d] mb-5">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-xs font-bold text-[#0086d9] mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#e3a044]" />
               Rentrée 2026 – 2027
             </span>
-            <h3 className="font-heading text-3xl sm:text-4xl text-[#00558d] tracking-tight mb-4">
+            <h3 className="font-heading text-3xl sm:text-4xl text-[#0086d9] tracking-tight mb-4">
               Les Inscriptions Sont Ouvertes
             </h3>
             <p className="font-body text-base text-[#00558d]/70 leading-relaxed mb-8 max-w-md">
@@ -140,7 +140,7 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
               onClick={onOpenAdmissions}
               className="giggle-button-primary cursor-pointer inline-flex items-center gap-3"
             >
-              <Calendar className="w-4 h-4 text-[#e3a044]" />
+              <Calendar className="w-4 h-4 text-[#ffe08a]" />
               <span>Réserver une visite</span>
             </button>
           </motion.div>
@@ -157,7 +157,7 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
                 alt: 'Activités en maternelle',
               },
             ]}
-            backers={['#e3a044', '#00558d']}
+            backers={['#e3a044', '#0086d9']}
           />
         </div>
       </div>

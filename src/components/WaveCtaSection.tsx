@@ -20,7 +20,7 @@ export const WaveCtaSection: React.FC<WaveCtaSectionProps> = ({ onOpenAdmissions
       {/* Top Blue Wave Separator */}
       <SectionDivider variant="blue" position="top" />
 
-      <section className="relative overflow-hidden bg-[#00558d] py-24 sm:py-32 text-center text-[#fff7ef]">
+      <section className="relative overflow-hidden bg-[#0086d9] py-24 sm:py-32 text-center text-[#fff7ef]">
         {/* Subtle glowing ambient orbs */}
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-[#e3a044]/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
@@ -52,9 +52,9 @@ export const WaveCtaSection: React.FC<WaveCtaSectionProps> = ({ onOpenAdmissions
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <button
               onClick={onOpenAdmissions}
-              className="w-full sm:w-auto bg-white hover:bg-[#fff7ef] text-[#00558d] font-bold text-base px-9 py-4.5 shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center gap-3 border-2 border-white group"
+              className="w-full sm:w-auto bg-white hover:bg-[#fff7ef] text-[#0086d9] font-bold text-base px-9 py-4.5 shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center gap-3 border-2 border-white group"
             >
-              <Calendar className="w-5 h-5 text-[#e3a044]" />
+              <Calendar className="w-5 h-5 text-[#ffe08a]" />
               <span>Réserver une visite</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
@@ -63,12 +63,12 @@ export const WaveCtaSection: React.FC<WaveCtaSectionProps> = ({ onOpenAdmissions
               href={`tel:${SCHOOL_INFO.phoneRaw}`}
               className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-[#fff7ef] font-semibold text-base px-8 py-4.5 border border-white/30 transition-all flex items-center justify-center gap-2.5 backdrop-blur-xs"
             >
-              <Phone className="w-4 h-4 text-[#e3a044]" />
+              <Phone className="w-4 h-4 text-[#ffe08a]" />
               <span>{SCHOOL_INFO.phone}</span>
             </a>
           </div>
 
-          <p className="text-xs text-white/60 mt-6 font-body">
+          <p className="text-xs text-white/90 mt-6 font-body">
             Lun – Ven · 7h45 – 18h15
           </p>
         </motion.div>

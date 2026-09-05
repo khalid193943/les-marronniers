@@ -79,7 +79,7 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({ onOpenAdmissions
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ y: -5 }}
-                className="relative bg-[#00558d]/[0.045] border border-[#00558d]/10 rounded-2xl p-6 sm:p-7 overflow-hidden group"
+                className="relative bg-[#0086d9]/[0.045] border border-[#0086d9]/10 rounded-2xl p-6 sm:p-7 overflow-hidden group"
               >
                 {/* Filet coloré en haut de carte */}
                 <span
@@ -103,7 +103,7 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({ onOpenAdmissions
                   </span>
                 </div>
 
-                <h3 className="font-heading text-xl sm:text-[22px] text-[#00558d] mb-2">
+                <h3 className="font-heading text-xl sm:text-[22px] text-[#0086d9] mb-2">
                   {axe.title}
                 </h3>
                 <p className="font-body text-sm text-[#00558d]/70 leading-relaxed">
@@ -120,7 +120,7 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({ onOpenAdmissions
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.55 }}
-          className="flex flex-col sm:flex-row items-center justify-between gap-6 bg-[#00558d] rounded-2xl px-7 sm:px-10 py-7"
+          className="flex flex-col sm:flex-row items-center justify-between gap-6 bg-[#0086d9] rounded-2xl px-7 sm:px-10 py-7"
         >
           <div className="flex items-center gap-5">
             <span className="bg-white rounded-xl px-4 py-3 shrink-0">
@@ -139,10 +139,10 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({ onOpenAdmissions
 
           <button
             onClick={onOpenAdmissions}
-            className="cursor-pointer shrink-0 inline-flex items-center gap-3 rounded-full bg-[#e3a044] text-[#00558d] font-body font-bold text-sm pl-6 pr-2 py-2 hover:bg-[#f0b055] transition-colors group"
+            className="cursor-pointer shrink-0 inline-flex items-center gap-3 rounded-full bg-[#e3a044] text-[#0086d9] font-body font-bold text-sm pl-6 pr-2 py-2 hover:bg-[#f0b055] transition-colors group"
           >
             Nous rencontrer
-            <span className="w-8 h-8 rounded-full bg-[#00558d] text-[#e3a044] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+            <span className="w-8 h-8 rounded-full bg-[#0086d9] text-[#ffe08a] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
               <ArrowUpRight className="w-4 h-4" strokeWidth={2.2} />
             </span>
           </button>

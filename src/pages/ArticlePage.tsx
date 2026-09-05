@@ -32,7 +32,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
   if (!post) {
     return (
       <div className="bg-[#fff7ef] py-24 text-center px-4">
-        <h1 className="font-heading text-3xl text-[#00558d] mb-4">Article introuvable</h1>
+        <h1 className="font-heading text-3xl text-[#0086d9] mb-4">Article introuvable</h1>
         <p className="font-body text-[#00558d]/70 mb-8">Cet article n’existe plus ou a été déplacé.</p>
         <button onClick={onBack} className="giggle-button-primary cursor-pointer inline-flex items-center gap-2">
           <ArrowLeft className="w-4 h-4 text-[#e3a044]" /> Retour aux actualités
@@ -51,7 +51,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
           <button
             onClick={onBack}
-            className="inline-flex items-center gap-2 font-body text-sm font-bold text-[#00558d]/70 hover:text-[#00558d] mb-8 cursor-pointer"
+            className="inline-flex items-center gap-2 font-body text-sm font-bold text-[#00558d]/70 hover:text-[#0086d9] mb-8 cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" /> Toutes les actualités
           </button>
@@ -61,11 +61,11 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full bg-[#00558d]/8 px-4 py-1.5 text-[11px] font-bold text-[#00558d] mb-5">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#0086d9]/8 px-4 py-1.5 text-[11px] font-bold text-[#0086d9] mb-5">
               <CalendarDays className="w-3.5 h-3.5 text-[#e3a044]" />
               {post.category} · {formatDate(post.date)}
             </span>
-            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[#00558d] leading-tight mb-4">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[#0086d9] leading-tight mb-4">
               {post.title}
             </h1>
             <p className="font-body text-lg text-[#00558d]/70 leading-relaxed">{post.excerpt}</p>
@@ -112,7 +112,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
             </motion.p>
           ))}
 
-          <div className="mt-12 pt-10 border-t border-[#00558d]/12 text-center">
+          <div className="mt-12 pt-10 border-t border-[#0086d9]/12 text-center">
             <p className="font-body text-sm text-[#00558d]/70 mb-5">
               Envie de découvrir l’école en vrai ?
             </p>
@@ -130,7 +130,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
           <SectionDivider variant="cream" position="top" style="wave2" />
           <section className="bg-[#fff7ef] py-14 sm:py-20">
             <div className="max-w-4xl mx-auto px-4 sm:px-8">
-              <h2 className="font-heading text-2xl sm:text-3xl text-[#00558d] text-center mb-10">
+              <h2 className="font-heading text-2xl sm:text-3xl text-[#0086d9] text-center mb-10">
                 À lire ensuite
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -145,9 +145,9 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
                       transition={{ type: 'spring', stiffness: 55, damping: 13, delay: idx * 0.08 }}
                       whileHover={{ rotate: 0, y: -5 }}
                       onClick={() => onOpenArticle(p.slug)}
-                      className="bg-white border border-[#00558d]/10 rounded-2xl overflow-hidden cursor-pointer shadow-sm group"
+                      className="bg-white border border-[#0086d9]/10 rounded-2xl overflow-hidden cursor-pointer shadow-sm group"
                     >
-                      <div className="aspect-[16/10] overflow-hidden bg-[#00558d]/8">
+                      <div className="aspect-[16/10] overflow-hidden bg-[#0086d9]/8">
                         {p.cover && (
                           <img src={p.cover} alt={p.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -157,7 +157,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
                         <span className="font-body text-[10px] font-bold text-[#e3a044]">
                           {p.category} · {formatDate(p.date)}
                         </span>
-                        <h3 className="font-heading text-lg text-[#00558d] mt-1">{p.title}</h3>
+                        <h3 className="font-heading text-lg text-[#0086d9] mt-1">{p.title}</h3>
                       </div>
                     </motion.article>
                   );

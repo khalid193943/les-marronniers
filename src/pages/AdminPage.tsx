@@ -31,12 +31,12 @@ import { ADMIN_PASSWORD } from '../data/adminConfig';
 /* --------------------------------- styles --------------------------------- */
 
 const field =
-  'w-full bg-[#00558d]/6 border border-[#00558d]/15 px-4 py-2.5 font-body text-[15px] text-[#00558d] placeholder:text-[#00558d]/40 focus:outline-none focus:border-[#00558d]/40 focus:bg-[#00558d]/10 transition-colors rounded-lg';
+  'w-full bg-[#0086d9]/6 border border-[#0086d9]/15 px-4 py-2.5 font-body text-[15px] text-[#0086d9] placeholder:text-[#00558d]/40 focus:outline-none focus:border-[#0086d9]/40 focus:bg-[#0086d9]/10 transition-colors rounded-lg';
 const label = 'block font-body text-xs font-bold text-[#00558d]/70 mb-1.5';
 const btn =
   'inline-flex items-center justify-center gap-2 rounded-full font-body font-bold text-sm px-5 py-2.5 cursor-pointer transition-colors';
-const btnPrimary = `${btn} bg-[#00558d] text-[#fff7ef] hover:bg-[#003f6b]`;
-const btnGhost = `${btn} bg-[#00558d]/8 text-[#00558d] hover:bg-[#00558d]/15`;
+const btnPrimary = `${btn} bg-[#0086d9] text-[#fff7ef] hover:bg-[#003f6b]`;
+const btnGhost = `${btn} bg-[#0086d9]/8 text-[#0086d9] hover:bg-[#0086d9]/15`;
 
 /* -------------------------------- connexion -------------------------------- */
 
@@ -65,10 +65,10 @@ const LoginGate: React.FC<{ onOk: () => void }> = ({ onOk }) => {
         className="relative w-full max-w-sm"
       >
         <span aria-hidden="true" className="absolute inset-0 bg-[#e3a044]" style={{ transform: 'rotate(2deg) translate(10px,10px)' }} />
-        <div className="relative z-10 bg-[#00558d] p-8 shadow-2xl">
-          <Lock className="w-8 h-8 text-[#e3a044] mx-auto mb-4" />
+        <div className="relative z-10 bg-[#0086d9] p-8 shadow-2xl">
+          <Lock className="w-8 h-8 text-[#ffe08a] mx-auto mb-4" />
           <h1 className="font-heading text-2xl text-[#fff7ef] text-center mb-1">Espace administration</h1>
-          <p className="font-body text-xs text-[#fff7ef]/60 text-center mb-6">Les Marronniers El Jadida</p>
+          <p className="font-body text-xs text-[#fff7ef]/85 text-center mb-6">Les Marronniers El Jadida</p>
           <input
             type="password"
             value={pwd}
@@ -78,7 +78,7 @@ const LoginGate: React.FC<{ onOk: () => void }> = ({ onOk }) => {
             className="w-full bg-[#fff7ef]/10 border border-[#fff7ef]/25 px-4 py-3 text-[#fff7ef] placeholder:text-[#fff7ef]/40 rounded-lg focus:outline-none focus:border-[#e3a044] mb-3"
           />
           {error && <p className="font-body text-xs text-[#f0a89a] mb-3 text-center">Mot de passe incorrect.</p>}
-          <button type="submit" className="w-full rounded-full bg-[#e3a044] text-[#00558d] font-bold py-3 cursor-pointer hover:bg-[#f0b055] transition-colors">
+          <button type="submit" className="w-full rounded-full bg-[#e3a044] text-[#0086d9] font-bold py-3 cursor-pointer hover:bg-[#f0b055] transition-colors">
             Se connecter
           </button>
         </div>
@@ -122,13 +122,13 @@ const PostEditor: React.FC<{
       onSubmit={submit}
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white border border-[#00558d]/12 rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col gap-5"
+      className="bg-white border border-[#0086d9]/12 rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col gap-5"
     >
       <div className="flex items-center justify-between">
-        <h3 className="font-heading text-2xl text-[#00558d]">
+        <h3 className="font-heading text-2xl text-[#0086d9]">
           {post.title ? 'Modifier l’article' : 'Nouvel article'}
         </h3>
-        <button type="button" onClick={onCancel} className="w-9 h-9 rounded-full bg-[#00558d]/8 text-[#00558d] flex items-center justify-center cursor-pointer hover:bg-[#00558d]/15" aria-label="Fermer">
+        <button type="button" onClick={onCancel} className="w-9 h-9 rounded-full bg-[#0086d9]/8 text-[#0086d9] flex items-center justify-center cursor-pointer hover:bg-[#0086d9]/15" aria-label="Fermer">
           <X className="w-4 h-4" />
         </button>
       </div>
@@ -155,7 +155,7 @@ const PostEditor: React.FC<{
         </div>
         <div className="flex items-end">
           <button type="button" onClick={() => set('featured', !draft.featured)}
-            className={`${draft.featured ? 'bg-[#e3a044] text-[#00558d]' : 'bg-[#00558d]/8 text-[#00558d]'} ${btn} w-full`}>
+            className={`${draft.featured ? 'bg-[#e3a044] text-[#0086d9]' : 'bg-[#0086d9]/8 text-[#0086d9]'} ${btn} w-full`}>
             <Star className="w-4 h-4" fill={draft.featured ? 'currentColor' : 'none'} />
             {draft.featured ? 'À la une' : 'Mettre à la une'}
           </button>
@@ -166,11 +166,11 @@ const PostEditor: React.FC<{
       <div>
         <label className={label}>Image de couverture</label>
         <div className="flex flex-col sm:flex-row gap-4 items-start">
-          <div className="w-full sm:w-56 aspect-[4/3] bg-[#00558d]/6 border border-[#00558d]/15 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
+          <div className="w-full sm:w-56 aspect-[4/3] bg-[#0086d9]/6 border border-[#0086d9]/15 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
             {draft.cover ? (
               <img src={draft.cover} alt="" className="w-full h-full object-cover" />
             ) : (
-              <ImageIcon className="w-7 h-7 text-[#00558d]/30" />
+              <ImageIcon className="w-7 h-7 text-[#0086d9]/30" />
             )}
           </div>
           <div className="flex-1 w-full flex flex-col gap-2.5">
@@ -263,22 +263,22 @@ const NewsTab: React.FC = () => {
           onChange={(e) => handleImport(e.target.files?.[0])} />
         {pending > 0 && (
           <button onClick={() => { if (confirm('Annuler toutes les modifications non publiées ?')) { resetLocalChanges(); refresh(); } }}
-            className={`${btn} bg-[#d95f43]/12 text-[#00558d] hover:bg-[#d95f43]/20`}>
+            className={`${btn} bg-[#d95f43]/12 text-[#0086d9] hover:bg-[#d95f43]/20`}>
             <RefreshCw className="w-4 h-4" /> Annuler les brouillons
           </button>
         )}
       </div>
 
       {notice && (
-        <p className="font-body text-sm text-[#00558d] bg-[#38926c]/12 border border-[#38926c]/25 px-4 py-2.5 rounded-lg">{notice}</p>
+        <p className="font-body text-sm text-[#0086d9] bg-[#38926c]/12 border border-[#38926c]/25 px-4 py-2.5 rounded-lg">{notice}</p>
       )}
 
       {pending > 0 && (
         <div className="flex items-start gap-3 bg-[#e3a044]/12 border border-[#e3a044]/30 px-4 py-3 rounded-lg">
-          <AlertCircle className="w-4.5 h-4.5 text-[#00558d] shrink-0 mt-0.5" />
-          <p className="font-body text-[13px] text-[#00558d] leading-relaxed">
+          <AlertCircle className="w-4.5 h-4.5 text-[#0086d9] shrink-0 mt-0.5" />
+          <p className="font-body text-[13px] text-[#0086d9] leading-relaxed">
             <strong>{pending} modification{pending > 1 ? 's' : ''} en brouillon.</strong> Elles ne sont visibles que sur cet appareil.
-            Pour les publier pour tout le monde : <em>Exporter</em>, puis remplacez le fichier <code className="bg-[#00558d]/10 px-1 rounded">src/data/news.json</code> et reconstruisez le site.
+            Pour les publier pour tout le monde : <em>Exporter</em>, puis remplacez le fichier <code className="bg-[#0086d9]/10 px-1 rounded">src/data/news.json</code> et reconstruisez le site.
           </p>
         </div>
       )}
@@ -286,8 +286,8 @@ const NewsTab: React.FC = () => {
       {/* Liste des articles */}
       <div className="flex flex-col gap-3">
         {posts.map((p) => (
-          <div key={p.id} className="flex items-center gap-4 bg-white border border-[#00558d]/12 rounded-xl p-3 sm:p-4">
-            <div className="w-20 h-16 sm:w-24 sm:h-18 rounded-lg overflow-hidden bg-[#00558d]/8 shrink-0">
+          <div key={p.id} className="flex items-center gap-4 bg-white border border-[#0086d9]/12 rounded-xl p-3 sm:p-4">
+            <div className="w-20 h-16 sm:w-24 sm:h-18 rounded-lg overflow-hidden bg-[#0086d9]/8 shrink-0">
               {p.cover && <img src={p.cover} alt="" className="w-full h-full object-cover" />}
             </div>
             <div className="flex-1 min-w-0">
@@ -295,12 +295,12 @@ const NewsTab: React.FC = () => {
                 <span className="font-body text-[10px] font-bold text-[#e3a044]">{p.category}</span>
                 {p.featured && <Star className="w-3 h-3 text-[#e3a044]" fill="currentColor" />}
               </div>
-              <h4 className="font-heading text-base text-[#00558d] truncate">{p.title}</h4>
+              <h4 className="font-heading text-base text-[#0086d9] truncate">{p.title}</h4>
               <p className="font-body text-[11px] text-[#00558d]/55">{formatDate(p.date)}</p>
             </div>
             <div className="flex gap-2 shrink-0">
               <button onClick={() => setEditing(p)} aria-label="Modifier"
-                className="w-9 h-9 rounded-full bg-[#00558d]/8 text-[#00558d] flex items-center justify-center cursor-pointer hover:bg-[#00558d]/15">
+                className="w-9 h-9 rounded-full bg-[#0086d9]/8 text-[#0086d9] flex items-center justify-center cursor-pointer hover:bg-[#0086d9]/15">
                 <Pencil className="w-4 h-4" />
               </button>
               <button onClick={() => handleDelete(p)} aria-label="Supprimer"
@@ -362,7 +362,7 @@ const InboxTab: React.FC = () => {
       <div className="flex flex-wrap items-center gap-3">
         {(['all', 'pre-inscription', 'contact'] as const).map((f) => (
           <button key={f} onClick={() => setFilter(f)}
-            className={`${btn} ${filter === f ? 'bg-[#00558d] text-[#fff7ef]' : 'bg-[#00558d]/8 text-[#00558d] hover:bg-[#00558d]/15'}`}>
+            className={`${btn} ${filter === f ? 'bg-[#0086d9] text-[#fff7ef]' : 'bg-[#0086d9]/8 text-[#0086d9] hover:bg-[#0086d9]/15'}`}>
             {f === 'all' ? 'Tout' : f === 'contact' ? 'Messages' : 'Pré-inscriptions'}
           </button>
         ))}
@@ -378,16 +378,16 @@ const InboxTab: React.FC = () => {
         </button>
       </div>
 
-      {status && <p className="font-body text-sm text-[#00558d] bg-[#00558d]/8 px-4 py-2.5 rounded-lg">{status}</p>}
+      {status && <p className="font-body text-sm text-[#0086d9] bg-[#0086d9]/8 px-4 py-2.5 rounded-lg">{status}</p>}
 
       {/* Configuration Netlify */}
       <AnimatePresence>
         {showCfg && (
           <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}
             className="overflow-hidden">
-            <div className="bg-white border border-[#00558d]/12 rounded-2xl p-6 flex flex-col gap-4">
+            <div className="bg-white border border-[#0086d9]/12 rounded-2xl p-6 flex flex-col gap-4">
               <div>
-                <h4 className="font-heading text-lg text-[#00558d] mb-1">Voir les demandes de tous les appareils</h4>
+                <h4 className="font-heading text-lg text-[#0086d9] mb-1">Voir les demandes de tous les appareils</h4>
                 <p className="font-body text-[13px] text-[#00558d]/70 leading-relaxed">
                   Sans connexion, cet écran affiche les demandes envoyées depuis ce navigateur.
                   Pour tout voir, collez un jeton Netlify (<em>User settings → Applications → Personal access tokens</em>)
@@ -426,19 +426,19 @@ const InboxTab: React.FC = () => {
           const name = s.data.parent || s.data.nom || 'Sans nom';
           return (
             <motion.div key={s.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-              className={`bg-white border rounded-xl p-5 ${s.read ? 'border-[#00558d]/10 opacity-75' : 'border-[#00558d]/20'}`}>
+              className={`bg-white border rounded-xl p-5 ${s.read ? 'border-[#0086d9]/10 opacity-75' : 'border-[#0086d9]/20'}`}>
               <div className="flex flex-wrap items-center gap-3 mb-3">
                 <span className={`font-body text-[10px] font-bold px-2.5 py-1 rounded-full ${isInscription ? 'bg-[#38926c]/15 text-[#1f8a63]' : 'bg-[#0086d9]/15 text-[#0086d9]'}`}>
                   {isInscription ? 'Pré-inscription' : 'Message'}
                 </span>
-                <span className="font-heading text-lg text-[#00558d]">{name}</span>
+                <span className="font-heading text-lg text-[#0086d9]">{name}</span>
                 <span className="font-body text-[11px] text-[#00558d]/50">
                   {new Date(s.receivedAt).toLocaleString('fr-FR')}
                 </span>
                 {s.remote && <span className="font-body text-[10px] text-[#00558d]/40">Netlify</span>}
                 <div className="flex-1" />
                 {!s.read && !s.remote && (
-                  <button onClick={() => { markRead(s.id); refresh(); }} className="font-body text-xs text-[#00558d]/60 hover:text-[#00558d] cursor-pointer">
+                  <button onClick={() => { markRead(s.id); refresh(); }} className="font-body text-xs text-[#00558d]/60 hover:text-[#0086d9] cursor-pointer">
                     Marquer comme lu
                   </button>
                 )}
@@ -450,12 +450,12 @@ const InboxTab: React.FC = () => {
 
               <div className="flex flex-wrap gap-x-6 gap-y-2 mb-3">
                 {s.data.telephone && (
-                  <a href={`tel:${s.data.telephone}`} className="inline-flex items-center gap-2 font-body text-sm font-semibold text-[#00558d] hover:text-[#e3a044]">
+                  <a href={`tel:${s.data.telephone}`} className="inline-flex items-center gap-2 font-body text-sm font-semibold text-[#0086d9] hover:text-[#e3a044]">
                     <Phone className="w-3.5 h-3.5 text-[#e3a044]" /> {s.data.telephone}
                   </a>
                 )}
                 {s.data.email && (
-                  <a href={`mailto:${s.data.email}`} className="inline-flex items-center gap-2 font-body text-sm text-[#00558d] hover:text-[#e3a044]">
+                  <a href={`mailto:${s.data.email}`} className="inline-flex items-center gap-2 font-body text-sm text-[#0086d9] hover:text-[#e3a044]">
                     <Mail className="w-3.5 h-3.5 text-[#e3a044]" /> {s.data.email}
                   </a>
                 )}
@@ -467,7 +467,7 @@ const InboxTab: React.FC = () => {
               </div>
 
               {s.data.message && (
-                <p className="font-body text-sm text-[#00558d]/75 leading-relaxed bg-[#00558d]/5 p-3 rounded-lg whitespace-pre-line">
+                <p className="font-body text-sm text-[#00558d]/75 leading-relaxed bg-[#0086d9]/5 p-3 rounded-lg whitespace-pre-line">
                   {s.data.message}
                 </p>
               )}
@@ -477,7 +477,7 @@ const InboxTab: React.FC = () => {
 
         {all.length === 0 && (
           <div className="text-center py-12">
-            <Inbox className="w-9 h-9 text-[#00558d]/25 mx-auto mb-3" />
+            <Inbox className="w-9 h-9 text-[#0086d9]/25 mx-auto mb-3" />
             <p className="font-body text-sm text-[#00558d]/60">
               Aucune demande pour l’instant. Elles apparaîtront ici dès qu’un parent remplit un formulaire.
             </p>
@@ -501,7 +501,7 @@ export const AdminPage: React.FC = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-8">
         <header className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <div>
-            <h1 className="font-heading text-3xl sm:text-4xl text-[#00558d]">Administration</h1>
+            <h1 className="font-heading text-3xl sm:text-4xl text-[#0086d9]">Administration</h1>
             <p className="font-body text-sm text-[#00558d]/60">Les Marronniers El Jadida</p>
           </div>
           <button onClick={() => { sessionStorage.removeItem('marronniers:admin'); setAuthed(false); }} className={btnGhost}>
@@ -509,10 +509,10 @@ export const AdminPage: React.FC = () => {
           </button>
         </header>
 
-        <div className="flex gap-2 mb-8 bg-[#00558d]/8 p-1.5 rounded-full w-fit">
+        <div className="flex gap-2 mb-8 bg-[#0086d9]/8 p-1.5 rounded-full w-fit">
           {([['news', 'Actualités', Newspaper], ['inbox', 'Demandes', Inbox]] as const).map(([id, lbl, Icon]) => (
             <button key={id} onClick={() => setTab(id)}
-              className={`${btn} ${tab === id ? 'bg-[#00558d] text-[#fff7ef]' : 'text-[#00558d] hover:bg-[#00558d]/10'}`}>
+              className={`${btn} ${tab === id ? 'bg-[#0086d9] text-[#fff7ef]' : 'text-[#0086d9] hover:bg-[#0086d9]/10'}`}>
               <Icon className="w-4 h-4" /> {lbl}
             </button>
           ))}

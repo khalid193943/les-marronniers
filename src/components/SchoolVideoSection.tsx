@@ -64,7 +64,7 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = ({ onOpenAd
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#00558d] text-white py-16 sm:py-24 lg:py-32">
+    <section className="relative w-full overflow-hidden bg-[#0086d9] text-white py-16 sm:py-24 lg:py-32">
       {/* Background Full Width Video Container */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
         <video
@@ -119,7 +119,7 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = ({ onOpenAd
             className="font-heading text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.1] mb-6"
           >
             Ressentez l'Énergie & la Joie d'Apprendre aux{' '}
-            <span className="text-[#e3a044]">Marronniers</span>
+            <span className="text-[#ffe08a]">Marronniers</span>
           </motion.h2>
 
           {/* Description */}
@@ -142,15 +142,15 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = ({ onOpenAd
             className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 w-full max-w-2xl mb-10"
           >
             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-3.5 flex items-center justify-center gap-2.5 shadow-sm">
-              <Sparkles className="w-4 h-4 text-[#e3a044] shrink-0" />
+              <Sparkles className="w-4 h-4 text-[#ffe08a] shrink-0" />
               <span className="text-xs sm:text-sm font-semibold text-white">6 Salles Lumineuses</span>
             </div>
             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-3.5 flex items-center justify-center gap-2.5 shadow-sm">
-              <ShieldCheck className="w-4 h-4 text-[#e3a044] shrink-0" />
+              <ShieldCheck className="w-4 h-4 text-[#ffe08a] shrink-0" />
               <span className="text-xs sm:text-sm font-semibold text-white">Cour Jardinée & Sol Sécurisé</span>
             </div>
             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-3.5 flex items-center justify-center gap-2.5 shadow-sm">
-              <Award className="w-4 h-4 text-[#e3a044] shrink-0" />
+              <Award className="w-4 h-4 text-[#ffe08a] shrink-0" />
               <span className="text-xs sm:text-sm font-semibold text-white">Ateliers Sciences & Théâtre</span>
             </div>
           </motion.div>
@@ -176,7 +176,7 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = ({ onOpenAd
               <div className="flex items-center gap-2">
                 <button
                   onClick={togglePlay}
-                  className="w-9 h-9 rounded-full bg-white/20 hover:bg-white text-white hover:text-[#00558d] flex items-center justify-center transition-all cursor-pointer"
+                  className="w-9 h-9 rounded-full bg-white/20 hover:bg-white text-white hover:text-[#0086d9] flex items-center justify-center transition-all cursor-pointer"
                   aria-label={isPlaying ? 'Mettre en pause' : 'Lire la vidéo'}
                 >
                   {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
@@ -184,7 +184,7 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = ({ onOpenAd
 
                 <button
                   onClick={handleRestart}
-                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-all cursor-pointer text-white/80 hover:text-white"
+                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-all cursor-pointer text-white/90 hover:text-white"
                   aria-label="Recommencer la vidéo de 30 secondes"
                 >
                   <RotateCcw className="w-4 h-4" />
@@ -192,7 +192,7 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = ({ onOpenAd
 
                 <button
                   onClick={toggleMute}
-                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-all cursor-pointer text-white/80 hover:text-white"
+                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-all cursor-pointer text-white/90 hover:text-white"
                   aria-label={isMuted ? 'Activer le son' : 'Couper le son'}
                 >
                   {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
@@ -216,7 +216,7 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = ({ onOpenAd
           >
             <button
               onClick={onOpenAdmissions}
-              className="w-full sm:w-auto bg-[#e3a044] hover:bg-[#d59336] text-[#00558d] font-bold text-base px-8 py-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center gap-2.5 border-none"
+              className="w-full sm:w-auto bg-[#e3a044] hover:bg-[#d59336] text-[#0086d9] font-bold text-base px-8 py-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center gap-2.5 border-none"
             >
               <Calendar className="w-5 h-5" />
               <span>Visiter Notre École en Personne</span>

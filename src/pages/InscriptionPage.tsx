@@ -70,11 +70,11 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({ onOpenAdmissio
                         className="absolute inset-0"
                         style={{ backgroundColor: e.backer, transform: `rotate(${-rotate * 1.5}deg) translate(10px, 10px)` }}
                       />
-                      <div className="relative z-10 bg-[#00558d] p-8 shadow-xl flex items-start gap-5">
-                        <span className="font-heading text-4xl text-[#e3a044] leading-none mt-1">{e.num}</span>
+                      <div className="relative z-10 bg-[#0086d9] p-8 shadow-xl flex items-start gap-5">
+                        <span className="font-heading text-4xl text-[#ffe08a] leading-none mt-1">{e.num}</span>
                         <div>
                           <h2 className="font-heading text-xl sm:text-2xl text-[#fff7ef] mb-2">{e.title}</h2>
-                          <p className="font-body text-sm text-[#fff7ef]/75 leading-relaxed">{e.line}</p>
+                          <p className="font-body text-sm text-[#fff7ef]/85 leading-relaxed">{e.line}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -139,13 +139,13 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({ onOpenAdmissio
       {/* Documents + CTA */}
       <section className="bg-white py-16 sm:py-24 overflow-hidden relative">
         <DoodleStar className="hidden lg:block absolute top-12 left-[8%] w-9 text-[#e3a044]/60 pointer-events-none" />
-        <DoodleGrow className="hidden xl:block absolute bottom-6 right-[4%] w-44 text-[#00558d]/12 pointer-events-none" />
+        <DoodleGrow className="hidden xl:block absolute bottom-6 right-[4%] w-44 text-[#0086d9]/12 pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-8 text-center">
           <SectionIntro tag="À prévoir" title="Le Dossier, en Toute Simplicité" className="mb-10" />
 
           <div className="flex flex-wrap justify-center gap-3 mb-14">
             {DOCUMENTS.map((d) => (
-              <span key={d} className="inline-flex items-center gap-2 rounded-full bg-[#00558d]/8 border border-[#00558d]/12 px-5 py-2.5 text-sm font-semibold text-[#00558d]">
+              <span key={d} className="inline-flex items-center gap-2 rounded-full bg-[#0086d9]/8 border border-[#0086d9]/12 px-5 py-2.5 text-sm font-semibold text-[#0086d9]">
                 <FileText className="w-4 h-4 text-[#e3a044]" />
                 {d}
               </span>

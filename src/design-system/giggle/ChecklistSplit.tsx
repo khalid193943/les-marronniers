@@ -52,11 +52,11 @@ export const ChecklistSplit: React.FC<ChecklistSplitProps> = ({
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={imageFirst ? 'order-2' : 'order-2 lg:order-1'}
       >
-        <span className="inline-flex items-center gap-2 rounded-full bg-[#00558d]/8 px-4 py-1.5 text-xs font-bold text-[#00558d] mb-5">
+        <span className="inline-flex items-center gap-2 rounded-full bg-[#0086d9]/8 px-4 py-1.5 text-xs font-bold text-[#0086d9] mb-5">
           <span className="w-1.5 h-1.5 rounded-full bg-[#e3a044]" />
           {tag}
         </span>
-        <h2 className="font-heading text-3xl sm:text-4xl text-[#00558d] leading-tight tracking-tight mb-4">
+        <h2 className="font-heading text-3xl sm:text-4xl text-[#0086d9] leading-tight tracking-tight mb-4">
           {title}
         </h2>
         {line && (
@@ -75,7 +75,7 @@ export const ChecklistSplit: React.FC<ChecklistSplitProps> = ({
               transition={{ duration: 0.4, delay: idx * 0.07 }}
               className="flex items-start gap-3"
             >
-              <span className="w-5 h-5 rounded-full bg-[#e3a044] text-[#00558d] flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5">
+              <span className="w-5 h-5 rounded-full bg-[#e3a044] text-[#0086d9] flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5">
                 ✓
               </span>
               <span className="font-body text-[15px] text-[#00558d]/85 leading-snug">{it}</span>
@@ -86,10 +86,10 @@ export const ChecklistSplit: React.FC<ChecklistSplitProps> = ({
         {ctaLabel && onCta && (
           <button
             onClick={onCta}
-            className="inline-flex items-center gap-3 rounded-full bg-[#00558d] text-[#fff7ef] font-body font-bold text-sm pl-6 pr-2 py-2 cursor-pointer hover:bg-[#003f6b] transition-colors group"
+            className="inline-flex items-center gap-3 rounded-full bg-[#0086d9] text-[#fff7ef] font-body font-bold text-sm pl-6 pr-2 py-2 cursor-pointer hover:bg-[#003f6b] transition-colors group"
           >
             <span>{ctaLabel}</span>
-            <span className="w-8 h-8 rounded-full bg-[#e3a044] text-[#00558d] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+            <span className="w-8 h-8 rounded-full bg-[#e3a044] text-[#0086d9] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
               <ArrowUpRight className="w-4 h-4" strokeWidth={2.2} />
             </span>
           </button>

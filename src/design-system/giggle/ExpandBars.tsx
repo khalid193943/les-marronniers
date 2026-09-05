@@ -27,8 +27,8 @@ interface ExpandBarsProps {
 
 const COLORS: Record<ExpandBarItem['color'], { bg: string; fg: string; dim: string }> = {
   green: { bg: '#1f8a63', fg: '#ffffff', dim: 'rgba(255,255,255,0.85)' },
-  navy: { bg: '#00558d', fg: '#fff7ef', dim: 'rgba(254,237,219,0.8)' },
-  sun: { bg: '#f0b429', fg: '#00558d', dim: 'rgba(8,66,116,0.8)' },
+  navy: { bg: '#0086d9', fg: '#fff7ef', dim: 'rgba(254,237,219,0.8)' },
+  sun: { bg: '#f0b429', fg: '#0086d9', dim: 'rgba(8,66,116,0.8)' },
   coral: { bg: '#d95f43', fg: '#ffffff', dim: 'rgba(255,255,255,0.85)' },
   sky: { bg: '#0086d9', fg: '#ffffff', dim: 'rgba(255,255,255,0.9)' },
 };

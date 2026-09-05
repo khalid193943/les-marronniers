@@ -97,7 +97,7 @@ export const ParcoursPage: React.FC<ParcoursPageProps> = ({ onOpenAdmissions }) 
                         className="absolute inset-0"
                         style={{ backgroundColor: n.backer, transform: `rotate(${-n.rotate * 1.5}deg) translate(12px, 12px)` }}
                       />
-                      <div className="relative z-10 bg-[#00558d] p-8 sm:p-10 shadow-xl">
+                      <div className="relative z-10 bg-[#0086d9] p-8 sm:p-10 shadow-xl">
                         <Doodle className="w-full max-w-[250px] mx-auto text-[#fff7ef] mb-6 opacity-95" />
                         <div className="flex items-center justify-between mb-3">
                           <h2 className="font-heading text-2xl sm:text-3xl text-[#fff7ef]">{n.title}</h2>
@@ -105,12 +105,12 @@ export const ParcoursPage: React.FC<ParcoursPageProps> = ({ onOpenAdmissions }) 
                             {n.age}
                           </span>
                         </div>
-                        <p className="font-body text-sm sm:text-[15px] text-[#fff7ef]/75 leading-relaxed mb-5">
+                        <p className="font-body text-sm sm:text-[15px] text-[#fff7ef]/85 leading-relaxed mb-5">
                           {n.line}
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {n.grades.map((g) => (
-                            <span key={g} className="px-2.5 py-1 text-[11px] font-bold text-[#e3a044] border border-[#e3a044]/40 rounded-full">
+                            <span key={g} className="px-2.5 py-1 text-[11px] font-bold text-[#ffe08a] border border-[#e3a044]/40 rounded-full">
                               {g}
                             </span>
                           ))}
