@@ -120,10 +120,10 @@ export const ColorCardsGrid: React.FC<ColorCardsGridProps> = ({
           {ctaLabel && onCta && (
             <button
               onClick={onCta}
-              className="mt-7 self-start inline-flex items-center gap-3 rounded-full bg-[#0086d9] text-[#fff7ef] font-body font-bold text-sm pl-6 pr-2 py-2 cursor-pointer hover:bg-[#003f6b] transition-colors group"
+              className="mt-7 self-start inline-flex items-center gap-3 rounded-full bg-[#0086d9] text-[#fff7ef] font-body font-bold text-sm pl-6 pr-2 py-2 cursor-pointer hover:bg-[#003f6b] transition-colors group keep-round"
             >
               <span>{ctaLabel}</span>
-              <span className="w-8 h-8 rounded-full bg-[#e3a044] text-[#0086d9] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+              <span className="w-8 h-8 rounded-full bg-[#e3a044] text-[#0086d9] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300 keep-round">
                 <ArrowUpRight className="w-4 h-4" strokeWidth={2.2} />
               </span>
             </button>

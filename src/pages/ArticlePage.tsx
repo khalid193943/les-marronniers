@@ -97,7 +97,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
       <SectionDivider variant="white" position="top" style="wave1" />
 
       {/* Corps de l'article */}
-      <section className="bg-white py-14 sm:py-20">
+      <section className="bg-white py-14 sm:py-20 overflow-hidden">
         <div className="max-w-2xl mx-auto px-4 sm:px-8">
           {paragraphs.map((p, i) => (
             <motion.p
@@ -128,7 +128,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
       {others.length > 0 && (
         <>
           <SectionDivider variant="cream" position="top" style="wave2" />
-          <section className="bg-[#fff7ef] py-14 sm:py-20">
+          <section className="bg-[#fff7ef] py-14 sm:py-20 overflow-hidden">
             <div className="max-w-4xl mx-auto px-4 sm:px-8">
               <h2 className="font-heading text-2xl sm:text-3xl text-[#0086d9] text-center mb-10">
                 À lire ensuite

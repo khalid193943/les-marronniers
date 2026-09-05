@@ -19,6 +19,7 @@ import type { ColorCard } from '../design-system/giggle/ColorCardsGrid';
 import { DoodleSun, DoodleSpiral } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
 import { PHOTOS } from '../data/photos';
+import { Carousel } from '../design-system/giggle/Carousel';
 
 interface CampusPageProps {
   onOpenAdmissions: () => void;
@@ -196,7 +197,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
             tone="dark"
             className="mb-14"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+          <Carousel className="mb-14" desktopGrid="md:grid-cols-4" cardWidth="w-[62vw]" aria-label="Sécurité et bien-être">
             {SECURITE.map((s, idx) => {
               const Icon = s.icon;
               return (
@@ -215,7 +216,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
                 </motion.div>
               );
             })}
-          </div>
+          </Carousel>
           <div className="text-center">
             <button onClick={onOpenAdmissions} className="cursor-pointer inline-flex items-center gap-3 bg-[#e3a044] text-[#0086d9] rounded-full px-8 py-4 font-bold text-[15px] hover:bg-[#f0b055] transition-colors keep-round">
               <Calendar className="w-4 h-4" />

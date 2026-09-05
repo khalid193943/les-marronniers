@@ -5,7 +5,7 @@
  * 50/50 : coordonnées en items bleu transparent + carte Google Maps encadrée façon polaroid.
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { MapPin, Phone, Mail, Clock, Calendar } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolInfo';
@@ -15,6 +15,7 @@ import { ContactForm } from '../components/Forms';
 import { SectionDivider as SD2 } from '../components/SectionDivider';
 import { DoodleSun } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
+import { CampusMaps } from '../design-system/giggle/CampusMaps';
 
 interface ContactPageProps {
   onOpenAdmissions: () => void;
@@ -30,7 +31,6 @@ const INFOS = [
 
 export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) => {
   const reduce = useReducedMotion();
-  const [campus, setCampus] = useState(0);
 
   return (
     <div>
@@ -44,7 +44,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
         <div className="max-w-5xl mx-auto px-4 sm:px-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
           {[
             { label: 'Téléphone', value: SCHOOL_INFO.phone, href: `tel:${SCHOOL_INFO.phoneRaw}` },
-            { label: 'Adresse', value: 'Rue Beethoven, Plateau — El Jadida', href: SCHOOL_INFO.campuses[0].mapsUrl },
+            { label: 'Deux campus', value: 'Rue Beethoven & Av. Varennes', href: SCHOOL_INFO.campuses[0].mapsUrl },
             { label: 'Horaires', value: SCHOOL_INFO.hours, href: undefined },
           ].map((info, idx) => {
             const inner = (
@@ -79,7 +79,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
 
       <section className="bg-white py-16 sm:py-24 overflow-hidden relative">
         <DoodleSun className="hidden lg:block absolute top-10 right-[6%] w-11 text-[#e3a044]/50 pointer-events-none" />
-        <div className="max-w-6xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-start">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-14 items-start">
 
           {/* Coordonnées */}
           <motion.div
@@ -87,7 +87,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-4 lg:col-span-2"
           >
             {INFOS.map((info, idx) => {
               const Icon = info.icon;
@@ -117,44 +117,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
             </button>
           </motion.div>
 
-          {/* Carte façon polaroid inclinée — sélecteur de campus */}
-          <motion.div
-            initial={reduce ? undefined : { opacity: 0, rotate: 4, y: 24 }}
-            whileInView={{ opacity: 1, rotate: 1.5, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ type: 'spring', stiffness: 60, damping: 14 }}
-            className="relative"
-          >
-            <span aria-hidden="true" className="absolute inset-0 bg-[#e3a044]" style={{ transform: 'rotate(-2deg) translate(12px, 12px)' }} />
-            <div className="relative z-10 bg-white p-3 pb-4 shadow-2xl">
-              {/* Onglets campus */}
-              <div className="flex gap-2 mb-3">
-                {SCHOOL_INFO.campuses.map((c, idx) => (
-                  <button
-                    key={c.id}
-                    onClick={() => setCampus(idx)}
-                    className={`flex-1 rounded-lg px-3 py-2 text-xs font-bold transition-colors cursor-pointer ${
-                      campus === idx ? 'bg-[#0086d9] text-[#fff7ef]' : 'bg-[#0086d9]/8 text-[#0086d9] hover:bg-[#0086d9]/15'
-                    }`}
-                  >
-                    {c.label.replace('Campus ', '')}
-                  </button>
-                ))}
-              </div>
-              <iframe
-                key={campus}
-                title={`Localisation ${SCHOOL_INFO.campuses[campus].label}`}
-                src={`https://www.google.com/maps?q=${encodeURIComponent(SCHOOL_INFO.campuses[campus].address + ', El Jadida, Maroc')}&output=embed`}
-                className="w-full h-[340px] sm:h-[400px] border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-              <p className="text-center font-heading text-sm text-[#00558d]/70 mt-3">
-                {SCHOOL_INFO.campuses[campus].address}
-              </p>
-            </div>
-          </motion.div>
+          {/* Les deux campus, chacun avec son plan */}
+          <div className="lg:col-span-3"><CampusMaps className="lg:grid-cols-1" mapHeight="h-[240px] sm:h-[260px]" /></div>
         </div>
       </section>
 

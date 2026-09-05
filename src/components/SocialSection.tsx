@@ -12,6 +12,7 @@ import { Facebook, Instagram, Youtube, Star } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolInfo';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { DoodleHeart } from '../design-system/giggle/Doodles';
+import { Carousel } from '../design-system/giggle/Carousel';
 
 const CHANNELS = [
   {
@@ -65,7 +66,7 @@ export const SocialSection: React.FC = () => {
           line="Les nouvelles fraîches de l’école sont publiées ici chaque semaine."
           className="mb-14"
         />
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6 max-w-4xl mx-auto">
+        <Carousel className="max-w-4xl mx-auto" desktopGrid="md:grid-cols-4" cardWidth="w-[46vw]" aria-label="Nos réseaux">
           {CHANNELS.map((c, idx) => {
             const Icon = c.icon;
             return (
@@ -96,7 +97,7 @@ export const SocialSection: React.FC = () => {
               </motion.a>
             );
           })}
-        </div>
+        </Carousel>
       </div>
     </section>
   );

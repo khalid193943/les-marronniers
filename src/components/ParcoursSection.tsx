@@ -19,6 +19,7 @@ import {
   DoodlePaint,
   DoodleGrow,
 } from '../design-system/giggle/Doodles';
+import { Carousel } from '../design-system/giggle/Carousel';
 
 interface ParcoursSectionProps {
   onNavigate: (page: PageId) => void;
@@ -88,7 +89,39 @@ export const ParcoursSection: React.FC<ParcoursSectionProps> = ({ onNavigate }) 
           className="mb-16 sm:mb-20"
         />
 
-        <div className="flex flex-col">
+        {/* Mobile : les 4 étapes en carrousel — un écran au lieu de quatre */}
+        <Carousel className="md:hidden" desktopGrid="" cardWidth="w-[78vw]" aria-label="Étapes du parcours">
+          {STAGES.map((stage, idx) => {
+            const { Doodle } = stage;
+            return (
+              <button
+                key={idx}
+                onClick={() => onNavigate(stage.id)}
+                className="relative w-full text-left cursor-pointer h-full"
+                aria-label={`${stage.title}, ${stage.age}`}
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0"
+                  style={{ backgroundColor: stage.backer, transform: 'translate(9px, 9px)' }}
+                />
+                <span className="relative z-10 block bg-[#0086d9] p-6 shadow-xl h-full">
+                  <Doodle className="w-full max-w-[190px] mx-auto text-[#fff7ef] mb-4 opacity-95" />
+                  <span className="block font-heading text-2xl text-[#fff7ef] mb-2">{stage.title}</span>
+                  <span className="block font-body text-sm text-[#fff7ef]/85 leading-relaxed mb-4">{stage.line}</span>
+                  <span className="flex items-center justify-between">
+                    <span className="font-body text-xs font-bold text-[#ffe08a]">{stage.level}</span>
+                    <span className="inline-flex items-center bg-[#fff7ef]/15 px-3 py-1.5 font-body text-xs font-bold text-[#fff7ef] keep-round">
+                      {stage.age}
+                    </span>
+                  </span>
+                </span>
+              </button>
+            );
+          })}
+        </Carousel>
+
+        <div className="hidden md:flex flex-col">
           {STAGES.map((stage, idx) => {
             const { Doodle } = stage;
             const isLeft = stage.side === 'left';

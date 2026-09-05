@@ -20,6 +20,7 @@ import { DoodleHeart, DoodleStar } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
 import { Timeline, type TimelineStep } from '../design-system/giggle/Timeline';
 import { PHOTOS } from '../data/photos';
+import { Carousel } from '../design-system/giggle/Carousel';
 
 interface EcolePageProps {
   onOpenAdmissions: () => void;
@@ -105,7 +106,7 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
         <DoodleHeart className="hidden lg:block absolute top-6 right-16 w-10 text-[#d95f43]/40 pointer-events-none" />
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <SectionIntro tag="Nos valeurs" title="Ce qui Nous Guide" className="mb-14" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 max-w-5xl mx-auto">
+          <Carousel className="max-w-5xl mx-auto" desktopGrid="md:grid-cols-4" cardWidth="w-[62vw]" aria-label="Nos valeurs">
             {VALEURS.map((v, idx) => {
               const Icon = v.icon;
               return (
@@ -131,7 +132,7 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
                 </motion.div>
               );
             })}
-          </div>
+          </Carousel>
         </div>
       </section>
 

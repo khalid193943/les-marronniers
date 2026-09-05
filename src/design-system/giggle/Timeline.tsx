@@ -48,7 +48,7 @@ export const Timeline: React.FC<TimelineProps> = ({ steps, className = '' }) => 
                 isLeft ? 'sm:pr-10' : 'sm:ml-auto sm:pl-10'
               }`}
             >
-              <span className="relative z-10 w-14 h-14 shrink-0 rounded-full bg-[#0086d9] text-[#ffe08a] flex items-center justify-center shadow-md">
+              <span className="relative z-10 w-14 h-14 shrink-0 rounded-full bg-[#0086d9] text-[#ffe08a] flex items-center justify-center shadow-md keep-round">
                 <Icon className="w-6 h-6" strokeWidth={1.8} />
               </span>
               <div className="bg-[#0086d9]/6 border border-[#0086d9]/10 rounded-xl p-5 flex-1">

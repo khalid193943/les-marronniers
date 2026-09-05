@@ -8,6 +8,7 @@ import React from 'react';
 import { Award, School, Sparkles, Clock } from 'lucide-react';
 import { motion } from 'motion/react';
 import { CountUp } from '../design-system/giggle/CountUp';
+import { Carousel } from '../design-system/giggle/Carousel';
 
 export const KeyFiguresSection: React.FC = () => {
   const figures = [
@@ -39,7 +40,7 @@ export const KeyFiguresSection: React.FC = () => {
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff7ef_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
       <div className="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+        <Carousel desktopGrid="md:grid-cols-4" cardWidth="w-[46vw]" hideDots aria-label="Chiffres clés">
           {figures.map((fig, idx) => {
             const Icon = fig.icon;
             return (
@@ -65,7 +66,7 @@ export const KeyFiguresSection: React.FC = () => {
               </motion.div>
             );
           })}
-        </div>
+        </Carousel>
       </div>
     </section>
   );

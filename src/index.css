@@ -234,3 +234,49 @@ html {
 .keep-round::after {
   border-radius: 9999px !important;
 }
+
+/* ===========================================================
+   MOBILE — confort de lecture et carrousels
+   =========================================================== */
+
+/* Barre de défilement masquée sous les carrousels (le geste suffit,
+   les points indiquent la position). */
+.carousel-track {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.carousel-track::-webkit-scrollbar { display: none; }
+
+/* Aucun débordement horizontal possible : les décorations qui dépassent
+   (cadres décalés, halos, doodles) sont contenues. */
+html, body { overflow-x: hidden; max-width: 100%; }
+
+@media (max-width: 767px) {
+  /* Sections plus compactes : on garde la respiration sans faire
+     défiler pendant des minutes. */
+  section { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+
+  /* Titres à l'échelle de l'écran */
+  h1 { font-size: clamp(1.9rem, 8.5vw, 2.6rem) !important; line-height: 1.14 !important; }
+  h2 { font-size: clamp(1.6rem, 6.8vw, 2.1rem) !important; line-height: 1.18 !important; }
+  h3 { font-size: clamp(1.15rem, 4.8vw, 1.45rem) !important; }
+
+  /* Confort de lecture : un peu plus d'air entre les lignes */
+  p { line-height: 1.62 !important; }
+
+  /* Zones tactiles : tout lien ou bouton reste attrapable au pouce */
+  a, button { min-height: 40px; }
+  footer a, footer button { min-height: 44px; display: inline-flex; align-items: center; }
+}
+
+
+/* Dans un carrousel mobile, les cartes situées hors de l'écran ne
+   déclenchent jamais leur animation d'entrée « au scroll » et resteraient
+   invisibles après un glissement. On neutralise donc leur animation
+   individuelle : c'est la piste entière qui s'anime, d'un seul mouvement. */
+@media (max-width: 767px) {
+  .carousel-track > div > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

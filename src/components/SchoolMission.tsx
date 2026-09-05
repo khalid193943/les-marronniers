@@ -14,6 +14,7 @@ import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { PhotoStack } from '../design-system/giggle/PhotoStack';
 import { DoodleStar, DoodleSun } from '../design-system/giggle/Doodles';
 import { PHOTOS } from '../data/photos';
+import { Carousel } from '../design-system/giggle/Carousel';
 
 interface SchoolMissionProps {
   onOpenAdmissions: () => void;
@@ -68,7 +69,7 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
         />
 
         {/* 4 cartes carrées inclinées — grille 2×2 comme l'inspiration */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-14 lg:gap-x-24 max-w-3xl mx-auto mb-24 sm:mb-32">
+        <Carousel className="max-w-3xl mx-auto mb-20 sm:mb-32" desktopGrid="md:grid-cols-2 md:gap-14 lg:gap-x-24" cardWidth="w-[72vw]" aria-label="Pourquoi nous choisir">
           {CARDS.map((card, idx) => {
             const Icon = card.icon;
             return (
@@ -115,7 +116,7 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
               </motion.div>
             );
           })}
-        </div>
+        </Carousel>
 
         {/* Bannière inscription — texte minimal + pile de photos (comme "Now Enrolling" de l'inspiration) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center max-w-5xl mx-auto">

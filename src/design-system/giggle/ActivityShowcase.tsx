@@ -112,7 +112,7 @@ export const ActivityShowcase: React.FC<ActivityShowcaseProps> = ({ items, class
                     className="w-full h-full object-cover"
                   />
                   {current.badge && (
-                    <span className="absolute top-4 left-4 rounded-full bg-white/95 backdrop-blur-sm px-4 py-1.5 font-body text-[11px] font-bold text-[#0086d9] shadow">
+                    <span className="absolute top-4 left-4 rounded-full bg-white/95 backdrop-blur-sm px-4 py-1.5 font-body text-[11px] font-bold text-[#0086d9] shadow keep-round">
                       {current.badge}
                     </span>
                   )}

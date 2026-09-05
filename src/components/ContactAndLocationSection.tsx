@@ -5,6 +5,7 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Clock, ArrowRight, Navigation, MessageCircle, Calendar } from 'lucide-react';
 import { motion } from 'motion/react';
+import { CampusMaps } from '../design-system/giggle/CampusMaps';
 
 interface ContactAndLocationSectionProps {
   onOpenAdmissions: (location?: string) => void;
@@ -127,30 +128,9 @@ export const ContactAndLocationSection: React.FC<ContactAndLocationSectionProps>
           </motion.div>
 
           {/* Right Column: Google Maps Iframe (7 cols) */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-7 relative h-[420px] lg:h-[520px] w-full overflow-hidden shadow-2xl border-4 border-[#fff7ef]"
-          >
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.6853245455823!2d-8.5083818!3d33.2406566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda91dff320b33fb%3A0xc6443d3e6db8227b!2sEcole%20Les%20Marronniers!5e0!3m2!1sfr!2sma!4v1709665487654!5m2!1sfr!2sma" 
-              className="absolute inset-0 w-full h-full border-0" 
-              allowFullScreen={false} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Carte École Les Marronniers El Jadida"
-            />
-
-            {/* Quick Map Overlay Badge */}
-            <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-4 py-2.5 shadow-xl border border-[#0086d9]/15 flex items-center gap-2.5 pointer-events-none">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#e3a044] animate-ping keep-round" />
-              <span className="text-xs font-bold text-[#0086d9]">
-                École Les Marronniers • Quartier Plateau
-              </span>
-            </div>
-          </motion.div>
+          <div className="lg:col-span-7 w-full">
+            <CampusMaps mapHeight="h-[240px] sm:h-[270px]" className="lg:grid-cols-1" />
+          </div>
 
         </div>
       </div>

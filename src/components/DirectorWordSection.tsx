@@ -5,7 +5,7 @@ import { PHOTOS } from '../data/photos';
 
 export const DirectorWordSection: React.FC = () => {
   return (
-    <section className="bg-[#fff7ef] py-24 relative overflow-hidden">
+    <section className="bg-[#fff7ef] py-14 sm:py-24 relative overflow-hidden">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 relative z-10">
         
         {/* Section Header */}
@@ -43,7 +43,7 @@ export const DirectorWordSection: React.FC = () => {
               <div className="absolute -inset-3 bg-[#e3a044]/20 transform -rotate-2 rounded-none -z-10 group-hover:-rotate-3 transition-transform duration-500" />
               
               {/* Image Container */}
-              <div className="relative aspect-[4/5] overflow-hidden bg-[#0086d9]/8 rounded-none shadow-2xl border-2 border-[#0086d9]/15">
+              <div className="relative aspect-[4/3] sm:aspect-[4/5] overflow-hidden bg-[#0086d9]/8 rounded-none shadow-2xl border-2 border-[#0086d9]/15">
                 <img
                   src={PHOTOS.classeAtelier.src}
                   alt={PHOTOS.classeAtelier.alt}

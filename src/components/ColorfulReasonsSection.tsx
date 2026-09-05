@@ -15,6 +15,7 @@ import { motion, useReducedMotion } from 'motion/react';
 import { Smile, Sparkles, ShieldCheck, GraduationCap, ArrowUpRight } from 'lucide-react';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { DoodleSun, DoodleHeart, DoodleStar } from '../design-system/giggle/Doodles';
+import { Carousel } from '../design-system/giggle/Carousel';
 
 interface ColorfulReasonsSectionProps {
   onOpenAdmissions: () => void;
@@ -78,7 +79,7 @@ export const ColorfulReasonsSection: React.FC<ColorfulReasonsSectionProps> = ({
           className="mb-14"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 mb-14">
+        <Carousel className="mb-14" desktopGrid="md:grid-cols-12" aria-label="Raisons de choisir l’école">
           {REASONS.map((r, idx) => {
             const Icon = r.icon;
             return (
@@ -127,7 +128,7 @@ export const ColorfulReasonsSection: React.FC<ColorfulReasonsSectionProps> = ({
               </motion.article>
             );
           })}
-        </div>
+        </Carousel>
 
         <div className="text-center">
           <button

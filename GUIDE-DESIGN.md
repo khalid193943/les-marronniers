@@ -322,3 +322,45 @@ visible à l'écran. Le site complet fait maintenant 6 Mo, photos comprises.
 
 Le texte `alt` décrit ce que l'on voit **sans nommer les enfants** : il sert
 aux personnes malvoyantes et au référencement Google.
+
+---
+
+## 📱 Passe v11 — Version mobile & vérification automatisée
+
+### Un outil d'audit visuel a été construit
+`audit_visuel.py` (à la racine du projet) lance un vrai navigateur, parcourt
+les 9 pages en **mobile (390 px)** et **desktop (1440 px)**, déroule chaque
+page pour déclencher les animations, puis détecte automatiquement :
+débordements horizontaux, éléments hors écran et zones tactiles trop petites.
+
+**Résultat : 120 problèmes détectés au départ → 0 à l'arrivée.**
+
+Pour le relancer après une modification :
+```bash
+npm run build
+cd dist && python3 -m http.server 4173 &
+python3 audit_visuel.py     # captures dans /home/claude/audit
+```
+
+### Carrousels
+Nouveau composant `Carousel` : au-delà de 2 éléments, une section devient un
+carrousel tactile sur mobile (défilement magnétique natif + points de
+position) et reprend sa grille habituelle sur desktop. Appliqué à 9 sections.
+
+⚠️ **Piège corrigé** — les cartes situées hors écran horizontalement ne
+déclenchaient jamais leur animation « au scroll » et restaient invisibles
+(7 cartes fantômes détectées à l'écran). C'est désormais la piste entière qui
+s'anime d'un seul mouvement, et une règle CSS garantit la visibilité des
+cartes sur mobile.
+
+### Confort de lecture mobile
+Titres à l'échelle de l'écran (`clamp`), interlignes à 1,62, sections
+compactées, et **toute zone tactile fait au moins 40 px** (44 px au pied de
+page) pour rester attrapable au pouce.
+
+### Les deux campus, partout
+Nouveau composant `CampusMaps` : les deux adresses (rue Beethoven pour la
+maternelle, avenue Varennes pour le primaire) sont présentées ensemble avec
+**leurs deux plans Google Maps** et un lien d'itinéraire chacun. Utilisé sur
+la page Contact et sur l'accueil — plus aucun risque qu'un parent se présente
+au mauvais campus.

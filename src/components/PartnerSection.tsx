@@ -15,6 +15,7 @@ import { Award, BookOpenText, Drama, GraduationCap, ArrowUpRight } from 'lucide-
 import { PageId } from '../types';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { DoodleStar } from '../design-system/giggle/Doodles';
+import { Carousel } from '../design-system/giggle/Carousel';
 
 interface PartnerSectionProps {
   onOpenAdmissions: () => void;
@@ -68,7 +69,7 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({ onOpenAdmissions
         />
 
         {/* Les 4 axes */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 mb-14">
+        <Carousel className="mb-14" desktopGrid="md:grid-cols-2" cardWidth="w-[80vw]" aria-label="Axes du partenariat">
           {AXES.map((axe, idx) => {
             const Icon = axe.icon;
             return (
@@ -112,7 +113,7 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({ onOpenAdmissions
               </motion.article>
             );
           })}
-        </div>
+        </Carousel>
 
         {/* Signature du partenaire — le logo, une seule fois */}
         <motion.div

@@ -17,6 +17,7 @@ import { SmartImage } from '../design-system/giggle/SmartImage';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { DoodleStar, DoodleSpiral } from '../design-system/giggle/Doodles';
 import { PHOTOS } from '../data/photos';
+import { Carousel } from '../design-system/giggle/Carousel';
 
 interface CreativeLifeSectionProps {
   onOpenAdmissions: () => void;
@@ -83,7 +84,7 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({ onOpen
         />
 
         {/* Mosaïque colorée */}
-        <div className="grid grid-cols-1 sm:grid-cols-6 sm:auto-rows-[190px] gap-4 sm:gap-5 mb-14">
+        <Carousel className="mb-14" desktopGrid="md:grid-cols-6 md:auto-rows-[190px]" cardWidth="w-[80vw]" aria-label="Activités créatives">
           {ACTIVITIES.map((a, idx) => {
             const Icon = a.icon;
             const fg = a.darkText ? '#00558d' : '#ffffff';
@@ -144,7 +145,7 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({ onOpen
               </motion.article>
             );
           })}
-        </div>
+        </Carousel>
 
         <div className="text-center">
           <button

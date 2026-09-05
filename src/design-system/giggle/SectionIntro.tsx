@@ -48,12 +48,12 @@ export const SectionIntro: React.FC<SectionIntroProps> = ({
           isDark
             ? 'bg-[#fff7ef]/15 text-[#fff7ef]'
             : 'bg-[#0086d9]/8 text-[#0086d9]'
-        }`}
+        } keep-round`}
       >
         <span
           className={`w-1.5 h-1.5 rounded-full ${
             isDark ? 'bg-[#e3a044]' : 'bg-[#e3a044]'
-          }`}
+          } keep-round`}
         />
         {tag}
       </span>

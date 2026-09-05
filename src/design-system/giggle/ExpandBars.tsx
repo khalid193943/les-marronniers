@@ -25,12 +25,14 @@ interface ExpandBarsProps {
   className?: string;
 }
 
+/* Palette enfantine vive. Sur le jaune, le texte passe en bleu profond :
+   c'est le seul fond assez clair pour l'exiger. */
 const COLORS: Record<ExpandBarItem['color'], { bg: string; fg: string; dim: string }> = {
-  green: { bg: '#1f8a63', fg: '#ffffff', dim: 'rgba(255,255,255,0.85)' },
-  navy: { bg: '#0086d9', fg: '#fff7ef', dim: 'rgba(254,237,219,0.8)' },
-  sun: { bg: '#f0b429', fg: '#0086d9', dim: 'rgba(8,66,116,0.8)' },
-  coral: { bg: '#d95f43', fg: '#ffffff', dim: 'rgba(255,255,255,0.85)' },
-  sky: { bg: '#0086d9', fg: '#ffffff', dim: 'rgba(255,255,255,0.9)' },
+  green: { bg: '#00a06b', fg: '#ffffff', dim: 'rgba(255,255,255,0.9)' },
+  navy: { bg: '#00558d', fg: '#ffffff', dim: 'rgba(255,255,255,0.9)' },
+  sun: { bg: '#ffc800', fg: '#00558d', dim: 'rgba(0,85,141,0.85)' },
+  coral: { bg: '#e24c3d', fg: '#ffffff', dim: 'rgba(255,255,255,0.9)' },
+  sky: { bg: '#0086d9', fg: '#ffffff', dim: 'rgba(255,255,255,0.92)' },
 };
 
 /** Étoile filigrane discrète, cantonnée au bas de la barre ouverte */
@@ -104,7 +106,7 @@ export const ExpandBars: React.FC<ExpandBarsProps> = ({
                 <motion.span
                   animate={{ rotate: isOpen ? 90 : 0 }}
                   transition={{ duration: 0.3 }}
-                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-full shrink-0 flex items-center justify-center border-2"
+                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-full shrink-0 flex items-center justify-center border-2 keep-round"
                   style={{ borderColor: c.fg, color: c.fg }}
                 >
                   <ArrowUpRight className="w-5 h-5" strokeWidth={2.2} />
