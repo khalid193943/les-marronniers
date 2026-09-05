@@ -96,7 +96,7 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({ onOpenAdmissions
                     <Icon className="w-6 h-6" strokeWidth={1.7} />
                   </span>
                   <span
-                    className="rounded-full px-3 py-1.5 font-body text-[11px] font-bold whitespace-nowrap"
+                    className="rounded-full px-3 py-1.5 font-body text-[11px] font-bold whitespace-nowrap keep-round"
                     style={{ backgroundColor: `${axe.tone}1a`, color: axe.tone }}
                   >
                     {axe.highlight}
@@ -139,10 +139,10 @@ export const PartnerSection: React.FC<PartnerSectionProps> = ({ onOpenAdmissions
 
           <button
             onClick={onOpenAdmissions}
-            className="cursor-pointer shrink-0 inline-flex items-center gap-3 rounded-full bg-[#e3a044] text-[#0086d9] font-body font-bold text-sm pl-6 pr-2 py-2 hover:bg-[#f0b055] transition-colors group"
+            className="cursor-pointer shrink-0 inline-flex items-center gap-3 rounded-full bg-[#e3a044] text-[#0086d9] font-body font-bold text-sm pl-6 pr-2 py-2 hover:bg-[#f0b055] transition-colors group keep-round"
           >
             Nous rencontrer
-            <span className="w-8 h-8 rounded-full bg-[#0086d9] text-[#ffe08a] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+            <span className="w-8 h-8 rounded-full bg-[#0086d9] text-[#ffe08a] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300 keep-round">
               <ArrowUpRight className="w-4 h-4" strokeWidth={2.2} />
             </span>
           </button>

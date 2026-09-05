@@ -1,44 +1,134 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
- * Les Marronniers — Catalogue central des photos du site.
+ * Les Marronniers — Catalogue des photos du site.
  *
- * ▸ POUR L'ÉCOLE : remplacez ici les adresses par vos vraies photos.
- *   C'est le SEUL fichier à modifier — toutes les pages s'actualisent.
- *   Vous pouvez déposer vos images dans `public/photos/` puis écrire
- *   par exemple : classe1: '/photos/ma-classe.jpg'
+ * Ce sont les VRAIES photos de l'école, fournies par l'établissement et
+ * hébergées avec le site (dossier `public/photos/`). Elles ont été
+ * redimensionnées à 1600 px maximum et compressées : 63 Mo → 5,4 Mo,
+ * sans perte visible, pour que le site reste rapide même en 4G.
  *
- * ▸ Si une adresse ne fonctionne plus, le site n'affiche jamais d'image
- *   cassée : il bascule sur un aplat coloré illustré (voir SmartImage).
+ * ▸ POUR AJOUTER UNE PHOTO
+ *   1. Déposez le fichier dans `public/photos/`
+ *   2. Ajoutez une ligne ci-dessous avec un texte alternatif descriptif
+ *   3. Utilisez la nouvelle clé dans la page voulue
+ *
+ * ▸ Le texte `alt` sert aux personnes malvoyantes et à Google : décrivez
+ *   ce que l'on voit, sans nommer les enfants.
  */
 
-const CDN = 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405';
-const UNSPLASH = 'https://images.unsplash.com';
-const q = (id: string, w = 800) => `${UNSPLASH}/${id}?auto=format&fit=crop&w=${w}&q=80`;
+const P = (file: string) => `/photos/${file}`;
 
 export const PHOTOS = {
-  /* --- Vie de classe --- */
-  classeAtelier: { src: `${CDN}/6a14546f036a33ba6cc4b748_Images%20(1).avif`, alt: 'Élèves en atelier créatif aux Marronniers' },
-  classeMaternelle: { src: `${CDN}/6a14546f37bdd99338f62c1c_Images%20(3).avif`, alt: 'Salle de classe de maternelle' },
-  classePrimaire: { src: `${CDN}/69c846a1048134d965991ee7_Office.avif`, alt: 'Salle de classe du primaire' },
+  /* ---------- Vie de classe ---------- */
+  classeAtelier: {
+    src: P('classe-jeux-educatifs.jpg'),
+    alt: 'Élèves autour de jeux éducatifs dans une salle de classe lumineuse',
+  },
+  classeMaternelle: {
+    src: P('creche-sortie-port.jpg'),
+    alt: 'Tout-petits de la crèche en sortie, déguisés en marins',
+  },
+  classePrimaire: {
+    src: P('lecture-primaire.jpg'),
+    alt: 'Élève de primaire concentré sur son cahier d’exercices',
+  },
+  lecture: {
+    src: P('lecture-bibliotheque.jpg'),
+    alt: 'Enfants découvrant des albums et bandes dessinées autour d’une table',
+  },
+  enseignante: {
+    src: P('echecs-classe.jpg'),
+    alt: 'Deux élèves concentrés sur une partie d’échecs en classe',
+  },
 
-  /* --- Moments d'apprentissage --- */
-  lecture: { src: q('photo-1580582932707-520aed937b7b'), alt: 'Enfants concentrés en classe' },
-  peinture: { src: q('photo-1509062522246-3755977927d7'), alt: 'Atelier de peinture' },
-  jeuGroupe: { src: q('photo-1567168544813-cc03465b4fa8'), alt: 'Jeux en groupe dans la cour' },
-  musique: { src: q('photo-1516450360452-9312f5e86fc7'), alt: 'Éveil musical' },
-  enseignante: { src: q('photo-1544717305-2782549b5136'), alt: 'Une enseignante accompagne ses élèves' },
-  sourires: { src: q('photo-1502086223501-7ea6ecd79368'), alt: 'Enfants souriants' },
-  echecs: { src: q('photo-1529699211952-734e80c4d42b'), alt: 'Partie d’échecs entre élèves' },
-  chorale: { src: q('photo-1511671782779-c97d3d27a1d4'), alt: 'Chorale et instruments' },
-  construction: { src: q('photo-1587654780291-39c9404d746b'), alt: 'Jeux de construction en maternelle' },
-  eveil: { src: q('photo-1503454537195-1dcabb73ffb9'), alt: 'Éveil scientifique et découverte' },
+  /* ---------- Ateliers & éveil ---------- */
+  eveil: {
+    src: P('astronomie-telescope.jpg'),
+    alt: 'Élève observant le ciel avec un télescope sur la terrasse de l’école',
+  },
+  echecs: {
+    src: P('echecs-cour.jpg'),
+    alt: 'Parties d’échecs et de dames entre élèves dans la cour',
+  },
+  chorale: {
+    src: P('chant-scene.jpg'),
+    alt: 'Élève chantant au micro devant ses camarades',
+  },
+  musique: {
+    src: P('spectacle-kaftan.jpg'),
+    alt: 'Élève en tenue traditionnelle lors d’un spectacle de l’école',
+  },
+  theatre: {
+    src: P('theatre-zorro.jpg'),
+    alt: 'Élève costumé lors d’une représentation théâtrale',
+  },
+  spectacle: {
+    src: P('spectacle-costume.jpg'),
+    alt: 'Jeune élève en costume lors du spectacle de fin d’année',
+  },
+
+  /* ---------- Sport & motricité ---------- */
+  sport: {
+    src: P('sport-terrain.jpg'),
+    alt: 'Élèves en séance d’étirements sur le terrain de l’école',
+  },
+  tennisTable: {
+    src: P('tennis-de-table.jpg'),
+    alt: 'Élève en pleine partie de tennis de table',
+  },
+  equitation: {
+    src: P('equitation.jpg'),
+    alt: 'Élève à cheval, bras levés, lors d’une séance d’équitation',
+  },
+
+  /* ---------- Récréation & vie de groupe ---------- */
+  jeuGroupe: {
+    src: P('jeux-cour-uno.jpg'),
+    alt: 'Élèves jouant aux cartes assis en cercle sur la pelouse',
+  },
+  sourires: {
+    src: P('sourires-maternelle.jpg'),
+    alt: 'Enfants de maternelle souriants et complices',
+  },
+  peinture: {
+    src: P('sortie-maternelle.jpg'),
+    alt: 'Groupe de maternelle lors d’une sortie pédagogique',
+  },
+
+  /* ---------- Sorties & découvertes ---------- */
+  simulateur: {
+    src: P('simulateur-vol.jpg'),
+    alt: 'Élève aux commandes d’un simulateur de vol lors d’une sortie',
+  },
+  sortieAventure: {
+    src: P('sortie-aventure.jpg'),
+    alt: 'Élève lors d’une journée d’aventure en plein air',
+  },
+  fete: {
+    src: P('fete-traditionnelle.jpg'),
+    alt: 'Élèves en tenue traditionnelle marocaine lors d’une fête de l’école',
+  },
+  construction: {
+    src: P('classe-jeux-educatifs.jpg'),
+    alt: 'Élèves manipulant des jeux de lettres et de stratégie',
+  },
 } as const;
 
 export type PhotoKey = keyof typeof PHOTOS;
 
 /** Photos de la galerie, dans l'ordre d'affichage. */
 export const GALLERY: PhotoKey[] = [
-  'lecture', 'peinture', 'jeuGroupe', 'musique',
-  'classeMaternelle', 'sourires', 'echecs', 'chorale',
+  'sourires',
+  'eveil',
+  'jeuGroupe',
+  'chorale',
+  'sport',
+  'equitation',
+  'simulateur',
+  'fete',
+  'theatre',
+  'lecture',
+  'tennisTable',
+  'classeMaternelle',
 ];

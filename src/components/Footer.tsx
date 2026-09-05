@@ -61,15 +61,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
             {/* Réseaux sociaux officiels */}
             <div className="flex items-center gap-3 mt-6">
               <a href={SCHOOL_INFO.social.facebook} target="_blank" rel="noreferrer" aria-label="Facebook Les Marronniers"
-                 className="w-10 h-10 rounded-full bg-[#fff7ef]/10 hover:bg-[#e3a044] text-[#fff7ef] hover:text-[#0086d9] flex items-center justify-center transition-colors">
+                 className="w-10 h-10 rounded-full bg-[#fff7ef]/10 hover:bg-[#e3a044] text-[#fff7ef] hover:text-[#0086d9] flex items-center justify-center transition-colors keep-round">
                 <Facebook className="w-4.5 h-4.5" />
               </a>
               <a href={SCHOOL_INFO.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram Les Marronniers"
-                 className="w-10 h-10 rounded-full bg-[#fff7ef]/10 hover:bg-[#e3a044] text-[#fff7ef] hover:text-[#0086d9] flex items-center justify-center transition-colors">
+                 className="w-10 h-10 rounded-full bg-[#fff7ef]/10 hover:bg-[#e3a044] text-[#fff7ef] hover:text-[#0086d9] flex items-center justify-center transition-colors keep-round">
                 <Instagram className="w-4.5 h-4.5" />
               </a>
               <a href={SCHOOL_INFO.social.youtube} target="_blank" rel="noreferrer" aria-label="YouTube Les Marronniers"
-                 className="w-10 h-10 rounded-full bg-[#fff7ef]/10 hover:bg-[#e3a044] text-[#fff7ef] hover:text-[#0086d9] flex items-center justify-center transition-colors">
+                 className="w-10 h-10 rounded-full bg-[#fff7ef]/10 hover:bg-[#e3a044] text-[#fff7ef] hover:text-[#0086d9] flex items-center justify-center transition-colors keep-round">
                 <Youtube className="w-4.5 h-4.5" />
               </a>
             </div>

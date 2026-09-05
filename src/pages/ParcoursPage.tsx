@@ -15,6 +15,7 @@ import { DoodleReading, DoodleBlocks, DoodleGrow, DoodleSun } from '../design-sy
 import { SectionDivider } from '../components/SectionDivider';
 import { ColorCardsGrid, type ColorCard } from '../design-system/giggle/ColorCardsGrid';
 import { ChecklistSplit } from '../design-system/giggle/ChecklistSplit';
+import { PHOTOS } from '../data/photos';
 
 interface ParcoursPageProps {
   onOpenAdmissions: () => void;
@@ -101,7 +102,7 @@ export const ParcoursPage: React.FC<ParcoursPageProps> = ({ onOpenAdmissions }) 
                         <Doodle className="w-full max-w-[250px] mx-auto text-[#fff7ef] mb-6 opacity-95" />
                         <div className="flex items-center justify-between mb-3">
                           <h2 className="font-heading text-2xl sm:text-3xl text-[#fff7ef]">{n.title}</h2>
-                          <span className="rounded-full bg-[#fff7ef]/12 px-3.5 py-1.5 font-body text-xs font-bold text-[#fff7ef]">
+                          <span className="rounded-full bg-[#fff7ef]/12 px-3.5 py-1.5 font-body text-xs font-bold text-[#fff7ef] keep-round">
                             {n.age}
                           </span>
                         </div>
@@ -110,7 +111,7 @@ export const ParcoursPage: React.FC<ParcoursPageProps> = ({ onOpenAdmissions }) 
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {n.grades.map((g) => (
-                            <span key={g} className="px-2.5 py-1 text-[11px] font-bold text-[#ffe08a] border border-[#e3a044]/40 rounded-full">
+                            <span key={g} className="px-2.5 py-1 text-[11px] font-bold text-[#ffe08a] border border-[#e3a044]/40 rounded-full keep-round">
                               {g}
                             </span>
                           ))}
@@ -147,10 +148,10 @@ export const ParcoursPage: React.FC<ParcoursPageProps> = ({ onOpenAdmissions }) 
             'Un même repère pédagogique de la crèche jusqu’à l’examen du CE6',
           ]}
           photos={[
-            { src: 'https://images.unsplash.com/photo-1596464716127-f2a829822301?auto=format&fit=crop&w=700&q=80', alt: 'Apprentissage du langage en maternelle' },
-            { src: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=700&q=80', alt: 'Classe de primaire' },
-            { src: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=700&q=80', alt: 'Enfant concentré' },
-            { src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=80', alt: 'Activité de lecture' },
+            PHOTOS.tennisTable,
+            PHOTOS.peinture,
+            PHOTOS.jeuGroupe,
+            PHOTOS.classePrimaire,
           ]}
         />
       </section>

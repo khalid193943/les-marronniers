@@ -82,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
                   active
                     ? 'bg-[#0086d9]/12 text-[#0086d9]'
                     : 'text-[#00558d]/70 hover:text-[#0086d9] hover:bg-[#0086d9]/6'
-                }`}
+                } keep-round`}
               >
                 {l.label}
               </button>
@@ -101,7 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
           </button>
           <button
             onClick={() => setOpen(!open)}
-            className="xl:hidden w-11 h-11 rounded-full bg-[#0086d9]/8 text-[#0086d9] flex items-center justify-center cursor-pointer"
+            className="xl:hidden w-11 h-11 rounded-full bg-[#0086d9]/8 text-[#0086d9] flex items-center justify-center cursor-pointer keep-round"
             aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
             aria-expanded={open}
           >

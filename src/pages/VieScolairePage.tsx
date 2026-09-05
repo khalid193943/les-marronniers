@@ -39,14 +39,14 @@ const ACTIVITES: ShowcaseItem[] = [
     line: 'Observer, manipuler, comprendre',
     detail: 'Dans notre salle dédiée, les enfants touchent, testent et observent le monde vivant. On ne leur explique pas la nature : on les laisse la découvrir, avec du vrai matériel adapté à leur taille.',
     photo: PHOTOS.eveil,
-    badge: 'Salle d’éveil scientifique',
+    badge: 'Éveil scientifique & astronomie',
   },
   {
     icon: Theater,
     title: 'Théâtre & Expression',
     line: 'Prendre la parole avec confiance',
     detail: 'Notre cinéma-théâtre accueille chaque semaine les répétitions. Diction, gestuelle, présence : c’est souvent là que les enfants les plus timides trouvent leur voix.',
-    photo: PHOTOS.sourires,
+    photo: PHOTOS.theatre,
     badge: 'Cinéma-théâtre',
   },
   {
@@ -70,7 +70,7 @@ const ACTIVITES: ShowcaseItem[] = [
     title: 'Cinéma & Débat',
     line: 'Regarder, comprendre, échanger',
     detail: 'Des œuvres choisies sont projetées puis discutées ensemble. Les enfants apprennent à formuler un avis, à écouter celui des autres et à changer d’idée sans se sentir en échec.',
-    photo: PHOTOS.jeuGroupe,
+    photo: PHOTOS.spectacle,
     badge: 'Séances guidées',
   },
   {
@@ -78,8 +78,8 @@ const ACTIVITES: ShowcaseItem[] = [
     title: 'Psychomotricité',
     line: 'Bouger, s’équilibrer, se dépasser',
     detail: 'Modules mous, parcours d’équilibre et motricité globale dans un espace entièrement sécurisé. Le corps se construit en même temps que la confiance.',
-    photo: PHOTOS.peinture,
-    badge: 'Salle dédiée',
+    photo: PHOTOS.sport,
+    badge: 'Terrain & salle dédiée',
   },
 ];
 

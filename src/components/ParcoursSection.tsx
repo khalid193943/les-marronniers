@@ -142,7 +142,7 @@ export const ParcoursSection: React.FC<ParcoursSectionProps> = ({ onNavigate }) 
                         <span className="font-body text-xs font-bold text-[#ffe08a] tracking-wide">
                           {stage.level}
                         </span>
-                        <span className="inline-flex items-center rounded-full bg-[#fff7ef]/12 px-3.5 py-1.5 font-body text-xs font-bold text-[#fff7ef]">
+                        <span className="inline-flex items-center rounded-full bg-[#fff7ef]/12 px-3.5 py-1.5 font-body text-xs font-bold text-[#fff7ef] keep-round">
                           {stage.age}
                         </span>
                       </span>

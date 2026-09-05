@@ -9,6 +9,7 @@ import { motion, useReducedMotion } from 'motion/react';
 import { StatShowcase } from '../design-system/giggle/StatShowcase';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { DoodleSpiral } from '../design-system/giggle/Doodles';
+import { PHOTOS } from '../data/photos';
 
 export const ImpactSection: React.FC = () => {
   const reduce = useReducedMotion();
@@ -32,10 +33,7 @@ export const ImpactSection: React.FC = () => {
         </motion.div>
 
         <StatShowcase
-          photo={{
-            src: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=900&q=80',
-            alt: 'Enfants en classe aux Marronniers',
-          }}
+          photo={PHOTOS.spectacle}
           badges={[
             { value: 6, label: 'Salles de classe lumineuses', corner: 'bottom-left', tone: 'sun' },
             { value: 15, suffix: '+', label: 'Ateliers d’éveil chaque semaine', corner: 'top-right', tone: 'coral' },

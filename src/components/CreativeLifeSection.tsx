@@ -1,172 +1,160 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
+ * Les Marronniers — Vie créative & culturelle.
+ *
+ * Refonte complète dans la palette enfantine vive (bleu, vert, jaune, rouge).
+ * Quatre blocs pleine couleur en mosaïque : chacun porte sa photo en fond,
+ * un aplat coloré par-dessus et son intitulé en grand. Au survol, l'aplat
+ * s'efface pour révéler la photo et le détail monte depuis le bas.
+ * Angles nets, rythme irrégulier — vivant sans être brouillon.
  */
+
 import React from 'react';
-import { Theater, Music, Film, Crown, ArrowRight, Sparkles } from 'lucide-react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
+import { Theater, Music, Film, Crown, ArrowUpRight } from 'lucide-react';
+import { SmartImage } from '../design-system/giggle/SmartImage';
+import { SectionIntro } from '../design-system/giggle/SectionIntro';
+import { DoodleStar, DoodleSpiral } from '../design-system/giggle/Doodles';
+import { PHOTOS } from '../data/photos';
 
 interface CreativeLifeSectionProps {
   onOpenAdmissions: () => void;
 }
 
-export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
-  onOpenAdmissions,
-}) => {
-  const activities = [
-    {
-      id: 'theatre',
-      title: 'Théâtre & Expression',
-      subtitle: 'Prendre confiance et s’exprimer avec aisance',
-      desc: 'Prendre la parole avec confiance.',
-      icon: Theater,
-      color: 'bg-[#0086d9]/8',
-      textColor: 'text-[#0086d9]',
-      badgeColor: 'bg-[#0086d9]/10 text-[#0086d9]',
-      img: 'https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=800&q=80',
-      span: 'md:col-span-2 md:row-span-1',
-    },
-    {
-      id: 'echecs',
-      title: 'Club d’Échecs',
-      subtitle: 'Stratégie & Raisonnement',
-      desc: 'Logique, concentration, fair-play.',
-      icon: Crown,
-      color: 'bg-[#0086d9]',
-      textColor: 'text-white',
-      badgeColor: 'bg-white/20 text-[#fff7ef]',
-      img: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=800&q=80',
-      span: 'md:col-span-1 md:row-span-2',
-    },
-    {
-      id: 'musique',
-      title: 'Musique & Chorale',
-      subtitle: 'Rythme & Harmonie',
-      desc: 'Chant choral et découverte du rythme.',
-      icon: Music,
-      color: 'bg-[#e3a044]',
-      textColor: 'text-[#0086d9]',
-      badgeColor: 'bg-[#0086d9]/15 text-[#0086d9]',
-      img: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80',
-      span: 'md:col-span-1 md:row-span-1',
-    },
-    {
-      id: 'cinema',
-      title: 'Cinéma & Débat',
-      subtitle: 'Culture & Regard Critique',
-      desc: 'Regarder, comprendre, débattre.',
-      icon: Film,
-      color: 'bg-[#0086d9]/8',
-      textColor: 'text-[#0086d9]',
-      badgeColor: 'bg-[#0086d9]/10 text-[#0086d9]',
-      img: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80',
-      span: 'md:col-span-1 md:row-span-1',
-    },
-  ];
+const ACTIVITIES = [
+  {
+    icon: Theater,
+    title: 'Théâtre',
+    line: 'Prendre la parole devant les autres, et y prendre goût.',
+    detail: 'Diction, gestuelle, présence sur scène. C’est souvent là que les plus timides trouvent leur voix.',
+    color: '#e24c3d',
+    photo: PHOTOS.theatre,
+    span: 'sm:col-span-3 sm:row-span-2',
+    tall: true,
+  },
+  {
+    icon: Crown,
+    title: 'Échecs',
+    line: 'Réfléchir avant d’agir.',
+    detail: 'Logique, concentration, fair-play — des compétences qui servent bien au-delà de l’échiquier.',
+    color: '#00a06b',
+    photo: PHOTOS.echecs,
+    span: 'sm:col-span-3 sm:row-span-1',
+    tall: false,
+  },
+  {
+    icon: Music,
+    title: 'Musique & Chorale',
+    line: 'Chanter ensemble, s’écouter.',
+    detail: 'Éveil auditif, chant choral et découverte des instruments.',
+    color: '#ffc800',
+    photo: PHOTOS.chorale,
+    span: 'sm:col-span-2 sm:row-span-1',
+    tall: false,
+    darkText: true,
+  },
+  {
+    icon: Film,
+    title: 'Cinéma & Débat',
+    line: 'Regarder, comprendre, échanger.',
+    detail: 'Des œuvres choisies, puis la discussion : formuler un avis, écouter celui des autres.',
+    color: '#0086d9',
+    photo: PHOTOS.spectacle,
+    span: 'sm:col-span-1 sm:row-span-1',
+    tall: false,
+  },
+];
+
+export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({ onOpenAdmissions }) => {
+  const reduce = useReducedMotion();
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      <div className="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 relative z-10">
-        
-        {/* Section Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col items-center text-center mb-16"
-        >
-          <div className="giggle-tag mb-6">
-            <div className="giggle-dot" />
-            <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">VIE CRÉATIVE & CULTURELLE</span>
-          </div>
-          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[50px] text-[#0086d9] tracking-tight mb-6 leading-tight">
-            Cultiver les Talents & l'Imaginaire
-          </h2>
-          <p className="font-body text-base sm:text-lg text-[#00558d]/80 leading-relaxed max-w-4xl mx-auto">
-            L'excellence académique se marie à l'épanouissement personnel. Nos ateliers créatifs intégrés au cursus sont conçus pour révéler les sensibilités artistiques et intellectuelles de chaque élève.
-          </p>
-        </motion.div>
+    <section className="bg-white py-20 sm:py-28 overflow-hidden relative">
+      <DoodleStar className="hidden lg:block absolute top-14 left-[5%] w-9 text-[#ffc800] pointer-events-none" />
+      <DoodleSpiral className="hidden lg:block absolute bottom-16 right-[5%] w-10 text-[#e24c3d]/40 pointer-events-none" />
 
-        {/* Wow Factor Bento Layout with Touch & Desktop Support */}
-        <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-5 h-auto md:h-[620px] mb-12">
-          {activities.map((act, idx) => {
-            const Icon = act.icon;
+      <div className="max-w-6xl mx-auto px-4 sm:px-8">
+        <SectionIntro
+          tag="Vie créative & culturelle"
+          title="Apprendre Autrement, Chaque Après-midi"
+          line="Théâtre, échecs, musique, cinéma — chaque enfant trouve son terrain."
+          className="mb-14"
+        />
+
+        {/* Mosaïque colorée */}
+        <div className="grid grid-cols-1 sm:grid-cols-6 sm:auto-rows-[190px] gap-4 sm:gap-5 mb-14">
+          {ACTIVITIES.map((a, idx) => {
+            const Icon = a.icon;
+            const fg = a.darkText ? '#00558d' : '#ffffff';
             return (
-              <motion.div 
-                key={act.id} 
-                initial={{ opacity: 0, y: 20 }}
+              <motion.article
+                key={idx}
+                initial={reduce ? undefined : { opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`relative group overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border-2 border-[#0086d9]/15 ${act.span} ${act.color}`}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.55, delay: idx * 0.09, ease: [0.22, 1, 0.36, 1] }}
+                className={`${a.span} relative overflow-hidden group cursor-pointer min-h-[190px] shadow-lg`}
               >
-                {/* Background Image with Dynamic Overlay */}
-                <div className="absolute inset-0 z-0 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10 opacity-60 sm:opacity-0 sm:group-hover:opacity-80 transition-opacity duration-500" />
-                  <img 
-                    src={act.img} 
-                    alt={act.title}
-                    className="w-full h-full object-cover mix-blend-multiply sm:mix-blend-overlay opacity-50 sm:opacity-25 sm:group-hover:opacity-100 sm:group-hover:scale-110 transition-all duration-700 ease-out"
+                {/* Photo en fond */}
+                <SmartImage
+                  src={a.photo.src}
+                  alt={a.photo.alt}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+
+                {/* Aplat coloré qui s'efface au survol */}
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-[0.82]"
+                  style={{ backgroundColor: a.color, opacity: 0.94 }}
+                />
+
+                {/* Contenu */}
+                <div className="relative z-10 h-full p-6 sm:p-7 flex flex-col">
+                  <Icon
+                    className="w-8 h-8 mb-auto shrink-0"
+                    strokeWidth={1.6}
+                    style={{ color: fg }}
                   />
+
+                  <h3
+                    className={`font-heading leading-tight mt-5 mb-1.5 ${
+                      a.tall ? 'text-3xl sm:text-4xl' : 'text-2xl'
+                    }`}
+                    style={{ color: fg }}
+                  >
+                    {a.title}
+                  </h3>
+                  <p
+                    className="font-body font-medium text-[14px] leading-snug"
+                    style={{ color: fg, opacity: 0.9 }}
+                  >
+                    {a.line}
+                  </p>
+
+                  {/* Détail révélé au survol */}
+                  <p
+                    className="font-body text-[13px] leading-relaxed max-h-0 opacity-0 group-hover:max-h-32 group-hover:opacity-100 group-hover:mt-3 transition-all duration-500 overflow-hidden"
+                    style={{ color: fg }}
+                  >
+                    {a.detail}
+                  </p>
                 </div>
-                
-                {/* Content Overlay */}
-                <div className="relative z-20 h-full p-7 sm:p-9 flex flex-col justify-between">
-                  <div>
-                    {/* Top Row: Icon & Subtitle Tag */}
-                    <div className="flex items-center justify-between gap-2 mb-4">
-                      <div className={`w-12 h-12 flex items-center justify-center rounded-none shadow-xs ${
-                        act.textColor === 'text-white' 
-                          ? 'bg-white/20 backdrop-blur-sm text-white' 
-                          : 'bg-[#0086d9] text-[#fff7ef]'
-                      }`}>
-                        <Icon className="w-6 h-6" />
-                      </div>
-
-                      <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 ${act.badgeColor}`}>
-                        {act.subtitle}
-                      </span>
-                    </div>
-
-                    <h3 className={`font-heading text-2xl sm:text-3xl lg:text-4xl mb-3 sm:group-hover:text-white transition-colors duration-300 ${act.textColor}`}>
-                      {act.title}
-                    </h3>
-
-                    <p className={`font-body text-sm sm:text-base leading-relaxed ${
-                      act.textColor === 'text-white' ? 'text-white/90' : 'text-[#0086d9] sm:text-[#00558d]/80 sm:group-hover:text-white/90'
-                    } transition-all duration-500`}>
-                      {act.desc}
-                    </p>
-                  </div>
-                  
-                  <div className="flex items-center justify-between pt-4 border-t border-current/10 mt-6">
-                    <span className="text-xs font-bold uppercase tracking-wider opacity-80 sm:opacity-0 sm:group-hover:opacity-100 sm:group-hover:text-white transition-opacity">
-                      Atelier Intégré
-                    </span>
-                    <button 
-                      onClick={onOpenAdmissions}
-                      className={`w-10 h-10 flex items-center justify-center ${
-                        act.textColor === 'text-white' ? 'bg-[#0086d9]/8 text-[#0086d9]' : 'bg-[#0086d9] text-white'
-                      } hover:scale-110 transition-transform cursor-pointer shadow-sm`}
-                      aria-label={`En savoir plus sur ${act.title}`}
-                    >
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
+              </motion.article>
             );
           })}
         </div>
 
-        <div className="flex justify-center">
-          <button 
+        <div className="text-center">
+          <button
             onClick={onOpenAdmissions}
-            className="giggle-button-primary shadow-xl hover:shadow-2xl cursor-pointer flex items-center gap-3 px-8 py-4 text-[15px]"
+            className="cursor-pointer inline-flex items-center gap-3 bg-[#0086d9] hover:bg-[#006cb3] text-white font-body font-bold text-[15px] pl-8 pr-3 py-3.5 transition-colors group"
           >
-            <Sparkles className="w-4 h-4 text-[#e3a044]" />
-            <span>Découvrir Toutes Nos Activités & Ateliers</span>
+            Découvrir tous nos ateliers
+            <span className="w-9 h-9 bg-[#ffc800] text-[#00558d] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+              <ArrowUpRight className="w-4 h-4" strokeWidth={2.4} />
+            </span>
           </button>
         </div>
       </div>

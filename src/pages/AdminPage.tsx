@@ -78,7 +78,7 @@ const LoginGate: React.FC<{ onOk: () => void }> = ({ onOk }) => {
             className="w-full bg-[#fff7ef]/10 border border-[#fff7ef]/25 px-4 py-3 text-[#fff7ef] placeholder:text-[#fff7ef]/40 rounded-lg focus:outline-none focus:border-[#e3a044] mb-3"
           />
           {error && <p className="font-body text-xs text-[#f0a89a] mb-3 text-center">Mot de passe incorrect.</p>}
-          <button type="submit" className="w-full rounded-full bg-[#e3a044] text-[#0086d9] font-bold py-3 cursor-pointer hover:bg-[#f0b055] transition-colors">
+          <button type="submit" className="w-full rounded-full bg-[#e3a044] text-[#0086d9] font-bold py-3 cursor-pointer hover:bg-[#f0b055] transition-colors keep-round">
             Se connecter
           </button>
         </div>
@@ -128,7 +128,7 @@ const PostEditor: React.FC<{
         <h3 className="font-heading text-2xl text-[#0086d9]">
           {post.title ? 'Modifier l’article' : 'Nouvel article'}
         </h3>
-        <button type="button" onClick={onCancel} className="w-9 h-9 rounded-full bg-[#0086d9]/8 text-[#0086d9] flex items-center justify-center cursor-pointer hover:bg-[#0086d9]/15" aria-label="Fermer">
+        <button type="button" onClick={onCancel} className="w-9 h-9 rounded-full bg-[#0086d9]/8 text-[#0086d9] flex items-center justify-center cursor-pointer hover:bg-[#0086d9]/15 keep-round" aria-label="Fermer">
           <X className="w-4 h-4" />
         </button>
       </div>
@@ -300,11 +300,11 @@ const NewsTab: React.FC = () => {
             </div>
             <div className="flex gap-2 shrink-0">
               <button onClick={() => setEditing(p)} aria-label="Modifier"
-                className="w-9 h-9 rounded-full bg-[#0086d9]/8 text-[#0086d9] flex items-center justify-center cursor-pointer hover:bg-[#0086d9]/15">
+                className="w-9 h-9 rounded-full bg-[#0086d9]/8 text-[#0086d9] flex items-center justify-center cursor-pointer hover:bg-[#0086d9]/15 keep-round">
                 <Pencil className="w-4 h-4" />
               </button>
               <button onClick={() => handleDelete(p)} aria-label="Supprimer"
-                className="w-9 h-9 rounded-full bg-[#d95f43]/12 text-[#d95f43] flex items-center justify-center cursor-pointer hover:bg-[#d95f43]/25">
+                className="w-9 h-9 rounded-full bg-[#d95f43]/12 text-[#d95f43] flex items-center justify-center cursor-pointer hover:bg-[#d95f43]/25 keep-round">
                 <Trash2 className="w-4 h-4" />
               </button>
             </div>
@@ -428,7 +428,7 @@ const InboxTab: React.FC = () => {
             <motion.div key={s.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
               className={`bg-white border rounded-xl p-5 ${s.read ? 'border-[#0086d9]/10 opacity-75' : 'border-[#0086d9]/20'}`}>
               <div className="flex flex-wrap items-center gap-3 mb-3">
-                <span className={`font-body text-[10px] font-bold px-2.5 py-1 rounded-full ${isInscription ? 'bg-[#38926c]/15 text-[#1f8a63]' : 'bg-[#0086d9]/15 text-[#0086d9]'}`}>
+                <span className={`font-body text-[10px] font-bold px-2.5 py-1 rounded-full ${isInscription ? 'bg-[#38926c]/15 text-[#1f8a63]' : 'bg-[#0086d9]/15 text-[#0086d9]'} keep-round`}>
                   {isInscription ? 'Pré-inscription' : 'Message'}
                 </span>
                 <span className="font-heading text-lg text-[#0086d9]">{name}</span>
@@ -443,7 +443,7 @@ const InboxTab: React.FC = () => {
                   </button>
                 )}
                 <button onClick={() => { deleteSubmission(s.id); refresh(); }} aria-label="Supprimer"
-                  className="w-8 h-8 rounded-full bg-[#d95f43]/10 text-[#d95f43] flex items-center justify-center cursor-pointer hover:bg-[#d95f43]/22">
+                  className="w-8 h-8 rounded-full bg-[#d95f43]/10 text-[#d95f43] flex items-center justify-center cursor-pointer hover:bg-[#d95f43]/22 keep-round">
                   <Trash2 className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -509,7 +509,7 @@ export const AdminPage: React.FC = () => {
           </button>
         </header>
 
-        <div className="flex gap-2 mb-8 bg-[#0086d9]/8 p-1.5 rounded-full w-fit">
+        <div className="flex gap-2 mb-8 bg-[#0086d9]/8 p-1.5 rounded-full w-fit keep-round">
           {([['news', 'Actualités', Newspaper], ['inbox', 'Demandes', Inbox]] as const).map(([id, lbl, Icon]) => (
             <button key={id} onClick={() => setTab(id)}
               className={`${btn} ${tab === id ? 'bg-[#0086d9] text-[#fff7ef]' : 'text-[#0086d9] hover:bg-[#0086d9]/10'}`}>

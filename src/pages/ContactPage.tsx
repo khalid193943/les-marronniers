@@ -50,7 +50,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
             const inner = (
               <div className="h-full bg-[#0086d9]/8 border border-[#0086d9]/12 px-6 py-5 hover:bg-[#0086d9]/12 transition-colors">
                 <span className="flex items-center gap-2 font-heading text-xl text-[#0086d9] mb-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#e3a044]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#e3a044] keep-round" />
                   {info.label}
                 </span>
                 <span className="block font-body text-sm text-[#00558d]/75">{info.value}</span>
@@ -93,7 +93,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
               const Icon = info.icon;
               const content = (
                 <div className="flex items-start gap-4 bg-[#0086d9]/6 border border-[#0086d9]/10 p-5 hover:bg-[#0086d9]/10 transition-colors">
-                  <span className="w-11 h-11 shrink-0 rounded-full bg-[#0086d9] text-[#ffe08a] flex items-center justify-center">
+                  <span className="w-11 h-11 shrink-0 rounded-full bg-[#0086d9] text-[#ffe08a] flex items-center justify-center keep-round">
                     <Icon className="w-5 h-5" strokeWidth={1.8} />
                   </span>
                   <div>

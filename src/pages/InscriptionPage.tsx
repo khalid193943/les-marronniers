@@ -17,6 +17,7 @@ import { Squiggle } from '../design-system/giggle/Squiggle';
 import { DoodleGrow, DoodleStar } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
 import { ChecklistSplit } from '../design-system/giggle/ChecklistSplit';
+import { PHOTOS } from '../data/photos';
 
 interface InscriptionPageProps {
   onOpenAdmissions: () => void;
@@ -110,10 +111,10 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({ onOpenAdmissio
           ctaLabel="Voir les disponibilités"
           onCta={onOpenAdmissions}
           photos={[
-            { src: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=700&q=80', alt: 'Classe accueillante' },
-            { src: 'https://images.unsplash.com/photo-1596464716127-f2a829822301?auto=format&fit=crop&w=700&q=80', alt: 'Enfants épanouis' },
-            { src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=80', alt: 'Atelier créatif' },
-            { src: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=700&q=80', alt: 'Équipe attentive' },
+            PHOTOS.eveil,
+            PHOTOS.chorale,
+            PHOTOS.fete,
+            PHOTOS.musique,
           ]}
           imageSide="right"
         />
@@ -145,7 +146,7 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({ onOpenAdmissio
 
           <div className="flex flex-wrap justify-center gap-3 mb-14">
             {DOCUMENTS.map((d) => (
-              <span key={d} className="inline-flex items-center gap-2 rounded-full bg-[#0086d9]/8 border border-[#0086d9]/12 px-5 py-2.5 text-sm font-semibold text-[#0086d9]">
+              <span key={d} className="inline-flex items-center gap-2 rounded-full bg-[#0086d9]/8 border border-[#0086d9]/12 px-5 py-2.5 text-sm font-semibold text-[#0086d9] keep-round">
                 <FileText className="w-4 h-4 text-[#e3a044]" />
                 {d}
               </span>

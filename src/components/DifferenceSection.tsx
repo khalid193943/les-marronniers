@@ -10,6 +10,7 @@ import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { ChecklistSplit } from '../design-system/giggle/ChecklistSplit';
 import { DoodleHeart } from '../design-system/giggle/Doodles';
+import { PHOTOS } from '../data/photos';
 
 interface DifferenceSectionProps {
   onOpenAdmissions: () => void;
@@ -39,10 +40,10 @@ export const DifferenceSection: React.FC<DifferenceSectionProps> = ({ onOpenAdmi
           ctaLabel="Découvrir notre école"
           onCta={onOpenAdmissions}
           photos={[
-            { src: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f036a33ba6cc4b748_Images%20(1).avif', alt: 'Équipe pédagogique avec les enfants' },
-            { src: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=700&q=80', alt: 'Enseignante attentive' },
-            { src: 'https://images.unsplash.com/photo-1596464716127-f2a829822301?auto=format&fit=crop&w=700&q=80', alt: 'Matériel pédagogique' },
-            { src: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f37bdd99338f62c1c_Images%20(3).avif', alt: 'Salle de classe' },
+            PHOTOS.spectacle,
+            PHOTOS.classeAtelier,
+            PHOTOS.sport,
+            PHOTOS.equitation,
           ]}
         />
       </motion.div>

@@ -13,6 +13,7 @@ import { motion, useReducedMotion } from 'motion/react';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { PhotoStack } from '../design-system/giggle/PhotoStack';
 import { DoodleStar, DoodleSun } from '../design-system/giggle/Doodles';
+import { PHOTOS } from '../data/photos';
 
 interface SchoolMissionProps {
   onOpenAdmissions: () => void;
@@ -101,7 +102,7 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
 
                 {/* Carte bleu marine */}
                 <div className="relative z-10 bg-[#0086d9] p-8 sm:p-10 aspect-square flex flex-col items-center justify-center text-center shadow-xl">
-                  <div className="w-14 h-14 rounded-full border-2 border-[#fff7ef]/30 text-[#fff7ef] flex items-center justify-center mb-5 group-hover:bg-[#e3a044] group-hover:border-[#e3a044] group-hover:text-[#0086d9] transition-colors duration-300">
+                  <div className="w-14 h-14 rounded-full border-2 border-[#fff7ef]/30 text-[#fff7ef] flex items-center justify-center mb-5 group-hover:bg-[#e3a044] group-hover:border-[#e3a044] group-hover:text-[#0086d9] transition-colors duration-300 keep-round">
                     <Icon className="w-6 h-6" strokeWidth={1.8} />
                   </div>
                   <h3 className="font-heading text-xl sm:text-2xl text-[#fff7ef] mb-3">
@@ -125,8 +126,8 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="order-2 lg:order-1"
           >
-            <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-xs font-bold text-[#0086d9] mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#e3a044]" />
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-xs font-bold text-[#0086d9] mb-5 keep-round">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#e3a044] keep-round" />
               Rentrée 2026 – 2027
             </span>
             <h3 className="font-heading text-3xl sm:text-4xl text-[#0086d9] tracking-tight mb-4">
@@ -148,14 +149,8 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
           <PhotoStack
             className="order-1 lg:order-2 aspect-[4/3] max-w-md mx-auto w-full"
             photos={[
-              {
-                src: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f036a33ba6cc4b748_Images%20(1).avif',
-                alt: 'Élèves en classe aux Marronniers',
-              },
-              {
-                src: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f37bdd99338f62c1c_Images%20(3).avif',
-                alt: 'Activités en maternelle',
-              },
+              PHOTOS.tennisTable,
+              PHOTOS.peinture,
             ]}
             backers={['#e3a044', '#0086d9']}
           />

@@ -23,6 +23,13 @@
     --brand-600: #006cb3;
     --brand-700: #00558d;
     --brand-800: #003f6b;
+
+    /* Palette enfantine — les couleurs vives validées par l'école */
+    --kid-blue:   #0086d9;
+    --kid-green:  #00a06b;
+    --kid-yellow: #ffc800;
+    --kid-red:    #e24c3d;
+    --kid-cream:  #fff7ef;
     --tokens--border: #246ae8;
     --tokens--border-strong: #1e55b7;
     --tokens--primary: #00558d;
@@ -208,14 +215,22 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Bandeau défilant infini (MarqueeBand) */
-@keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+
+
+/* ===========================================================
+   ANGLES NETS — charte Les Marronniers
+   Aucun arrondi sur le site : images, boutons, cartes, champs.
+   Seules les pastilles d'icônes rondes conservent leur cercle
+   (classe .keep-round) pour rester lisibles.
+   =========================================================== */
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
 }
-.marquee-track {
-  animation: marquee-scroll 28s linear infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
+
+.keep-round,
+.keep-round::before,
+.keep-round::after {
+  border-radius: 9999px !important;
 }

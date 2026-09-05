@@ -15,21 +15,18 @@ import { DoodleSun, DoodleStar } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
 import { SocialSection } from '../components/SocialSection';
 import { getPosts, formatDate, NewsPost } from '../lib/newsStore';
+import { PHOTOS, GALLERY } from '../data/photos';
 
 interface ActualitesPageProps {
   onOpenArticle: (slug: string) => void;
 }
 
-const GALERIE = [
-  { src: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80', alt: 'En classe', rot: -3 },
-  { src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80', alt: 'Atelier créatif', rot: 2 },
-  { src: 'https://images.unsplash.com/photo-1567168544813-cc03465b4fa8?auto=format&fit=crop&w=800&q=80', alt: 'Jeux en groupe', rot: 3 },
-  { src: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80', alt: 'Musique', rot: -2 },
-  { src: 'https://images.unsplash.com/photo-1596464716127-f2a829822301?auto=format&fit=crop&w=800&q=80', alt: 'Petits explorateurs', rot: 2 },
-  { src: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80', alt: 'Sourires', rot: -3 },
-  { src: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=800&q=80', alt: 'Club d’échecs', rot: 3 },
-  { src: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80', alt: 'Éveil musical', rot: -2 },
-];
+/* La galerie puise directement dans le catalogue des vraies photos. */
+const ROTATIONS = [-3, 2, 3, -2, 2, -3, 3, -2, -3, 2, 3, -2];
+const GALERIE = GALLERY.map((key, i) => ({
+  ...PHOTOS[key],
+  rot: ROTATIONS[i % ROTATIONS.length],
+}));
 
 export const ActualitesPage: React.FC<ActualitesPageProps> = ({ onOpenArticle }) => {
   const reduce = useReducedMotion();
@@ -77,7 +74,7 @@ export const ActualitesPage: React.FC<ActualitesPageProps> = ({ onOpenArticle })
                 </div>
               </div>
               <div>
-                <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-[11px] font-bold text-[#0086d9] mb-4">
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-[11px] font-bold text-[#0086d9] mb-4 keep-round">
                   <CalendarDays className="w-3.5 h-3.5 text-[#e3a044]" />
                   {featured.category} · {formatDate(featured.date)}
                 </span>
@@ -89,7 +86,7 @@ export const ActualitesPage: React.FC<ActualitesPageProps> = ({ onOpenArticle })
                 </p>
                 <span className="inline-flex items-center gap-3 font-body font-bold text-sm text-[#0086d9]">
                   Lire l’article
-                  <span className="w-9 h-9 rounded-full bg-[#0086d9] text-[#ffe08a] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+                  <span className="w-9 h-9 rounded-full bg-[#0086d9] text-[#ffe08a] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300 keep-round">
                     <ArrowUpRight className="w-4 h-4" strokeWidth={2.2} />
                   </span>
                 </span>

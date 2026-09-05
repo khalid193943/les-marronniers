@@ -18,6 +18,7 @@ import { SectionDivider } from '../components/SectionDivider';
 import { ColorCardsGrid, type ColorCard } from '../design-system/giggle/ColorCardsGrid';
 import { ChecklistSplit } from '../design-system/giggle/ChecklistSplit';
 import { ExpandBars, type ExpandBarItem } from '../design-system/giggle/ExpandBars';
+import { PHOTOS } from '../data/photos';
 
 const COMMUNICATION: ColorCard[] = [
   { icon: NotebookPen, title: 'Cahier de Liaison', line: 'Le fil quotidien entre la classe et la maison.', tone: 'sky' },
@@ -98,10 +99,10 @@ export const ParentsPage: React.FC = () => {
             'Des événements réguliers pour vivre la vie de l’école de l’intérieur',
           ]}
           photos={[
-            { src: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=700&q=80', alt: 'Échange entre une enseignante et un parent' },
-            { src: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=700&q=80', alt: 'Suivi individuel d’un enfant' },
-            { src: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=700&q=80', alt: 'Moment de complicité' },
-            { src: 'https://images.unsplash.com/photo-1567168544813-cc03465b4fa8?auto=format&fit=crop&w=700&q=80', alt: 'Événement scolaire' },
+            PHOTOS.musique,
+            PHOTOS.lecture,
+            PHOTOS.echecs,
+            PHOTOS.simulateur,
           ]}
           imageSide="right"
         />

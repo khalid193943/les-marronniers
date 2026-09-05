@@ -22,8 +22,8 @@ export const WaveCtaSection: React.FC<WaveCtaSectionProps> = ({ onOpenAdmissions
 
       <section className="relative overflow-hidden bg-[#0086d9] py-24 sm:py-32 text-center text-[#fff7ef]">
         {/* Subtle glowing ambient orbs */}
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-[#e3a044]/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-[#e3a044]/10 rounded-full blur-3xl pointer-events-none keep-round" />
+        <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none keep-round" />
 
         {/* Center Content */}
         <motion.div 
@@ -35,7 +35,7 @@ export const WaveCtaSection: React.FC<WaveCtaSectionProps> = ({ onOpenAdmissions
         >
           {/* White Tag with glowing dot */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 text-[#fff7ef] text-xs font-semibold mb-6 border border-white/20 shadow-sm backdrop-blur-xs">
-            <span className="w-2 h-2 rounded-full bg-[#e3a044] animate-ping" />
+            <span className="w-2 h-2 rounded-full bg-[#e3a044] animate-ping keep-round" />
             <span>Vous Êtes les Bienvenus à El Jadida</span>
           </div>
 

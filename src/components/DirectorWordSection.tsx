@@ -1,6 +1,7 @@
 import React from 'react';
 import { Quote, Award, CheckCircle2, BookOpen } from 'lucide-react';
 import { motion } from 'motion/react';
+import { PHOTOS } from '../data/photos';
 
 export const DirectorWordSection: React.FC = () => {
   return (
@@ -44,8 +45,8 @@ export const DirectorWordSection: React.FC = () => {
               {/* Image Container */}
               <div className="relative aspect-[4/5] overflow-hidden bg-[#0086d9]/8 rounded-none shadow-2xl border-2 border-[#0086d9]/15">
                 <img
-                  src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80"
-                  alt="Direction Pédagogique - École Les Marronniers El Jadida"
+                  src={PHOTOS.classeAtelier.src}
+                  alt={PHOTOS.classeAtelier.alt}
                   className="w-full h-full object-cover filter brightness-95 group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 

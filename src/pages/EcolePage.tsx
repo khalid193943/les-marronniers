@@ -19,6 +19,7 @@ import { Squiggle } from '../design-system/giggle/Squiggle';
 import { DoodleHeart, DoodleStar } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
 import { Timeline, type TimelineStep } from '../design-system/giggle/Timeline';
+import { PHOTOS } from '../data/photos';
 
 interface EcolePageProps {
   onOpenAdmissions: () => void;
@@ -70,10 +71,10 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
         <div className="max-w-6xl mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           <PhotoCollage
             photos={[
-              { src: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f036a33ba6cc4b748_Images%20(1).avif', alt: 'La vie à l’école Les Marronniers' },
-              { src: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80', alt: 'Une enseignante avec ses élèves' },
-              { src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80', alt: 'Atelier créatif' },
-              { src: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f37bdd99338f62c1c_Images%20(3).avif', alt: 'Enfants en activité' },
+              PHOTOS.spectacle,
+              PHOTOS.classeAtelier,
+              PHOTOS.sport,
+              PHOTOS.equitation,
             ]}
           />
           <motion.div
@@ -90,7 +91,7 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
             />
             <div className="flex flex-wrap gap-3 mt-8">
               {['2 campus au Plateau', '100 % réussite CE6', 'Trilingue FR · AR · EN'].map((t) => (
-                <span key={t} className="rounded-full bg-[#0086d9]/8 px-4 py-2 text-xs font-bold text-[#0086d9]">
+                <span key={t} className="rounded-full bg-[#0086d9]/8 px-4 py-2 text-xs font-bold text-[#0086d9] keep-round">
                   {t}
                 </span>
               ))}

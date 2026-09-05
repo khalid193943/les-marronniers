@@ -145,7 +145,7 @@ export const ContactAndLocationSection: React.FC<ContactAndLocationSectionProps>
 
             {/* Quick Map Overlay Badge */}
             <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-4 py-2.5 shadow-xl border border-[#0086d9]/15 flex items-center gap-2.5 pointer-events-none">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#e3a044] animate-ping" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#e3a044] animate-ping keep-round" />
               <span className="text-xs font-bold text-[#0086d9]">
                 École Les Marronniers • Quartier Plateau
               </span>

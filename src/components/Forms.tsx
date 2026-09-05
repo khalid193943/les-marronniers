@@ -62,7 +62,7 @@ const ErrorNote: React.FC = () => (
       href={SCHOOL_INFO.social.whatsapp}
       target="_blank"
       rel="noreferrer"
-      className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white font-bold text-sm px-5 py-2.5"
+      className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white font-bold text-sm px-5 py-2.5 keep-round"
     >
       <MessageCircle className="w-4 h-4" />
       WhatsApp

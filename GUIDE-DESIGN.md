@@ -249,3 +249,76 @@ mesurés puis corrigés :
 - **Petit texte courant sur fond clair** → `#00558D` (même teinte, lisible)
 - **Accent chaud sur fond bleu** → `#FFE08A` ; sur fond clair, la moutarde
   `#E3A044` reste en place.
+
+---
+
+## 🎨 Passe v9 — Version finale
+
+### Angles nets sur tout le site
+Une règle CSS globale force `border-radius: 0` sur **tous** les éléments —
+images, boutons, cartes, champs de formulaire, vidéo. Seules les pastilles
+d'icônes circulaires conservent leur cercle grâce à la classe `.keep-round`
+(sans quoi les icônes deviendraient des carrés illisibles).
+
+### Palette enfantine
+Les couleurs vives validées sont désormais des variables CSS :
+
+| Variable | Valeur | Usage |
+|---|---|---|
+| `--kid-blue` | `#0086D9` | couleur de marque (logo) |
+| `--kid-green` | `#00A06B` | vert vif |
+| `--kid-yellow` | `#FFC800` | jaune vif — **texte en bleu profond dessus** |
+| `--kid-red` | `#E24C3D` | rouge corail |
+| `--kid-cream` | `#FFF7EF` | fond clair |
+
+Lisibilité mesurée : blanc sur bleu/vert/rouge = 3,4–3,9:1 → réservé aux
+titres et au texte en gras (c'est pourquoi les paragraphes sur aplat sont
+en `font-medium`). Sur le jaune, le texte passe en `#00558D` (5,03:1).
+
+### Sections refondues
+- **Hero** — réduit à l'essentiel : titre, une phrase, deux boutons. Tous les
+  badges, pastilles flottantes et statistiques ont été retirés.
+- **PhotoCollage** — les **4 photos sont désormais entièrement visibles**, en
+  damier décalé. Plus rien n'est caché derrière.
+- **Vidéo** — plein écran, démarrage automatique en sourdine et en boucle,
+  **sans aucun texte par-dessus**. Seul un bouton de son subsiste.
+  Source à remplacer dans `SchoolVideoSection.tsx` → `VIDEO_SRC`.
+- **Vie créative** — mosaïque de quatre blocs pleine couleur avec photo en
+  fond ; l'aplat s'éclaircit au survol et le détail monte depuis le bas.
+- **Nouveau : `ColorfulReasonsSection`** — quatre grands blocs colorés sur
+  l'accueil, avec le chiffre en filigrane. La section la plus vive du site.
+- **Bande défilante supprimée** (composant et CSS retirés).
+
+---
+
+## 📸 Passe v10 — Les vraies photos de l'école
+
+Le site n'utilise **plus aucune photo d'illustration achetée** : les 20 photos
+fournies par l'établissement sont désormais en ligne partout.
+
+### Optimisation
+Les fichiers d'origine pesaient **63 Mo** (jusqu'à 14 Mo pour une seule image) —
+inutilisable sur le web. Ils ont été redimensionnés à 1600 px maximum et
+compressés en JPEG progressif qualité 82 : **63 Mo → 5,4 Mo**, sans perte
+visible à l'écran. Le site complet fait maintenant 6 Mo, photos comprises.
+
+### Où elles sont placées
+| Photo | Emplacement |
+|---|---|
+| Sourires de maternelle | Grande photo du Hero |
+| Salle de classe / jeux éducatifs | Hero + mot de la direction |
+| Télescope | Hero + atelier « Éveil scientifique » |
+| Échecs (cour et classe) | Atelier « Club d'échecs » |
+| Chant sur scène | Atelier « Musique & Chorale » |
+| Théâtre costumé | Vie créative + atelier « Théâtre » |
+| Sport sur le terrain | Atelier « Psychomotricité » |
+| Jeux de cartes sur la pelouse | Image d'attente de la vidéo |
+| 12 photos sélectionnées | Galerie de la page Actualités |
+
+### Ajouter d'autres photos plus tard
+1. Déposer le fichier dans `public/photos/`
+2. Ajouter une ligne dans `src/data/photos.ts` avec un texte alternatif
+3. Utiliser la clé dans la page voulue
+
+Le texte `alt` décrit ce que l'on voit **sans nommer les enfants** : il sert
+aux personnes malvoyantes et au référencement Google.

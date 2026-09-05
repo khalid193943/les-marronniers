@@ -61,7 +61,7 @@ export const ArticlePage: React.FC<ArticlePageProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full bg-[#0086d9]/8 px-4 py-1.5 text-[11px] font-bold text-[#0086d9] mb-5">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#0086d9]/8 px-4 py-1.5 text-[11px] font-bold text-[#0086d9] mb-5 keep-round">
               <CalendarDays className="w-3.5 h-3.5 text-[#e3a044]" />
               {post.category} · {formatDate(post.date)}
             </span>

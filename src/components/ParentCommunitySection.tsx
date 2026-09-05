@@ -23,7 +23,6 @@ export const ParentCommunitySection: React.FC = () => {
       name: 'Michael Johnson',
       role: 'Parent d’élève en CP',
       child: 'Élève depuis la TPS',
-      avatar: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/69cbbc0ac534cbd866e2f9b6_Professional%20Portrait%20(5)%201.avif',
       quote:
         '“Notre fille rentre chaque soir enthousiaste et épanouie. L’atmosphère est à la fois studieuse, chaleureuse et d’une infinie douceur.”'
     },
@@ -31,7 +30,6 @@ export const ParentCommunitySection: React.FC = () => {
       name: 'David Rodriguez',
       role: 'Parent d’élève en Maternelle',
       child: 'Grande Section',
-      avatar: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/69cbbc0a26084666f7f6a738_Professional%20Portrait%20(3)%201.avif',
       quote:
         '“Ce qui nous a conquis dès la première visite, c’est le souci du détail et la bienveillance des maîtresses. Nos enfants s’y sentent véritablement protégés.”'
     },
@@ -39,7 +37,6 @@ export const ParentCommunitySection: React.FC = () => {
       name: 'Khadija El Idrissi',
       role: 'Parent d’élève en CE4',
       child: 'Élève au Primaire',
-      avatar: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/69cbbc0a5a3a4115f5c6b445_Professional%20Portrait%20(1)%201.avif',
       quote:
         '“Le niveau en langues et les ateliers d’échecs et de théâtre ont donné à mon fils une assurance remarquable. C’est la meilleure école d’El Jadida.”'
     },
@@ -47,7 +44,6 @@ export const ParentCommunitySection: React.FC = () => {
       name: 'Emily Parker',
       role: 'Parent d’élève en CE1',
       child: 'Parcours continu',
-      avatar: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/69cbbc0ac534cbd866e2f9b6_Professional%20Portrait%20(5)%201.avif',
       quote:
         '“Nous cherchions un équilibre rare entre excellence académique et cadre familial. Les Marronniers a dépassé toutes nos espérances.”'
     },
@@ -55,7 +51,6 @@ export const ParentCommunitySection: React.FC = () => {
       name: 'Sofia Benjelloun',
       role: 'Parent d’élève en Moyenne Section',
       child: 'Maternelle Beethoven',
-      avatar: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/69cbbc0a26084666f7f6a738_Professional%20Portrait%20(3)%201.avif',
       quote:
         '“Un campus lumineux, des éducatrices attentives et une communication quotidienne irréprochable avec la direction. Une communauté formidable.”'
     }
@@ -111,11 +106,7 @@ export const ParentCommunitySection: React.FC = () => {
               </div>
               
               <div className="flex items-center gap-4 mt-8 pt-6 border-t border-[#0086d9]/10">
-                <img 
-                  src={testi.avatar} 
-                  alt={testi.name} 
-                  className="w-14 h-14 rounded-full object-cover shadow-sm border-2 border-white/60"
-                />
+                
                 <div>
                   <h4 className="font-heading font-bold text-[#0086d9] text-base leading-tight">{testi.name}</h4>
                   <p className="font-body text-[#00558d]/70 text-xs font-medium mt-0.5">

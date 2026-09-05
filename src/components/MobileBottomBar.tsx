@@ -24,7 +24,7 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ onOpenAdmissio
           className="flex flex-col items-center justify-center py-1.5 px-1 rounded-lg text-[#0086d9] hover:bg-[#0086d9]/10 transition-colors active:scale-95"
           aria-label="Appeler l'école"
         >
-          <div className="w-8 h-8 rounded-full bg-[#0086d9] text-[#fff7ef] flex items-center justify-center mb-1 shadow-xs">
+          <div className="w-8 h-8 rounded-full bg-[#0086d9] text-[#fff7ef] flex items-center justify-center mb-1 shadow-xs keep-round">
             <Phone className="w-4 h-4 text-[#ffe08a]" />
           </div>
           <span className="text-[10px] font-bold tracking-tight">Appeler</span>
@@ -38,7 +38,7 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ onOpenAdmissio
           className="flex flex-col items-center justify-center py-1.5 px-1 rounded-lg text-[#0086d9] hover:bg-[#0086d9]/10 transition-colors active:scale-95"
           aria-label="Contacter sur WhatsApp"
         >
-          <div className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center mb-1 shadow-xs">
+          <div className="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center mb-1 shadow-xs keep-round">
             <MessageCircle className="w-4 h-4" />
           </div>
           <span className="text-[10px] font-bold tracking-tight">WhatsApp</span>
@@ -50,7 +50,7 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ onOpenAdmissio
           className="flex flex-col items-center justify-center py-1.5 px-1 rounded-lg text-[#0086d9] hover:bg-[#0086d9]/10 transition-colors active:scale-95"
           aria-label="Voir l'adresse et plan"
         >
-          <div className="w-8 h-8 rounded-full bg-[#0086d9] text-[#fff7ef] flex items-center justify-center mb-1 shadow-xs">
+          <div className="w-8 h-8 rounded-full bg-[#0086d9] text-[#fff7ef] flex items-center justify-center mb-1 shadow-xs keep-round">
             <MapPin className="w-4 h-4 text-[#ffe08a]" />
           </div>
           <span className="text-[10px] font-bold tracking-tight">Accès</span>
@@ -62,7 +62,7 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ onOpenAdmissio
           className="flex flex-col items-center justify-center py-1.5 px-1 rounded-lg text-[#0086d9] hover:bg-[#0086d9]/10 transition-colors active:scale-95 cursor-pointer"
           aria-label="Prendre rendez-vous"
         >
-          <div className="w-8 h-8 rounded-full bg-[#e3a044] text-[#0086d9] flex items-center justify-center mb-1 shadow-xs">
+          <div className="w-8 h-8 rounded-full bg-[#e3a044] text-[#0086d9] flex items-center justify-center mb-1 shadow-xs keep-round">
             <Calendar className="w-4 h-4 font-bold" />
           </div>
           <span className="text-[10px] font-bold tracking-tight text-[#0086d9]">Rendez-vous</span>

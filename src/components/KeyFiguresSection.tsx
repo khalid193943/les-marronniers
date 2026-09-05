@@ -51,7 +51,7 @@ export const KeyFiguresSection: React.FC = () => {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="bg-white/5 hover:bg-white/10 border border-[#fff7ef]/15 p-5 sm:p-6 flex flex-col items-center text-center group transition-all duration-300"
               >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 group-hover:bg-[#e3a044] transition-all duration-300 text-[#fff7ef] group-hover:text-[#0086d9]">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/10 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 group-hover:bg-[#e3a044] transition-all duration-300 text-[#fff7ef] group-hover:text-[#0086d9] keep-round">
                   <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
                 

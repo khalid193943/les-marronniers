@@ -17,9 +17,9 @@ import { MobileBottomBar } from './components/MobileBottomBar';
 // Home
 import { Hero } from './components/Hero';
 import { KeyFiguresSection } from './components/KeyFiguresSection';
-import { MarqueeBand } from './design-system/giggle/MarqueeBand';
 import { DifferenceSection } from './components/DifferenceSection';
 import { ImpactSection } from './components/ImpactSection';
+import { ColorfulReasonsSection } from './components/ColorfulReasonsSection';
 import { DirectorWordSection } from './components/DirectorWordSection';
 import { SchoolVideoSection } from './components/SchoolVideoSection';
 import { SchoolMission } from './components/SchoolMission';
@@ -158,7 +158,6 @@ export default function App() {
                   onExplorePrimaire={() => handleNavigate('parcours')}
                   onOpenAdmissions={() => handleOpenAdmissions()}
                 />
-                <MarqueeBand tone="accent" />
                 <KeyFiguresSection />
                 <SectionDivider variant="white" position="top" style="wave1" />
                 <DifferenceSection onOpenAdmissions={() => handleOpenAdmissions()} />
@@ -167,6 +166,7 @@ export default function App() {
                 <SectionDivider variant="blue" position="top" style="wave2" />
                 <SchoolVideoSection onOpenAdmissions={() => handleOpenAdmissions()} />
                 <SectionDivider variant="cream" position="top" style="wave1" />
+                <ColorfulReasonsSection onOpenAdmissions={() => handleOpenAdmissions()} />
                 <ImpactSection />
                 <SectionDivider variant="white" position="top" style="wave2" />
                 <SchoolMission onOpenAdmissions={() => handleOpenAdmissions()} />
