@@ -98,7 +98,7 @@ export const ContactAndLocationSection: React.FC<ContactAndLocationSectionProps>
                 <div>
                   <h4 className="font-heading text-lg font-bold text-[#084274] mb-1">Horaires d'Accueil des Familles</h4>
                   <p className="font-body text-sm text-[#084274]/80 leading-relaxed">
-                    Lundi – Vendredi : 08h15 - 17h30<br />
+                    Lundi – Vendredi : 7h45 – 18h15<br />
                     Samedi : 09h00 - 12h30 (Sur rendez-vous préalable)
                   </p>
                 </div>

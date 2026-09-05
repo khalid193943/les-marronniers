@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { MapPin, Phone, Mail, Calendar, ArrowUp, Baby, GraduationCap, Building2, ShieldCheck, Heart } from 'lucide-react';
+import { MapPin, Phone, Mail, Calendar, ArrowUp, Baby, GraduationCap, Building2, ShieldCheck, Heart, Facebook, Instagram, Youtube } from 'lucide-react';
 import { PageId } from '../types';
 import { SCHOOL_INFO } from '../data/schoolInfo';
 
@@ -47,7 +47,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
             <div className="space-y-2.5 text-xs text-[#feeddb]/90">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#e3a044] shrink-0 mt-0.5" />
-                <span>16 Lot Al Asdikaa, Rue Beethoven, Plateau, El Jadida 24000, Maroc</span>
+                <span><strong>Maternelle :</strong> 16 Lot Al Asdikaa, Rue Beethoven, Plateau</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-[#e3a044] shrink-0 mt-0.5" />
+                <span><strong>Primaire :</strong> 3 Avenue Varennes, El Jadida</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#e3a044] shrink-0" />
@@ -55,6 +59,22 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
                   {SCHOOL_INFO.phone}
                 </a>
               </div>
+            </div>
+
+            {/* Réseaux sociaux officiels */}
+            <div className="flex items-center gap-3 mt-6">
+              <a href={SCHOOL_INFO.social.facebook} target="_blank" rel="noreferrer" aria-label="Facebook Les Marronniers"
+                 className="w-10 h-10 rounded-full bg-[#feeddb]/10 hover:bg-[#e3a044] text-[#feeddb] hover:text-[#084274] flex items-center justify-center transition-colors">
+                <Facebook className="w-4.5 h-4.5" />
+              </a>
+              <a href={SCHOOL_INFO.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram Les Marronniers"
+                 className="w-10 h-10 rounded-full bg-[#feeddb]/10 hover:bg-[#e3a044] text-[#feeddb] hover:text-[#084274] flex items-center justify-center transition-colors">
+                <Instagram className="w-4.5 h-4.5" />
+              </a>
+              <a href={SCHOOL_INFO.social.youtube} target="_blank" rel="noreferrer" aria-label="YouTube Les Marronniers"
+                 className="w-10 h-10 rounded-full bg-[#feeddb]/10 hover:bg-[#e3a044] text-[#feeddb] hover:text-[#084274] flex items-center justify-center transition-colors">
+                <Youtube className="w-4.5 h-4.5" />
+              </a>
             </div>
           </div>
 

@@ -17,6 +17,7 @@ import { MobileBottomBar } from './components/MobileBottomBar';
 // Home
 import { Hero } from './components/Hero';
 import { KeyFiguresSection } from './components/KeyFiguresSection';
+import { MarqueeBand } from './design-system/giggle/MarqueeBand';
 import { DirectorWordSection } from './components/DirectorWordSection';
 import { SchoolVideoSection } from './components/SchoolVideoSection';
 import { SchoolMission } from './components/SchoolMission';
@@ -131,6 +132,7 @@ export default function App() {
                   onExplorePrimaire={() => handleNavigate('parcours')}
                   onOpenAdmissions={() => handleOpenAdmissions()}
                 />
+                <MarqueeBand tone="accent" />
                 <KeyFiguresSection />
                 <DirectorWordSection />
                 <SectionDivider variant="blue" position="top" style="wave2" />

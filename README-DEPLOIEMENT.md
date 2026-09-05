@@ -17,6 +17,13 @@ Le dossier **`dist/`** contient le site final, prêt à mettre en ligne. C'est u
 2. Copier **tout le contenu** du dossier `dist/` dans `public_html/` (ou `www/`).
 3. Terminé — le site utilise des liens `#hash`, donc aucune configuration de serveur n'est requise.
 
+## ⚡ Formulaires (Contact & Pré-inscription)
+Les deux formulaires utilisent **Netlify Forms** (gratuit, sans serveur) :
+- Hébergé sur **Netlify** → ça marche tout seul. Les réponses arrivent dans l'onglet **Forms** de votre tableau de bord Netlify. Activez la notification email : *Site settings → Forms → Form notifications* pour les recevoir directement dans votre boîte mail.
+- Hébergé **ailleurs** (cPanel, Vercel…) → les formulaires afficheront automatiquement le bouton de secours **WhatsApp** en cas d'échec d'envoi. Rien ne casse.
+
+Protection anti-spam incluse (champ honeypot invisible).
+
 ## Reconstruire après une modification
 ```bash
 npm install        # une seule fois

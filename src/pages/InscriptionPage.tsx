@@ -11,6 +11,7 @@ import { motion, useReducedMotion } from 'motion/react';
 import { Calendar, Phone, FileText } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolInfo';
 import { PageHero } from '../design-system/giggle/PageHero';
+import { PreInscriptionForm } from '../components/Forms';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { Squiggle } from '../design-system/giggle/Squiggle';
 import { DoodleGrow, DoodleStar } from '../design-system/giggle/Doodles';
@@ -93,8 +94,23 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({ onOpenAdmissio
 
       <SectionDivider variant="white" position="top" style="wave1" />
 
+      {/* Formulaire de pré-inscription en ligne */}
+      <section className="bg-white py-16 sm:py-24 overflow-hidden">
+        <div className="max-w-2xl mx-auto px-4 sm:px-8">
+          <SectionIntro
+            tag="En ligne, en 2 minutes"
+            title="Pré-inscription Rapide"
+            line="Remplissez ce formulaire — le secrétariat vous rappelle pour la visite."
+            className="mb-10"
+          />
+          <PreInscriptionForm />
+        </div>
+      </section>
+
+      <SectionDivider variant="cream" position="top" style="wave2" />
+
       {/* Documents + CTA */}
-      <section className="bg-white py-16 sm:py-24 overflow-hidden relative">
+      <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden relative">
         <DoodleStar className="hidden lg:block absolute top-12 left-[8%] w-9 text-[#e3a044]/60 pointer-events-none" />
         <DoodleGrow className="hidden xl:block absolute bottom-6 right-[4%] w-44 text-[#084274]/12 pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-8 text-center">

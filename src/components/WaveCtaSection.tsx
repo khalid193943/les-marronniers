@@ -69,7 +69,7 @@ export const WaveCtaSection: React.FC<WaveCtaSectionProps> = ({ onOpenAdmissions
           </div>
 
           <p className="text-xs text-white/60 mt-6 font-body">
-            Lun – Ven · 8h15 – 17h30
+            Lun – Ven · 7h45 – 18h15
           </p>
         </motion.div>
       </section>

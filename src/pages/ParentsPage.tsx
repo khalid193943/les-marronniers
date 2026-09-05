@@ -22,6 +22,7 @@ const COMMUNICATION = [
 ];
 
 const FAQ = [
+  { q: 'Quels sont les horaires de l’école ?', a: 'Du lundi au vendredi, de 7h45 à 18h15 — un accueil étendu pensé pour les parents qui travaillent.' },
   { q: 'À partir de quel âge accueillez-vous les enfants ?', a: 'Dès 2 ans en crèche (TPS), puis maternelle et primaire jusqu’au CE6.' },
   { q: 'Comment se déroule une inscription ?', a: 'Une visite, un échange avec la direction, puis le dossier — simple et sans engagement. Voir la page Inscription.' },
   { q: 'Proposez-vous une cantine ?', a: 'Oui, des repas équilibrés préparés chaque jour, avec menus communiqués aux familles.' },

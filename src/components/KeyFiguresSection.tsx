@@ -7,27 +7,28 @@
 import React from 'react';
 import { Award, School, Sparkles, Clock } from 'lucide-react';
 import { motion } from 'motion/react';
+import { CountUp } from '../design-system/giggle/CountUp';
 
 export const KeyFiguresSection: React.FC = () => {
   const figures = [
     {
       icon: Award,
-      number: '100%',
+      value: 100, suffix: '%',
       label: 'Taux de Réussite',
     },
     {
       icon: School,
-      number: '2',
+      value: 2, suffix: '',
       label: 'Campus Dédiés',
     },
     {
       icon: Sparkles,
-      number: '15+',
+      value: 15, suffix: '+',
       label: 'Ateliers Éducatifs',
     },
     {
       icon: Clock,
-      number: '15 ans',
+      value: 15, suffix: ' ans',
       label: "D'Expérience Reconnue",
     },
   ];
@@ -55,7 +56,7 @@ export const KeyFiguresSection: React.FC = () => {
                 </div>
                 
                 <span className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold mb-1 tracking-tight text-white group-hover:text-[#e3a044] transition-colors">
-                  {fig.number}
+                  <CountUp value={fig.value} suffix={fig.suffix} />
                 </span>
                 
                 <span className="font-body text-xs sm:text-sm font-bold uppercase tracking-wider text-[#feeddb] mb-1">

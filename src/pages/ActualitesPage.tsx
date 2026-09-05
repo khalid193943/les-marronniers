@@ -13,11 +13,12 @@ import { PageHero } from '../design-system/giggle/PageHero';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { DoodleSun, DoodleStar } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
+import { SocialSection } from '../components/SocialSection';
 
 const ACTUS = [
-  { date: 'Sept. 2026', title: 'Rentrée 2026-2027', line: 'Une rentrée en douceur pour tous les niveaux, de la TPS au CE6.', backer: '#e3a044' },
-  { date: 'Oct. 2026', title: 'Semaine des Sciences', line: 'Expériences et découvertes dans la salle d’éveil scientifique.', backer: '#38926c' },
-  { date: 'Déc. 2026', title: 'Spectacle de Fin d’Année', line: 'Théâtre et chorale : les enfants montent sur scène.', backer: '#d95f43' },
+  { date: 'Rentrée 2026-2027', title: 'Inscriptions Ouvertes', line: 'De la Toute Petite Section au CE6 — places limitées par classe.', backer: '#e3a044' },
+  { date: 'Toute l’année', title: 'Ateliers d’Éveil', line: 'Théâtre, chant, cinéma et éveil scientifique dans nos salles dédiées.', backer: '#38926c' },
+  { date: 'En vidéo', title: 'L’École Vue de l’Intérieur', line: 'Découvrez nos espaces et notre ambiance en images.', backer: '#d95f43' },
 ];
 
 const GALERIE = [
@@ -80,6 +81,8 @@ export const ActualitesPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <SocialSection />
 
       <SectionDivider variant="cream" position="top" style="wave2" />
 

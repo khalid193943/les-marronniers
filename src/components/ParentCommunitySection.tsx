@@ -4,6 +4,7 @@
  */
 import React, { useRef } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote, CheckCircle2 } from 'lucide-react';
+import { SCHOOL_INFO } from '../data/schoolInfo';
 import { motion } from 'motion/react';
 
 export const ParentCommunitySection: React.FC = () => {

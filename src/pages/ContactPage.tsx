@@ -10,6 +10,9 @@ import { motion, useReducedMotion } from 'motion/react';
 import { MapPin, Phone, Mail, Clock, Calendar } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolInfo';
 import { PageHero } from '../design-system/giggle/PageHero';
+import { SectionIntro } from '../design-system/giggle/SectionIntro';
+import { ContactForm } from '../components/Forms';
+import { SectionDivider as SD2 } from '../components/SectionDivider';
 import { DoodleSun } from '../design-system/giggle/Doodles';
 import { SectionDivider } from '../components/SectionDivider';
 
@@ -18,10 +21,11 @@ interface ContactPageProps {
 }
 
 const INFOS = [
-  { icon: MapPin, label: 'Adresse', value: SCHOOL_INFO.fullAddress, href: `https://maps.google.com/?q=${encodeURIComponent(SCHOOL_INFO.googleMapsQuery)}` },
+  { icon: MapPin, label: SCHOOL_INFO.campuses[0].label, value: SCHOOL_INFO.campuses[0].address, href: SCHOOL_INFO.campuses[0].mapsUrl },
+  { icon: MapPin, label: SCHOOL_INFO.campuses[1].label, value: SCHOOL_INFO.campuses[1].address, href: SCHOOL_INFO.campuses[1].mapsUrl },
   { icon: Phone, label: 'Téléphone', value: SCHOOL_INFO.phone, href: `tel:${SCHOOL_INFO.phoneRaw}` },
   { icon: Mail, label: 'Email', value: SCHOOL_INFO.email, href: `mailto:${SCHOOL_INFO.email}` },
-  { icon: Clock, label: 'Horaires', value: 'Lun – Ven · 8h00 – 17h00', href: undefined },
+  { icon: Clock, label: 'Horaires', value: SCHOOL_INFO.hours, href: undefined },
 ];
 
 export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) => {
@@ -97,6 +101,20 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
               <p className="text-center font-heading text-sm text-[#084274]/70 mt-3">Plateau · El Jadida</p>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      <SD2 variant="cream" position="top" style="wave2" />
+
+      {/* Formulaire de contact */}
+      <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden">
+        <div className="max-w-2xl mx-auto px-4 sm:px-8">
+          <SectionIntro
+            tag="Écrivez-nous"
+            title="Un Message, une Réponse Rapide"
+            className="mb-10"
+          />
+          <ContactForm />
         </div>
       </section>
     </div>

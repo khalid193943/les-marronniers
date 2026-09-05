@@ -40,7 +40,7 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="giggle-tag bg-white/80 backdrop-blur-sm border border-[#084274]/15 shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-[#e3a044] animate-pulse" />
                 <span className="font-semibold text-xs text-[#084274] tracking-wide">
-                  École privée • El Jadida
+                  Faites le choix de la différence
                 </span>
               </div>
               <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#084274]/10 text-[#084274] text-[11px] font-bold uppercase tracking-wider">

@@ -10,6 +10,7 @@ import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import { Calendar, ShieldCheck, HeartPulse, Footprints, Eye } from 'lucide-react';
 import { PageHero } from '../design-system/giggle/PageHero';
+import { SCHOOL_INFO } from '../data/schoolInfo';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
 import { PhotoStack } from '../design-system/giggle/PhotoStack';
 import { DoodleSun, DoodleSpiral } from '../design-system/giggle/Doodles';
@@ -72,6 +73,14 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
               line="Un cocon doux et coloré où les tout-petits explorent en toute sécurité."
               align="left"
             />
+            <a
+              href={SCHOOL_INFO.campuses[0].mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 mt-6 rounded-full bg-[#084274]/8 border border-[#084274]/12 px-5 py-2.5 text-sm font-bold text-[#084274] hover:bg-[#084274]/12 transition-colors"
+            >
+              📍 {SCHOOL_INFO.campuses[0].address}
+            </a>
           </motion.div>
         </div>
       </section>
@@ -92,6 +101,14 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
               line="Des classes calmes et bien équipées pour se concentrer et réussir."
               align="left"
             />
+            <a
+              href={SCHOOL_INFO.campuses[1].mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 mt-6 rounded-full bg-[#084274]/8 border border-[#084274]/12 px-5 py-2.5 text-sm font-bold text-[#084274] hover:bg-[#084274]/12 transition-colors"
+            >
+              📍 {SCHOOL_INFO.campuses[1].address}
+            </a>
           </motion.div>
           <PhotoStack
             className="order-1 lg:order-2 aspect-[4/3] max-w-md mx-auto w-full"

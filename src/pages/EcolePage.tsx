@@ -63,7 +63,7 @@ export const EcolePage: React.FC<EcolePageProps> = ({ onOpenAdmissions }) => {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <SectionIntro
-              tag="Depuis 2010"
+              tag="Notre histoire"
               title="Une Histoire de Confiance"
               line="Un établissement à taille humaine, de la crèche au CE6, où chaque famille est connue et chaque enfant accompagné."
               align="left"

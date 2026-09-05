@@ -13,10 +13,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/assets/index-CMTSTw_s.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DVqJkB6o.css">
+    <script type="module" crossorigin src="/assets/index-DVJW0jEp.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C0ds6gWd.css">
   </head>
   <body class="bg-[#feeddb] text-[#084274] antialiased selection:bg-[#e3a044] selection:text-white min-h-screen">
+    <!-- Formulaires statiques cachés : nécessaires pour que Netlify Forms détecte les champs au déploiement -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="nom" />
+      <input type="tel" name="telephone" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+    <form name="pre-inscription" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="parent" />
+      <input type="tel" name="telephone" />
+      <input type="email" name="email" />
+      <input type="text" name="enfant" />
+      <input type="text" name="annee-naissance" />
+      <select name="niveau"></select>
+      <textarea name="message"></textarea>
+    </form>
     <div id="root"></div>
   </body>
 </html>
