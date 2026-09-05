@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 import React from 'react';
-import { TitreAnime } from './motion/Primitives';
 import { MapPin, Phone, Mail, Clock, ArrowRight, Navigation, MessageCircle, Calendar } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -30,7 +29,9 @@ export const ContactAndLocationSection: React.FC<ContactAndLocationSectionProps>
             <div className="giggle-dot" />
             <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">NOUS TROUVER & CONTACT</span>
           </div>
-          <TitreAnime as="h2" texte="Venez Découvrir Nos Locaux à El Jadida" className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#084274] tracking-tight mb-6 leading-tight" />
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#084274] tracking-tight mb-6 leading-tight">
+            Venez Découvrir Nos Locaux à El Jadida
+          </h2>
           <p className="font-body text-base sm:text-lg text-[#084274]/80 leading-relaxed max-w-4xl mx-auto">
             Situés au cœur du quartier résidentiel Plateau, nos campus sécurisés offrent un environnement d'apprentissage calme, verdoyant et facilement accessible pour les familles.
           </p>

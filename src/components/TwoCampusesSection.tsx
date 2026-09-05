@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 import React from 'react';
-import { TitreAnime } from './motion/Primitives';
 import { ArrowRight, Baby, GraduationCap, CheckCircle2, Sparkles, Compass } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -30,7 +29,9 @@ export const TwoCampusesSection: React.FC<TwoCampusesSectionProps> = ({
             <div className="giggle-dot" />
             <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">ESPACES D'APPRENTISSAGE</span>
           </div>
-          <TitreAnime as="h2" texte="Des Environnements Pensés pour Chaque Étape" className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#084274] tracking-tight mb-6 leading-tight" />
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#084274] tracking-tight mb-6 leading-tight">
+            Des Environnements Pensés pour Chaque Étape
+          </h2>
           <p className="font-body text-base sm:text-lg text-[#084274]/80 leading-relaxed max-w-4xl mx-auto">
             Parce que les besoins d'un enfant évoluent en grandissant, nos infrastructures s'adaptent. Des salles d'éveil chaleureuses pour les maternelles jusqu'aux ateliers interactifs pour les primaires, chaque lieu est conçu pour stimuler la curiosité en toute sécurité.
           </p>

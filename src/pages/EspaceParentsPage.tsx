@@ -6,7 +6,6 @@
  */
 
 import React, { useState } from 'react';
-import { TitreAnime } from '../components/motion/Primitives';
 import { PageHeader } from '../components/PageHeader';
 import { SectionDivider } from '../components/SectionDivider';
 import { PageId } from '../types';
@@ -299,7 +298,9 @@ export const EspaceParentsPage: React.FC<EspaceParentsProps> = ({
                 <span className="text-xs font-bold uppercase tracking-wider text-[#e3a044]">
                   Nutrition Équilibrée & Produits Frais
                 </span>
-                <TitreAnime as="h2" texte="Au Menu de la Cantine cette Semaine" className="font-heading text-3xl sm:text-4xl text-[#084274] mt-2 mb-3" />
+                <h2 className="font-heading text-3xl sm:text-4xl text-[#084274] mt-2 mb-3">
+                  Au Menu de la Cantine cette Semaine
+                </h2>
                 <p className="font-body text-xs sm:text-sm text-[#084274]/80 leading-relaxed">
                   Chaque repas est préparé le matin même à partir d’ingrédients frais locaux, selon un plan nutritionnel validé pour la croissance des enfants.
                 </p>

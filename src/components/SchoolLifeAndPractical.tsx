@@ -5,7 +5,6 @@
  */
 
 import React, { useState } from 'react';
-import { TitreAnime } from './motion/Primitives';
 import { Calendar, Plus, Minus, HelpCircle, PhoneCall, MessageCircleQuestion } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -61,7 +60,9 @@ export const SchoolLifeAndPractical: React.FC<SchoolLifeAndPracticalProps> = ({
             <div className="giggle-dot" />
             <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">FOIRE AUX QUESTIONS</span>
           </div>
-          <TitreAnime as="h2" texte="Questions Fréquentes des Parents" className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#084274] tracking-tight mb-6 leading-tight" />
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#084274] tracking-tight mb-6 leading-tight">
+            Questions Fréquentes des Parents
+          </h2>
           <p className="font-body text-base sm:text-lg text-[#084274]/80 leading-relaxed max-w-2xl mx-auto">
             Tout ce que vous souhaitez savoir sur la vie scolaire, l’accompagnement quotidien
             et les formalités d’admission aux Marronniers.

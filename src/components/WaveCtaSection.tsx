@@ -5,7 +5,6 @@
  */
 
 import React from 'react';
-import { TitreAnime } from './motion/Primitives';
 import { Calendar, Phone, Sparkles, ArrowRight } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolInfo';
 import { SectionDivider } from './SectionDivider';
@@ -41,7 +40,9 @@ export const WaveCtaSection: React.FC<WaveCtaSectionProps> = ({ onOpenAdmissions
           </div>
 
           {/* Display Heading */}
-          <TitreAnime as="h2" texte="Venez Visiter Notre Établissement en Famille" className="font-heading text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight mb-6 max-w-3xl leading-[1.1]" />
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight mb-6 max-w-3xl leading-[1.1]">
+            Venez Visiter Notre Établissement en Famille
+          </h2>
 
           <p className="font-body text-base sm:text-lg text-white/85 leading-relaxed mb-10 max-w-2xl">
             Rien ne remplace la découverte sur place de l'ambiance bienveillante de nos 6 classes lumineuses, de notre salle d'expérimentation scientifique, de notre cinéma-théâtre et de notre cour arborée.

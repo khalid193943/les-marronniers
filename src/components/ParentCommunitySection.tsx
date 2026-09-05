@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 import React, { useRef } from 'react';
-import { TitreAnime } from './motion/Primitives';
 import { ChevronLeft, ChevronRight, Star, Quote, CheckCircle2 } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -77,7 +76,9 @@ export const ParentCommunitySection: React.FC = () => {
             <div className="giggle-dot" />
             <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">Paroles de Parents</span>
           </div>
-          <TitreAnime as="h2" texte="Aimés des Enfants, Approuvés par les Familles" className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#084274] tracking-tight mb-6 leading-tight" />
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#084274] tracking-tight mb-6 leading-tight">
+            Aimés des Enfants, Approuvés par les Familles
+          </h2>
           <p className="font-body text-base sm:text-lg text-[#084274]/80 leading-relaxed max-w-4xl mx-auto">
             Découvrez ce que les parents pensent de notre accompagnement, de notre pédagogie et de l'environnement que nous offrons à leurs enfants.
           </p>

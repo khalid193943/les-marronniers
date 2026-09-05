@@ -5,7 +5,6 @@
  */
 
 import React, { useState } from 'react';
-import { TitreAnime } from '../components/motion/Primitives';
 import { PageHeader } from '../components/PageHeader';
 import { SectionDivider } from '../components/SectionDivider';
 import { AnimatedSection } from '../components/AnimatedSection';
@@ -69,7 +68,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({
                 <div className="giggle-dot" />
                 <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">Établissement Principal</span>
               </div>
-              <TitreAnime as="h2" texte="Les Marronniers El Jadida" className="font-heading text-2xl sm:text-3xl text-[#084274] mb-6 font-bold" />
+              <h2 className="font-heading text-2xl sm:text-3xl text-[#084274] mb-6 font-bold">
+                Les Marronniers El Jadida
+              </h2>
 
               <div className="space-y-5 text-xs sm:text-sm text-[#084274]/85">
                 <div className="flex items-start gap-3.5">

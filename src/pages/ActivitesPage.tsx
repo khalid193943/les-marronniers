@@ -6,7 +6,6 @@
  */
 
 import React, { useState } from 'react';
-import { TitreAnime } from '../components/motion/Primitives';
 import { PageHeader } from '../components/PageHeader';
 import { SectionDivider } from '../components/SectionDivider';
 import { PageId } from '../types';
@@ -277,7 +276,9 @@ export const ActivitesPage: React.FC<ActivitesPageProps> = ({
             <span className="text-xs font-bold uppercase tracking-wider text-[#e3a044] block mb-2">
               Organisation & Créneaux
             </span>
-            <TitreAnime as="h2" texte="Planning Hebdomadaire des Ateliers Parascolaires" className="font-heading text-3xl sm:text-4xl text-white tracking-tight leading-tight" />
+            <h2 className="font-heading text-3xl sm:text-4xl text-white tracking-tight leading-tight">
+              Planning Hebdomadaire des Ateliers Parascolaires
+            </h2>
             <p className="text-xs sm:text-sm text-[#feeddb]/80 mt-3 leading-relaxed font-body">
               Chaque jour de la semaine réserve des créneaux privilégiés après les cours pour approfondir un talent ou une passion.
             </p>

@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 import React from 'react';
-import { TitreAnime } from './motion/Primitives';
 import { Calendar, ArrowRight, ChevronRight, Clock, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -62,7 +61,9 @@ export const NewsSection: React.FC<NewsSectionProps> = ({ onNavigate }) => {
             <div className="giggle-dot" />
             <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">VIE DE L'ÉCOLE</span>
           </div>
-          <TitreAnime as="h2" texte="Actualités & Événements" className="font-heading text-4xl sm:text-5xl lg:text-[50px] text-[#084274] tracking-tight mb-6 leading-tight" />
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[50px] text-[#084274] tracking-tight mb-6 leading-tight">
+            Actualités & Événements
+          </h2>
           <p className="font-body text-base sm:text-lg text-[#084274]/80 leading-relaxed max-w-4xl mx-auto">
             Restez informés des derniers événements, des réussites de nos élèves et des temps forts qui rythment l'année scolaire aux Marronniers.
           </p>

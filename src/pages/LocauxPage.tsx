@@ -6,7 +6,6 @@
  */
 
 import React, { useState } from 'react';
-import { TitreAnime } from '../components/motion/Primitives';
 import { PageHeader } from '../components/PageHeader';
 import { SectionDivider } from '../components/SectionDivider';
 import { PageId } from '../types';
@@ -292,7 +291,9 @@ export const LocauxPage: React.FC<LocauxPageProps> = ({
             <span className="text-xs font-bold uppercase tracking-wider text-[#e3a044]">
               Visite Guidée des Installations
             </span>
-            <TitreAnime as="h2" texte="Chaque Espace a une Vocation Pédagogique" className="font-heading text-3xl sm:text-4xl text-[#084274] mt-2 mb-4" />
+            <h2 className="font-heading text-3xl sm:text-4xl text-[#084274] mt-2 mb-4">
+              Chaque Espace a une Vocation Pédagogique
+            </h2>
             <p className="font-body text-sm sm:text-base text-[#084274]/80 leading-relaxed">
               Explorez les salles spécialisées conçues pour donner le goût de la recherche, de la créativité et de la sociabilisation.
             </p>
@@ -361,7 +362,9 @@ export const LocauxPage: React.FC<LocauxPageProps> = ({
             <span className="text-xs font-bold uppercase tracking-wider text-[#e3a044] block mb-2">
               Sérénité & Rigueur Absolue
             </span>
-            <TitreAnime as="h2" texte="Normes de Sécurité & Bien-être Sanitaire" className="font-heading text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight" />
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+              Normes de Sécurité & Bien-être Sanitaire
+            </h2>
             <p className="text-sm sm:text-base text-[#feeddb]/80 mt-4 leading-relaxed font-body">
               La sécurité physique, émotionnelle et sanitaire de chaque élève constitue le préalable indissociable à tout apprentissage serein.
             </p>

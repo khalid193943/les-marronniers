@@ -7,7 +7,6 @@
  */
 
 import React, { useState } from 'react';
-import { TitreAnime } from '../components/motion/Primitives';
 import { PageHeader } from '../components/PageHeader';
 import { SectionDivider } from '../components/SectionDivider';
 import { PageId } from '../types';
@@ -110,7 +109,9 @@ export const NiveauxPages: React.FC<NiveauxProps> = ({
                       <span>Cycle 1 • Petite Enfance (Dès 2 ans)</span>
                     </div>
 
-                    <TitreAnime as="h2" texte="La Crèche : Douceur, Sécurité & Éveil des Sens" className="font-heading text-3xl sm:text-4xl lg:text-[42px] text-[#084274] tracking-tight leading-tight" />
+                    <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] text-[#084274] tracking-tight leading-tight">
+                      La Crèche : Douceur, Sécurité & Éveil des Sens
+                    </h2>
 
                     <p className="font-body text-sm sm:text-base text-[#084274]/85 leading-relaxed">
                       L’accueil des tout-petits repose sur un principe fondateur : <strong>le respect absolu du rythme biologique</strong> de chaque enfant. Dans un univers molletonné, aéré et lumineux, nos éducatrices formées accompagnent l'éveil du langage, la motricité libre et la première socialisation avec infinie tendresse.
@@ -242,7 +243,9 @@ export const NiveauxPages: React.FC<NiveauxProps> = ({
                       <span>Cycle 2 • Maternelle (TPS, PS, MS, GS • 3 à 5 ans)</span>
                     </div>
 
-                    <TitreAnime as="h2" texte="La Maternelle : Découvrir le Plaisir d’Apprendre & de Vivre Ensemble" className="font-heading text-3xl sm:text-4xl lg:text-[42px] text-[#084274] tracking-tight leading-tight" />
+                    <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] text-[#084274] tracking-tight leading-tight">
+                      La Maternelle : Découvrir le Plaisir d’Apprendre & de Vivre Ensemble
+                    </h2>
 
                     <p className="font-body text-sm sm:text-base text-[#084274]/85 leading-relaxed">
                       L'école maternelle prépare les bases de tous les apprentissages futurs. Grâce à nos 6 classes lumineuses et notre cour avec jardin arboré, les enfants développent leur autonomie, enrichissent leur vocabulaire en <strong>Français, Arabe et Anglais</strong> et découvrent la démarche scientifique dès le plus jeune âge.
@@ -307,7 +310,9 @@ export const NiveauxPages: React.FC<NiveauxProps> = ({
                       <span>Cycle 3 • Primaire (CP, CE1, CE2, CE3, CE4, CE5, CE6)</span>
                     </div>
 
-                    <TitreAnime as="h2" texte="Le Primaire : L’Excellence Académique & l’Épanouissement Personnel" className="font-heading text-3xl sm:text-4xl lg:text-[42px] text-white tracking-tight leading-tight" />
+                    <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] text-white tracking-tight leading-tight">
+                      Le Primaire : L’Excellence Académique & l’Épanouissement Personnel
+                    </h2>
 
                     <p className="font-body text-sm sm:text-base text-[#feeddb]/85 leading-relaxed">
                       Le cycle primaire consolide les savoirs fondamentaux dans un climat d'exigence bienveillante. Avec <strong>100% de réussite aux examens officiels du CE6</strong>, nos élèves développent un esprit critique aiguisé, un raisonnement mathématique solide et une maîtrise trilingue remarquable les préparant sereinement au collège.

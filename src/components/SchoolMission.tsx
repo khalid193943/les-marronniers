@@ -1,119 +1,114 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
- * Les Marronniers - Why Families Choose Us & Enrolling Banner (Nouvelle Génération)
+ * Les Marronniers — "Pourquoi Nous Choisir" (refonte Giggle)
+ * Règle : titre + 1 ligne par carte. Cartes carrées bleu marine inclinées
+ * avec fond coloré décalé, exactement comme "Why Families Choose Us" de l'inspiration.
+ * Bannière d'inscription : texte minimal à gauche, pile de photos à droite.
  */
 
 import React from 'react';
-import { TitreAnime } from './motion/Primitives';
-import { Calendar, ArrowRight, HeartHandshake, ShieldCheck, Sparkles, GraduationCap, CheckCircle2 } from 'lucide-react';
-import { motion } from 'motion/react';
+import { Calendar, HeartHandshake, ShieldCheck, Sparkles, GraduationCap } from 'lucide-react';
+import { motion, useReducedMotion } from 'motion/react';
+import { SectionIntro } from '../design-system/giggle/SectionIntro';
+import { PhotoStack } from '../design-system/giggle/PhotoStack';
+import { DoodleStar, DoodleSun } from '../design-system/giggle/Doodles';
 
 interface SchoolMissionProps {
   onOpenAdmissions: () => void;
 }
 
+const CARDS = [
+  {
+    icon: HeartHandshake,
+    title: 'Pédagogie Bienveillante',
+    line: 'Chaque enfant avance à son rythme, avec écoute et encouragement.',
+    backer: '#e3a044',
+    rotate: -2,
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Cadre Sécurisant',
+    line: 'Deux campus à taille humaine, une équipe attentive au quotidien.',
+    backer: '#d95f43',
+    rotate: 2,
+  },
+  {
+    icon: Sparkles,
+    title: 'Apprendre en Jouant',
+    line: 'Théâtre, musique, échecs et éveil scientifique dès la maternelle.',
+    backer: '#38926c',
+    rotate: 2,
+  },
+  {
+    icon: GraduationCap,
+    title: 'Fondations Solides',
+    line: 'Un parcours continu de 2 ans jusqu’au CE6, sans rupture.',
+    backer: '#5b8fd9',
+    rotate: -2,
+  },
+];
+
 export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }) => {
-  const bentoCards = [
-    {
-      icon: HeartHandshake,
-      title: 'Pédagogie Bienveillante',
-      desc: 'Chaque journée est pensée pour stimuler la curiosité spontanée, développer l’autonomie et respecter le rythme d’épanouissement de chaque enfant.',
-      blueSkew: 'skew-y-[-1deg] rotate-1',
-      orangeSkew: 'skew-y-[1deg] -rotate-1',
-      badge: 'Écoute & Respect',
-    },
-    {
-      icon: ShieldCheck,
-      title: 'Cadre Sécurisant & Protecteur',
-      desc: 'Deux campus dédiés à taille humaine où une équipe attentive et chaleureuse veille sur le bien-être émotionnel et physique des tout-petits et des écoliers.',
-      blueSkew: 'skew-y-[1deg] -rotate-1',
-      orangeSkew: 'skew-y-[-1deg] rotate-1',
-      badge: 'Sécurité Maximale',
-    },
-    {
-      icon: Sparkles,
-      title: 'Apprentissage par l’Action & le Jeu',
-      desc: 'Éveil scientifique précoce, manipulation tactile, cinéma-théâtre, musique et club d’échecs pour apprendre avec passion et sans appréhension.',
-      blueSkew: 'skew-y-[-1.5deg] rotate-1',
-      orangeSkew: 'skew-y-[1deg] -rotate-2',
-      badge: 'Pratique & Créativité',
-    },
-    {
-      icon: GraduationCap,
-      title: 'Fondations Solides 2 ans → CE6',
-      desc: 'Un parcours d’excellence continu de la Toute Petite Section (TPS) jusqu’au CE6, assurant une transition harmonieuse et fluide vers le collège.',
-      blueSkew: 'skew-y-[1.5deg] -rotate-1',
-      orangeSkew: 'skew-y-[-1deg] rotate-1',
-      badge: 'Continuité d’Excellence',
-    },
-  ];
+  const reduce = useReducedMotion();
 
   return (
     <section className="py-20 sm:py-28 bg-white overflow-hidden relative">
-      <div className="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
-        
-        {/* Section Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col items-center text-center mb-16 sm:mb-20"
-        >
-          <div className="giggle-tag mb-6">
-            <div className="giggle-dot" />
-            <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">POURQUOI NOUS CHOISIR</span>
-          </div>
-          <TitreAnime as="h2" texte="Pourquoi les Familles Choisissent Les Marronniers" className="font-heading text-4xl sm:text-5xl lg:text-[45px] font-normal not-italic text-[#084274] tracking-tight mb-6 leading-tight" />
-          <p className="font-body text-base sm:text-lg text-[#084274]/80 leading-relaxed max-w-4xl mx-auto">
-            Nous créons un espace serein, chaleureux et stimulant où chaque enfant se sent en pleine sécurité
-            pour explorer, prendre confiance et grandir à travers des expériences d'apprentissage enrichissantes.
-          </p>
-        </motion.div>
+      {/* Doodles décoratifs discrets */}
+      <DoodleSun className="hidden lg:block absolute top-24 left-12 w-12 text-[#e3a044]/50 pointer-events-none" />
+      <DoodleStar className="hidden lg:block absolute top-40 right-16 w-8 text-[#d95f43]/40 pointer-events-none" />
 
-        {/* Bento Grid 4 Cards with exact Tilted Backdrops & Modern SVGs */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 max-w-5xl mx-auto mb-24">
-          {bentoCards.map((card, idx) => {
+      <div className="max-w-6xl mx-auto px-4 sm:px-8">
+        <SectionIntro
+          tag="Pourquoi nous choisir"
+          title="Un Lieu où l’Enfant se Sent Bien"
+          line="Un espace serein et stimulant pour explorer, prendre confiance et grandir."
+          className="mb-16 sm:mb-20"
+        />
+
+        {/* 4 cartes carrées inclinées — grille 2×2 comme l'inspiration */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-14 lg:gap-x-24 max-w-3xl mx-auto mb-24 sm:mb-32">
+          {CARDS.map((card, idx) => {
             const Icon = card.icon;
             return (
-              <motion.div 
+              <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="relative group transition-all duration-300 hover:-translate-y-1.5"
+                initial={
+                  reduce
+                    ? undefined
+                    : { opacity: 0, y: 30, rotate: card.rotate * 3 }
+                }
+                whileInView={{ opacity: 1, y: 0, rotate: card.rotate }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 55,
+                  damping: 13,
+                  delay: idx * 0.08,
+                }}
+                whileHover={{ rotate: 0, y: -6 }}
+                className="relative group"
               >
-                {/* Back tilted orange shape */}
-                <div
-                  className={`absolute inset-0 bg-[#e3a044] transform ${card.orangeSkew} group-hover:scale-105 transition-all duration-300 opacity-90`}
+                {/* Fond coloré décalé */}
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"
+                  style={{
+                    backgroundColor: card.backer,
+                    transform: `rotate(${-card.rotate * 1.6}deg) translate(10px, 10px)`,
+                  }}
                 />
 
-                {/* Middle tilted blue shape */}
-                <div
-                  className={`absolute inset-0 bg-[#084274] transform ${card.blueSkew} shadow-xl group-hover:scale-102 transition-all duration-300`}
-                />
-
-                {/* Main Card Content */}
-                <div className="relative z-10 p-8 sm:p-10 text-center flex flex-col items-center justify-center min-h-[280px]">
-                  
-                  {/* Badge */}
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#e3a044] bg-white/10 px-3 py-1 mb-4">
-                    {card.badge}
-                  </span>
-
-                  {/* High Quality Vector Icon */}
-                  <div className="w-14 h-14 rounded-full bg-white/10 text-[#feeddb] flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-[#e3a044] group-hover:text-[#084274] transition-all duration-300 shadow-inner">
-                    <Icon className="w-7 h-7" />
+                {/* Carte bleu marine */}
+                <div className="relative z-10 bg-[#084274] p-8 sm:p-10 aspect-square flex flex-col items-center justify-center text-center shadow-xl">
+                  <div className="w-14 h-14 rounded-full border-2 border-[#feeddb]/30 text-[#feeddb] flex items-center justify-center mb-5 group-hover:bg-[#e3a044] group-hover:border-[#e3a044] group-hover:text-[#084274] transition-colors duration-300">
+                    <Icon className="w-6 h-6" strokeWidth={1.8} />
                   </div>
-
-                  <h3 className="font-heading text-2xl sm:text-3xl font-bold text-[#feeddb] mb-3">
+                  <h3 className="font-heading text-xl sm:text-2xl text-[#feeddb] mb-3">
                     {card.title}
                   </h3>
-
-                  <p className="font-body text-sm sm:text-base text-white/90 leading-relaxed max-w-sm">
-                    {card.desc}
+                  <p className="font-body text-sm text-[#feeddb]/75 leading-relaxed max-w-[240px]">
+                    {card.line}
                   </p>
                 </div>
               </motion.div>
@@ -121,64 +116,50 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
           })}
         </div>
 
-        {/* High Converting Enrollment Banner */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-[#feeddb] p-8 sm:p-12 lg:p-14 shadow-2xl border-2 border-[#084274]/15 max-w-6xl mx-auto relative overflow-hidden group"
-        >
-          <div className="absolute -top-16 -right-16 w-64 h-64 bg-[#e3a044]/15 rounded-full blur-2xl pointer-events-none" />
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
-            <div className="lg:col-span-8 flex flex-col items-start text-left">
-              <div className="giggle-tag mb-4 bg-[#084274]/10 text-[#084274]">
-                <div className="giggle-dot" />
-                <span className="font-bold text-xs uppercase tracking-wider">Rentrée Scolaire 2026-2027</span>
-              </div>
+        {/* Bannière inscription — texte minimal + pile de photos (comme "Now Enrolling" de l'inspiration) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center max-w-5xl mx-auto">
+          <motion.div
+            initial={reduce ? undefined : { opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="order-2 lg:order-1"
+          >
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-xs font-bold text-[#084274] mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#e3a044]" />
+              Rentrée 2026 – 2027
+            </span>
+            <h3 className="font-heading text-3xl sm:text-4xl text-[#084274] tracking-tight mb-4">
+              Les Inscriptions Sont Ouvertes
+            </h3>
+            <p className="font-body text-base text-[#084274]/70 leading-relaxed mb-8 max-w-md">
+              Effectifs limités par classe. Venez visiter, rencontrer l’équipe et
+              découvrir nos campus.
+            </p>
+            <button
+              onClick={onOpenAdmissions}
+              className="giggle-button-primary cursor-pointer inline-flex items-center gap-3"
+            >
+              <Calendar className="w-4 h-4 text-[#e3a044]" />
+              <span>Réserver une visite</span>
+            </button>
+          </motion.div>
 
-              <h3 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[#084274] tracking-tight mb-4">
-                Les Inscriptions Sont Ouvertes
-              </h3>
-
-              <p className="font-body text-sm sm:text-base text-[#084274]/80 leading-relaxed mb-6 max-w-2xl">
-                Nos effectifs par classe sont volontairement limités afin de garantir à chaque élève une écoute sur-mesure et un accompagnement de haute qualité. Planifiez une visite dès maintenant.
-              </p>
-
-              <div className="flex flex-wrap gap-4 text-xs font-semibold text-[#084274]">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#e3a044]" />
-                  Visite personnalisée des locaux
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#e3a044]" />
-                  Rencontre avec l'équipe éducative
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#e3a044]" />
-                  Dossier d'admission sans engagement
-                </span>
-              </div>
-            </div>
-
-            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-center justify-center gap-4">
-              <button
-                onClick={onOpenAdmissions}
-                className="giggle-button-primary w-full py-4 px-8 text-[15px] font-bold shadow-xl hover:shadow-2xl cursor-pointer flex items-center justify-center gap-3 group"
-              >
-                <Calendar className="w-4 h-4 text-[#e3a044]" />
-                <span>Prendre Rendez-vous</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-
-              <p className="text-[11px] text-center text-[#084274]/60 font-body">
-                Secrétariat joignable au 05 23 39 56 03
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
+          <PhotoStack
+            className="order-1 lg:order-2 aspect-[4/3] max-w-md mx-auto w-full"
+            photos={[
+              {
+                src: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f036a33ba6cc4b748_Images%20(1).avif',
+                alt: 'Élèves en classe aux Marronniers',
+              },
+              {
+                src: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f37bdd99338f62c1c_Images%20(3).avif',
+                alt: 'Activités en maternelle',
+              },
+            ]}
+            backers={['#e3a044', '#084274']}
+          />
+        </div>
       </div>
     </section>
   );

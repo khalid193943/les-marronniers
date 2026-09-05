@@ -11,7 +11,6 @@ import { PageId } from './types';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { SectionDivider } from './components/SectionDivider';
-import { BarreProgression } from './components/motion/Primitives';
 
 // Home Page Components (preserved exactly as requested)
 import { Hero } from './components/Hero';
@@ -45,6 +44,7 @@ import { ContactPage } from './pages/ContactPage';
 
 // Nouvelles sections pour la Home Page
 import { KeyFiguresSection } from './components/KeyFiguresSection';
+import { ParcoursSection } from './components/ParcoursSection';
 import { DirectorWordSection } from './components/DirectorWordSection';
 import { NewsSection } from './components/NewsSection';
 import { SchoolVideoSection } from './components/SchoolVideoSection';
@@ -110,9 +110,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#feeddb] text-[#084274] flex flex-col antialiased selection:bg-[#e3a044] selection:text-white font-body">
-      {/* Fine barre dorée : indique la progression de lecture */}
-      <BarreProgression />
-
       {/* Primary Navigation with Full 18-Pages Arborescence */}
       <Navbar
         currentPage={currentPage}
@@ -161,7 +158,10 @@ export default function App() {
                 {/* Separator */}
                 <SectionDivider variant="white" position="bottom" style="wave1" />
 
-                {/* 5. ESPACES D'APPRENTISSAGE (Crèche, Maternelle & Primaire - Cream) */}
+                {/* 5b. UN PARCOURS POUR CHAQUE ÂGE (cartes illustrées + flèches gribouillées - Cream) */}
+                <ParcoursSection onNavigate={handleNavigate} />
+
+                {/* 5c. ESPACES D'APPRENTISSAGE (Crèche, Maternelle & Primaire - Cream) */}
                 <TwoCampusesSection onOpenAdmissions={handleOpenAdmissions} />
 
                 {/* Separator before Vie Créative (into White) */}

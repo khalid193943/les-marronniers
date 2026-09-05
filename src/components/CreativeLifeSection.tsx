@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 import React from 'react';
-import { TitreAnime } from './motion/Primitives';
 import { Theater, Music, Film, Crown, ArrowRight, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -81,7 +80,9 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
             <div className="giggle-dot" />
             <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">VIE CRÉATIVE & CULTURELLE</span>
           </div>
-          <TitreAnime as="h2" texte="Cultiver les Talents & l'Imaginaire" className="font-heading text-4xl sm:text-5xl lg:text-[50px] text-[#084274] tracking-tight mb-6 leading-tight" />
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[50px] text-[#084274] tracking-tight mb-6 leading-tight">
+            Cultiver les Talents & l'Imaginaire
+          </h2>
           <p className="font-body text-base sm:text-lg text-[#084274]/80 leading-relaxed max-w-4xl mx-auto">
             L'excellence académique se marie à l'épanouissement personnel. Nos ateliers créatifs intégrés au cursus sont conçus pour révéler les sensibilités artistiques et intellectuelles de chaque élève.
           </p>

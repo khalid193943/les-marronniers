@@ -6,7 +6,6 @@
  */
 
 import React, { useState } from 'react';
-import { TitreAnime } from '../components/motion/Primitives';
 import { PageHeader } from '../components/PageHeader';
 import { SectionDivider } from '../components/SectionDivider';
 import { PageId } from '../types';
@@ -143,7 +142,9 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({
               <div className="giggle-dot" />
               <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">Parcours d'Admission</span>
             </div>
-            <TitreAnime as="h2" texte="4 Étapes Simples vers l’Excellence" className="font-heading text-3xl sm:text-4xl lg:text-[45px] text-[#084274] tracking-tight leading-tight" />
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[45px] text-[#084274] tracking-tight leading-tight">
+              4 Étapes Simples vers l’Excellence
+            </h2>
             <p className="font-body text-base text-[#084274]/80 mt-4 leading-relaxed">
               Nous privilégions le contact direct et l’écoute. Chaque admission commence par une rencontre chaleureuse au sein de nos campus.
             </p>

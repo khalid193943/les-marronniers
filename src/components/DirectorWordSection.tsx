@@ -1,5 +1,4 @@
 import React from 'react';
-import { TitreAnime } from './motion/Primitives';
 import { Quote, Award, CheckCircle2, BookOpen } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -20,7 +19,9 @@ export const DirectorWordSection: React.FC = () => {
             <div className="giggle-dot" />
             <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">NOTRE VISION PÉDAGOGIQUE</span>
           </div>
-          <TitreAnime as="h2" texte="L'excellence naît de la bienveillance." className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#084274] tracking-tight mb-6 leading-tight max-w-3xl" />
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#084274] tracking-tight mb-6 leading-tight max-w-3xl">
+            L'excellence naît de la bienveillance.
+          </h2>
           <p className="font-body text-base sm:text-lg text-[#084274]/80 leading-relaxed max-w-3xl mx-auto">
             Notre mission n'est pas seulement de transmettre un savoir académique rigoureux, mais de cultiver la curiosité spontanée, la confiance et la fierté d'apprendre chez chaque enfant.
           </p>

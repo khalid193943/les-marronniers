@@ -6,7 +6,6 @@
  */
 
 import React, { useState } from 'react';
-import { TitreAnime } from '../components/motion/Primitives';
 import { PageHeader } from '../components/PageHeader';
 import { SectionDivider } from '../components/SectionDivider';
 import { PageId } from '../types';
@@ -191,7 +190,9 @@ export const ActualitesPage: React.FC<ActualitesPageProps> = ({
                 </span>
               </div>
 
-              <TitreAnime as="h2" texte="Ouverture Officielle des Inscriptions & Visites Privées des 2 Campus" className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[#084274] tracking-tight leading-tight" />
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[#084274] tracking-tight leading-tight">
+                Ouverture Officielle des Inscriptions & Visites Privées des 2 Campus
+              </h2>
 
               <p className="font-body text-sm sm:text-base text-[#084274]/85 leading-relaxed">
                 Les inscriptions pour la Crèche, la Maternelle et le Primaire sont ouvertes. Venez visiter nos 6 classes baignées de lumière, notre laboratoire de sciences et notre espace cinéma-théâtre lors d'un entretien personnalisé.
@@ -335,7 +336,9 @@ export const ActualitesPage: React.FC<ActualitesPageProps> = ({
             <span className="text-xs font-bold uppercase tracking-wider text-[#e3a044] block mb-2">
               À Vos Agendas
             </span>
-            <TitreAnime as="h2" texte="Les Prochains Événements & Dates Clés" className="font-heading text-3xl sm:text-4xl text-white tracking-tight leading-tight" />
+            <h2 className="font-heading text-3xl sm:text-4xl text-white tracking-tight leading-tight">
+              Les Prochains Événements & Dates Clés
+            </h2>
             <p className="text-xs sm:text-sm text-[#feeddb]/80 mt-2 font-body">
               Retrouvez les rendez-vous festifs, pédagogiques et réunions parents-professeurs du trimestre.
             </p>
