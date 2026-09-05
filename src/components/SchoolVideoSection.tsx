@@ -64,7 +64,7 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = ({ onOpenAd
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#084274] text-white py-16 sm:py-24 lg:py-32">
+    <section className="relative w-full overflow-hidden bg-[#00558d] text-white py-16 sm:py-24 lg:py-32">
       {/* Background Full Width Video Container */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
         <video
@@ -88,7 +88,7 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = ({ onOpenAd
         </video>
 
         {/* Ambient Gradient Overlays for optimal readability and depth */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#084274] via-[#084274]/40 to-[#084274]/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#00558d] via-[#00558d]/40 to-[#00558d]/70" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(8,66,116,0.6)_100%)]" />
       </div>
 
@@ -105,7 +105,7 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = ({ onOpenAd
             className="inline-flex items-center gap-2.5 px-4 py-2 bg-white/15 backdrop-blur-md border border-white/25 rounded-full mb-6 shadow-lg"
           >
             <span className="w-2.5 h-2.5 rounded-full bg-[#e3a044] animate-ping" />
-            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#feeddb]">
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#fff7ef]">
               Immersion Vidéo • 30 Secondes au Cœur de l'École
             </span>
           </motion.div>
@@ -176,7 +176,7 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = ({ onOpenAd
               <div className="flex items-center gap-2">
                 <button
                   onClick={togglePlay}
-                  className="w-9 h-9 rounded-full bg-white/20 hover:bg-white text-white hover:text-[#084274] flex items-center justify-center transition-all cursor-pointer"
+                  className="w-9 h-9 rounded-full bg-white/20 hover:bg-white text-white hover:text-[#00558d] flex items-center justify-center transition-all cursor-pointer"
                   aria-label={isPlaying ? 'Mettre en pause' : 'Lire la vidéo'}
                 >
                   {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
@@ -199,7 +199,7 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = ({ onOpenAd
                 </button>
               </div>
 
-              <div className="font-mono text-xs text-[#feeddb] font-bold">
+              <div className="font-mono text-xs text-[#fff7ef] font-bold">
                 <span>{formatSeconds(currentTime)}</span>
                 <span className="text-white/50"> / 0:30</span>
               </div>
@@ -216,7 +216,7 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = ({ onOpenAd
           >
             <button
               onClick={onOpenAdmissions}
-              className="w-full sm:w-auto bg-[#e3a044] hover:bg-[#d59336] text-[#084274] font-bold text-base px-8 py-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center gap-2.5 border-none"
+              className="w-full sm:w-auto bg-[#e3a044] hover:bg-[#d59336] text-[#00558d] font-bold text-base px-8 py-4 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center gap-2.5 border-none"
             >
               <Calendar className="w-5 h-5" />
               <span>Visiter Notre École en Personne</span>

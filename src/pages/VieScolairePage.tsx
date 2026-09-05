@@ -127,9 +127,9 @@ export const VieScolairePage: React.FC<VieScolairePageProps> = ({ onOpenAdmissio
       <SectionDivider variant="cream" position="top" style="wave2" />
 
       {/* Ateliers */}
-      <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden relative">
+      <section className="bg-[#fff7ef] py-16 sm:py-24 overflow-hidden relative">
         <DoodleStar className="hidden lg:block absolute top-12 left-[6%] w-9 text-[#d95f43]/50 pointer-events-none" />
-        <DoodlePaint className="hidden xl:block absolute bottom-8 right-[2%] w-40 text-[#084274]/12 pointer-events-none" />
+        <DoodlePaint className="hidden xl:block absolute bottom-8 right-[2%] w-40 text-[#00558d]/12 pointer-events-none" />
         <SectionIntro
           tag="Nos ateliers"
           title="Plus de 15 Activités d’Éveil"

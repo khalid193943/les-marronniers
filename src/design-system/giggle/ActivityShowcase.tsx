@@ -56,13 +56,13 @@ export const ActivityShowcase: React.FC<ActivityShowcaseProps> = ({ items, class
                 aria-pressed={isActive}
                 className={`flex items-center gap-4 text-left rounded-2xl px-5 py-4 cursor-pointer transition-colors ${
                   isActive
-                    ? 'bg-[#084274] shadow-lg'
-                    : 'bg-[#084274]/6 hover:bg-[#084274]/12'
+                    ? 'bg-[#00558d] shadow-lg'
+                    : 'bg-[#00558d]/6 hover:bg-[#00558d]/12'
                 }`}
               >
                 <span
                   className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-                    isActive ? 'bg-[#e3a044] text-[#084274]' : 'bg-[#084274]/10 text-[#0086d9]'
+                    isActive ? 'bg-[#e3a044] text-[#00558d]' : 'bg-[#00558d]/10 text-[#0086d9]'
                   }`}
                 >
                   <Icon className="w-5 h-5" strokeWidth={1.8} />
@@ -70,14 +70,14 @@ export const ActivityShowcase: React.FC<ActivityShowcaseProps> = ({ items, class
                 <span className="min-w-0 flex-1">
                   <span
                     className={`block font-heading text-lg leading-tight ${
-                      isActive ? 'text-[#feeddb]' : 'text-[#084274]'
+                      isActive ? 'text-[#fff7ef]' : 'text-[#00558d]'
                     }`}
                   >
                     {item.title}
                   </span>
                   <span
                     className={`block font-body text-[13px] leading-snug mt-0.5 ${
-                      isActive ? 'text-[#feeddb]/70' : 'text-[#084274]/60'
+                      isActive ? 'text-[#fff7ef]/70' : 'text-[#00558d]/60'
                     }`}
                   >
                     {item.line}
@@ -89,7 +89,7 @@ export const ActivityShowcase: React.FC<ActivityShowcaseProps> = ({ items, class
         </div>
 
         {/* Détail de l'atelier sélectionné */}
-        <div className="lg:col-span-7 lg:sticky lg:top-28">
+        <div className="lg:col-span-7 lg:sticky lg:top-32">
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
@@ -104,7 +104,7 @@ export const ActivityShowcase: React.FC<ActivityShowcaseProps> = ({ items, class
                 className="absolute inset-0 bg-[#e3a044] rounded-3xl"
                 style={{ transform: 'rotate(-1.5deg) translate(10px, 10px)' }}
               />
-              <div className="relative z-10 bg-white rounded-3xl overflow-hidden shadow-xl border border-[#084274]/8">
+              <div className="relative z-10 bg-white rounded-3xl overflow-hidden shadow-xl border border-[#00558d]/8">
                 <div className="aspect-[16/10] relative">
                   <SmartImage
                     src={current.photo.src}
@@ -112,14 +112,14 @@ export const ActivityShowcase: React.FC<ActivityShowcaseProps> = ({ items, class
                     className="w-full h-full object-cover"
                   />
                   {current.badge && (
-                    <span className="absolute top-4 left-4 rounded-full bg-white/95 backdrop-blur-sm px-4 py-1.5 font-body text-[11px] font-bold text-[#084274] shadow">
+                    <span className="absolute top-4 left-4 rounded-full bg-white/95 backdrop-blur-sm px-4 py-1.5 font-body text-[11px] font-bold text-[#00558d] shadow">
                       {current.badge}
                     </span>
                   )}
                 </div>
                 <div className="p-6 sm:p-7">
-                  <h3 className="font-heading text-2xl text-[#084274] mb-2.5">{current.title}</h3>
-                  <p className="font-body text-[15px] text-[#084274]/75 leading-relaxed">
+                  <h3 className="font-heading text-2xl text-[#00558d] mb-2.5">{current.title}</h3>
+                  <p className="font-body text-[15px] text-[#00558d]/75 leading-relaxed">
                     {current.detail}
                   </p>
                 </div>

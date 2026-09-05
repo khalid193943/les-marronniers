@@ -27,8 +27,8 @@ interface ExpandBarsProps {
 
 const COLORS: Record<ExpandBarItem['color'], { bg: string; fg: string; dim: string }> = {
   green: { bg: '#1f8a63', fg: '#ffffff', dim: 'rgba(255,255,255,0.85)' },
-  navy: { bg: '#084274', fg: '#feeddb', dim: 'rgba(254,237,219,0.8)' },
-  sun: { bg: '#f0b429', fg: '#084274', dim: 'rgba(8,66,116,0.8)' },
+  navy: { bg: '#00558d', fg: '#fff7ef', dim: 'rgba(254,237,219,0.8)' },
+  sun: { bg: '#f0b429', fg: '#00558d', dim: 'rgba(8,66,116,0.8)' },
   coral: { bg: '#d95f43', fg: '#ffffff', dim: 'rgba(255,255,255,0.85)' },
   sky: { bg: '#0086d9', fg: '#ffffff', dim: 'rgba(255,255,255,0.9)' },
 };
@@ -61,7 +61,7 @@ export const ExpandBars: React.FC<ExpandBarsProps> = ({
       {sideLabel && (
         <span
           aria-hidden="true"
-          className="hidden xl:block absolute -left-2 top-1/2 -translate-y-1/2 origin-center font-heading text-[#084274]/70 text-5xl tracking-tight whitespace-nowrap select-none"
+          className="hidden xl:block absolute -left-2 top-1/2 -translate-y-1/2 origin-center font-heading text-[#00558d]/70 text-5xl tracking-tight whitespace-nowrap select-none"
           style={{ writingMode: 'vertical-rl', transform: 'translateY(-50%) rotate(180deg)' }}
         >
           {sideLabel}

@@ -20,9 +20,9 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
       subtitle: 'Prendre confiance et s’exprimer avec aisance',
       desc: 'Prendre la parole avec confiance.',
       icon: Theater,
-      color: 'bg-[#084274]/8',
-      textColor: 'text-[#084274]',
-      badgeColor: 'bg-[#084274]/10 text-[#084274]',
+      color: 'bg-[#00558d]/8',
+      textColor: 'text-[#00558d]',
+      badgeColor: 'bg-[#00558d]/10 text-[#00558d]',
       img: 'https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=800&q=80',
       span: 'md:col-span-2 md:row-span-1',
     },
@@ -32,9 +32,9 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
       subtitle: 'Stratégie & Raisonnement',
       desc: 'Logique, concentration, fair-play.',
       icon: Crown,
-      color: 'bg-[#084274]',
+      color: 'bg-[#00558d]',
       textColor: 'text-white',
-      badgeColor: 'bg-white/20 text-[#feeddb]',
+      badgeColor: 'bg-white/20 text-[#fff7ef]',
       img: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=800&q=80',
       span: 'md:col-span-1 md:row-span-2',
     },
@@ -45,8 +45,8 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
       desc: 'Chant choral et découverte du rythme.',
       icon: Music,
       color: 'bg-[#e3a044]',
-      textColor: 'text-[#084274]',
-      badgeColor: 'bg-[#084274]/15 text-[#084274]',
+      textColor: 'text-[#00558d]',
+      badgeColor: 'bg-[#00558d]/15 text-[#00558d]',
       img: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80',
       span: 'md:col-span-1 md:row-span-1',
     },
@@ -56,9 +56,9 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
       subtitle: 'Culture & Regard Critique',
       desc: 'Regarder, comprendre, débattre.',
       icon: Film,
-      color: 'bg-[#084274]/8',
-      textColor: 'text-[#084274]',
-      badgeColor: 'bg-[#084274]/10 text-[#084274]',
+      color: 'bg-[#00558d]/8',
+      textColor: 'text-[#00558d]',
+      badgeColor: 'bg-[#00558d]/10 text-[#00558d]',
       img: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80',
       span: 'md:col-span-1 md:row-span-1',
     },
@@ -80,10 +80,10 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
             <div className="giggle-dot" />
             <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">VIE CRÉATIVE & CULTURELLE</span>
           </div>
-          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[50px] text-[#084274] tracking-tight mb-6 leading-tight">
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[50px] text-[#00558d] tracking-tight mb-6 leading-tight">
             Cultiver les Talents & l'Imaginaire
           </h2>
-          <p className="font-body text-base sm:text-lg text-[#084274]/80 leading-relaxed max-w-4xl mx-auto">
+          <p className="font-body text-base sm:text-lg text-[#00558d]/80 leading-relaxed max-w-4xl mx-auto">
             L'excellence académique se marie à l'épanouissement personnel. Nos ateliers créatifs intégrés au cursus sont conçus pour révéler les sensibilités artistiques et intellectuelles de chaque élève.
           </p>
         </motion.div>
@@ -99,7 +99,7 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`relative group overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border-2 border-[#084274]/15 ${act.span} ${act.color}`}
+                className={`relative group overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border-2 border-[#00558d]/15 ${act.span} ${act.color}`}
               >
                 {/* Background Image with Dynamic Overlay */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
@@ -119,7 +119,7 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
                       <div className={`w-12 h-12 flex items-center justify-center rounded-none shadow-xs ${
                         act.textColor === 'text-white' 
                           ? 'bg-white/20 backdrop-blur-sm text-white' 
-                          : 'bg-[#084274] text-[#feeddb]'
+                          : 'bg-[#00558d] text-[#fff7ef]'
                       }`}>
                         <Icon className="w-6 h-6" />
                       </div>
@@ -134,7 +134,7 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
                     </h3>
 
                     <p className={`font-body text-sm sm:text-base leading-relaxed ${
-                      act.textColor === 'text-white' ? 'text-white/90' : 'text-[#084274] sm:text-[#084274]/80 sm:group-hover:text-white/90'
+                      act.textColor === 'text-white' ? 'text-white/90' : 'text-[#00558d] sm:text-[#00558d]/80 sm:group-hover:text-white/90'
                     } transition-all duration-500`}>
                       {act.desc}
                     </p>
@@ -147,7 +147,7 @@ export const CreativeLifeSection: React.FC<CreativeLifeSectionProps> = ({
                     <button 
                       onClick={onOpenAdmissions}
                       className={`w-10 h-10 flex items-center justify-center ${
-                        act.textColor === 'text-white' ? 'bg-[#084274]/8 text-[#084274]' : 'bg-[#084274] text-white'
+                        act.textColor === 'text-white' ? 'bg-[#00558d]/8 text-[#00558d]' : 'bg-[#00558d] text-white'
                       } hover:scale-110 transition-transform cursor-pointer shadow-sm`}
                       aria-label={`En savoir plus sur ${act.title}`}
                     >

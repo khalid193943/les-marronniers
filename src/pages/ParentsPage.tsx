@@ -85,7 +85,7 @@ export const ParentsPage: React.FC = () => {
       <SectionDivider variant="cream" position="top" style="wave2" />
 
       {/* Accompagnement — checklist + collage */}
-      <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden relative">
+      <section className="bg-[#fff7ef] py-16 sm:py-24 overflow-hidden relative">
         <DoodleSun className="hidden lg:block absolute top-12 right-[8%] w-10 text-[#e3a044]/50 pointer-events-none" />
         <ChecklistSplit
           tag="Comment nous accompagnons les familles"
@@ -125,7 +125,7 @@ export const ParentsPage: React.FC = () => {
       <SectionDivider variant="cream" position="top" style="wave2" />
 
       {/* FAQ */}
-      <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden relative">
+      <section className="bg-[#fff7ef] py-16 sm:py-24 overflow-hidden relative">
         <DoodleStar className="hidden lg:block absolute top-14 right-[10%] w-9 text-[#e3a044]/60 pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-8">
           <SectionIntro tag="Questions fréquentes" title="Vous Vous Demandez Sûrement…" className="mb-12" />
@@ -141,7 +141,7 @@ export const ParentsPage: React.FC = () => {
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.4, delay: idx * 0.04 }}
                   className={`border transition-colors ${
-                    isOpen ? 'bg-[#084274]/10 border-[#084274]/25' : 'bg-[#084274]/6 border-[#084274]/10'
+                    isOpen ? 'bg-[#00558d]/10 border-[#00558d]/25' : 'bg-[#00558d]/6 border-[#00558d]/10'
                   }`}
                 >
                   <button
@@ -149,7 +149,7 @@ export const ParentsPage: React.FC = () => {
                     className="w-full flex items-center justify-between gap-4 p-5 text-left cursor-pointer"
                     aria-expanded={isOpen}
                   >
-                    <span className="font-body font-bold text-[15px] text-[#084274]">{item.q}</span>
+                    <span className="font-body font-bold text-[15px] text-[#00558d]">{item.q}</span>
                     <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.25 }}>
                       <ChevronDown className="w-5 h-5 text-[#e3a044] shrink-0" />
                     </motion.span>
@@ -163,7 +163,7 @@ export const ParentsPage: React.FC = () => {
                         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                         className="overflow-hidden"
                       >
-                        <p className="font-body text-sm text-[#084274]/75 leading-relaxed px-5 pb-5">
+                        <p className="font-body text-sm text-[#00558d]/75 leading-relaxed px-5 pb-5">
                           {item.a}
                         </p>
                       </motion.div>
@@ -180,17 +180,17 @@ export const ParentsPage: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5 }}
-            className="relative bg-[#084274] rounded-2xl p-8 sm:p-10 text-center mb-12 overflow-hidden"
+            className="relative bg-[#00558d] rounded-2xl p-8 sm:p-10 text-center mb-12 overflow-hidden"
           >
             <Quote className="w-8 h-8 text-[#e3a044]/50 mx-auto mb-4" />
-            <p className="font-heading text-xl sm:text-2xl text-[#feeddb] leading-snug max-w-xl mx-auto">
+            <p className="font-heading text-xl sm:text-2xl text-[#fff7ef] leading-snug max-w-xl mx-auto">
               Une équipe formée pour connaître au mieux la psychologie et les besoins de l’enfant.
             </p>
-            <p className="font-body text-xs text-[#feeddb]/60 mt-4">— Les Marronniers El Jadida</p>
+            <p className="font-body text-xs text-[#fff7ef]/60 mt-4">— Les Marronniers El Jadida</p>
           </motion.div>
 
           <div className="text-center">
-            <p className="font-body text-sm text-[#084274]/70 mb-4">Une autre question ?</p>
+            <p className="font-body text-sm text-[#00558d]/70 mb-4">Une autre question ?</p>
             <a
               href={`tel:${SCHOOL_INFO.phoneRaw}`}
               className="giggle-button-primary inline-flex items-center gap-3"

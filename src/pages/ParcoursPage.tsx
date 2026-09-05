@@ -75,7 +75,7 @@ export const ParcoursPage: React.FC<ParcoursPageProps> = ({ onOpenAdmissions }) 
       />
 
       {/* Zigzag des niveaux */}
-      <section className="bg-[#feeddb] pb-20 sm:pb-28 overflow-hidden">
+      <section className="bg-[#fff7ef] pb-20 sm:pb-28 overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="flex flex-col">
             {NIVEAUX.map((n, idx) => {
@@ -97,15 +97,15 @@ export const ParcoursPage: React.FC<ParcoursPageProps> = ({ onOpenAdmissions }) 
                         className="absolute inset-0"
                         style={{ backgroundColor: n.backer, transform: `rotate(${-n.rotate * 1.5}deg) translate(12px, 12px)` }}
                       />
-                      <div className="relative z-10 bg-[#084274] p-8 sm:p-10 shadow-xl">
-                        <Doodle className="w-full max-w-[250px] mx-auto text-[#feeddb] mb-6 opacity-95" />
+                      <div className="relative z-10 bg-[#00558d] p-8 sm:p-10 shadow-xl">
+                        <Doodle className="w-full max-w-[250px] mx-auto text-[#fff7ef] mb-6 opacity-95" />
                         <div className="flex items-center justify-between mb-3">
-                          <h2 className="font-heading text-2xl sm:text-3xl text-[#feeddb]">{n.title}</h2>
-                          <span className="rounded-full bg-[#feeddb]/12 px-3.5 py-1.5 font-body text-xs font-bold text-[#feeddb]">
+                          <h2 className="font-heading text-2xl sm:text-3xl text-[#fff7ef]">{n.title}</h2>
+                          <span className="rounded-full bg-[#fff7ef]/12 px-3.5 py-1.5 font-body text-xs font-bold text-[#fff7ef]">
                             {n.age}
                           </span>
                         </div>
-                        <p className="font-body text-sm sm:text-[15px] text-[#feeddb]/75 leading-relaxed mb-5">
+                        <p className="font-body text-sm sm:text-[15px] text-[#fff7ef]/75 leading-relaxed mb-5">
                           {n.line}
                         </p>
                         <div className="flex flex-wrap gap-2">
@@ -158,7 +158,7 @@ export const ParcoursPage: React.FC<ParcoursPageProps> = ({ onOpenAdmissions }) 
       <SectionDivider variant="cream" position="top" style="wave2" />
 
       {/* Piliers pédagogiques */}
-      <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden relative">
+      <section className="bg-[#fff7ef] py-16 sm:py-24 overflow-hidden relative">
         <DoodleSun className="hidden lg:block absolute top-12 right-[10%] w-11 text-[#e3a044]/50 pointer-events-none" />
         <ColorCardsGrid
           heading="Une pédagogie qui donne envie d’apprendre, chaque jour."

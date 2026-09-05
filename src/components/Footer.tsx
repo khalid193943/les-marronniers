@@ -21,7 +21,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
   };
 
   return (
-    <footer className="bg-[#084274] text-[#feeddb] pt-16 pb-12 border-t border-[#05335b]">
+    <footer className="bg-[#00558d] text-[#fff7ef] pt-16 pb-12 border-t border-[#003f6b]">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
@@ -33,15 +33,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
             >
               <Logo
                 variant="light"
-                className="text-[26px] sm:text-[30px] group-hover:opacity-85 transition-opacity"
+                className="text-[36px] sm:text-[44px] group-hover:opacity-85 transition-opacity"
               />
             </div>
 
-            <p className="font-body text-xs sm:text-sm text-[#feeddb]/80 leading-relaxed mb-6 max-w-sm">
+            <p className="font-body text-xs sm:text-sm text-[#fff7ef]/80 leading-relaxed mb-6 max-w-sm">
               École privée à El Jadida, de la crèche au CE6.
             </p>
 
-            <div className="space-y-2.5 text-xs text-[#feeddb]/90">
+            <div className="space-y-2.5 text-xs text-[#fff7ef]/90">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#e3a044] shrink-0 mt-0.5" />
                 <span><strong>Maternelle :</strong> 16 Lot Al Asdikaa, Rue Beethoven, Plateau</span>
@@ -61,15 +61,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
             {/* Réseaux sociaux officiels */}
             <div className="flex items-center gap-3 mt-6">
               <a href={SCHOOL_INFO.social.facebook} target="_blank" rel="noreferrer" aria-label="Facebook Les Marronniers"
-                 className="w-10 h-10 rounded-full bg-[#feeddb]/10 hover:bg-[#e3a044] text-[#feeddb] hover:text-[#084274] flex items-center justify-center transition-colors">
+                 className="w-10 h-10 rounded-full bg-[#fff7ef]/10 hover:bg-[#e3a044] text-[#fff7ef] hover:text-[#00558d] flex items-center justify-center transition-colors">
                 <Facebook className="w-4.5 h-4.5" />
               </a>
               <a href={SCHOOL_INFO.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram Les Marronniers"
-                 className="w-10 h-10 rounded-full bg-[#feeddb]/10 hover:bg-[#e3a044] text-[#feeddb] hover:text-[#084274] flex items-center justify-center transition-colors">
+                 className="w-10 h-10 rounded-full bg-[#fff7ef]/10 hover:bg-[#e3a044] text-[#fff7ef] hover:text-[#00558d] flex items-center justify-center transition-colors">
                 <Instagram className="w-4.5 h-4.5" />
               </a>
               <a href={SCHOOL_INFO.social.youtube} target="_blank" rel="noreferrer" aria-label="YouTube Les Marronniers"
-                 className="w-10 h-10 rounded-full bg-[#feeddb]/10 hover:bg-[#e3a044] text-[#feeddb] hover:text-[#084274] flex items-center justify-center transition-colors">
+                 className="w-10 h-10 rounded-full bg-[#fff7ef]/10 hover:bg-[#e3a044] text-[#fff7ef] hover:text-[#00558d] flex items-center justify-center transition-colors">
                 <Youtube className="w-4.5 h-4.5" />
               </a>
             </div>
@@ -80,7 +80,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
             <h4 className="font-heading text-lg text-white mb-4">
               Navigation
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm font-medium text-[#feeddb]/80">
+            <ul className="space-y-2 text-xs sm:text-sm font-medium text-[#fff7ef]/80">
               {[
                 { id: 'home', label: 'Accueil' },
                 { id: 'ecole', label: 'Notre École' },
@@ -116,7 +116,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
                 <Building2 className="w-3.5 h-3.5" />
                 <span>Nos Campus & Équipements</span>
               </div>
-              <p className="text-xs text-[#feeddb]/80">
+              <p className="text-xs text-[#fff7ef]/80">
                 6 classes lumineuses, éveil scientifique, cinéma-théâtre, jardin
               </p>
             </div>
@@ -130,7 +130,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>Sécurité & Bien-Être des Élèves</span>
               </div>
-              <p className="text-xs text-[#feeddb]/80">
+              <p className="text-xs text-[#fff7ef]/80">
                 Sols anti-choc, surveillance permanente, hygiène rigoureuse
               </p>
             </div>
@@ -139,43 +139,43 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
             <div className="pt-2 flex flex-wrap gap-2 text-xs">
               <button
                 onClick={() => onNavigate('parents')}
-                className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#feeddb] transition-colors cursor-pointer"
+                className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#fff7ef] transition-colors cursor-pointer"
               >
                 Espace Parents
               </button>
               <button
                 onClick={() => onNavigate('inscription')}
-                className="px-3 py-1.5 bg-[#e3a044] text-[#084274] font-bold transition-colors cursor-pointer"
+                className="px-3 py-1.5 bg-[#e3a044] text-[#00558d] font-bold transition-colors cursor-pointer"
               >
                 Inscriptions
               </button>
               <button
                 onClick={() => onNavigate('actualites')}
-                className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#feeddb] transition-colors cursor-pointer"
+                className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#fff7ef] transition-colors cursor-pointer"
               >
                 Actualités
               </button>
               <button
                 onClick={() => onNavigate('actualites')}
-                className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#feeddb] transition-colors cursor-pointer"
+                className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#fff7ef] transition-colors cursor-pointer"
               >
                 Galerie
               </button>
               <button
                 onClick={() => onNavigate('parents')}
-                className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#feeddb] transition-colors cursor-pointer"
+                className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#fff7ef] transition-colors cursor-pointer"
               >
                 FAQ
               </button>
               <button
                 onClick={() => onNavigate('contact')}
-                className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#feeddb] transition-colors cursor-pointer"
+                className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-[#fff7ef] transition-colors cursor-pointer"
               >
                 Contact
               </button>
               <button
                 onClick={() => onNavigate('admin' as PageId)}
-                className="px-3 py-1.5 bg-white/5 hover:bg-white/15 text-[#feeddb]/50 hover:text-[#feeddb] transition-colors cursor-pointer"
+                className="px-3 py-1.5 bg-white/5 hover:bg-white/15 text-[#fff7ef]/50 hover:text-[#fff7ef] transition-colors cursor-pointer"
                 title="Espace réservé à l'école"
               >
                 Administration
@@ -185,7 +185,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#feeddb]/60">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#fff7ef]/60">
           <p>© 2026 Les Marronniers El Jadida — Établissement Scolaire Privé. Tous droits réservés.</p>
 
           <button

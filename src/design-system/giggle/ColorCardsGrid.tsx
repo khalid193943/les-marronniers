@@ -32,27 +32,27 @@ interface ColorCardsGridProps {
 const TONES: Record<ColorCard['tone'], { bg: string; text: string; icon: string }> = {
   sky: {
     bg: 'linear-gradient(160deg, #cdeafa 0%, #9ad5f4 100%)',
-    text: 'text-[#084274]',
+    text: 'text-[#00558d]',
     icon: 'text-[#0086d9]',
   },
   sun: {
     bg: 'linear-gradient(160deg, #fbe6b8 0%, #f5d089 100%)',
-    text: 'text-[#084274]',
-    icon: 'text-[#084274]',
+    text: 'text-[#00558d]',
+    icon: 'text-[#00558d]',
   },
   coral: {
     bg: 'linear-gradient(160deg, #f8cec0 0%, #f0ab93 100%)',
-    text: 'text-[#084274]',
-    icon: 'text-[#084274]',
+    text: 'text-[#00558d]',
+    icon: 'text-[#00558d]',
   },
   green: {
     bg: 'linear-gradient(160deg, #c6e5d5 0%, #9dd0b8 100%)',
-    text: 'text-[#084274]',
-    icon: 'text-[#084274]',
+    text: 'text-[#00558d]',
+    icon: 'text-[#00558d]',
   },
   navy: {
-    bg: 'linear-gradient(160deg, #0086d9 0%, #084274 100%)',
-    text: 'text-[#feeddb]',
+    bg: 'linear-gradient(160deg, #0086d9 0%, #00558d 100%)',
+    text: 'text-[#fff7ef]',
     icon: 'text-[#e3a044]',
   },
 };
@@ -114,16 +114,16 @@ export const ColorCardsGrid: React.FC<ColorCardsGridProps> = ({
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col justify-center py-2"
         >
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] text-[#084274] leading-[1.15] tracking-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-[42px] text-[#00558d] leading-[1.15] tracking-tight">
             {heading}
           </h2>
           {ctaLabel && onCta && (
             <button
               onClick={onCta}
-              className="mt-7 self-start inline-flex items-center gap-3 rounded-full bg-[#084274] text-[#feeddb] font-body font-bold text-sm pl-6 pr-2 py-2 cursor-pointer hover:bg-[#05335b] transition-colors group"
+              className="mt-7 self-start inline-flex items-center gap-3 rounded-full bg-[#00558d] text-[#fff7ef] font-body font-bold text-sm pl-6 pr-2 py-2 cursor-pointer hover:bg-[#003f6b] transition-colors group"
             >
               <span>{ctaLabel}</span>
-              <span className="w-8 h-8 rounded-full bg-[#e3a044] text-[#084274] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+              <span className="w-8 h-8 rounded-full bg-[#e3a044] text-[#00558d] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
                 <ArrowUpRight className="w-4 h-4" strokeWidth={2.2} />
               </span>
             </button>

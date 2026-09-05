@@ -64,10 +64,10 @@ export const StatShowcase: React.FC<StatShowcaseProps> = ({ photo, badges, class
           className={`absolute ${CORNER_CLS[b.corner]} w-36 sm:w-44 rounded-2xl p-4 sm:p-5 shadow-xl`}
           style={{ backgroundImage: TONES[b.tone] }}
         >
-          <p className="font-heading text-2xl sm:text-3xl text-[#084274] leading-none mb-1">
+          <p className="font-heading text-2xl sm:text-3xl text-[#00558d] leading-none mb-1">
             <CountUp value={b.value} suffix={b.suffix} />
           </p>
-          <p className="font-body text-[11px] sm:text-xs font-bold text-[#084274]/80 leading-snug">
+          <p className="font-body text-[11px] sm:text-xs font-bold text-[#00558d]/80 leading-snug">
             {b.label}
           </p>
         </motion.div>

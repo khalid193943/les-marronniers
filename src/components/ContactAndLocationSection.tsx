@@ -29,10 +29,10 @@ export const ContactAndLocationSection: React.FC<ContactAndLocationSectionProps>
             <div className="giggle-dot" />
             <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">NOUS TROUVER & CONTACT</span>
           </div>
-          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#084274] tracking-tight mb-6 leading-tight">
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#00558d] tracking-tight mb-6 leading-tight">
             Venez Découvrir Nos Locaux à El Jadida
           </h2>
-          <p className="font-body text-base sm:text-lg text-[#084274]/80 leading-relaxed max-w-4xl mx-auto">
+          <p className="font-body text-base sm:text-lg text-[#00558d]/80 leading-relaxed max-w-4xl mx-auto">
             Situés au cœur du quartier résidentiel Plateau, nos campus sécurisés offrent un environnement d'apprentissage calme, verdoyant et facilement accessible pour les familles.
           </p>
         </motion.div>
@@ -50,13 +50,13 @@ export const ContactAndLocationSection: React.FC<ContactAndLocationSectionProps>
             <div className="space-y-6 mb-8">
               
               {/* Address Card */}
-              <div className="p-6 bg-[#084274]/6 border-2 border-[#084274]/15 shadow-xs flex gap-4 items-start">
-                <div className="w-12 h-12 bg-[#084274] text-[#feeddb] flex items-center justify-center shrink-0 shadow-sm">
+              <div className="p-6 bg-[#00558d]/6 border-2 border-[#00558d]/15 shadow-xs flex gap-4 items-start">
+                <div className="w-12 h-12 bg-[#00558d] text-[#fff7ef] flex items-center justify-center shrink-0 shadow-sm">
                   <MapPin className="w-5 h-5 text-[#e3a044]" />
                 </div>
                 <div>
-                  <h4 className="font-heading text-lg font-bold text-[#084274] mb-1">Nos Campus</h4>
-                  <p className="font-body text-sm text-[#084274]/80 leading-relaxed">
+                  <h4 className="font-heading text-lg font-bold text-[#00558d] mb-1">Nos Campus</h4>
+                  <p className="font-body text-sm text-[#00558d]/80 leading-relaxed">
                     16 Lot Al Asdikaa (Rue Beethoven)<br />
                     Quartier Plateau, El Jadida, Maroc
                   </p>
@@ -73,17 +73,17 @@ export const ContactAndLocationSection: React.FC<ContactAndLocationSectionProps>
               </div>
               
               {/* Phone Card */}
-              <div className="p-6 bg-[#084274]/6 border-2 border-[#084274]/15 shadow-xs flex gap-4 items-start">
-                <div className="w-12 h-12 bg-[#084274] text-[#feeddb] flex items-center justify-center shrink-0 shadow-sm">
+              <div className="p-6 bg-[#00558d]/6 border-2 border-[#00558d]/15 shadow-xs flex gap-4 items-start">
+                <div className="w-12 h-12 bg-[#00558d] text-[#fff7ef] flex items-center justify-center shrink-0 shadow-sm">
                   <Phone className="w-5 h-5 text-[#e3a044]" />
                 </div>
                 <div>
-                  <h4 className="font-heading text-lg font-bold text-[#084274] mb-1">Ligne Directe & Inscriptions</h4>
+                  <h4 className="font-heading text-lg font-bold text-[#00558d] mb-1">Ligne Directe & Inscriptions</h4>
                   <div className="space-y-1">
-                    <a href="tel:+212523395603" className="font-body text-sm text-[#084274] hover:text-[#e3a044] font-semibold transition-colors block">
+                    <a href="tel:+212523395603" className="font-body text-sm text-[#00558d] hover:text-[#e3a044] font-semibold transition-colors block">
                       Fixe : +212 523 395 603
                     </a>
-                    <a href="tel:+212623395603" className="font-body text-sm text-[#084274] hover:text-[#e3a044] font-semibold transition-colors block">
+                    <a href="tel:+212623395603" className="font-body text-sm text-[#00558d] hover:text-[#e3a044] font-semibold transition-colors block">
                       GSM / WhatsApp : +212 623 395 603
                     </a>
                   </div>
@@ -91,13 +91,13 @@ export const ContactAndLocationSection: React.FC<ContactAndLocationSectionProps>
               </div>
 
               {/* Hours Card */}
-              <div className="p-6 bg-[#084274]/6 border-2 border-[#084274]/15 shadow-xs flex gap-4 items-start">
-                <div className="w-12 h-12 bg-[#084274] text-[#feeddb] flex items-center justify-center shrink-0 shadow-sm">
+              <div className="p-6 bg-[#00558d]/6 border-2 border-[#00558d]/15 shadow-xs flex gap-4 items-start">
+                <div className="w-12 h-12 bg-[#00558d] text-[#fff7ef] flex items-center justify-center shrink-0 shadow-sm">
                   <Clock className="w-5 h-5 text-[#e3a044]" />
                 </div>
                 <div>
-                  <h4 className="font-heading text-lg font-bold text-[#084274] mb-1">Horaires d'Accueil des Familles</h4>
-                  <p className="font-body text-sm text-[#084274]/80 leading-relaxed">
+                  <h4 className="font-heading text-lg font-bold text-[#00558d] mb-1">Horaires d'Accueil des Familles</h4>
+                  <p className="font-body text-sm text-[#00558d]/80 leading-relaxed">
                     Lundi – Vendredi : 7h45 – 18h15<br />
                     Samedi : 09h00 - 12h30 (Sur rendez-vous préalable)
                   </p>
@@ -132,7 +132,7 @@ export const ContactAndLocationSection: React.FC<ContactAndLocationSectionProps>
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 relative h-[420px] lg:h-[520px] w-full overflow-hidden shadow-2xl border-4 border-[#feeddb]"
+            className="lg:col-span-7 relative h-[420px] lg:h-[520px] w-full overflow-hidden shadow-2xl border-4 border-[#fff7ef]"
           >
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.6853245455823!2d-8.5083818!3d33.2406566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda91dff320b33fb%3A0xc6443d3e6db8227b!2sEcole%20Les%20Marronniers!5e0!3m2!1sfr!2sma!4v1709665487654!5m2!1sfr!2sma" 
@@ -144,9 +144,9 @@ export const ContactAndLocationSection: React.FC<ContactAndLocationSectionProps>
             />
 
             {/* Quick Map Overlay Badge */}
-            <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-4 py-2.5 shadow-xl border border-[#084274]/15 flex items-center gap-2.5 pointer-events-none">
+            <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-4 py-2.5 shadow-xl border border-[#00558d]/15 flex items-center gap-2.5 pointer-events-none">
               <div className="w-2.5 h-2.5 rounded-full bg-[#e3a044] animate-ping" />
-              <span className="text-xs font-bold text-[#084274]">
+              <span className="text-xs font-bold text-[#00558d]">
                 École Les Marronniers • Quartier Plateau
               </span>
             </div>

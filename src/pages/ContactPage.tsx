@@ -40,7 +40,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
         line="Au Plateau, à El Jadida — on vous attend avec plaisir."
       />
       {/* Bandeau 3 informations clés (style référence Giggle) */}
-      <section className="bg-[#feeddb] pb-14 sm:pb-16 overflow-hidden">
+      <section className="bg-[#fff7ef] pb-14 sm:pb-16 overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
           {[
             { label: 'Téléphone', value: SCHOOL_INFO.phone, href: `tel:${SCHOOL_INFO.phoneRaw}` },
@@ -48,12 +48,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
             { label: 'Horaires', value: SCHOOL_INFO.hours, href: undefined },
           ].map((info, idx) => {
             const inner = (
-              <div className="h-full bg-[#084274]/8 border border-[#084274]/12 px-6 py-5 hover:bg-[#084274]/12 transition-colors">
-                <span className="flex items-center gap-2 font-heading text-xl text-[#084274] mb-1.5">
+              <div className="h-full bg-[#00558d]/8 border border-[#00558d]/12 px-6 py-5 hover:bg-[#00558d]/12 transition-colors">
+                <span className="flex items-center gap-2 font-heading text-xl text-[#00558d] mb-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#e3a044]" />
                   {info.label}
                 </span>
-                <span className="block font-body text-sm text-[#084274]/75">{info.value}</span>
+                <span className="block font-body text-sm text-[#00558d]/75">{info.value}</span>
               </div>
             );
             return (
@@ -92,13 +92,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
             {INFOS.map((info, idx) => {
               const Icon = info.icon;
               const content = (
-                <div className="flex items-start gap-4 bg-[#084274]/6 border border-[#084274]/10 p-5 hover:bg-[#084274]/10 transition-colors">
-                  <span className="w-11 h-11 shrink-0 rounded-full bg-[#084274] text-[#e3a044] flex items-center justify-center">
+                <div className="flex items-start gap-4 bg-[#00558d]/6 border border-[#00558d]/10 p-5 hover:bg-[#00558d]/10 transition-colors">
+                  <span className="w-11 h-11 shrink-0 rounded-full bg-[#00558d] text-[#e3a044] flex items-center justify-center">
                     <Icon className="w-5 h-5" strokeWidth={1.8} />
                   </span>
                   <div>
-                    <span className="block font-body text-xs font-bold text-[#084274]/60 mb-0.5">{info.label}</span>
-                    <span className="block font-body text-[15px] font-semibold text-[#084274]">{info.value}</span>
+                    <span className="block font-body text-xs font-bold text-[#00558d]/60 mb-0.5">{info.label}</span>
+                    <span className="block font-body text-[15px] font-semibold text-[#00558d]">{info.value}</span>
                   </div>
                 </div>
               );
@@ -134,7 +134,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
                     key={c.id}
                     onClick={() => setCampus(idx)}
                     className={`flex-1 rounded-lg px-3 py-2 text-xs font-bold transition-colors cursor-pointer ${
-                      campus === idx ? 'bg-[#084274] text-[#feeddb]' : 'bg-[#084274]/8 text-[#084274] hover:bg-[#084274]/15'
+                      campus === idx ? 'bg-[#00558d] text-[#fff7ef]' : 'bg-[#00558d]/8 text-[#00558d] hover:bg-[#00558d]/15'
                     }`}
                   >
                     {c.label.replace('Campus ', '')}
@@ -150,7 +150,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
               />
-              <p className="text-center font-heading text-sm text-[#084274]/70 mt-3">
+              <p className="text-center font-heading text-sm text-[#00558d]/70 mt-3">
                 {SCHOOL_INFO.campuses[campus].address}
               </p>
             </div>
@@ -161,7 +161,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onOpenAdmissions }) =>
       <SD2 variant="cream" position="top" style="wave2" />
 
       {/* Formulaire de contact */}
-      <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden">
+      <section className="bg-[#fff7ef] py-16 sm:py-24 overflow-hidden">
         <div className="max-w-2xl mx-auto px-4 sm:px-8">
           <SectionIntro
             tag="Écrivez-nous"

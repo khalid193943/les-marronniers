@@ -33,7 +33,7 @@ const SECONDARY_LAYOUT = [
 export const PhotoStack: React.FC<PhotoStackProps> = ({
   photos,
   className = '',
-  backers = ['#e3a044', '#084274'],
+  backers = ['#e3a044', '#00558d'],
 }) => {
   const reduce = useReducedMotion();
   const [main, ...rest] = photos;

@@ -79,7 +79,7 @@ export const ParcoursSection: React.FC<ParcoursSectionProps> = ({ onNavigate }) 
   const reduce = useReducedMotion();
 
   return (
-    <section className="bg-[#feeddb] py-20 sm:py-28 overflow-hidden relative">
+    <section className="bg-[#fff7ef] py-20 sm:py-28 overflow-hidden relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         <SectionIntro
           tag="Nos programmes"
@@ -127,14 +127,14 @@ export const ParcoursSection: React.FC<ParcoursSectionProps> = ({ onNavigate }) 
                     />
 
                     {/* Carte bleu marine */}
-                    <span className="relative z-10 block bg-[#084274] p-8 sm:p-10 shadow-xl">
+                    <span className="relative z-10 block bg-[#00558d] p-8 sm:p-10 shadow-xl">
                       {/* Illustration dessinée à la main */}
-                      <Doodle className="w-full max-w-[260px] mx-auto text-[#feeddb] mb-6 opacity-95" />
+                      <Doodle className="w-full max-w-[260px] mx-auto text-[#fff7ef] mb-6 opacity-95" />
 
-                      <span className="block font-heading text-2xl sm:text-3xl text-[#feeddb] mb-2">
+                      <span className="block font-heading text-2xl sm:text-3xl text-[#fff7ef] mb-2">
                         {stage.title}
                       </span>
-                      <span className="block font-body text-sm sm:text-[15px] text-[#feeddb]/75 leading-relaxed mb-5">
+                      <span className="block font-body text-sm sm:text-[15px] text-[#fff7ef]/75 leading-relaxed mb-5">
                         {stage.line}
                       </span>
 
@@ -142,7 +142,7 @@ export const ParcoursSection: React.FC<ParcoursSectionProps> = ({ onNavigate }) 
                         <span className="font-body text-xs font-bold text-[#e3a044] tracking-wide">
                           {stage.level}
                         </span>
-                        <span className="inline-flex items-center rounded-full bg-[#feeddb]/12 px-3.5 py-1.5 font-body text-xs font-bold text-[#feeddb]">
+                        <span className="inline-flex items-center rounded-full bg-[#fff7ef]/12 px-3.5 py-1.5 font-body text-xs font-bold text-[#fff7ef]">
                           {stage.age}
                         </span>
                       </span>

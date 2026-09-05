@@ -12,9 +12,9 @@ import React from 'react';
 interface SectionDividerProps {
   /**
    * Color variant:
-   * - 'cream': #FEEDDB (site signature warm cream)
+   * - 'cream': #FFF7EF (site signature warm cream)
    * - 'white': #FFFFFF (pure white)
-   * - 'blue': #084274 (signature navy blue)
+   * - 'blue': #00558d (signature navy blue)
    */
   variant: 'cream' | 'white' | 'blue';
   /**
@@ -34,9 +34,9 @@ export const SectionDivider: React.FC<SectionDividerProps> = ({
   className = '',
 }) => {
   const colorMap = {
-    cream: '#FEEDDB',
+    cream: '#FFF7EF',
     white: '#FFFFFF',
-    blue: '#084274',
+    blue: '#00558d',
   };
 
   const fillColor = colorMap[variant];

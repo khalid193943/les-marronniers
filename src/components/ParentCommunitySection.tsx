@@ -62,7 +62,7 @@ export const ParentCommunitySection: React.FC = () => {
   ];
 
   return (
-    <section id="parents" className="py-24 bg-[#feeddb] overflow-hidden relative">
+    <section id="parents" className="py-24 bg-[#fff7ef] overflow-hidden relative">
       <div className="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 relative z-10">
         
         {/* Header */}
@@ -77,10 +77,10 @@ export const ParentCommunitySection: React.FC = () => {
             <div className="giggle-dot" />
             <span className="uppercase tracking-wider text-[11px] sm:text-[13px]">Paroles de Parents</span>
           </div>
-          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#084274] tracking-tight mb-6 leading-tight">
+          <h2 className="font-heading text-4xl sm:text-5xl lg:text-[45px] text-[#00558d] tracking-tight mb-6 leading-tight">
             Aimés des Enfants, Approuvés par les Familles
           </h2>
-          <p className="font-body text-base sm:text-lg text-[#084274]/80 leading-relaxed max-w-4xl mx-auto">
+          <p className="font-body text-base sm:text-lg text-[#00558d]/80 leading-relaxed max-w-4xl mx-auto">
             Découvrez ce que les parents pensent de notre accompagnement, de notre pédagogie et de l'environnement que nous offrons à leurs enfants.
           </p>
         </motion.div>
@@ -94,7 +94,7 @@ export const ParentCommunitySection: React.FC = () => {
           {testimonials.map((testi, idx) => (
             <div 
               key={idx} 
-              className="snap-start shrink-0 w-[85vw] sm:w-[340px] lg:w-[calc(25%-1.125rem)] bg-[#084274]/8 p-8 sm:p-9 flex flex-col justify-between min-h-[420px] rounded-none border-2 border-[#084274]/15 shadow-md hover:shadow-xl hover:border-[#084274]/30 transition-all duration-300 group"
+              className="snap-start shrink-0 w-[85vw] sm:w-[340px] lg:w-[calc(25%-1.125rem)] bg-[#00558d]/8 p-8 sm:p-9 flex flex-col justify-between min-h-[420px] rounded-none border-2 border-[#00558d]/15 shadow-md hover:shadow-xl hover:border-[#00558d]/30 transition-all duration-300 group"
             >
               <div>
                 {/* 5 Stars Rating */}
@@ -102,23 +102,23 @@ export const ParentCommunitySection: React.FC = () => {
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-current" />
                   ))}
-                  <span className="text-xs font-bold text-[#084274] ml-2">5.0</span>
+                  <span className="text-xs font-bold text-[#00558d] ml-2">5.0</span>
                 </div>
 
-                <p className="font-body text-[#084274] text-base sm:text-lg leading-relaxed font-medium">
+                <p className="font-body text-[#00558d] text-base sm:text-lg leading-relaxed font-medium">
                   {testi.quote}
                 </p>
               </div>
               
-              <div className="flex items-center gap-4 mt-8 pt-6 border-t border-[#084274]/10">
+              <div className="flex items-center gap-4 mt-8 pt-6 border-t border-[#00558d]/10">
                 <img 
                   src={testi.avatar} 
                   alt={testi.name} 
                   className="w-14 h-14 rounded-full object-cover shadow-sm border-2 border-white/60"
                 />
                 <div>
-                  <h4 className="font-heading font-bold text-[#084274] text-base leading-tight">{testi.name}</h4>
-                  <p className="font-body text-[#084274]/70 text-xs font-medium mt-0.5">
+                  <h4 className="font-heading font-bold text-[#00558d] text-base leading-tight">{testi.name}</h4>
+                  <p className="font-body text-[#00558d]/70 text-xs font-medium mt-0.5">
                     {testi.role}
                   </p>
                   <span className="text-[10px] font-bold text-[#e3a044] uppercase tracking-wider block mt-0.5">
@@ -132,21 +132,21 @@ export const ParentCommunitySection: React.FC = () => {
 
         {/* Carousel Controls */}
         <div className="flex items-center justify-between mt-6">
-          <p className="text-xs font-semibold text-[#084274]/70">
+          <p className="text-xs font-semibold text-[#00558d]/70">
             Faites défiler pour découvrir plus de témoignages
           </p>
 
           <div className="flex gap-3">
             <button 
               onClick={() => scroll('left')}
-              className="w-12 h-12 flex items-center justify-center bg-[#084274]/8 text-[#084274] hover:bg-[#084274]/18 hover:scale-105 active:scale-95 transition-all shadow-sm border border-[#084274]/15 cursor-pointer"
+              className="w-12 h-12 flex items-center justify-center bg-[#00558d]/8 text-[#00558d] hover:bg-[#00558d]/18 hover:scale-105 active:scale-95 transition-all shadow-sm border border-[#00558d]/15 cursor-pointer"
               aria-label="Previous testimonials"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button 
               onClick={() => scroll('right')}
-              className="w-12 h-12 flex items-center justify-center bg-[#084274]/8 text-[#084274] hover:bg-[#084274]/18 hover:scale-105 active:scale-95 transition-all shadow-sm border border-[#084274]/15 cursor-pointer"
+              className="w-12 h-12 flex items-center justify-center bg-[#00558d]/8 text-[#00558d] hover:bg-[#00558d]/18 hover:scale-105 active:scale-95 transition-all shadow-sm border border-[#00558d]/15 cursor-pointer"
               aria-label="Next testimonials"
             >
               <ChevronRight className="w-5 h-5" />

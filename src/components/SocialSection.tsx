@@ -87,10 +87,10 @@ export const SocialSection: React.FC = () => {
                   className="absolute inset-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"
                   style={{ backgroundColor: c.backer, transform: `rotate(${-c.rotate * 1.6}deg) translate(7px, 7px)` }}
                 />
-                <span className="relative z-10 bg-[#084274] p-6 flex flex-col items-center text-center shadow-lg min-h-[175px] justify-center">
+                <span className="relative z-10 bg-[#00558d] p-6 flex flex-col items-center text-center shadow-lg min-h-[175px] justify-center">
                   <Icon className="w-7 h-7 text-[#e3a044] mb-3" strokeWidth={1.7} />
-                  <span className="font-heading text-lg text-[#feeddb] mb-1">{c.name}</span>
-                  <span className="font-body text-[12px] text-[#feeddb]/70 leading-relaxed mb-2">{c.line}</span>
+                  <span className="font-heading text-lg text-[#fff7ef] mb-1">{c.name}</span>
+                  <span className="font-body text-[12px] text-[#fff7ef]/70 leading-relaxed mb-2">{c.line}</span>
                   <span className="font-body text-[11px] font-bold text-[#e3a044]">{c.handle}</span>
                 </span>
               </motion.a>

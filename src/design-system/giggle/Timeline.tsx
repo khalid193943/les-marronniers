@@ -31,7 +31,7 @@ export const Timeline: React.FC<TimelineProps> = ({ steps, className = '' }) => 
     <div className={`relative max-w-3xl mx-auto ${className}`}>
       <span
         aria-hidden="true"
-        className="absolute left-[27px] sm:left-1/2 top-2 bottom-2 border-l-2 border-dashed border-[#084274]/20"
+        className="absolute left-[27px] sm:left-1/2 top-2 bottom-2 border-l-2 border-dashed border-[#00558d]/20"
       />
       <div className="flex flex-col gap-10">
         {steps.map((s, idx) => {
@@ -48,15 +48,15 @@ export const Timeline: React.FC<TimelineProps> = ({ steps, className = '' }) => 
                 isLeft ? 'sm:pr-10' : 'sm:ml-auto sm:pl-10'
               }`}
             >
-              <span className="relative z-10 w-14 h-14 shrink-0 rounded-full bg-[#084274] text-[#e3a044] flex items-center justify-center shadow-md">
+              <span className="relative z-10 w-14 h-14 shrink-0 rounded-full bg-[#00558d] text-[#e3a044] flex items-center justify-center shadow-md">
                 <Icon className="w-6 h-6" strokeWidth={1.8} />
               </span>
-              <div className="bg-[#084274]/6 border border-[#084274]/10 rounded-xl p-5 flex-1">
+              <div className="bg-[#00558d]/6 border border-[#00558d]/10 rounded-xl p-5 flex-1">
                 <div className="flex items-center gap-3 mb-1.5">
                   {s.meta && <span className="font-heading text-base text-[#e3a044] font-bold">{s.meta}</span>}
-                  <h3 className="font-heading text-lg text-[#084274]">{s.title}</h3>
+                  <h3 className="font-heading text-lg text-[#00558d]">{s.title}</h3>
                 </div>
-                <p className="font-body text-sm text-[#084274]/70 leading-relaxed">{s.line}</p>
+                <p className="font-body text-sm text-[#00558d]/70 leading-relaxed">{s.line}</p>
               </div>
             </motion.div>
           );

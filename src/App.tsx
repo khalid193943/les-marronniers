@@ -132,7 +132,7 @@ export default function App() {
   const view: View = currentPage === ('article' as PageId) ? 'article' : toView(currentPage);
 
   return (
-    <div className="min-h-screen bg-[#feeddb] text-[#084274] flex flex-col antialiased selection:bg-[#e3a044] selection:text-white font-body">
+    <div className="min-h-screen bg-[#fff7ef] text-[#00558d] flex flex-col antialiased selection:bg-[#e3a044] selection:text-white font-body">
       {view !== 'admin' && (
       <Navbar
         currentPage={view as PageId}

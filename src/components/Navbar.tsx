@@ -54,10 +54,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
   return (
     <nav
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#feeddb]/95 backdrop-blur-md shadow-md' : 'bg-[#feeddb]'
+        scrolled ? 'bg-[#fff7ef]/95 backdrop-blur-md shadow-md' : 'bg-[#fff7ef]'
       }`}
     >
-      <div className="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between h-16 lg:h-20">
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between h-20 lg:h-24">
         {/* Logo */}
         <button
           onClick={() => go('home')}
@@ -66,7 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
         >
           <Logo
             variant="badge"
-            className="text-[15px] lg:text-[17px] rounded-lg shadow-sm group-hover:scale-[1.03] transition-transform"
+            className="text-[21px] sm:text-[24px] lg:text-[27px] rounded-xl shadow-md group-hover:scale-[1.04] transition-transform"
           />
         </button>
 
@@ -81,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
                 className={`relative px-3.5 py-2 rounded-full font-body text-[13.5px] font-semibold cursor-pointer transition-colors ${
                   active
                     ? 'bg-[#0086d9]/12 text-[#0086d9]'
-                    : 'text-[#084274]/70 hover:text-[#084274] hover:bg-[#084274]/6'
+                    : 'text-[#00558d]/70 hover:text-[#00558d] hover:bg-[#00558d]/6'
                 }`}
               >
                 {l.label}
@@ -101,7 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
           </button>
           <button
             onClick={() => setOpen(!open)}
-            className="xl:hidden w-11 h-11 rounded-full bg-[#084274]/8 text-[#084274] flex items-center justify-center cursor-pointer"
+            className="xl:hidden w-11 h-11 rounded-full bg-[#00558d]/8 text-[#00558d] flex items-center justify-center cursor-pointer"
             aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
             aria-expanded={open}
           >
@@ -118,7 +118,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="xl:hidden absolute top-full left-0 right-0 bg-[#feeddb] shadow-2xl border-t border-[#084274]/10 max-h-[calc(100vh-4rem)] overflow-y-auto"
+            className="xl:hidden absolute top-full left-0 right-0 bg-[#fff7ef] shadow-2xl border-t border-[#00558d]/10 max-h-[calc(100vh-4rem)] overflow-y-auto"
           >
             <div className="px-6 py-6 flex flex-col gap-1.5">
               {LINKS.map((l, idx) => {
@@ -131,14 +131,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
                     transition={{ delay: idx * 0.04 }}
                     onClick={() => go(l.page)}
                     className={`text-left px-4 py-3.5 rounded-2xl font-body text-[15px] font-bold cursor-pointer transition-colors ${
-                      active ? 'bg-[#084274] text-[#feeddb]' : 'text-[#084274] hover:bg-[#084274]/8'
+                      active ? 'bg-[#00558d] text-[#fff7ef]' : 'text-[#00558d] hover:bg-[#00558d]/8'
                     }`}
                   >
                     {l.label}
                   </motion.button>
                 );
               })}
-              <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-[#084274]/10">
+              <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-[#00558d]/10">
                 <button
                   onClick={() => {
                     setOpen(false);

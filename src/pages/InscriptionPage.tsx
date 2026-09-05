@@ -48,7 +48,7 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({ onOpenAdmissio
       />
 
       {/* Étapes en zigzag */}
-      <section className="bg-[#feeddb] pb-20 sm:pb-28 overflow-hidden">
+      <section className="bg-[#fff7ef] pb-20 sm:pb-28 overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="flex flex-col">
             {ETAPES.map((e, idx) => {
@@ -70,11 +70,11 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({ onOpenAdmissio
                         className="absolute inset-0"
                         style={{ backgroundColor: e.backer, transform: `rotate(${-rotate * 1.5}deg) translate(10px, 10px)` }}
                       />
-                      <div className="relative z-10 bg-[#084274] p-8 shadow-xl flex items-start gap-5">
+                      <div className="relative z-10 bg-[#00558d] p-8 shadow-xl flex items-start gap-5">
                         <span className="font-heading text-4xl text-[#e3a044] leading-none mt-1">{e.num}</span>
                         <div>
-                          <h2 className="font-heading text-xl sm:text-2xl text-[#feeddb] mb-2">{e.title}</h2>
-                          <p className="font-body text-sm text-[#feeddb]/75 leading-relaxed">{e.line}</p>
+                          <h2 className="font-heading text-xl sm:text-2xl text-[#fff7ef] mb-2">{e.title}</h2>
+                          <p className="font-body text-sm text-[#fff7ef]/75 leading-relaxed">{e.line}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -122,7 +122,7 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({ onOpenAdmissio
       <SectionDivider variant="cream" position="top" style="wave2" />
 
       {/* Formulaire de pré-inscription en ligne */}
-      <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden">
+      <section className="bg-[#fff7ef] py-16 sm:py-24 overflow-hidden">
         <div className="max-w-2xl mx-auto px-4 sm:px-8">
           <SectionIntro
             tag="En ligne, en 2 minutes"
@@ -139,13 +139,13 @@ export const InscriptionPage: React.FC<InscriptionPageProps> = ({ onOpenAdmissio
       {/* Documents + CTA */}
       <section className="bg-white py-16 sm:py-24 overflow-hidden relative">
         <DoodleStar className="hidden lg:block absolute top-12 left-[8%] w-9 text-[#e3a044]/60 pointer-events-none" />
-        <DoodleGrow className="hidden xl:block absolute bottom-6 right-[4%] w-44 text-[#084274]/12 pointer-events-none" />
+        <DoodleGrow className="hidden xl:block absolute bottom-6 right-[4%] w-44 text-[#00558d]/12 pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-8 text-center">
           <SectionIntro tag="À prévoir" title="Le Dossier, en Toute Simplicité" className="mb-10" />
 
           <div className="flex flex-wrap justify-center gap-3 mb-14">
             {DOCUMENTS.map((d) => (
-              <span key={d} className="inline-flex items-center gap-2 rounded-full bg-[#084274]/8 border border-[#084274]/12 px-5 py-2.5 text-sm font-semibold text-[#084274]">
+              <span key={d} className="inline-flex items-center gap-2 rounded-full bg-[#00558d]/8 border border-[#00558d]/12 px-5 py-2.5 text-sm font-semibold text-[#00558d]">
                 <FileText className="w-4 h-4 text-[#e3a044]" />
                 {d}
               </span>

@@ -46,8 +46,8 @@ export const SectionIntro: React.FC<SectionIntroProps> = ({
       <span
         className={`inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold mb-5 ${
           isDark
-            ? 'bg-[#feeddb]/15 text-[#feeddb]'
-            : 'bg-[#084274]/8 text-[#084274]'
+            ? 'bg-[#fff7ef]/15 text-[#fff7ef]'
+            : 'bg-[#00558d]/8 text-[#00558d]'
         }`}
       >
         <span
@@ -60,7 +60,7 @@ export const SectionIntro: React.FC<SectionIntroProps> = ({
 
       <h2
         className={`font-heading text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight ${
-          isDark ? 'text-[#feeddb]' : 'text-[#084274]'
+          isDark ? 'text-[#fff7ef]' : 'text-[#00558d]'
         } ${line ? 'mb-4' : ''}`}
       >
         {title}
@@ -69,7 +69,7 @@ export const SectionIntro: React.FC<SectionIntroProps> = ({
       {line && (
         <p
           className={`font-body text-base sm:text-lg max-w-2xl ${
-            isDark ? 'text-[#feeddb]/75' : 'text-[#084274]/70'
+            isDark ? 'text-[#fff7ef]/75' : 'text-[#00558d]/70'
           }`}
         >
           {line}

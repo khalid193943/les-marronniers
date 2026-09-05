@@ -79,7 +79,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
               { src: 'https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f37bdd99338f62c1c_Images%20(3).avif', alt: 'Campus crèche et maternelle' },
               { src: 'https://images.unsplash.com/photo-1596464716127-f2a829822301?auto=format&fit=crop&w=800&q=80', alt: 'Espace de jeu maternelle' },
             ]}
-            backers={['#d95f43', '#084274']}
+            backers={['#d95f43', '#00558d']}
           />
           <motion.div
             initial={reduce ? undefined : { opacity: 0, x: 30 }}
@@ -100,7 +100,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
                 'Mobilier et jeux importés d’Europe',
                 'Accueil dès 2 ans, en Toute Petite Section',
               ].map((item) => (
-                <li key={item} className="flex items-start gap-3 font-body text-[15px] text-[#084274]/80">
+                <li key={item} className="flex items-start gap-3 font-body text-[15px] text-[#00558d]/80">
                   <span className="w-5 h-5 rounded-full bg-[#0086d9] text-white flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5">✓</span>
                   {item}
                 </li>
@@ -110,7 +110,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
               href={SCHOOL_INFO.campuses[0].mapsUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 mt-6 rounded-full bg-[#084274]/8 border border-[#084274]/12 px-5 py-2.5 text-sm font-bold text-[#084274] hover:bg-[#084274]/12 transition-colors"
+              className="inline-flex items-center gap-2 mt-6 rounded-full bg-[#00558d]/8 border border-[#00558d]/12 px-5 py-2.5 text-sm font-bold text-[#00558d] hover:bg-[#00558d]/12 transition-colors"
             >
               📍 {SCHOOL_INFO.campuses[0].address}
             </a>
@@ -141,7 +141,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
                 'Espace cinéma-théâtre pour l’expression',
                 'Parcours continu du CP jusqu’au CE6',
               ].map((item) => (
-                <li key={item} className="flex items-start gap-3 font-body text-[15px] text-[#084274]/80">
+                <li key={item} className="flex items-start gap-3 font-body text-[15px] text-[#00558d]/80">
                   <span className="w-5 h-5 rounded-full bg-[#38926c] text-white flex items-center justify-center text-[11px] font-bold shrink-0 mt-0.5">✓</span>
                   {item}
                 </li>
@@ -151,7 +151,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
               href={SCHOOL_INFO.campuses[1].mapsUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 mt-6 rounded-full bg-[#084274]/8 border border-[#084274]/12 px-5 py-2.5 text-sm font-bold text-[#084274] hover:bg-[#084274]/12 transition-colors"
+              className="inline-flex items-center gap-2 mt-6 rounded-full bg-[#00558d]/8 border border-[#00558d]/12 px-5 py-2.5 text-sm font-bold text-[#00558d] hover:bg-[#00558d]/12 transition-colors"
             >
               📍 {SCHOOL_INFO.campuses[1].address}
             </a>
@@ -170,7 +170,7 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
       <SectionDivider variant="cream" position="top" style="wave2" />
 
       {/* Nos espaces — barres dépliables */}
-      <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden relative">
+      <section className="bg-[#fff7ef] py-16 sm:py-24 overflow-hidden relative">
         <DoodleSun className="hidden lg:block absolute top-10 right-[6%] w-11 text-[#e3a044]/60 pointer-events-none" />
         <div className="max-w-5xl mx-auto px-4 sm:px-8">
           <SectionIntro
@@ -186,8 +186,8 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
       <SectionDivider variant="blue" position="top" style="wave2" />
 
       {/* Sécurité */}
-      <section className="bg-[#084274] py-16 sm:py-24 overflow-hidden relative">
-        <DoodleSpiral className="hidden lg:block absolute bottom-10 left-[6%] w-10 text-[#feeddb]/20 pointer-events-none" />
+      <section className="bg-[#00558d] py-16 sm:py-24 overflow-hidden relative">
+        <DoodleSpiral className="hidden lg:block absolute bottom-10 left-[6%] w-10 text-[#fff7ef]/20 pointer-events-none" />
         <div className="max-w-5xl mx-auto px-4 sm:px-8">
           <SectionIntro
             tag="Sécurité & bien-être"
@@ -206,17 +206,17 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.5, delay: idx * 0.08 }}
                   whileHover={{ y: -6 }}
-                  className="bg-[#feeddb]/8 border border-[#feeddb]/15 rounded-2xl p-6 text-center"
+                  className="bg-[#fff7ef]/8 border border-[#fff7ef]/15 rounded-2xl p-6 text-center"
                 >
                   <Icon className="w-7 h-7 text-[#e3a044] mx-auto mb-3" strokeWidth={1.7} />
-                  <h3 className="font-heading text-lg text-[#feeddb] mb-1.5">{s.title}</h3>
-                  <p className="font-body text-[13px] text-[#feeddb]/70 leading-relaxed">{s.line}</p>
+                  <h3 className="font-heading text-lg text-[#fff7ef] mb-1.5">{s.title}</h3>
+                  <p className="font-body text-[13px] text-[#fff7ef]/70 leading-relaxed">{s.line}</p>
                 </motion.div>
               );
             })}
           </div>
           <div className="text-center">
-            <button onClick={onOpenAdmissions} className="cursor-pointer inline-flex items-center gap-3 bg-[#e3a044] text-[#084274] rounded-full px-8 py-4 font-bold text-[15px] hover:bg-[#f0b055] transition-colors">
+            <button onClick={onOpenAdmissions} className="cursor-pointer inline-flex items-center gap-3 bg-[#e3a044] text-[#00558d] rounded-full px-8 py-4 font-bold text-[15px] hover:bg-[#f0b055] transition-colors">
               <Calendar className="w-4 h-4" />
               <span>Visiter les campus</span>
             </button>
@@ -245,8 +245,8 @@ export const CampusPage: React.FC<CampusPageProps> = ({ onOpenAdmissions }) => {
             />
             <ul className="mt-8 flex flex-col gap-3">
               {['Encadrement présent à chaque récréation', 'Espaces intérieurs et extérieurs pensés ensemble', 'Ambiance chaleureuse dès l’entrée', 'Accueil de 7h45 à 18h15, toute la semaine'].map((item) => (
-                <li key={item} className="flex items-center gap-3 font-body text-[15px] text-[#084274]/80">
-                  <span className="w-5 h-5 rounded-full bg-[#e3a044] text-[#084274] flex items-center justify-center text-[11px] font-bold shrink-0">✓</span>
+                <li key={item} className="flex items-center gap-3 font-body text-[15px] text-[#00558d]/80">
+                  <span className="w-5 h-5 rounded-full bg-[#e3a044] text-[#00558d] flex items-center justify-center text-[11px] font-bold shrink-0">✓</span>
                   {item}
                 </li>
               ))}

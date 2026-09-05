@@ -100,14 +100,14 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
                 />
 
                 {/* Carte bleu marine */}
-                <div className="relative z-10 bg-[#084274] p-8 sm:p-10 aspect-square flex flex-col items-center justify-center text-center shadow-xl">
-                  <div className="w-14 h-14 rounded-full border-2 border-[#feeddb]/30 text-[#feeddb] flex items-center justify-center mb-5 group-hover:bg-[#e3a044] group-hover:border-[#e3a044] group-hover:text-[#084274] transition-colors duration-300">
+                <div className="relative z-10 bg-[#00558d] p-8 sm:p-10 aspect-square flex flex-col items-center justify-center text-center shadow-xl">
+                  <div className="w-14 h-14 rounded-full border-2 border-[#fff7ef]/30 text-[#fff7ef] flex items-center justify-center mb-5 group-hover:bg-[#e3a044] group-hover:border-[#e3a044] group-hover:text-[#00558d] transition-colors duration-300">
                     <Icon className="w-6 h-6" strokeWidth={1.8} />
                   </div>
-                  <h3 className="font-heading text-xl sm:text-2xl text-[#feeddb] mb-3">
+                  <h3 className="font-heading text-xl sm:text-2xl text-[#fff7ef] mb-3">
                     {card.title}
                   </h3>
-                  <p className="font-body text-sm text-[#feeddb]/75 leading-relaxed max-w-[240px]">
+                  <p className="font-body text-sm text-[#fff7ef]/75 leading-relaxed max-w-[240px]">
                     {card.line}
                   </p>
                 </div>
@@ -125,14 +125,14 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="order-2 lg:order-1"
           >
-            <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-xs font-bold text-[#084274] mb-5">
+            <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-xs font-bold text-[#00558d] mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#e3a044]" />
               Rentrée 2026 – 2027
             </span>
-            <h3 className="font-heading text-3xl sm:text-4xl text-[#084274] tracking-tight mb-4">
+            <h3 className="font-heading text-3xl sm:text-4xl text-[#00558d] tracking-tight mb-4">
               Les Inscriptions Sont Ouvertes
             </h3>
-            <p className="font-body text-base text-[#084274]/70 leading-relaxed mb-8 max-w-md">
+            <p className="font-body text-base text-[#00558d]/70 leading-relaxed mb-8 max-w-md">
               Effectifs limités par classe. Venez visiter, rencontrer l’équipe et
               découvrir nos campus.
             </p>
@@ -157,7 +157,7 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
                 alt: 'Activités en maternelle',
               },
             ]}
-            backers={['#e3a044', '#084274']}
+            backers={['#e3a044', '#00558d']}
           />
         </div>
       </div>

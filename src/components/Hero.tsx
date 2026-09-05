@@ -40,7 +40,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
   });
 
   return (
-    <section className="relative overflow-hidden bg-[#feeddb] pt-8 pb-16 lg:pt-16 lg:pb-24">
+    <section className="relative overflow-hidden bg-[#fff7ef] pt-8 pb-16 lg:pt-16 lg:pb-24">
       <div className="absolute top-0 right-0 -mr-32 -mt-32 w-[28rem] h-[28rem] rounded-full bg-[#0086d9]/8 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 -ml-24 -mb-24 w-96 h-96 rounded-full bg-[#e3a044]/12 blur-3xl pointer-events-none" />
       <DoodleSun className="hidden xl:block absolute bottom-24 left-[5%] w-10 text-[#e3a044]/50 pointer-events-none" />
@@ -53,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
             <motion.div {...rise(0)} className="flex flex-wrap items-center gap-2.5 mb-6">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/85 backdrop-blur-sm border border-[#0086d9]/20 px-4 py-2 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-[#e3a044] animate-pulse" />
-                <span className="font-body font-semibold text-xs text-[#084274]">
+                <span className="font-body font-semibold text-xs text-[#00558d]">
                   Faites le choix de la différence
                 </span>
               </span>
@@ -65,7 +65,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
 
             <motion.h1
               {...rise(0.08)}
-              className="font-heading text-[2.1rem] leading-[1.14] sm:text-5xl sm:leading-[1.1] lg:text-6xl xl:text-[4.2rem] xl:leading-[1.06] text-[#084274] tracking-tight mb-6"
+              className="font-heading text-[2.1rem] leading-[1.14] sm:text-5xl sm:leading-[1.1] lg:text-6xl xl:text-[4.2rem] xl:leading-[1.06] text-[#00558d] tracking-tight mb-6"
             >
               Où la Curiosité<br />Apprend à{' '}
               <span className="relative inline-block text-[#e3a044]">
@@ -83,7 +83,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
 
             <motion.p
               {...rise(0.16)}
-              className="font-body text-base sm:text-lg text-[#084274]/75 leading-relaxed mb-9 max-w-lg"
+              className="font-body text-base sm:text-lg text-[#00558d]/75 leading-relaxed mb-9 max-w-lg"
             >
               Une école bienveillante, de la crèche au CE6, où chaque enfant est
               connu par son prénom — depuis plus de 15 ans à El Jadida.
@@ -95,14 +95,14 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
             >
               <button
                 onClick={onOpenAdmissions}
-                className="cursor-pointer inline-flex items-center justify-center gap-3 rounded-full bg-[#084274] hover:bg-[#0086d9] text-[#feeddb] font-body font-bold text-[15px] px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+                className="cursor-pointer inline-flex items-center justify-center gap-3 rounded-full bg-[#00558d] hover:bg-[#0086d9] text-[#fff7ef] font-body font-bold text-[15px] px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
               >
                 <Calendar className="w-4 h-4 text-[#e3a044]" />
                 Réserver une visite
               </button>
               <button
                 onClick={onExploreCampuses}
-                className="cursor-pointer inline-flex items-center justify-center gap-2.5 rounded-full bg-white hover:bg-white text-[#084274] font-body font-bold text-[15px] px-7 py-4 border border-[#084274]/15 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 group"
+                className="cursor-pointer inline-flex items-center justify-center gap-2.5 rounded-full bg-white hover:bg-white text-[#00558d] font-body font-bold text-[15px] px-7 py-4 border border-[#00558d]/15 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 group"
               >
                 Voir les campus
                 <ArrowRight className="w-4 h-4 text-[#0086d9] group-hover:translate-x-1 transition-transform" />
@@ -111,14 +111,14 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
 
             <motion.div
               {...rise(0.32)}
-              className="grid grid-cols-3 gap-6 pt-7 border-t border-[#084274]/12 w-full max-w-lg"
+              className="grid grid-cols-3 gap-6 pt-7 border-t border-[#00558d]/12 w-full max-w-lg"
             >
               {STATS.map((s) => (
                 <div key={s.label} className="flex flex-col">
-                  <span className="font-heading text-2xl sm:text-[1.7rem] text-[#084274] leading-none mb-1.5">
+                  <span className="font-heading text-2xl sm:text-[1.7rem] text-[#00558d] leading-none mb-1.5">
                     <CountUp value={s.value} suffix={s.suffix} />
                   </span>
-                  <span className="font-body text-[11px] sm:text-xs text-[#084274]/65 font-semibold leading-snug">
+                  <span className="font-body text-[11px] sm:text-xs text-[#00558d]/65 font-semibold leading-snug">
                     {s.label}
                   </span>
                 </div>
@@ -189,7 +189,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
                 initial={reduce ? undefined : { opacity: 0, x: -18, scale: 0.92 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 transition={{ type: 'spring', stiffness: 70, damping: 15, delay: 0.62 }}
-                className="absolute -left-2 sm:-left-6 top-[22%] z-40 bg-white/95 backdrop-blur-md pl-3 pr-4 py-2.5 rounded-2xl shadow-lg border border-[#084274]/8 flex items-center gap-2.5"
+                className="absolute -left-2 sm:-left-6 top-[22%] z-40 bg-white/95 backdrop-blur-md pl-3 pr-4 py-2.5 rounded-2xl shadow-lg border border-[#00558d]/8 flex items-center gap-2.5"
               >
                 <span className="w-8 h-8 rounded-full bg-[#0086d9] flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-4 h-4 text-white" />
@@ -198,7 +198,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
                   <span className="block font-body text-[10px] font-bold text-[#0086d9] tracking-wide">
                     ENVIRONNEMENT
                   </span>
-                  <span className="block font-body text-[13px] font-semibold text-[#084274]">
+                  <span className="block font-body text-[13px] font-semibold text-[#00558d]">
                     Sécurisé & bienveillant
                   </span>
                 </span>
@@ -209,10 +209,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreCampuses, onOpenAdmissions 
                 initial={reduce ? undefined : { opacity: 0, x: 18, scale: 0.92 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 transition={{ type: 'spring', stiffness: 70, damping: 15, delay: 0.74 }}
-                className="absolute -right-2 sm:-right-5 -bottom-5 z-40 bg-[#084274] pl-3 pr-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2.5"
+                className="absolute -right-2 sm:-right-5 -bottom-5 z-40 bg-[#00558d] pl-3 pr-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2.5"
               >
                 <span className="w-8 h-8 rounded-full bg-[#e3a044] flex items-center justify-center shrink-0">
-                  <Sparkles className="w-4 h-4 text-[#084274]" />
+                  <Sparkles className="w-4 h-4 text-[#00558d]" />
                 </span>
                 <span className="leading-tight">
                   <span className="block font-body text-[10px] font-bold text-[#e3a044] tracking-wide">

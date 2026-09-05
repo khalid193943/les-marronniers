@@ -77,19 +77,19 @@ export const ActualitesPage: React.FC<ActualitesPageProps> = ({ onOpenArticle })
                 </div>
               </div>
               <div>
-                <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-[11px] font-bold text-[#084274] mb-4">
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-[11px] font-bold text-[#00558d] mb-4">
                   <CalendarDays className="w-3.5 h-3.5 text-[#e3a044]" />
                   {featured.category} · {formatDate(featured.date)}
                 </span>
-                <h2 className="font-heading text-3xl sm:text-4xl text-[#084274] leading-tight mb-4">
+                <h2 className="font-heading text-3xl sm:text-4xl text-[#00558d] leading-tight mb-4">
                   {featured.title}
                 </h2>
-                <p className="font-body text-base text-[#084274]/70 leading-relaxed mb-6">
+                <p className="font-body text-base text-[#00558d]/70 leading-relaxed mb-6">
                   {featured.excerpt}
                 </p>
-                <span className="inline-flex items-center gap-3 font-body font-bold text-sm text-[#084274]">
+                <span className="inline-flex items-center gap-3 font-body font-bold text-sm text-[#00558d]">
                   Lire l’article
-                  <span className="w-9 h-9 rounded-full bg-[#084274] text-[#e3a044] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+                  <span className="w-9 h-9 rounded-full bg-[#00558d] text-[#e3a044] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
                     <ArrowUpRight className="w-4 h-4" strokeWidth={2.2} />
                   </span>
                 </span>
@@ -111,16 +111,16 @@ export const ActualitesPage: React.FC<ActualitesPageProps> = ({ onOpenArticle })
                     transition={{ duration: 0.5, delay: idx * 0.06 }}
                     whileHover={{ x: 6 }}
                     onClick={() => onOpenArticle(p.slug)}
-                    className="flex items-center gap-5 sm:gap-8 bg-[#084274]/6 hover:bg-[#084274]/10 border border-[#084274]/10 rounded-2xl p-4 sm:p-5 cursor-pointer transition-colors group"
+                    className="flex items-center gap-5 sm:gap-8 bg-[#00558d]/6 hover:bg-[#00558d]/10 border border-[#00558d]/10 rounded-2xl p-4 sm:p-5 cursor-pointer transition-colors group"
                   >
                     <div className="flex-1 min-w-0">
                       <span className="font-body text-[10px] font-bold text-[#e3a044]">
                         {p.category} · {formatDate(p.date)}
                       </span>
-                      <h3 className="font-heading text-lg sm:text-xl text-[#084274] mt-1 mb-1.5">{p.title}</h3>
-                      <p className="font-body text-[13px] text-[#084274]/65 leading-relaxed">{p.excerpt}</p>
+                      <h3 className="font-heading text-lg sm:text-xl text-[#00558d] mt-1 mb-1.5">{p.title}</h3>
+                      <p className="font-body text-[13px] text-[#00558d]/65 leading-relaxed">{p.excerpt}</p>
                     </div>
-                    <div className="w-28 h-24 sm:w-40 sm:h-28 shrink-0 rounded-xl overflow-hidden bg-[#084274]/10">
+                    <div className="w-28 h-24 sm:w-40 sm:h-28 shrink-0 rounded-xl overflow-hidden bg-[#00558d]/10">
                       {p.cover && (
                         <img
                           src={p.cover}
@@ -136,7 +136,7 @@ export const ActualitesPage: React.FC<ActualitesPageProps> = ({ onOpenArticle })
           )}
 
           {posts.length === 0 && (
-            <p className="font-body text-center text-[#084274]/60 py-10">
+            <p className="font-body text-center text-[#00558d]/60 py-10">
               Les premières actualités arrivent bientôt.
             </p>
           )}
@@ -148,7 +148,7 @@ export const ActualitesPage: React.FC<ActualitesPageProps> = ({ onOpenArticle })
       <SectionDivider variant="cream" position="top" style="wave2" />
 
       {/* Galerie polaroids */}
-      <section className="bg-[#feeddb] py-16 sm:py-24 overflow-hidden relative">
+      <section className="bg-[#fff7ef] py-16 sm:py-24 overflow-hidden relative">
         <DoodleStar className="hidden lg:block absolute top-12 left-[6%] w-9 text-[#d95f43]/50 pointer-events-none" />
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <SectionIntro tag="Galerie" title="Des Moments qui Comptent" className="mb-14" />
@@ -164,7 +164,7 @@ export const ActualitesPage: React.FC<ActualitesPageProps> = ({ onOpenArticle })
                 className="relative bg-white p-2.5 pb-8 shadow-lg cursor-pointer"
               >
                 <img src={g.src} alt={g.alt} className="w-full aspect-square object-cover" loading="lazy" />
-                <figcaption className="absolute bottom-2 left-0 right-0 text-center font-heading text-xs text-[#084274]/70">
+                <figcaption className="absolute bottom-2 left-0 right-0 text-center font-heading text-xs text-[#00558d]/70">
                   {g.alt}
                 </figcaption>
               </motion.figure>

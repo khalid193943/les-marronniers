@@ -193,3 +193,35 @@ les fichiers dans `public/photos/` et pointer dessus).
 `ActivityShowcase` — vitrine à onglets : la liste des ateliers à gauche, la
 photo et le détail à droite, en fondu. Remplace la grille de vignettes sur
 la page Vie Scolaire : chaque atelier a enfin une vraie place.
+
+---
+
+## 🎨 Passe v7 — Charte du logo appliquée partout
+
+### Le bleu du site est désormais celui du logo
+Le bleu pur du logo (`#0086D9`) a été testé en couleur de texte : **3,66:1**
+sur le fond crème — insuffisant pour du petit texte (il faut 4,5:1).
+
+La solution retenue garde la marque tout en restant lisible :
+- **`#00558D`** remplace l'ancien navy pour le texte et les sections foncées.
+  C'est **exactement la même teinte que le logo (204°)**, en plus profond →
+  contraste **7,4:1**, le site est visiblement dans le bleu de la marque.
+- **`#0086D9`** (le bleu exact du logo) reste sur les boutons, icônes, badges,
+  états actifs et gros titres — là où il brille sans poser de souci de lecture.
+
+### Crème éclairci
+`#FEEDDB` → **`#FFF7EF`**. Plus lumineux et aérien, et le contraste du texte
+s'améliore au passage (7,4:1 au lieu de 6,8:1).
+
+### Logo agrandi
+Navbar : `15px` → `21–27px` (la barre passe de `h-16/20` à `h-20/24`).
+Footer : `26px` → `36–44px`.
+
+### Composition photo unifiée
+`PhotoCollage` suit maintenant **une seule règle sur tout le site** :
+- **2 photos au premier plan**, entières et lisibles (l'une haute, l'autre basse) ;
+- **2 photos derrière**, qui dépassent en biais dans les coins opposés.
+
+Le fond apparaît d'abord au scroll, le premier plan se pose ensuite par-dessus ;
+au survol, la pile s'ouvre légèrement. Toute section illustrée du site partage
+donc la même signature visuelle.
