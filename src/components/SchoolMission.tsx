@@ -11,9 +11,7 @@ import React from 'react';
 import { Calendar, HeartHandshake, ShieldCheck, Sparkles, GraduationCap } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 import { SectionIntro } from '../design-system/giggle/SectionIntro';
-import { PhotoStack } from '../design-system/giggle/PhotoStack';
 import { DoodleStar, DoodleSun } from '../design-system/giggle/Doodles';
-import { PHOTOS } from '../data/photos';
 import { Carousel } from '../design-system/giggle/Carousel';
 
 interface SchoolMissionProps {
@@ -69,7 +67,7 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
         />
 
         {/* 4 cartes carrées inclinées — grille 2×2 comme l'inspiration */}
-        <Carousel className="max-w-3xl mx-auto mb-20 sm:mb-32" desktopGrid="md:grid-cols-2 md:gap-14 lg:gap-x-24" cardWidth="w-[72vw]" aria-label="Pourquoi nous choisir">
+        <Carousel className="max-w-3xl mx-auto" desktopGrid="md:grid-cols-2 md:gap-14 lg:gap-x-24" cardWidth="w-[72vw]" aria-label="Pourquoi nous choisir">
           {CARDS.map((card, idx) => {
             const Icon = card.icon;
             return (
@@ -117,45 +115,6 @@ export const SchoolMission: React.FC<SchoolMissionProps> = ({ onOpenAdmissions }
             );
           })}
         </Carousel>
-
-        {/* Bannière inscription — texte minimal + pile de photos (comme "Now Enrolling" de l'inspiration) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center max-w-5xl mx-auto">
-          <motion.div
-            initial={reduce ? undefined : { opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="order-1 lg:order-1"
-          >
-            <span className="inline-flex items-center gap-2 rounded-full bg-[#e3a044]/15 px-4 py-1.5 text-xs font-bold text-[#0086d9] mb-5 keep-round">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#e3a044] keep-round" />
-              Rentrée 2026 – 2027
-            </span>
-            <h3 className="font-heading text-3xl sm:text-4xl text-[#0086d9] tracking-tight mb-4">
-              Les Inscriptions Sont Ouvertes
-            </h3>
-            <p className="font-body text-base text-[#00558d]/70 leading-relaxed mb-8 max-w-md">
-              Effectifs limités par classe. Venez visiter, rencontrer l’équipe et
-              découvrir nos campus.
-            </p>
-            <button
-              onClick={onOpenAdmissions}
-              className="giggle-button-primary cursor-pointer inline-flex items-center gap-3"
-            >
-              <Calendar className="w-4 h-4 text-[#ffe08a]" />
-              <span>Réserver une visite</span>
-            </button>
-          </motion.div>
-
-          <PhotoStack
-            className="order-2 lg:order-2 aspect-[4/3] max-w-md mx-auto w-full"
-            photos={[
-              PHOTOS.tennisTable,
-              PHOTOS.peinture,
-            ]}
-            backers={['#e3a044', '#0086d9']}
-          />
-        </div>
       </div>
     </section>
   );

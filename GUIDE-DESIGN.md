@@ -469,3 +469,42 @@ python3 audit_visuel.py     # débordements, zones tactiles, texte tronqué
 python3 ordre_mobile.py     # image avant le texte sur mobile
 python3 verif_survol.py     # texte coupé au survol
 ```
+
+---
+
+## ✂️ Passe v15 — Deux sections supprimées
+
+Deux blocs de l'accueil ont été retirés : leur **visuel contredisait leur
+message**, ce qui affaiblissait la crédibilité du site plutôt que de la servir.
+
+| Section retirée | Problème |
+|---|---|
+| « Assez petite pour connaître chaque enfant » (`ImpactSection`) | Les chiffres annonçaient « 6 salles de classe lumineuses » et « 15+ ateliers », illustrés par la photo d'une fillette en costume près d'une piscine — sans rapport |
+| « Les Inscriptions Sont Ouvertes » (bannière dans `SchoolMission`) | Message d'inscription illustré par une photo de tennis de table |
+
+Le fichier `ImpactSection.tsx` a été supprimé, ainsi que les imports devenus
+inutiles. L'enchaînement des fonds (crème → blanc) et les séparateurs déchirés
+ont été vérifiés : la jonction est propre.
+
+**Règle à retenir** : une section qui met en avant un argument doit être
+illustrée par une photo qui le montre. À défaut, mieux vaut pas d'image du
+tout — ou pas de section.
+
+L'accueil passe de 16,8 à **15 écrans** sur mobile.
+
+---
+
+## 🔷 Passe v16 — Logo du header
+
+Le header reprend désormais le traitement du pied de page — texte empilé,
+sans cadre bleu — mais dans le bleu de la marque (variante `dark`).
+
+| | Avant | Après |
+|---|---|---|
+| Style | pastille bleue à fond plein | texte seul, comme au pied de page |
+| Couleur | blanc sur bleu | bleu `#0086D9` |
+| Taille | 21 → 27 px | 23 → 29 px |
+
+Hauteurs mesurées : logo 54 px dans une barre de 80 px sur mobile (marge
+13 px), 69 px dans 96 px sur desktop (marge 14 px). Le logo respire sans
+jamais toucher les bords.

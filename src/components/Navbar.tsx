@@ -65,8 +65,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
           aria-label="Accueil Les Marronniers"
         >
           <Logo
-            variant="badge"
-            className="text-[21px] sm:text-[24px] lg:text-[27px] rounded-xl shadow-md group-hover:scale-[1.04] transition-transform"
+            variant="dark"
+            className="text-[23px] sm:text-[26px] lg:text-[29px] group-hover:opacity-80 transition-opacity"
           />
         </button>
 
