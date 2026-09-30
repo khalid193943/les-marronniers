@@ -17,7 +17,9 @@
  *   ce que l'on voit, sans nommer les enfants.
  */
 
-const P = (file: string) => `/photos/${file}`;
+/* Les photos sont importées par Vite : optimisées, versionnées, et intégrées à l'aperçu autonome */
+const FILES = import.meta.glob('../assets/photos/*.{jpg,jpeg,png,webp}', { eager: true, import: 'default' }) as Record<string, string>;
+const P = (file: string) => FILES[`../assets/photos/${file}`] ?? `/photos/${file}`;
 
 export const PHOTOS = {
   /* ---------- Vie de classe ---------- */

@@ -23,11 +23,14 @@ import { DirectorWordSection } from './components/DirectorWordSection';
 import { SchoolVideoSection } from './components/SchoolVideoSection';
 import { SchoolMission } from './components/SchoolMission';
 import { ParcoursSection } from './components/ParcoursSection';
+import { GrowSection } from './components/GrowSection';
+import { SmoothScroll, ReadingProgress } from './components/world/Nature';
 import { CreativeLifeSection } from './components/CreativeLifeSection';
 import { PartnerSection } from './components/PartnerSection';
 import { ParentCommunitySection } from './components/ParentCommunitySection';
 import { WaveCtaSection } from './components/WaveCtaSection';
 import { ContactAndLocationSection } from './components/ContactAndLocationSection';
+import { VisitSection } from './components/VisitSection';
 
 // Pages consolidées
 import { EcolePage } from './pages/EcolePage';
@@ -132,6 +135,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#fff7ef] text-[#0086d9] flex flex-col antialiased selection:bg-[#e3a044] selection:text-white font-body">
+      {view !== 'admin' && <><SmoothScroll /><ReadingProgress /></>}
       {view !== 'admin' && (
       <Navbar
         currentPage={view as PageId}
@@ -169,7 +173,7 @@ export default function App() {
                 <SectionDivider variant="white" position="top" style="wave2" />
                 <SchoolMission onOpenAdmissions={() => handleOpenAdmissions()} />
                 <SectionDivider variant="white" position="bottom" style="wave1" />
-                <ParcoursSection onNavigate={handleNavigate} />
+                <GrowSection onNavigate={handleNavigate} />
                 <SectionDivider variant="white" position="top" style="wave1" />
                 <CreativeLifeSection onOpenAdmissions={() => handleOpenAdmissions()} />
                 <SectionDivider variant="white" position="bottom" style="wave1" />
@@ -180,7 +184,7 @@ export default function App() {
                 <SectionDivider variant="cream" position="bottom" style="wave1" />
                 <ParentCommunitySection />
                 <WaveCtaSection onOpenAdmissions={() => handleOpenAdmissions()} />
-                <ContactAndLocationSection />
+                <VisitSection />
               </div>
             )}
 

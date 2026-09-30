@@ -1,529 +1,229 @@
 /**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- * Les Marronniers — Espace d'administration (#admin)
- *
- * Deux espaces :
- *  • Actualités : créer, modifier, supprimer des articles (titre, image, texte…)
- *  • Demandes   : messages de contact et pré-inscriptions reçus
- *
- * Sécurité : le mot de passe ci-dessous est une protection légère côté
- * navigateur. Pour un vrai verrou, activez la protection par mot de passe de
- * votre hébergeur (Netlify → Site settings → Access control). Voir le README.
+ * Les Marronniers — Espace administration (design propre).
+ * Actualités · Pré-inscriptions · Messages · Réglages. Données : newsStore / submissionsStore.
  */
-
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import {
-  Lock, Newspaper, Inbox, Plus, Pencil, Trash2, Download, Upload, X, Check,
-  Image as ImageIcon, Star, RefreshCw, LogOut, Link2, AlertCircle, Phone, Mail,
-} from 'lucide-react';
-import {
-  NewsPost, getPosts, savePost, deletePost, emptyPost, slugify, formatDate,
-  exportPosts, importPosts, resetLocalChanges, getPendingCount, fileToResizedDataUrl,
-} from '../lib/newsStore';
-import {
-  Submission, getSubmissions, markRead, deleteSubmission, exportSubmissionsCsv,
-  getNetlifyConfig, saveNetlifyConfig, clearNetlifyConfig, fetchNetlifySubmissions,
-} from '../lib/submissionsStore';
+import { LayoutGrid, Newspaper, UserPlus, Mail, Settings, LogOut, Plus, Pencil, Trash2, Download, Upload, Search, Phone, MessageCircle, ExternalLink, RotateCcw, Star, RefreshCw, X } from 'lucide-react';
 import { ADMIN_PASSWORD } from '../data/adminConfig';
+import { getPosts, savePost, deletePost, emptyPost, exportPosts, importPosts, getPendingCount, resetLocalChanges, fileToResizedDataUrl, formatDate, slugify, NewsPost } from '../lib/newsStore';
+import { getSubmissions, deleteSubmission, exportSubmissionsCsv, updateSubmission, getNetlifyConfig, saveNetlifyConfig, clearNetlifyConfig, fetchNetlifySubmissions, Submission, SubmissionStatus } from '../lib/submissionsStore';
+import { LeafIcon } from '../components/world/Nature';
 
-/* --------------------------------- styles --------------------------------- */
+type Tab = 'bord' | 'actus' | 'inscriptions' | 'messages' | 'reglages';
+const SESSION = 'marronniers:admin';
+const STATUSES: SubmissionStatus[] = ['nouvelle', 'en cours', 'traitée', 'archivée'];
+const TONE: Record<SubmissionStatus, string> = { nouvelle: '#E3A044', 'en cours': '#0086D9', traitée: '#00A06B', archivée: '#94A3B8' };
+const field = 'w-full bg-white border border-[#0B3A5E]/15 px-4 h-11 text-[15px] text-[#0B3A5E] focus:outline-none focus:border-[#0086D9]';
+const pick = (d: Record<string, string>, keys: string[]) => { const k = Object.keys(d).find((x) => keys.some((y) => x.toLowerCase().includes(y))); return k ? d[k] : ''; };
+const who = (s: Submission) => pick(s.data, ['parent', 'nom', 'name']) || 'Sans nom';
+const tel = (s: Submission) => pick(s.data, ['tel', 'phone', 'portable']);
+const mail = (s: Submission) => pick(s.data, ['mail']);
+const when = (iso: string) => new Date(iso).toLocaleString('fr-FR', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
 
-const field =
-  'w-full bg-[#0086d9]/6 border border-[#0086d9]/15 px-4 py-2.5 font-body text-[15px] text-[#0086d9] placeholder:text-[#00558d]/40 focus:outline-none focus:border-[#0086d9]/40 focus:bg-[#0086d9]/10 transition-colors rounded-lg';
-const label = 'block font-body text-xs font-bold text-[#00558d]/70 mb-1.5';
-const btn =
-  'inline-flex items-center justify-center gap-2 rounded-full font-body font-bold text-sm px-5 py-2.5 cursor-pointer transition-colors';
-const btnPrimary = `${btn} bg-[#0086d9] text-[#fff7ef] hover:bg-[#003f6b]`;
-const btnGhost = `${btn} bg-[#0086d9]/8 text-[#0086d9] hover:bg-[#0086d9]/15`;
+const Btn: React.FC<React.ButtonHTMLAttributes<HTMLButtonElement> & { tone?: 'blue' | 'ghost' | 'danger' }> = ({ tone = 'blue', className = '', ...p }) => (
+  <button {...p} className={`inline-flex items-center gap-2 h-10 px-4 text-[14px] transition-colors disabled:opacity-50 ${tone === 'blue' ? 'bg-[#0086D9] text-white hover:bg-[#006cb3]' : tone === 'danger' ? 'bg-[#FDECEA] text-[#B42318] hover:bg-[#FAD7D2]' : 'bg-white text-[#0B3A5E] ring-1 ring-[#0B3A5E]/15 hover:ring-[#0B3A5E]/35'} ${className}`} />
+);
 
-/* -------------------------------- connexion -------------------------------- */
-
-const LoginGate: React.FC<{ onOk: () => void }> = ({ onOk }) => {
-  const [pwd, setPwd] = useState('');
-  const [error, setError] = useState(false);
-
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (pwd === ADMIN_PASSWORD) {
-      sessionStorage.setItem('marronniers:admin', '1');
-      onOk();
-    } else {
-      setError(true);
-      setPwd('');
-    }
-  };
-
+/* ------------------------------ Connexion ------------------------------ */
+const Login: React.FC<{ onOk: () => void }> = ({ onOk }) => {
+  const [pw, setPw] = useState(''); const [err, setErr] = useState(false);
   return (
-    <div className="min-h-[70vh] flex items-center justify-center px-4">
-      <motion.form
-        onSubmit={submit}
-        initial={{ opacity: 0, rotate: 3, y: 20 }}
-        animate={{ opacity: 1, rotate: -1, y: 0 }}
-        transition={{ type: 'spring', stiffness: 60, damping: 13 }}
-        className="relative w-full max-w-sm"
-      >
-        <span aria-hidden="true" className="absolute inset-0 bg-[#e3a044]" style={{ transform: 'rotate(2deg) translate(10px,10px)' }} />
-        <div className="relative z-10 bg-[#0086d9] p-8 shadow-2xl">
-          <Lock className="w-8 h-8 text-[#ffe08a] mx-auto mb-4" />
-          <h1 className="font-heading text-2xl text-[#fff7ef] text-center mb-1">Espace administration</h1>
-          <p className="font-body text-xs text-[#fff7ef]/85 text-center mb-6">Les Marronniers El Jadida</p>
-          <input
-            type="password"
-            value={pwd}
-            onChange={(e) => { setPwd(e.target.value); setError(false); }}
-            placeholder="Mot de passe"
-            autoFocus
-            className="w-full bg-[#fff7ef]/10 border border-[#fff7ef]/25 px-4 py-3 text-[#fff7ef] placeholder:text-[#fff7ef]/40 rounded-lg focus:outline-none focus:border-[#e3a044] mb-3"
-          />
-          {error && <p className="font-body text-xs text-[#f0a89a] mb-3 text-center">Mot de passe incorrect.</p>}
-          <button type="submit" className="w-full rounded-full bg-[#e3a044] text-[#0086d9] font-bold py-3 cursor-pointer hover:bg-[#f0b055] transition-colors keep-round">
-            Se connecter
-          </button>
+    <div className="min-h-screen grid lg:grid-cols-2 bg-[#fff7ef]">
+      <div className="hidden lg:flex flex-col justify-between p-14 bg-[#0B3A5E] text-white relative overflow-hidden">
+        <p className="font-heading text-3xl leading-none">LES<br /><span className="text-2xl">Marronniers</span></p>
+        <div><p className="font-heading text-[3.4rem] leading-[1]">L’école, <span className="italic text-[#FFC800]">côté coulisses.</span></p><p className="mt-5 text-white/70 max-w-[40ch]">Publiez les actualités, suivez les pré-inscriptions et répondez aux familles, au même endroit.</p></div>
+        <LeafIcon size={260} color="#ffffff" className="absolute -right-16 -bottom-16 opacity-[0.06]" />
+      </div>
+      <form className="flex items-center justify-center p-6" onSubmit={(e) => { e.preventDefault(); if (pw === ADMIN_PASSWORD) { sessionStorage.setItem(SESSION, '1'); onOk(); } else setErr(true); }}>
+        <div className="w-full max-w-[380px]">
+          <LeafIcon size={40} />
+          <h1 className="mt-6 text-[2.4rem] leading-none text-[#0B3A5E]">Administration</h1>
+          <p className="mt-3 text-[#0B3A5E]/70">Les Marronniers El Jadida</p>
+          <label className="block mt-10 text-[14px] text-[#0B3A5E]">Mot de passe<input type="password" autoFocus className={`${field} mt-2`} value={pw} onChange={(e) => { setPw(e.target.value); setErr(false); }} /></label>
+          {err && <p className="mt-3 text-[14px] text-[#B42318]">Mot de passe incorrect.</p>}
+          <Btn type="submit" className="mt-6 w-full justify-center h-12">Entrer</Btn>
+          <a href="#" className="block mt-6 text-center text-[14px] text-[#0086D9]">← Retour au site</a>
         </div>
-      </motion.form>
+      </form>
     </div>
   );
 };
 
-/* ------------------------------ éditeur d'article ------------------------------ */
-
-const PostEditor: React.FC<{
-  post: NewsPost;
-  onSave: (p: NewsPost) => void;
-  onCancel: () => void;
-}> = ({ post, onSave, onCancel }) => {
-  const [draft, setDraft] = useState<NewsPost>(post);
-  const [uploadError, setUploadError] = useState('');
-  const fileRef = useRef<HTMLInputElement>(null);
-
-  const set = <K extends keyof NewsPost>(k: K, v: NewsPost[K]) =>
-    setDraft((d) => ({ ...d, [k]: v }));
-
-  const handleFile = async (f?: File) => {
-    if (!f) return;
-    setUploadError('');
-    try {
-      const url = await fileToResizedDataUrl(f);
-      set('cover', url);
-    } catch {
-      setUploadError('Image illisible. Essayez un JPG ou PNG.');
-    }
-  };
-
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSave({ ...draft, slug: draft.slug || slugify(draft.title) });
-  };
-
+/* ------------------------------ Actualités ------------------------------ */
+const NewsTab: React.FC<{ refresh: () => void }> = ({ refresh }) => {
+  const [posts, setPosts] = useState(getPosts()); const [q, setQ] = useState(''); const [edit, setEdit] = useState<NewsPost | null>(null);
+  const reload = () => { setPosts(getPosts()); refresh(); };
+  const list = posts.filter((p) => `${p.title} ${p.category}`.toLowerCase().includes(q.toLowerCase()));
+  const pending = getPendingCount();
   return (
-    <motion.form
-      onSubmit={submit}
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="bg-white border border-[#0086d9]/12 rounded-2xl p-6 sm:p-8 shadow-sm flex flex-col gap-5"
-    >
-      <div className="flex items-center justify-between">
-        <h3 className="font-heading text-2xl text-[#0086d9]">
-          {post.title ? 'Modifier l’article' : 'Nouvel article'}
-        </h3>
-        <button type="button" onClick={onCancel} className="w-9 h-9 rounded-full bg-[#0086d9]/8 text-[#0086d9] flex items-center justify-center cursor-pointer hover:bg-[#0086d9]/15 keep-round" aria-label="Fermer">
-          <X className="w-4 h-4" />
-        </button>
-      </div>
-
-      <div>
-        <label className={label} htmlFor="a-title">Titre</label>
-        <input id="a-title" className={field} value={draft.title} required
-          onChange={(e) => setDraft((d) => ({ ...d, title: e.target.value, slug: slugify(e.target.value) }))}
-          placeholder="Ex : Spectacle de fin d’année" />
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div>
-          <label className={label} htmlFor="a-cat">Catégorie</label>
-          <select id="a-cat" className={field} value={draft.category} onChange={(e) => set('category', e.target.value)}>
-            {['Vie scolaire', 'Inscriptions', 'Nos campus', 'Ateliers', 'Événement', 'Pédagogie'].map((c) => (
-              <option key={c} value={c}>{c}</option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label className={label} htmlFor="a-date">Date</label>
-          <input id="a-date" type="date" className={field} value={draft.date} onChange={(e) => set('date', e.target.value)} />
-        </div>
-        <div className="flex items-end">
-          <button type="button" onClick={() => set('featured', !draft.featured)}
-            className={`${draft.featured ? 'bg-[#e3a044] text-[#0086d9]' : 'bg-[#0086d9]/8 text-[#0086d9]'} ${btn} w-full`}>
-            <Star className="w-4 h-4" fill={draft.featured ? 'currentColor' : 'none'} />
-            {draft.featured ? 'À la une' : 'Mettre à la une'}
-          </button>
-        </div>
-      </div>
-
-      {/* Image */}
-      <div>
-        <label className={label}>Image de couverture</label>
-        <div className="flex flex-col sm:flex-row gap-4 items-start">
-          <div className="w-full sm:w-56 aspect-[4/3] bg-[#0086d9]/6 border border-[#0086d9]/15 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
-            {draft.cover ? (
-              <img src={draft.cover} alt="" className="w-full h-full object-cover" />
-            ) : (
-              <ImageIcon className="w-7 h-7 text-[#0086d9]/30" />
-            )}
-          </div>
-          <div className="flex-1 w-full flex flex-col gap-2.5">
-            <button type="button" onClick={() => fileRef.current?.click()} className={btnGhost}>
-              <Upload className="w-4 h-4" /> Choisir une photo
-            </button>
-            <input ref={fileRef} type="file" accept="image/*" className="hidden"
-              onChange={(e) => handleFile(e.target.files?.[0])} />
-            <input className={field} value={draft.cover.startsWith('data:') ? '' : draft.cover}
-              onChange={(e) => set('cover', e.target.value)}
-              placeholder="… ou coller une adresse d’image (https://…)" />
-            {draft.cover.startsWith('data:') && (
-              <p className="font-body text-[11px] text-[#00558d]/60">Photo importée depuis votre appareil.</p>
-            )}
-            {uploadError && <p className="font-body text-[11px] text-[#d95f43]">{uploadError}</p>}
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <label className={label} htmlFor="a-exc">Résumé (une ou deux phrases)</label>
-        <textarea id="a-exc" className={field} rows={2} value={draft.excerpt} required
-          onChange={(e) => set('excerpt', e.target.value)} placeholder="Ce qui donne envie de lire la suite." />
-      </div>
-
-      <div>
-        <label className={label} htmlFor="a-body">Texte de l’article</label>
-        <textarea id="a-body" className={`${field} font-body leading-relaxed`} rows={10} value={draft.body} required
-          onChange={(e) => set('body', e.target.value)}
-          placeholder="Écrivez librement. Laissez une ligne vide entre deux paragraphes." />
-      </div>
-
-      <div className="flex flex-wrap gap-3 pt-1">
-        <button type="submit" className={btnPrimary}><Check className="w-4 h-4" /> Enregistrer</button>
-        <button type="button" onClick={onCancel} className={btnGhost}>Annuler</button>
-      </div>
-    </motion.form>
+    <div>
+      <Head title="Actualités" desc="Les articles publiés apparaissent sur la page Actualités et sur l’accueil." actions={<><Btn tone="ghost" onClick={exportPosts}><Download size={15} />Exporter news.json</Btn><label className="inline-flex items-center gap-2 h-10 px-4 text-[14px] bg-white text-[#0B3A5E] ring-1 ring-[#0B3A5E]/15 cursor-pointer"><Upload size={15} />Importer<input type="file" accept="application/json" hidden onChange={async (e) => { const f = e.target.files?.[0]; if (f && (await importPosts(f))) reload(); }} /></label><Btn onClick={() => setEdit(emptyPost())}><Plus size={15} />Nouvel article</Btn></>} />
+      {pending > 0 && <div className="mb-6 p-5 bg-[#FFF4DC] text-[#0B3A5E] flex flex-wrap items-center justify-between gap-3"><p className="text-[15px]"><span className="text-[#B7791F]">{pending} modification(s) locale(s).</span> Pour les rendre visibles par tous : « Exporter news.json », remplacez <code>src/data/news.json</code>, puis republiez le site.</p><Btn tone="ghost" onClick={() => { if (confirm('Annuler toutes les modifications locales ?')) { resetLocalChanges(); reload(); } }}><RotateCcw size={15} />Annuler</Btn></div>}
+      <div className="relative max-w-sm mb-6"><Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#0B3A5E]/40" /><input className={`${field} pl-10`} placeholder="Rechercher un article" value={q} onChange={(e) => setQ(e.target.value)} /></div>
+      <ul className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+        {list.map((p) => (
+          <li key={p.id} className="bg-white shadow-[0_20px_40px_-30px_rgba(11,58,94,0.4)] flex flex-col">
+            <div className="aspect-[16/9] bg-[#EAF6FD] relative">{p.cover && <img src={p.cover} alt="" className="w-full h-full object-cover" />}{p.featured && <span className="absolute left-3 top-3 inline-flex items-center gap-1 bg-[#FFC800] text-[#0B3A5E] px-2.5 py-1 text-[12px]"><Star size={12} />À la une</span>}</div>
+            <div className="p-5 flex-1 flex flex-col"><p className="text-[12px] uppercase tracking-[0.14em] text-[#0086D9]">{p.category} · {formatDate(p.date)}</p><p className="font-heading text-[1.35rem] leading-snug mt-2 text-[#0B3A5E]">{p.title}</p><p className="text-[14px] text-[#0B3A5E]/65 mt-2 line-clamp-2">{p.excerpt}</p>
+              <div className="mt-auto pt-5 flex gap-2"><Btn tone="ghost" onClick={() => setEdit({ ...p })}><Pencil size={14} />Modifier</Btn><Btn tone="danger" onClick={() => { if (confirm('Supprimer cet article ?')) { deletePost(p.id); reload(); } }}><Trash2 size={14} /></Btn></div></div>
+          </li>
+        ))}
+      </ul>
+      <Drawer open={!!edit} onClose={() => setEdit(null)} title={edit && posts.some((x) => x.id === edit.id) ? 'Modifier l’article' : 'Nouvel article'}>
+        {edit && (
+          <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); savePost({ ...edit, slug: edit.slug || slugify(edit.title) }); setEdit(null); reload(); }}>
+            <L t="Titre"><input required className={field} value={edit.title} onChange={(e) => setEdit({ ...edit, title: e.target.value })} /></L>
+            <div className="grid grid-cols-2 gap-4"><L t="Catégorie"><input className={field} value={edit.category} onChange={(e) => setEdit({ ...edit, category: e.target.value })} /></L><L t="Date"><input type="date" className={field} value={edit.date} onChange={(e) => setEdit({ ...edit, date: e.target.value })} /></L></div>
+            <L t="Photo"><div className="flex items-center gap-4">{edit.cover && <img src={edit.cover} alt="" className="w-24 h-16 object-cover" />}<label className="inline-flex items-center gap-2 h-10 px-4 text-[14px] bg-white ring-1 ring-[#0B3A5E]/15 cursor-pointer"><Upload size={15} />Choisir une photo<input type="file" accept="image/*" hidden onChange={async (e) => { const f = e.target.files?.[0]; if (f) setEdit({ ...edit, cover: await fileToResizedDataUrl(f) }); }} /></label></div><input className={`${field} mt-3`} placeholder="…ou adresse d’une image" value={edit.cover.startsWith('data:') ? '' : edit.cover} onChange={(e) => setEdit({ ...edit, cover: e.target.value })} /></L>
+            <L t="Résumé"><textarea required rows={2} className={`${field} h-auto py-3`} value={edit.excerpt} onChange={(e) => setEdit({ ...edit, excerpt: e.target.value })} /></L>
+            <L t="Texte (une ligne vide entre deux paragraphes)"><textarea required rows={9} className={`${field} h-auto py-3`} value={edit.body} onChange={(e) => setEdit({ ...edit, body: e.target.value })} /></L>
+            <label className="flex items-center gap-2 text-[15px] text-[#0B3A5E]"><input type="checkbox" checked={!!edit.featured} onChange={(e) => setEdit({ ...edit, featured: e.target.checked })} />Mettre à la une</label>
+            <div className="flex justify-end gap-2 pt-2"><Btn tone="ghost" type="button" onClick={() => setEdit(null)}>Annuler</Btn><Btn type="submit">Enregistrer</Btn></div>
+          </form>
+        )}
+      </Drawer>
+    </div>
   );
 };
 
-/* ------------------------------ onglet Actualités ------------------------------ */
-
-const NewsTab: React.FC = () => {
-  const [posts, setPosts] = useState<NewsPost[]>([]);
-  const [editing, setEditing] = useState<NewsPost | null>(null);
-  const [pending, setPending] = useState(0);
-  const [notice, setNotice] = useState('');
-  const importRef = useRef<HTMLInputElement>(null);
-
-  const refresh = () => { setPosts(getPosts()); setPending(getPendingCount()); };
-  useEffect(refresh, []);
-
-  const handleSave = (p: NewsPost) => {
-    const ok = savePost(p);
-    setNotice(ok ? 'Article enregistré.' : 'Stockage plein : utilisez une image plus légère ou une adresse d’image.');
-    setEditing(null);
-    refresh();
-  };
-
-  const handleDelete = (p: NewsPost) => {
-    if (!confirm(`Supprimer « ${p.title} » ?`)) return;
-    deletePost(p.id);
-    setNotice('Article supprimé.');
-    refresh();
-  };
-
-  const handleImport = async (f?: File) => {
-    if (!f) return;
-    const ok = await importPosts(f);
-    setNotice(ok ? 'Articles importés.' : 'Fichier invalide.');
-    refresh();
-  };
-
-  if (editing) return <PostEditor post={editing} onSave={handleSave} onCancel={() => setEditing(null)} />;
-
+/* -------------------- Pré-inscriptions & messages -------------------- */
+const Inbox: React.FC<{ kind: Submission['kind']; subs: Submission[]; reload: () => void }> = ({ kind, subs, reload }) => {
+  const [status, setStatus] = useState<'toutes' | SubmissionStatus>('toutes'); const [q, setQ] = useState(''); const [open, setOpen] = useState<string | null>(null);
+  const mine = subs.filter((s) => s.kind === kind);
+  const list = mine.filter((s) => (status === 'toutes' || (s.status || 'nouvelle') === status) && JSON.stringify(s.data).toLowerCase().includes(q.toLowerCase()));
+  const cur = mine.find((s) => s.id === open);
+  const isIns = kind === 'pre-inscription';
   return (
-    <div className="flex flex-col gap-6">
-      {/* Barre d'actions */}
-      <div className="flex flex-wrap items-center gap-3">
-        <button onClick={() => setEditing(emptyPost())} className={btnPrimary}>
-          <Plus className="w-4 h-4" /> Nouvel article
-        </button>
-        <button onClick={exportPosts} className={btnGhost}>
-          <Download className="w-4 h-4" /> Exporter (publier)
-        </button>
-        <button onClick={() => importRef.current?.click()} className={btnGhost}>
-          <Upload className="w-4 h-4" /> Importer
-        </button>
-        <input ref={importRef} type="file" accept="application/json" className="hidden"
-          onChange={(e) => handleImport(e.target.files?.[0])} />
-        {pending > 0 && (
-          <button onClick={() => { if (confirm('Annuler toutes les modifications non publiées ?')) { resetLocalChanges(); refresh(); } }}
-            className={`${btn} bg-[#d95f43]/12 text-[#0086d9] hover:bg-[#d95f43]/20`}>
-            <RefreshCw className="w-4 h-4" /> Annuler les brouillons
-          </button>
-        )}
+    <div>
+      <Head title={isIns ? 'Pré-inscriptions' : 'Messages'} desc={isIns ? 'Les demandes envoyées depuis la page Inscription. Suivez chaque famille jusqu’à la rentrée.' : 'Les messages envoyés depuis la page Contact.'} actions={<Btn tone="ghost" onClick={() => exportSubmissionsCsv(mine)}><Download size={15} />Exporter CSV</Btn>} />
+      <div className="flex flex-wrap items-center gap-2 mb-6">
+        {(['toutes', ...STATUSES] as const).map((s) => <button key={s} onClick={() => setStatus(s)} className={`h-9 px-4 text-[14px] capitalize ${status === s ? 'bg-[#0B3A5E] text-white' : 'bg-white text-[#0B3A5E] ring-1 ring-[#0B3A5E]/10'}`}>{s}{s !== 'toutes' && ` · ${mine.filter((x) => (x.status || 'nouvelle') === s).length}`}</button>)}
+        <div className="relative ml-auto w-full sm:w-72"><Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#0B3A5E]/40" /><input className={`${field} pl-10`} placeholder="Rechercher" value={q} onChange={(e) => setQ(e.target.value)} /></div>
       </div>
-
-      {notice && (
-        <p className="font-body text-sm text-[#0086d9] bg-[#38926c]/12 border border-[#38926c]/25 px-4 py-2.5 rounded-lg">{notice}</p>
-      )}
-
-      {pending > 0 && (
-        <div className="flex items-start gap-3 bg-[#e3a044]/12 border border-[#e3a044]/30 px-4 py-3 rounded-lg">
-          <AlertCircle className="w-4.5 h-4.5 text-[#0086d9] shrink-0 mt-0.5" />
-          <p className="font-body text-[13px] text-[#0086d9] leading-relaxed">
-            <strong>{pending} modification{pending > 1 ? 's' : ''} en brouillon.</strong> Elles ne sont visibles que sur cet appareil.
-            Pour les publier pour tout le monde : <em>Exporter</em>, puis remplacez le fichier <code className="bg-[#0086d9]/10 px-1 rounded">src/data/news.json</code> et reconstruisez le site.
-          </p>
+      {list.length === 0 ? <Empty>{mine.length ? 'Aucune demande avec ce filtre.' : 'Aucune demande reçue pour l’instant.'}</Empty> : (
+        <div className="grid lg:grid-cols-[400px_1fr] gap-5 items-start">
+          <ul className="space-y-2">
+            {list.map((s) => { const st = s.status || 'nouvelle'; return (
+              <li key={s.id}><button onClick={() => { setOpen(s.id); if (!s.read) { updateSubmission(s.id, { read: true }); reload(); } }} className={`w-full text-left p-4 bg-white transition-shadow ${open === s.id ? 'ring-2 ring-[#0086D9]' : 'hover:shadow-[0_14px_30px_-22px_rgba(11,58,94,0.5)]'}`}>
+                <span className="flex items-center justify-between gap-3"><span className={`text-[15px] text-[#0B3A5E] ${s.read ? '' : 'font-medium'}`}>{who(s)}</span><span className="text-[12px] px-2 py-0.5 text-white capitalize" style={{ background: TONE[st] }}>{st}</span></span>
+                <span className="block text-[13px] text-[#0B3A5E]/55 mt-1">{when(s.receivedAt)}{isIns && pick(s.data, ['niveau', 'classe']) ? ` · ${pick(s.data, ['niveau', 'classe'])}` : ''}{!s.read && ' · non lu'}</span>
+              </button></li>
+            ); })}
+          </ul>
+          <AnimatePresence mode="wait">
+            {cur ? (
+              <motion.article key={cur.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="bg-white p-6 md:p-8 shadow-[0_20px_40px_-30px_rgba(11,58,94,0.4)]">
+                <p className="text-[12px] uppercase tracking-[0.14em] text-[#0086D9]">{isIns ? 'Pré-inscription' : 'Message'} · {when(cur.receivedAt)}{cur.remote && ' · Netlify'}</p>
+                <h2 className="text-[2rem] leading-tight mt-2 text-[#0B3A5E]">{who(cur)}</h2>
+                <dl className="mt-6 grid sm:grid-cols-2 gap-x-8 gap-y-4">{Object.entries(cur.data).map(([k, v]) => <div key={k} className={String(v).length > 60 ? 'sm:col-span-2' : ''}><dt className="text-[12px] uppercase tracking-[0.12em] text-[#0B3A5E]/50">{k.replace(/[-_]/g, ' ')}</dt><dd className="mt-1 text-[15px] text-[#0B3A5E] whitespace-pre-wrap">{v || '—'}</dd></div>)}</dl>
+                <div className="mt-8 flex flex-wrap gap-2">
+                  {tel(cur) && <a href={`tel:${tel(cur).replace(/\s/g, '')}`} className="inline-flex items-center gap-2 h-10 px-4 text-[14px] bg-[#0086D9] text-white"><Phone size={15} />Appeler</a>}
+                  {tel(cur) && <a href={`https://wa.me/${tel(cur).replace(/\D/g, '').replace(/^0/, '212')}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 h-10 px-4 text-[14px] bg-[#00A06B] text-white"><MessageCircle size={15} />WhatsApp</a>}
+                  {mail(cur) && <a href={`mailto:${mail(cur)}`} className="inline-flex items-center gap-2 h-10 px-4 text-[14px] bg-white ring-1 ring-[#0B3A5E]/15 text-[#0B3A5E]"><Mail size={15} />E-mail</a>}
+                </div>
+                <div className="mt-8 pt-6 border-t border-[#0B3A5E]/10 grid sm:grid-cols-[200px_1fr] gap-4">
+                  <L t="Statut"><select className={field} value={cur.status || 'nouvelle'} onChange={(e) => { updateSubmission(cur.id, { status: e.target.value as SubmissionStatus }); reload(); }}>{STATUSES.map((s) => <option key={s}>{s}</option>)}</select></L>
+                  <L t="Note interne"><input className={field} defaultValue={cur.note || ''} placeholder="Ex. : visite fixée jeudi 10h" onBlur={(e) => { updateSubmission(cur.id, { note: e.target.value }); reload(); }} /></L>
+                </div>
+                <Btn tone="danger" className="mt-6" onClick={() => { if (confirm('Supprimer cette demande ?')) { deleteSubmission(cur.id); setOpen(null); reload(); } }}><Trash2 size={14} />Supprimer</Btn>
+              </motion.article>
+            ) : <Empty>Choisissez une demande pour l’ouvrir.</Empty>}
+          </AnimatePresence>
         </div>
       )}
-
-      {/* Liste des articles */}
-      <div className="flex flex-col gap-3">
-        {posts.map((p) => (
-          <div key={p.id} className="flex items-center gap-4 bg-white border border-[#0086d9]/12 rounded-xl p-3 sm:p-4">
-            <div className="w-20 h-16 sm:w-24 sm:h-18 rounded-lg overflow-hidden bg-[#0086d9]/8 shrink-0">
-              {p.cover && <img src={p.cover} alt="" className="w-full h-full object-cover" />}
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="font-body text-[10px] font-bold text-[#e3a044]">{p.category}</span>
-                {p.featured && <Star className="w-3 h-3 text-[#e3a044]" fill="currentColor" />}
-              </div>
-              <h4 className="font-heading text-base text-[#0086d9] truncate">{p.title}</h4>
-              <p className="font-body text-[11px] text-[#00558d]/55">{formatDate(p.date)}</p>
-            </div>
-            <div className="flex gap-2 shrink-0">
-              <button onClick={() => setEditing(p)} aria-label="Modifier"
-                className="w-9 h-9 rounded-full bg-[#0086d9]/8 text-[#0086d9] flex items-center justify-center cursor-pointer hover:bg-[#0086d9]/15 keep-round">
-                <Pencil className="w-4 h-4" />
-              </button>
-              <button onClick={() => handleDelete(p)} aria-label="Supprimer"
-                className="w-9 h-9 rounded-full bg-[#d95f43]/12 text-[#d95f43] flex items-center justify-center cursor-pointer hover:bg-[#d95f43]/25 keep-round">
-                <Trash2 className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        ))}
-        {posts.length === 0 && (
-          <p className="font-body text-sm text-[#00558d]/60 text-center py-10">
-            Aucun article pour l’instant. Créez le premier !
-          </p>
-        )}
-      </div>
     </div>
   );
 };
 
-/* ------------------------------- onglet Demandes ------------------------------- */
-
-const InboxTab: React.FC = () => {
-  const [local, setLocal] = useState<Submission[]>([]);
-  const [remote, setRemote] = useState<Submission[]>([]);
-  const [filter, setFilter] = useState<'all' | 'contact' | 'pre-inscription'>('all');
-  const [cfg, setCfg] = useState(getNetlifyConfig());
-  const [showCfg, setShowCfg] = useState(false);
-  const [status, setStatus] = useState('');
-  const [loading, setLoading] = useState(false);
-
-  const refresh = () => setLocal(getSubmissions());
-  useEffect(refresh, []);
-
-  const sync = async () => {
-    setLoading(true);
-    setStatus('');
-    const res = await fetchNetlifySubmissions();
-    setLoading(false);
-    if (res.ok === true) {
-      setRemote(res.list);
-      setStatus(`${res.list.length} demande(s) récupérée(s) depuis Netlify.`);
-    } else {
-      setStatus(res.error);
-    }
-  };
-
-  useEffect(() => { if (cfg.token && cfg.siteId) sync(); /* eslint-disable-next-line */ }, []);
-
-  const all = useMemo(() => {
-    const seen = new Set(remote.map((r) => r.id));
-    return [...remote, ...local.filter((l) => !seen.has(l.id))]
-      .filter((s) => filter === 'all' || s.kind === filter)
-      .sort((a, b) => (a.receivedAt < b.receivedAt ? 1 : -1));
-  }, [local, remote, filter]);
-
+/* ------------------------------ Réglages ------------------------------ */
+const SettingsTab: React.FC<{ onSync: () => void; syncMsg: string }> = ({ onSync, syncMsg }) => {
+  const cfg = getNetlifyConfig(); const [token, setToken] = useState(cfg.token || ''); const [site, setSite] = useState(cfg.siteId || '');
   return (
-    <div className="flex flex-col gap-6">
-      {/* Actions */}
-      <div className="flex flex-wrap items-center gap-3">
-        {(['all', 'pre-inscription', 'contact'] as const).map((f) => (
-          <button key={f} onClick={() => setFilter(f)}
-            className={`${btn} ${filter === f ? 'bg-[#0086d9] text-[#fff7ef]' : 'bg-[#0086d9]/8 text-[#0086d9] hover:bg-[#0086d9]/15'}`}>
-            {f === 'all' ? 'Tout' : f === 'contact' ? 'Messages' : 'Pré-inscriptions'}
-          </button>
-        ))}
-        <div className="flex-1" />
-        <button onClick={sync} disabled={loading} className={btnGhost}>
-          <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} /> Synchroniser
-        </button>
-        <button onClick={() => exportSubmissionsCsv(all)} className={btnGhost}>
-          <Download className="w-4 h-4" /> Export Excel
-        </button>
-        <button onClick={() => setShowCfg(!showCfg)} className={btnGhost}>
-          <Link2 className="w-4 h-4" /> Connexion
-        </button>
+    <div className="max-w-[720px]">
+      <Head title="Réglages" desc="Recevez ici les formulaires envoyés depuis n’importe quel appareil (Netlify Forms)." />
+      <div className="bg-white p-6 md:p-8 space-y-5">
+        <L t="Jeton d’accès Netlify"><input className={field} value={token} onChange={(e) => setToken(e.target.value)} placeholder="nfp_…" /></L>
+        <L t="Identifiant du site Netlify"><input className={field} value={site} onChange={(e) => setSite(e.target.value)} /></L>
+        <div className="flex flex-wrap gap-2"><Btn onClick={() => { saveNetlifyConfig(token, site); onSync(); }}><RefreshCw size={15} />Enregistrer et synchroniser</Btn><Btn tone="ghost" onClick={() => { clearNetlifyConfig(); setToken(''); setSite(''); }}>Déconnecter</Btn></div>
+        {syncMsg && <p className="text-[14px] text-[#0B3A5E]/75">{syncMsg}</p>}
       </div>
-
-      {status && <p className="font-body text-sm text-[#0086d9] bg-[#0086d9]/8 px-4 py-2.5 rounded-lg">{status}</p>}
-
-      {/* Configuration Netlify */}
-      <AnimatePresence>
-        {showCfg && (
-          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden">
-            <div className="bg-white border border-[#0086d9]/12 rounded-2xl p-6 flex flex-col gap-4">
-              <div>
-                <h4 className="font-heading text-lg text-[#0086d9] mb-1">Voir les demandes de tous les appareils</h4>
-                <p className="font-body text-[13px] text-[#00558d]/70 leading-relaxed">
-                  Sans connexion, cet écran affiche les demandes envoyées depuis ce navigateur.
-                  Pour tout voir, collez un jeton Netlify (<em>User settings → Applications → Personal access tokens</em>)
-                  et l’identifiant du site (<em>Site settings → General → Site ID</em>). Ces informations restent sur cet appareil.
-                </p>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className={label}>Jeton d’accès Netlify</label>
-                  <input className={field} type="password" value={cfg.token}
-                    onChange={(e) => setCfg({ ...cfg, token: e.target.value })} placeholder="nfp_…" />
-                </div>
-                <div>
-                  <label className={label}>Identifiant du site</label>
-                  <input className={field} value={cfg.siteId}
-                    onChange={(e) => setCfg({ ...cfg, siteId: e.target.value })} placeholder="ex : 1a2b3c4d-…" />
-                </div>
-              </div>
-              <div className="flex gap-3">
-                <button onClick={() => { saveNetlifyConfig(cfg.token, cfg.siteId); sync(); }} className={btnPrimary}>
-                  <Check className="w-4 h-4" /> Connecter
-                </button>
-                <button onClick={() => { clearNetlifyConfig(); setCfg({ token: '', siteId: '' }); setRemote([]); }} className={btnGhost}>
-                  Déconnecter
-                </button>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Liste des demandes */}
-      <div className="flex flex-col gap-3">
-        {all.map((s) => {
-          const isInscription = s.kind === 'pre-inscription';
-          const name = s.data.parent || s.data.nom || 'Sans nom';
-          return (
-            <motion.div key={s.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-              className={`bg-white border rounded-xl p-5 ${s.read ? 'border-[#0086d9]/10 opacity-75' : 'border-[#0086d9]/20'}`}>
-              <div className="flex flex-wrap items-center gap-3 mb-3">
-                <span className={`font-body text-[10px] font-bold px-2.5 py-1 rounded-full ${isInscription ? 'bg-[#38926c]/15 text-[#1f8a63]' : 'bg-[#0086d9]/15 text-[#0086d9]'} keep-round`}>
-                  {isInscription ? 'Pré-inscription' : 'Message'}
-                </span>
-                <span className="font-heading text-lg text-[#0086d9]">{name}</span>
-                <span className="font-body text-[11px] text-[#00558d]/50">
-                  {new Date(s.receivedAt).toLocaleString('fr-FR')}
-                </span>
-                {s.remote && <span className="font-body text-[10px] text-[#00558d]/40">Netlify</span>}
-                <div className="flex-1" />
-                {!s.read && !s.remote && (
-                  <button onClick={() => { markRead(s.id); refresh(); }} className="font-body text-xs text-[#00558d]/60 hover:text-[#0086d9] cursor-pointer">
-                    Marquer comme lu
-                  </button>
-                )}
-                <button onClick={() => { deleteSubmission(s.id); refresh(); }} aria-label="Supprimer"
-                  className="w-8 h-8 rounded-full bg-[#d95f43]/10 text-[#d95f43] flex items-center justify-center cursor-pointer hover:bg-[#d95f43]/22 keep-round">
-                  <Trash2 className="w-3.5 h-3.5" />
-                </button>
-              </div>
-
-              <div className="flex flex-wrap gap-x-6 gap-y-2 mb-3">
-                {s.data.telephone && (
-                  <a href={`tel:${s.data.telephone}`} className="inline-flex items-center gap-2 font-body text-sm font-semibold text-[#0086d9] hover:text-[#e3a044]">
-                    <Phone className="w-3.5 h-3.5 text-[#e3a044]" /> {s.data.telephone}
-                  </a>
-                )}
-                {s.data.email && (
-                  <a href={`mailto:${s.data.email}`} className="inline-flex items-center gap-2 font-body text-sm text-[#0086d9] hover:text-[#e3a044]">
-                    <Mail className="w-3.5 h-3.5 text-[#e3a044]" /> {s.data.email}
-                  </a>
-                )}
-                {s.data.enfant && (
-                  <span className="font-body text-sm text-[#00558d]/80">Enfant : <strong>{s.data.enfant}</strong>
-                    {s.data['annee-naissance'] ? ` (${s.data['annee-naissance']})` : ''}</span>
-                )}
-                {s.data.niveau && <span className="font-body text-sm text-[#00558d]/80">Niveau : <strong>{s.data.niveau}</strong></span>}
-              </div>
-
-              {s.data.message && (
-                <p className="font-body text-sm text-[#00558d]/75 leading-relaxed bg-[#0086d9]/5 p-3 rounded-lg whitespace-pre-line">
-                  {s.data.message}
-                </p>
-              )}
-            </motion.div>
-          );
-        })}
-
-        {all.length === 0 && (
-          <div className="text-center py-12">
-            <Inbox className="w-9 h-9 text-[#0086d9]/25 mx-auto mb-3" />
-            <p className="font-body text-sm text-[#00558d]/60">
-              Aucune demande pour l’instant. Elles apparaîtront ici dès qu’un parent remplit un formulaire.
-            </p>
-          </div>
-        )}
-      </div>
+      <div className="mt-6 bg-[#FFF4DC] p-6 text-[15px] text-[#0B3A5E]">Mot de passe : modifiez-le dans <code>src/data/adminConfig.ts</code> avant la mise en ligne, et activez la protection par mot de passe de l’hébergeur.</div>
     </div>
   );
 };
 
-/* --------------------------------- page admin --------------------------------- */
+/* ------------------------------ Éléments ------------------------------ */
+const Head: React.FC<{ title: string; desc?: string; actions?: React.ReactNode }> = ({ title, desc, actions }) => (
+  <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-5 mb-8"><div><h1 className="text-[clamp(2.2rem,3.4vw,3.2rem)] leading-none text-[#0B3A5E]">{title}</h1>{desc && <p className="mt-3 text-[#0B3A5E]/65 max-w-[60ch]">{desc}</p>}</div>{actions && <div className="flex flex-wrap gap-2">{actions}</div>}</div>
+);
+const L: React.FC<{ t: string; children: React.ReactNode }> = ({ t, children }) => <label className="block text-[13px] uppercase tracking-[0.1em] text-[#0B3A5E]/60"><span className="block mb-2">{t}</span>{children}</label>;
+const Empty: React.FC<{ children: React.ReactNode }> = ({ children }) => <div className="bg-white p-10 text-center text-[#0B3A5E]/55"><LeafIcon size={34} className="mx-auto mb-3 opacity-60" />{children}</div>;
+const Drawer: React.FC<{ open: boolean; onClose: () => void; title: string; children: React.ReactNode }> = ({ open, onClose, title, children }) => (
+  <AnimatePresence>{open && (
+    <motion.div className="fixed inset-0 z-[90] bg-[#0B3A5E]/35 backdrop-blur-sm flex justify-end" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose}>
+      <motion.aside className="w-full max-w-[640px] h-full overflow-y-auto bg-[#fff7ef] p-6 md:p-10" initial={{ x: 60 }} animate={{ x: 0 }} exit={{ x: 60 }} transition={{ type: 'spring', stiffness: 260, damping: 30 }} onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-center justify-between mb-8"><h2 className="text-[2rem] leading-none text-[#0B3A5E]">{title}</h2><button onClick={onClose} className="w-10 h-10 bg-white flex items-center justify-center" aria-label="Fermer"><X size={18} /></button></div>
+        {children}
+      </motion.aside>
+    </motion.div>
+  )}</AnimatePresence>
+);
 
+/* ------------------------------ Coquille ------------------------------ */
 export const AdminPage: React.FC = () => {
-  const [authed, setAuthed] = useState(() => sessionStorage.getItem('marronniers:admin') === '1');
-  const [tab, setTab] = useState<'news' | 'inbox'>('news');
-
-  if (!authed) return <LoginGate onOk={() => setAuthed(true)} />;
-
+  const [ok, setOk] = useState(() => sessionStorage.getItem(SESSION) === '1');
+  const [tab, setTab] = useState<Tab>('bord');
+  const [subs, setSubs] = useState<Submission[]>(getSubmissions());
+  const [remote, setRemote] = useState<Submission[]>([]);
+  const [tick, setTick] = useState(0);
+  const [syncMsg, setSyncMsg] = useState('');
+  const reload = () => { setSubs(getSubmissions()); setTick((t) => t + 1); };
+  const sync = async () => { setSyncMsg('Synchronisation…'); const r = await fetchNetlifySubmissions(); if (r.ok) { setRemote(r.list); setSyncMsg(`${r.list.length} demande(s) récupérée(s) depuis Netlify.`); } else setSyncMsg((r as { error: string }).error); };
+  useEffect(() => { if (ok && getNetlifyConfig().token) sync(); }, [ok]);
+  const all = useMemo(() => { const ids = new Set(subs.map((s) => s.id)); return [...subs, ...remote.filter((r) => !ids.has(r.id))].sort((a, b) => (a.receivedAt < b.receivedAt ? 1 : -1)); }, [subs, remote, tick]);
+  if (!ok) return <Login onOk={() => setOk(true)} />;
+  const posts = getPosts();
+  const count = (k: Submission['kind'], s?: SubmissionStatus) => all.filter((x) => x.kind === k && (!s || (x.status || 'nouvelle') === s)).length;
+  const NAV: { id: Tab; label: string; Icon: any; badge?: number }[] = [
+    { id: 'bord', label: 'Tableau de bord', Icon: LayoutGrid },
+    { id: 'actus', label: 'Actualités', Icon: Newspaper },
+    { id: 'inscriptions', label: 'Pré-inscriptions', Icon: UserPlus, badge: count('pre-inscription', 'nouvelle') },
+    { id: 'messages', label: 'Messages', Icon: Mail, badge: all.filter((x) => x.kind === 'contact' && !x.read).length },
+    { id: 'reglages', label: 'Réglages', Icon: Settings },
+  ];
   return (
-    <div className="bg-[#fff7ef] min-h-screen py-10 sm:py-14">
-      <div className="max-w-5xl mx-auto px-4 sm:px-8">
-        <header className="flex flex-wrap items-center justify-between gap-4 mb-8">
+    <div className="min-h-screen bg-[#fff7ef] lg:grid lg:grid-cols-[272px_1fr] text-[#0B3A5E]">
+      <aside className="bg-white lg:h-screen lg:sticky lg:top-0 p-5 lg:p-7 flex lg:flex-col gap-6 border-b lg:border-b-0 lg:border-r border-[#0B3A5E]/10 overflow-x-auto">
+        <div className="shrink-0"><p className="font-heading text-[1.6rem] leading-[0.9] text-[#0086D9]">LES<br /><span className="text-[1.2rem]">Marronniers</span></p><p className="hidden lg:block mt-2 text-[12px] uppercase tracking-[0.16em] text-[#0B3A5E]/45">Administration</p></div>
+        <nav className="flex lg:flex-col gap-1">
+          {NAV.map((n) => <button key={n.id} onClick={() => setTab(n.id)} className={`flex items-center gap-3 px-3.5 h-11 text-[15px] whitespace-nowrap transition-colors ${tab === n.id ? 'bg-[#0B3A5E] text-white' : 'hover:bg-[#fff7ef]'}`}><n.Icon size={17} />{n.label}{!!n.badge && <span className="ml-auto bg-[#FFC800] text-[#0B3A5E] text-[12px] px-2">{n.badge}</span>}</button>)}
+        </nav>
+        <div className="hidden lg:block mt-auto space-y-3 text-[14px]"><a href="#" className="flex items-center gap-2 text-[#0B3A5E]/65 hover:text-[#0B3A5E]"><ExternalLink size={15} />Voir le site</a><button onClick={() => { sessionStorage.removeItem(SESSION); setOk(false); }} className="flex items-center gap-2 text-[#B42318]"><LogOut size={15} />Se déconnecter</button></div>
+      </aside>
+      <main className="p-5 md:p-10 lg:p-14 min-w-0" key={tab}>
+        {tab === 'bord' && (
           <div>
-            <h1 className="font-heading text-3xl sm:text-4xl text-[#0086d9]">Administration</h1>
-            <p className="font-body text-sm text-[#00558d]/60">Les Marronniers El Jadida</p>
+            <Head title="Bonjour." desc="L’essentiel de la semaine : nouvelles familles, messages, publications." />
+            <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
+              {[['Nouvelles pré-inscriptions', count('pre-inscription', 'nouvelle'), '#E3A044', 'inscriptions'], ['Messages non lus', all.filter((x) => x.kind === 'contact' && !x.read).length, '#0086D9', 'messages'], ['Articles publiés', posts.length, '#00A06B', 'actus'], ['Familles suivies', count('pre-inscription', 'en cours'), '#E24C3D', 'inscriptions']].map(([l, n, c, t]) => (
+                <button key={String(l)} onClick={() => setTab(t as Tab)} className="text-left bg-white p-6 hover:-translate-y-0.5 transition-transform shadow-[0_20px_40px_-32px_rgba(11,58,94,0.5)]"><span className="block w-8 h-1" style={{ background: String(c) }} /><span className="block font-heading text-[3.2rem] leading-none mt-5">{String(n)}</span><span className="block mt-2 text-[15px] text-[#0B3A5E]/70">{String(l)}</span></button>
+              ))}
+            </div>
+            <div className="grid xl:grid-cols-2 gap-5 mt-8">
+              {(['pre-inscription', 'contact'] as const).map((k) => (
+                <div key={k} className="bg-white p-6"><div className="flex items-center justify-between mb-4"><h2 className="text-[1.6rem] leading-none">{k === 'contact' ? 'Derniers messages' : 'Dernières pré-inscriptions'}</h2><button onClick={() => setTab(k === 'contact' ? 'messages' : 'inscriptions')} className="text-[14px] text-[#0086D9]">Tout voir →</button></div>
+                  <ul className="divide-y divide-[#0B3A5E]/8">{all.filter((x) => x.kind === k).slice(0, 5).map((s) => <li key={s.id} className="py-3 flex items-center justify-between gap-4 text-[15px]"><span>{who(s)}<span className="block text-[13px] text-[#0B3A5E]/50">{when(s.receivedAt)}</span></span><span className="text-[12px] px-2 py-0.5 text-white capitalize" style={{ background: TONE[s.status || 'nouvelle'] }}>{s.status || 'nouvelle'}</span></li>)}{!all.some((x) => x.kind === k) && <li className="py-3 text-[#0B3A5E]/50 text-[15px]">Rien pour l’instant.</li>}</ul>
+                </div>
+              ))}
+            </div>
           </div>
-          <button onClick={() => { sessionStorage.removeItem('marronniers:admin'); setAuthed(false); }} className={btnGhost}>
-            <LogOut className="w-4 h-4" /> Quitter
-          </button>
-        </header>
-
-        <div className="flex gap-2 mb-8 bg-[#0086d9]/8 p-1.5 rounded-full w-fit keep-round">
-          {([['news', 'Actualités', Newspaper], ['inbox', 'Demandes', Inbox]] as const).map(([id, lbl, Icon]) => (
-            <button key={id} onClick={() => setTab(id)}
-              className={`${btn} ${tab === id ? 'bg-[#0086d9] text-[#fff7ef]' : 'text-[#0086d9] hover:bg-[#0086d9]/10'}`}>
-              <Icon className="w-4 h-4" /> {lbl}
-            </button>
-          ))}
-        </div>
-
-        <AnimatePresence mode="wait">
-          <motion.div key={tab} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.25 }}>
-            {tab === 'news' ? <NewsTab /> : <InboxTab />}
-          </motion.div>
-        </AnimatePresence>
-      </div>
+        )}
+        {tab === 'actus' && <NewsTab refresh={reload} />}
+        {tab === 'inscriptions' && <Inbox kind="pre-inscription" subs={all} reload={reload} />}
+        {tab === 'messages' && <Inbox kind="contact" subs={all} reload={reload} />}
+        {tab === 'reglages' && <SettingsTab onSync={sync} syncMsg={syncMsg} />}
+      </main>
     </div>
   );
 };

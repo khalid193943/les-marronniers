@@ -22,7 +22,11 @@ export interface Submission {
   read?: boolean;
   /** true si la donnée vient de l'API Netlify plutôt que du journal local */
   remote?: boolean;
+  /** Suivi par l'école */
+  status?: SubmissionStatus;
+  note?: string;
 }
+export type SubmissionStatus = 'nouvelle' | 'en cours' | 'traitée' | 'archivée';
 
 const KEY = 'marronniers:submissions';
 const TOKEN_KEY = 'marronniers:netlify:token';
@@ -157,4 +161,10 @@ export const fetchNetlifySubmissions = async (): Promise<
       error: 'Connexion impossible. Vérifiez votre réseau ou consultez le tableau de bord Netlify.',
     };
   }
+};
+
+/** Met à jour le suivi d'une demande (statut, note interne). */
+export const updateSubmission = (id: string, patch: Partial<Pick<Submission, 'status' | 'note' | 'read'>>) => {
+  const list = read(); const i = list.findIndex((x) => x.id === id);
+  if (i >= 0) { list[i] = { ...list[i], ...patch }; write(list); }
 };
