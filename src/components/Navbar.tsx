@@ -33,11 +33,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const [hidden, setHidden] = useState(false);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    let last = window.scrollY;
+    const onScroll = () => { const y = window.scrollY; setScrolled(y > 12); setHidden(y > last && y > 240 && !open); last = y; };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [open]);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -53,8 +55,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate, onOpenA
 
   return (
     <nav
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#fff7ef]/95 backdrop-blur-md shadow-md' : 'bg-[#fff7ef]'
+      className={`sticky top-0 z-50 transition-all duration-500 ${hidden ? '-translate-y-full' : 'translate-y-0'} ${
+        scrolled ? 'bg-[#fff7ef]/85 backdrop-blur-xl shadow-[0_10px_30px_-18px_rgba(11,58,94,0.35)]' : 'bg-[#fff7ef]'
       }`}
     >
       <div className="max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between h-20 lg:h-24">

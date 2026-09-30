@@ -115,7 +115,7 @@ export const colors = {
 export const typography = {
   fontFamilies: {
     display: "var(--font-display), Outfit, system-ui, sans-serif",
-    sans: "var(--font-sans), Plus Jakarta Sans, system-ui, sans-serif",
+    sans: "var(--font-sans), Instrument Sans, system-ui, sans-serif",
     serif: "var(--font-serif), Outfit, serif",
   },
   weights: {
