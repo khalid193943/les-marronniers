@@ -194,9 +194,9 @@ export const AdminPage: React.FC = () => {
   ];
   return (
     <div className="min-h-screen bg-[#fff7ef] lg:grid lg:grid-cols-[272px_1fr] text-[#0B3A5E]">
-      <aside className="bg-white lg:h-screen lg:sticky lg:top-0 p-5 lg:p-7 flex lg:flex-col gap-6 border-b lg:border-b-0 lg:border-r border-[#0B3A5E]/10 overflow-x-auto">
+      <aside className="bg-white lg:h-screen lg:sticky lg:top-0 p-5 lg:p-7 flex flex-col gap-3 lg:gap-6 border-b lg:border-b-0 lg:border-r border-[#0B3A5E]/10 min-w-0">
         <div className="shrink-0"><p className="font-heading text-[1.6rem] leading-[0.9] text-[#0086D9]">LES<br /><span className="text-[1.2rem]">Marronniers</span></p><p className="hidden lg:block mt-2 text-[12px] uppercase tracking-[0.16em] text-[#0B3A5E]/45">Administration</p></div>
-        <nav className="flex lg:flex-col gap-1">
+        <nav className="flex lg:flex-col gap-1 overflow-x-auto -mx-5 px-5 lg:mx-0 lg:px-0" style={{ scrollbarWidth: 'none' }}>
           {NAV.map((n) => <button key={n.id} onClick={() => setTab(n.id)} className={`flex items-center gap-3 px-3.5 h-11 text-[15px] whitespace-nowrap transition-colors ${tab === n.id ? 'bg-[#0B3A5E] text-white' : 'hover:bg-[#fff7ef]'}`}><n.Icon size={17} />{n.label}{!!n.badge && <span className="ml-auto bg-[#FFC800] text-[#0B3A5E] text-[12px] px-2">{n.badge}</span>}</button>)}
         </nav>
         <div className="hidden lg:block mt-auto space-y-3 text-[14px]"><a href="#" className="flex items-center gap-2 text-[#0B3A5E]/65 hover:text-[#0B3A5E]"><ExternalLink size={15} />Voir le site</a><button onClick={() => { sessionStorage.removeItem(SESSION); setOk(false); }} className="flex items-center gap-2 text-[#B42318]"><LogOut size={15} />Se déconnecter</button></div>

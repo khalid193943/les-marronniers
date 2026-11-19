@@ -50,7 +50,7 @@ export const TwoCampusesSection: React.FC<TwoCampusesSectionProps> = ({
           >
             <div className="relative h-72 sm:h-80 overflow-hidden">
               <img
-                src="https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/6a14546f37bdd99338f62c1c_Images%20(3).avif"
+                src="/photos/sourires-maternelle.jpg"
                 alt="Espace Crèche et Maternelle"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
@@ -106,7 +106,7 @@ export const TwoCampusesSection: React.FC<TwoCampusesSectionProps> = ({
           >
             <div className="relative h-72 sm:h-80 overflow-hidden">
               <img
-                src="https://cdn.prod.website-files.com/69c84428044e454b1b6c1405/69c846a1048134d965991ee7_Office.avif"
+                src="/photos/lecture-primaire.jpg"
                 alt="Espace Primaire"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />

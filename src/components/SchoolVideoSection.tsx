@@ -16,8 +16,9 @@ import { Volume2, VolumeX } from 'lucide-react';
 import { useReducedMotion } from 'motion/react';
 import { PHOTOS } from '../data/photos';
 
-const VIDEO_SRC =
-  'https://upload.wikimedia.org/wikipedia/commons/b/bd/Two_children_in_the_playground_at_school.webm';
+// Montage des vraies photos de l'école (public/photos), hébergé avec le site.
+// Pour une vraie vidéo de l'école : remplacez public/video-ecole.mp4 par le fichier MP4.
+const VIDEO_SRC = '/video-ecole.mp4';
 
 interface SchoolVideoSectionProps {
   onOpenAdmissions: () => void;
@@ -60,6 +61,7 @@ export const SchoolVideoSection: React.FC<SchoolVideoSectionProps> = () => {
           loop
           playsInline
           preload="metadata"
+          aria-label="Montage photo de la vie aux Marronniers"
         />
 
         {/* Voile très léger : garde la vidéo lumineuse tout en l'intégrant
