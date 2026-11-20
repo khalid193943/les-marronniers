@@ -18,43 +18,9 @@ export const ParentCommunitySection: React.FC = () => {
     }
   };
 
-  const testimonials = [
-    {
-      name: 'Michael Johnson',
-      role: 'Parent d’élève en CP',
-      child: 'Élève depuis la TPS',
-      quote:
-        '“Notre fille rentre chaque soir enthousiaste et épanouie. L’atmosphère est à la fois studieuse, chaleureuse et d’une infinie douceur.”'
-    },
-    {
-      name: 'David Rodriguez',
-      role: 'Parent d’élève en Maternelle',
-      child: 'Grande Section',
-      quote:
-        '“Ce qui nous a conquis dès la première visite, c’est le souci du détail et la bienveillance des maîtresses. Nos enfants s’y sentent véritablement protégés.”'
-    },
-    {
-      name: 'Khadija El Idrissi',
-      role: 'Parent d’élève en CE4',
-      child: 'Élève au Primaire',
-      quote:
-        '“Le niveau en langues et les ateliers d’échecs et de théâtre ont donné à mon fils une assurance remarquable. C’est la meilleure école d’El Jadida.”'
-    },
-    {
-      name: 'Emily Parker',
-      role: 'Parent d’élève en CE1',
-      child: 'Parcours continu',
-      quote:
-        '“Nous cherchions un équilibre rare entre excellence académique et cadre familial. Les Marronniers a dépassé toutes nos espérances.”'
-    },
-    {
-      name: 'Sofia Benjelloun',
-      role: 'Parent d’élève en Moyenne Section',
-      child: 'Maternelle Beethoven',
-      quote:
-        '“Un campus lumineux, des éducatrices attentives et une communication quotidienne irréprochable avec la direction. Une communauté formidable.”'
-    }
-  ];
+  // Uniquement de vrais avis de parents, avec leur accord (prénom + initiale).
+  // Tant que la liste est vide, la section renvoie vers les avis Google de l'école.
+  const testimonials: { name: string; role: string; child: string; quote: string }[] = [];
 
   return (
     <section id="parents" className="py-24 bg-[#fff7ef] overflow-hidden relative">
@@ -76,11 +42,31 @@ export const ParentCommunitySection: React.FC = () => {
             Ce que les familles en disent
           </h2>
           <p className="font-body text-base sm:text-lg text-[#00558d]/80 leading-relaxed max-w-4xl mx-auto">
-            Découvrez ce que les parents pensent de notre accompagnement, de notre pédagogie et de l'environnement que nous offrons à leurs enfants.
+            {testimonials.length
+              ? "Découvrez ce que les parents pensent de notre accompagnement, de notre pédagogie et de l'environnement que nous offrons à leurs enfants."
+              : 'Les avis des parents sont publiés sur Google, en toute transparence. Lisez-les, ou laissez le vôtre.'}
           </p>
         </motion.div>
 
+        {!testimonials.length && (
+          <div className="max-w-2xl mx-auto bg-white border-2 border-[#0086d9]/15 shadow-md p-8 sm:p-10 flex flex-col items-center text-center gap-5">
+            <div className="flex items-center gap-1 text-[#e3a044]">
+              {[...Array(5)].map((_, i) => (<Star key={i} className="w-5 h-5 fill-current" />))}
+            </div>
+            <p className="font-body text-[#00558d] text-base sm:text-lg leading-relaxed">
+              Vous êtes parent aux Marronniers ? Votre avis aide d'autres familles d'El Jadida à choisir.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <a href={SCHOOL_INFO.social.googleReviews} target="_blank" rel="noreferrer"
+                 className="inline-flex items-center gap-2 bg-[#0086d9] hover:bg-[#00558d] text-white font-semibold px-6 py-3 transition-colors">
+                <Star className="w-4 h-4 fill-current" /> Lire les avis Google
+              </a>
+            </div>
+          </div>
+        )}
+
         {/* Carousel Container */}
+        {testimonials.length > 0 && <>
         <div 
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8 pt-2"
@@ -144,6 +130,7 @@ export const ParentCommunitySection: React.FC = () => {
             </button>
           </div>
         </div>
+        </>}
 
       </div>
     </section>
