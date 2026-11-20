@@ -18,17 +18,13 @@ import { MobileBottomBar } from './components/MobileBottomBar';
 import { Hero } from './components/Hero';
 import { KeyFiguresSection } from './components/KeyFiguresSection';
 import { DifferenceSection } from './components/DifferenceSection';
-import { ColorfulReasonsSection } from './components/ColorfulReasonsSection';
 import { DirectorWordSection } from './components/DirectorWordSection';
 import { SchoolVideoSection } from './components/SchoolVideoSection';
-import { SchoolMission } from './components/SchoolMission';
 import { ParcoursSection } from './components/ParcoursSection';
 import { GrowSection } from './components/GrowSection';
 import { SmoothScroll, ReadingProgress } from './components/world/Nature';
 import { CreativeLifeSection } from './components/CreativeLifeSection';
-import { PartnerSection } from './components/PartnerSection';
 import { ParentCommunitySection } from './components/ParentCommunitySection';
-import { WaveCtaSection } from './components/WaveCtaSection';
 import { ContactAndLocationSection } from './components/ContactAndLocationSection';
 import { VisitSection } from './components/VisitSection';
 
@@ -168,22 +164,11 @@ export default function App() {
                 <DirectorWordSection />
                 <SectionDivider variant="blue" position="top" style="wave2" />
                 <SchoolVideoSection onOpenAdmissions={() => handleOpenAdmissions()} />
-                <SectionDivider variant="cream" position="top" style="wave1" />
-                <ColorfulReasonsSection onOpenAdmissions={() => handleOpenAdmissions()} />
-                <SectionDivider variant="white" position="top" style="wave2" />
-                <SchoolMission onOpenAdmissions={() => handleOpenAdmissions()} />
-                <SectionDivider variant="white" position="bottom" style="wave1" />
-                <GrowSection onNavigate={handleNavigate} />
                 <SectionDivider variant="white" position="top" style="wave1" />
+                <GrowSection onNavigate={handleNavigate} />
                 <CreativeLifeSection onOpenAdmissions={() => handleOpenAdmissions()} />
-                <SectionDivider variant="white" position="bottom" style="wave1" />
-                <PartnerSection
-                  onOpenAdmissions={() => handleOpenAdmissions()}
-                  onNavigate={handleNavigate}
-                />
-                <SectionDivider variant="cream" position="bottom" style="wave1" />
+                <SectionDivider variant="cream" position="top" style="wave2" />
                 <ParentCommunitySection />
-                <WaveCtaSection onOpenAdmissions={() => handleOpenAdmissions()} />
                 <VisitSection />
               </div>
             )}

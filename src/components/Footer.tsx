@@ -186,7 +186,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenAdmissions }) 
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#fff7ef]/85">
-          <p>© 2026 Les Marronniers El Jadida — Établissement Scolaire Privé. Tous droits réservés.</p>
+          <p>© 2026 Les Marronniers El Jadida — Établissement Scolaire Privé. Tous droits réservés. <span className="whitespace-nowrap">Site conçu par <a href="https://digilago.ma" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:opacity-80">Digilago</a>.</span></p>
 
           <button
             onClick={scrollToTop}

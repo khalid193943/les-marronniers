@@ -1,0 +1,3 @@
+# Version 1 de présentation, non publiée : à remplacer à la mise en ligne officielle.
+User-agent: *
+Disallow: /
